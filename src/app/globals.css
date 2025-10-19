@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  --cream: #faf7f2;
+  --warm-gray: #f2ede6;
+  --deep-red: #7a1818;
+  --deep-red-2: #4c0f0f;
+  --near-black: #120606;
+  --black: #0a0a0a;
+  --mint: #9ae6b4;
+  --coral: #f87171;
+  --spring: #68d391;
+  --brand-green: #9ae6b4;
+  --brand-green-70: color-mix(in srgb, var(--brand-green) 70%, transparent);
+  --brand-green-40: color-mix(in srgb, var(--brand-green) 40%, transparent);
+  --green-primary: #63ffad;
+}
