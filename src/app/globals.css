@@ -35,6 +35,7 @@ body {
   --mint: #9ae6b4;
   --coral: #f87171;
   --spring: #68d391;
+  --brand-accent: #5be597;
   --brand-green: #9ae6b4;
   --brand-green-70: color-mix(in srgb, var(--brand-green) 70%, transparent);
   --brand-green-40: color-mix(in srgb, var(--brand-green) 40%, transparent);

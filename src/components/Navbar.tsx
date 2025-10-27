@@ -13,6 +13,8 @@ const NAV_LINKS = [
   { id: "creatives", label: "About" },
 ];
 
+const SPRINT1_COURSE_URL = "https://pioneeryourcreative.thinkific.com/courses/sprint1" as const;
+
 export default function Navbar({ onCtaClick }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
@@ -190,13 +192,9 @@ export default function Navbar({ onCtaClick }: NavbarProps) {
             Free Guide
           </Link>
           <Link
-            href="#start"
-            data-scroll-link
+            href={SPRINT1_COURSE_URL}
             data-cta="sprint1"
-            onClick={(e) => {
-              handleLinkClick(e);
-              handleCta("sprint1");
-            }}
+            onClick={() => handleCta("sprint1")}
             className="inline-flex items-center justify-center rounded-lg bg-[#5BE597] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#57FFB7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#57FFB7]/60"
           >
             Start Sprint 1 — $97
@@ -257,13 +255,9 @@ export default function Navbar({ onCtaClick }: NavbarProps) {
               Free Guide
             </Link>
             <Link
-              href="#start"
-              data-scroll-link
+              href={SPRINT1_COURSE_URL}
               data-cta="sprint1"
-              onClick={(e) => {
-                handleLinkClick(e);
-                handleCta("sprint1");
-              }}
+              onClick={() => handleCta("sprint1")}
               className="inline-flex w-full items-center justify-center rounded-lg bg-[#5BE597] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#57FFB7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#57FFB7]/60"
             >
               Start Sprint 1 — $97

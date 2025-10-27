@@ -1,14 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type MouseEvent as ReactMouseEvent,
-  type ReactNode,
-} from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+
+const SPRINT1_COURSE_URL = "https://pioneeryourcreative.thinkific.com/courses/sprint1" as const;
 
 // ============= PARTICLES COMPONENT =============
 function Particles() {
@@ -364,14 +359,6 @@ export default function Sprint1Page() {
   const [openLesson, setOpenLesson] = useState<string | null>(CONTENT.lessons[0]?.title ?? null);
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
 
-  const handleSmoothNav = useCallback((event: ReactMouseEvent<HTMLAnchorElement>, href: string) => {
-    event.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, []);
-
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) {
@@ -437,8 +424,7 @@ export default function Sprint1Page() {
               <p className="mb-10 text-lg text-white/80">{CONTENT.hero.description}</p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link
-                  href="#pricing"
-                  onClick={(event) => handleSmoothNav(event, "#pricing")}
+                  href={SPRINT1_COURSE_URL}
                   className="inline-flex items-center justify-center rounded-full bg-[#9AE6B4] px-8 py-4 text-base font-semibold uppercase tracking-wide text-black shadow-lg shadow-black/30 transition-opacity hover:opacity-90"
                 >
                   {CONTENT.hero.cta}
@@ -462,8 +448,7 @@ export default function Sprint1Page() {
                 Pioneer Your Creative
               </Link>
               <Link
-                href="#pricing"
-                onClick={(event) => handleSmoothNav(event, "#pricing")}
+                href={SPRINT1_COURSE_URL}
                 className="rounded-full bg-[#9AE6B4] px-6 py-2 text-sm font-semibold uppercase tracking-wide text-black transition-opacity hover:opacity-90"
               >
                 Enroll Now
@@ -634,7 +619,7 @@ export default function Sprint1Page() {
                   <div className="mb-2 text-6xl font-bold text-white">$97</div>
                   <p className="mb-8 text-sm text-white/50 lg:text-left">Regular price $297 after beta</p>
                   <Link
-                    href="/checkout/sprint-1"
+                    href={SPRINT1_COURSE_URL}
                     className="inline-flex items-center justify-center rounded-full bg-[#9AE6B4] px-10 py-4 text-base font-semibold uppercase tracking-wide text-black shadow-lg shadow-black/30 transition-opacity hover:opacity-90 lg:justify-start"
                   >
                     Start Sprint 1 — $97
@@ -695,8 +680,7 @@ export default function Sprint1Page() {
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-stretch lg:justify-start">
               <Link
-                href="#pricing"
-                onClick={(event) => handleSmoothNav(event, "#pricing")}
+                href={SPRINT1_COURSE_URL}
                 className="inline-flex items-center justify-center rounded-full bg-[#9AE6B4] px-10 py-4 text-base font-semibold uppercase tracking-wide text-black shadow-lg shadow-black/30 transition-opacity hover:opacity-90"
               >
                 Start Sprint 1 Now — $97

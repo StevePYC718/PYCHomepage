@@ -20,10 +20,10 @@ type Particle = {
 
 export function Particles({
   className,
-  color = 'rgba(255,255,255,0.8)',
+  color = 'rgba(99,255,173,0.85)',
   density = 0.5,
-  speed = 0.55,
-  size = 1.0,
+  speed = 0.95,
+  size = 1.2,
   maxParticles = 80,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -32,11 +32,10 @@ export function Particles({
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
 
     const dpr = Math.max(1, window.devicePixelRatio || 1);
     let width = 0, height = 0;
+    let ctx: CanvasRenderingContext2D | null = null;
 
     const prefersReduced =
       typeof window !== 'undefined' &&
@@ -47,16 +46,23 @@ export function Particles({
     let particles: Particle[] = [];
 
     const baseDensity = 0.00008; // particles per pixel
-    const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
-
     function resize() {
-      const { clientWidth, clientHeight } = canvas.parentElement || canvas;
-      width = clientWidth;
-      height = clientHeight;
-      canvas.width = Math.max(1, Math.floor(width * dpr));
-      canvas.height = Math.max(1, Math.floor(height * dpr));
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
+      const canvasEl = (canvasRef?.current ?? canvas) as HTMLCanvasElement | null;
+      if (!canvasEl) return;
+
+      ctx = canvasEl.getContext('2d');
+      if (!ctx) return;
+
+      const parent = canvasEl.parentElement as HTMLElement | null;
+      const widthSource = parent ? parent.clientWidth : canvasEl.clientWidth;
+      const heightSource = parent ? parent.clientHeight : canvasEl.clientHeight;
+
+      width = widthSource;
+      height = heightSource;
+      canvasEl.width = Math.max(1, Math.floor(width * dpr));
+      canvasEl.height = Math.max(1, Math.floor(height * dpr));
+      canvasEl.style.width = `${width}px`;
+      canvasEl.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       const targetCount = Math.min(
@@ -66,15 +72,18 @@ export function Particles({
 
       // regenerate to fit new area
       particles = Array.from({ length: targetCount }).map(() => {
-        const angle = Math.random() * Math.PI * 2;
-        const s = (0.25 + Math.random() * 0.75) * speed; // 0.25..1 * speed
+        const upward = Math.random() < 0.92;
+        const angle = upward
+          ? -Math.PI / 2 + (Math.random() - 0.5) * (Math.PI / 3)
+          : Math.random() * Math.PI * 2;
+        const s = (0.3 + Math.random() * 1.2) * speed; // 0.3..1.5 * speed
         return {
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: Math.cos(angle) * s,
+          vx: Math.cos(angle) * s * (upward ? 0.4 : 1),
           vy: Math.sin(angle) * s,
-          r: (0.6 + Math.random() * 1.0) * size, // radius 0.6..1.6 * size
-          a: 0.6 + Math.random() * 0.4,          // alpha 0.6..1.0
+          r: (1.0 + Math.random() * 1.6) * size, // radius 1.0..2.6 * size
+          a: 0.55 + Math.random() * 0.4,          // alpha 0.55..0.95
         };
       });
 
@@ -88,10 +97,6 @@ export function Particles({
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = color;
-
-      // soft connector lines
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = color;
 
       // update
       if (!staticOnly) {
@@ -112,24 +117,6 @@ export function Particles({
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
-      }
-
-      // draw faint lines between nearby particles
-      const LINK_DIST = 110;
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const a = particles[i], b = particles[j];
-          const dx = a.x - b.x, dy = a.y - b.y;
-          const d2 = dx * dx + dy * dy;
-          if (d2 < LINK_DIST * LINK_DIST) {
-            const alpha = clamp(1 - Math.sqrt(d2) / LINK_DIST, 0, 0.8) * 0.25;
-            ctx.globalAlpha = alpha;
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.stroke();
-          }
-        }
       }
       ctx.globalAlpha = 1;
     }

@@ -55,6 +55,8 @@ const sprintOneLessons: Lesson[] = [
 
 const sprintOneTools = ['Fear Interrupt Protocol', 'Resistance Pattern Map', 'Identity Experiment Framework'];
 
+const SPRINT1_COURSE_URL = 'https://pioneeryourcreative.thinkific.com/courses/sprint1' as const;
+
 const pricingCards: PricingCard[] = [
   {
     badge: 'START HERE',
@@ -70,7 +72,7 @@ const pricingCards: PricingCard[] = [
       '✓ Input on Sprint 2 development',
     ],
     ctaLabel: 'Start Sprint 1 — $97',
-    href: '/sprint-1',
+    href: SPRINT1_COURSE_URL,
   },
   {
     badge: 'BEST VALUE - SAVE $1,976',
@@ -127,6 +129,7 @@ const faqItems: FaqItem[] = [
     answer: 'Your AI Co-Pilot supports you daily, the community answers questions, and human support is available at support@pioneeryourcreative.com whenever you need it.',
   },
 ];
+
 
 function Constellation() {
   const debugConstellation = false;
@@ -783,7 +786,7 @@ export default function HomePage() {
               </div>
               <div className="mt-6 md:mt-8 flex flex-col gap-4 sm:flex-row">
                 <Link
-                  href="/sprint-1"
+                  href={SPRINT1_COURSE_URL}
                   className="inline-flex items-center justify-center rounded-full bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold uppercase tracking-wide text-black shadow-lg shadow-black/30 transition-opacity hover:opacity-90"
                 >
                   Start Sprint 1 — $97
@@ -996,94 +999,131 @@ export default function HomePage() {
             The 3 Systems That Make Execution Inevitable
           </h2>
           <p className="mt-3 text-base md:text-lg opacity-90 max-w-2xl">
-            Most courses give you information and hope you’ll use it. We built systems that make action automatic — so momentum compounds.
+            Other programs give you information. We remove what stops you from using it.
           </p>
-          <div className="mt-10 grid gap-6 md:gap-8 md:grid-cols-3">
-            <article className="wiw-anim rounded-xl border/20 bg-white/5 p-6 opacity-0 translate-y-2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] delay-0 motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100">
-              <div className="text-2xl mb-3">⚙️</div>
-              <h3 className="text-lg font-semibold">Accountability Engine</h3>
-              <p className="mt-1 text-sm md:text-base opacity-90">
-                <strong>You can’t disappear. We won’t let you.</strong>
+
+          <div className="mt-10 space-y-10 md:mt-16 md:space-y-16">
+            <div className="three-systems-item border-l-2 md:border-l-4 border-[var(--brand-accent)] pl-5 md:pl-6 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]" style={{ transitionDelay: '80ms' }}>
+              <h3 className="text-xl font-semibold text-white md:text-2xl">System 1: The Execution Engine</h3>
+              <p className="mt-3 text-base leading-relaxed text-white/80">
+                <strong className="text-white">Your AI Co-Pilot holds you accountable—without shame.</strong>
               </p>
-              <ul className="mt-3 space-y-2 text-sm md:text-base opacity-90">
-                <li>• Morning: one clear action</li>
-                <li>• Evening: one reflection</li>
-                <li>• Adaptive pacing prevents burnout</li>
-              </ul>
-              <p className="mt-3 italic text-sm md:text-base opacity-90">Consistency becomes automatic.</p>
-            </article>
-            <article className="wiw-anim rounded-xl border/20 bg-white/5 p-6 opacity-0 translate-y-2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[120ms] motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100">
-              <div className="text-2xl mb-3">🎯</div>
-              <h3 className="text-lg font-semibold">The One Goal System</h3>
-              <p className="mt-1 text-sm md:text-base opacity-90">
-                <strong>No overwhelm. Just progress.</strong>
+              <p className="mt-3 text-base leading-relaxed text-white/80">
+                Your AI Co-Pilot is trained on YOUR strengths, blindspots, and goals. It tracks your patterns, adapts to your real energy levels, and gives you one clear daily goal—no drop-off, just data-driven consistency.
               </p>
-              <ul className="mt-3 space-y-2 text-sm md:text-base opacity-90">
-                <li>• Clear, 15–30 min focus</li>
-                <li>• Smart calibration to your capacity</li>
-                <li>• Track patterns and build momentum</li>
-              </ul>
-              <p className="mt-3 italic text-sm md:text-base opacity-90">Small wins compound into transformation.</p>
-            </article>
-            <article className="wiw-anim rounded-xl border/20 bg-white/5 p-6 opacity-0 translate-y-2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[240ms] motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100">
-              <div className="text-2xl mb-3">🧠</div>
-              <h3 className="text-lg font-semibold">Adaptive Learning Path</h3>
-              <p className="mt-1 text-sm md:text-base opacity-90">
-                <strong>Your system evolves with you.</strong>
+              <p className="mt-3 text-sm md:text-base text-white/70">
+                <span className="font-medium text-[var(--brand-accent)]">Result:</span> You keep moving, even on low-motivation days.
               </p>
-              <ul className="mt-3 space-y-2 text-sm md:text-base opacity-90">
-                <li>• Guidance by creative type</li>
-                <li>• 200+ tools, only when relevant</li>
-                <li>• Feedback that meets you where you are</li>
-              </ul>
-              <p className="mt-3 italic text-sm md:text-base opacity-90">No fluff. Just precision execution.</p>
-            </article>
-          </div>
-          <div
-            id="cta-momentum"
-            className="relative mx-auto mt-12 max-w-5xl rounded-3xl border border-white/10 bg-white/5 px-6 py-12 opacity-0 translate-y-2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:px-10 md:py-16"
-          >
-            {!ctaPrefersReducedMotion && (
-              <div
-                className="pointer-events-none absolute inset-0 z-0 text-green-400/25 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] md:[mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
-                aria-hidden="true"
-              >
-                {ctaParticlesActive ? (
-                  <Particles
-                    className="h-full w-full"
-                    color="currentColor"
-                    density={ctaIsMobile ? 0.36 : 0.45}
-                    speed={0.55}
-                    size={0.8}
-                    maxParticles={60}
-                  />
-                ) : null}
-              </div>
-            )}
-            <div className="relative z-10 text-center">
-              <div aria-hidden="true" className="mx-auto mb-6 h-px w-20 rounded-full bg-green-400/40 md:mb-8" />
-              <h3 className="text-2xl font-bold md:text-3xl">You don’t need more time. You need momentum.</h3>
-              <p className="mt-2 text-base opacity-90 md:text-lg">Start your first creative sprint today.</p>
-              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <a
-                  href="/sprint-1"
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--brand-accent)] px-6 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)]/60 md:px-8 md:py-4 md:text-base"
-                >
-                  Start Sprint 1 Now — $97
-                </a>
-                <a
-                  href="/journey"
-                  className="inline-flex items-center justify-center rounded-full border border-[var(--brand-accent)] px-6 py-3 text-sm text-[var(--brand-accent)] transition-colors md:px-8 md:py-4 md:text-base hover:bg-[var(--brand-accent)]/10"
-                >
-                  Explore the 90-Day Journey →
-                </a>
-              </div>
-              <p className="mt-4 text-xs opacity-70 md:text-sm">
-                10-day foundation • Money-back guarantee • Beta access pricing
+            </div>
+            <div className="three-systems-item border-l-2 md:border-l-4 border-[var(--brand-accent)] pl-5 md:pl-6 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]" style={{ transitionDelay: '160ms' }}>
+              <h3 className="text-xl font-semibold text-white md:text-2xl">System 2: The Focus Framework</h3>
+              <p className="mt-3 text-base leading-relaxed text-white/80">
+                <strong className="text-white">One goal. Every day. Zero overwhelm.</strong>
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-white/80">
+                Inspired by Y Combinator's "do one thing" principle: each morning, define one small task that moves your creative life forward. The system adjusts based on your momentum—no rigid timelines, no shame when life gets messy.
+              </p>
+              <p className="mt-3 text-sm md:text-base text-white/70">
+                <span className="font-medium text-[var(--brand-accent)]">Result:</span> Action becomes automatic, even when life&apos;s busy.
+              </p>
+            </div>
+            <div className="three-systems-item border-l-2 md:border-l-4 border-[var(--brand-accent)] pl-5 md:pl-6 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]" style={{ transitionDelay: '240ms' }}>
+              <h3 className="text-xl font-semibold text-white md:text-2xl">System 3: The Adaptive Learning Path</h3>
+              <p className="mt-3 text-base leading-relaxed text-white/80">
+                <strong className="text-white">Implementation over information overload.</strong>
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-white/80">
+                ADHD-optimized "quick hit" lessons with sensory-driven immersion (audio, reflection prompts, cinematic storytelling). Your Notion Dashboard has hundreds of resources, but your AI Co-Pilot only surfaces what YOU need based on your momentum.
+              </p>
+              <p className="mt-3 text-sm md:text-base text-white/70">
+                <span className="font-medium text-[var(--brand-accent)]">Result:</span> No endless scrolling. Just the right lesson at the right time—and you actually finish.
               </p>
             </div>
           </div>
         </section>
+
+        <section
+          id="why-this-works"
+          className="relative mx-auto max-w-6xl px-6 py-20 md:py-24 opacity-0 translate-y-2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        >
+          <header className="max-w-3xl">
+            <p className="mb-2 text-xs tracking-[0.18em] uppercase text-[var(--brand-accent)]">THE PROOF</p>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight">Why This Works</h2>
+            <p className="mt-3 text-base md:text-lg leading-relaxed opacity-90">
+              Most programs teach what to do. This system rewires how you operate — blending neuroscience, AI accountability, and creative-energy optimization — so execution becomes automatic.
+            </p>
+          </header>
+
+          <div className="mt-10 grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {[               {"title": "Behavior-Driven Execution", "body": "Grounded in neuroscience and behavioral design. We don't rely on motivation — we rewire habits, attention, and identity for consistent action.", "delay": '0ms'},              {"title": "AI-Powered Accountability", "body": "An adaptive AI Co-Pilot tracks your creative patterns and calibrates goals to your energy. No more drop-off — just data-driven consistency.", "delay": '80ms'},              {"title": "Creative Energy First", "body": "You can't execute while burned out. We restore mental clarity, rebuild resilience, and protect focus from digital overload.", "delay": '160ms'},              {"title": "Actually Finish What You Start", "body": "Most programs either overwhelm you or abandon you. Udemy dumps 50 hours of video lectures you'll never finish. MasterClass inspires but provides no implementation structure. Maven gives accountability but rigid timelines that shame you when life gets messy. We give you ADHD-optimized "quick hit" lessons (5-15 min), sensory immersion that rewires behavior, and AI curation that surfaces only what YOU need right now—so you actually complete things instead of collecting courses.", "delay": '240ms'},              {"title": "Build What AI Can't Replace", "body": "AI can replicate output, not originality. We cultivate divergent thinking, intuition, and human-level creativity that technology can't automate.", "delay": '320ms'},              {"title": "Measurable Transformation", "body": "Every sprint produces tangible outcomes — shipped work, sustainable systems, renewed purpose. By Day 90, execution is identity.", "delay": '400ms'}            ].map((card) => (
+              <article
+                key={card.title}
+                className="wiw-anim rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2"
+                style={{ transitionDelay: card.delay }}
+              >
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-[var(--brand-accent)]">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      className="opacity-90"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="8" />
+                      <path d="M12 8v4l2.5 2.5" />
+                    </svg>
+                  </span>
+                  <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                </div>
+                <p className="mt-2 text-sm md:text-base leading-relaxed opacity-90">{card.body}</p>
+              </article>
+            ))}
+          </div>
+        </section> className="mt-12">
+            <div className="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              {[                 {"title": "Behavior-Driven Execution", "body": "Grounded in neuroscience and behavioral design. We don't rely on motivation — we rewire habits, attention, and identity for consistent action.", "delay": '0ms'},                {"title": "AI-Powered Accountability", "body": "An adaptive AI Co-Pilot tracks your creative patterns and calibrates goals to your energy. No more drop-off — just data-driven consistency.", "delay": '80ms'},                {"title": "Creative Energy First", "body": "You can't execute while burned out. We restore mental clarity, rebuild resilience, and protect focus from digital overload.", "delay": '160ms'},                {"title": "Actually Finish What You Start", "body": "Most programs either overwhelm you or abandon you. Udemy dumps 50 hours of video lectures you'll never finish. MasterClass inspires but provides no implementation structure. Maven gives accountability but rigid timelines that shame you when life gets messy. We give you ADHD-optimized "quick hit" lessons (5-15 min), sensory immersion that rewires behavior, and AI curation that surfaces only what YOU need right now—so you actually complete things instead of collecting courses.", "delay": '240ms'},                {"title": "Build What AI Can't Replace", "body": "AI can replicate output, not originality. We cultivate divergent thinking, intuition, and human-level creativity that technology can't automate.", "delay": '320ms'},                {"title": "Measurable Transformation", "body": "Every sprint produces tangible outcomes — shipped work, sustainable systems, renewed purpose. By Day 90, execution is identity.", "delay": '400ms'}              ].map((card) => (
+                <article
+                  key={card.title}
+                  className="wiw-anim rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2"
+                  style={{ transitionDelay: card.delay }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-[var(--brand-accent)]">
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                        className="opacity-90"
+                        stroke="currentColor"
+                        fill="none"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="8" />
+                        <path d="M12 8v4l2.5 2.5" />
+                      </svg>
+                    </span>
+                    <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                  </div>
+                  <p className="mt-2 text-sm md:text-base leading-relaxed opacity-90">{card.body}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <a href="#framework" className="inline-flex items-center gap-2 text-[var(--brand-accent)] underline underline-offset-4 transition-colors hover:text-[var(--brand-accent)]/80">
+                [Learn how the 3 Systems make this possible →]
+              </a>
+            </div>
+          </div>
+        </section>
+
 
         <section id="framework" className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="max-w-3xl">
@@ -1241,208 +1281,7 @@ export default function HomePage() {
         {/* =========================
            WHY THIS WORKS (When Everything Else Doesn’t)
            ========================= */}
-        <section
-          id="why-this-works"
-          className="relative mx-auto max-w-6xl px-6 py-20 md:py-24 opacity-0 translate-y-2 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-        >
-          <header className="max-w-3xl">
-            <p className="mb-2 text-xs tracking-[0.18em] uppercase text-[var(--brand-accent)]">THE PROOF</p>
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              Why This Works
-              <span className="mt-1 block text-xs font-normal italic text-red-400 md:text-sm">
-                When everything else doesn’t
-              </span>
-            </h2>
-            <p className="mt-3 text-base md:text-lg leading-relaxed opacity-90">
-              Most programs teach <em>what</em> to do. This system rewires <em>how</em> you operate — blending neuroscience,
-              AI accountability, and creative-energy optimization — so execution becomes automatic.
-            </p>
-          </header>
-
-          {/* GRID: 6 cards */}
-          <div className="mt-10 grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {/* 1 */}
-            <article className="wiw-anim delay-0 rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-[var(--brand-accent)]">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    className="opacity-90"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M8 6a3 3 0 0 0-3 3v2a4 4 0 0 0 4 4v3" />
-                    <path d="M16 6a3 3 0 0 1 3 3v2a4 4 0 0 1-4 4v3" />
-                    <path d="M12 3v18" />
-                  </svg>
-                </span>
-                <h3 className="text-lg font-semibold">Behavior-Driven Execution</h3>
-              </div>
-              <p className="mt-2 text-sm md:text-base leading-relaxed opacity-90">
-                Grounded in neuroscience and behavioral design. We don’t rely on motivation — we rewire habits,
-                attention, and identity for consistent action.
-              </p>
-              <div className="mt-auto"></div>
-            </article>
-
-            {/* 2 */}
-            <article className="wiw-anim delay-[120ms] rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-[var(--brand-accent)]">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    className="opacity-90"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="5" y="9" width="14" height="8" rx="2"></rect>
-                    <circle cx="12" cy="5" r="2"></circle>
-                    <path d="M12 7v2"></path>
-                    <path d="M8 13h.01M16 13h.01"></path>
-                  </svg>
-                </span>
-                <h3 className="text-lg font-semibold">AI-Powered Accountability</h3>
-              </div>
-              <p className="mt-2 text-sm md:text-base leading-relaxed opacity-90">
-                An adaptive AI Co-Pilot tracks your creative patterns and calibrates goals to your energy.
-                No more drop-off — just data-driven consistency.
-              </p>
-              <div className="mt-auto"></div>
-            </article>
-
-            {/* 3 */}
-            <article className="wiw-anim delay-[240ms] rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-[var(--brand-accent)]">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    className="opacity-90"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M12 2v6M12 16v6M2 12h6M16 12h6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M19.1 4.9l-4.2 4.2M9.1 14.9l-4.2 4.2" />
-                  </svg>
-                </span>
-                <h3 className="text-lg font-semibold">Creative Energy First</h3>
-              </div>
-              <p className="mt-2 text-sm md:text-base leading-relaxed opacity-90">
-                You can’t execute while burned out. We restore mental clarity, rebuild resilience, and protect focus
-                from digital overload.
-              </p>
-              <div className="mt-auto"></div>
-            </article>
-
-            {/* 4 */}
-            <article className="wiw-anim delay-0 rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-[var(--brand-accent)]">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    className="opacity-90"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M9 11l2 2 4-4"></path>
-                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
-                  </svg>
-                </span>
-                <h3 className="text-lg font-semibold">80% Doing Beats 100% Learning</h3>
-              </div>
-              <p className="mt-2 text-sm md:text-base leading-relaxed opacity-90">
-                No long lectures or passive theory. Daily execution, experiments, and integration — not consumption.
-              </p>
-              <div className="mt-auto"></div>
-            </article>
-
-            {/* 5 */}
-            <article className="wiw-anim delay-[120ms] rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-[var(--brand-accent)]">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    className="opacity-90"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M6 7l6 13 6-13"></path>
-                    <path d="M2 7h20"></path>
-                    <path d="M7 7l5-5 5 5"></path>
-                  </svg>
-                </span>
-                <h3 className="text-lg font-semibold">Build What AI Can’t Replace</h3>
-              </div>
-              <p className="mt-2 text-sm md:text-base leading-relaxed opacity-90">
-                AI can replicate output, not originality. We cultivate divergent thinking, intuition,
-                and human-level creativity that technology can’t automate.
-              </p>
-              <div className="mt-auto"></div>
-            </article>
-
-            {/* 6 */}
-            <article className="wiw-anim delay-[240ms] rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06] text-[var(--brand-accent)]">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    className="opacity-90"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="8"></circle>
-                    <circle cx="12" cy="12" r="3"></circle>
-                    <path d="M12 2v3M2 12h3M12 22v-3M22 12h-3"></path>
-                  </svg>
-                </span>
-                <h3 className="text-lg font-semibold">Measurable Transformation</h3>
-              </div>
-              <p className="mt-2 text-sm md:text-base leading-relaxed opacity-90">
-                Every sprint produces tangible outcomes — shipped work, sustainable systems, renewed purpose.
-                By Day 90, execution is identity.
-              </p>
-              <div className="mt-auto"></div>
-            </article>
-          </div>
-
-          {/* Optional: contextual link */}
-          <div className="mt-8 text-center">
-            <a
-              href="#framework"
-              className="inline-flex items-center gap-2 text-[var(--brand-accent)] underline underline-offset-4 transition-colors hover:text-[var(--brand-accent)]/80"
-            >
-              Learn how the 3 Systems make this possible →
-            </a>
-          </div>
-        </section>
+        
 
         {/* =========================
            WHO IT’S FOR
@@ -1497,7 +1336,7 @@ export default function HomePage() {
             <p className="text-sm md:text-base opacity-75">Ten days to prove momentum. Money-back guarantee. Beta access pricing.</p>
             <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href="/sprint-1"
+                href={SPRINT1_COURSE_URL}
                 className="inline-flex items-center justify-center rounded-full bg-[var(--brand-accent)] px-6 py-3 text-sm font-semibold text-black transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)]/60 md:text-base"
               >
                 Start Sprint 1 — $97
@@ -1524,7 +1363,7 @@ export default function HomePage() {
                   Build a life AI can't replace. Escape corporate. Launch your business. Own your creative future.
                 </p>
                 <Link
-                  href="/sprint-1"
+                  href={SPRINT1_COURSE_URL}
                   className="mt-6 inline-flex items-center text-base font-semibold text-[var(--brand-accent)] transition-colors hover:text-[var(--brand-accent)]/80"
                 >
                   Start Sprint 1 →
@@ -1651,7 +1490,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Link
-                href="#sprint-1-details"
+                href={SPRINT1_COURSE_URL}
                 className="inline-flex items-center justify-center rounded-full bg-[var(--brand-accent)] px-8 py-4 text-base font-semibold uppercase tracking-wide text-black shadow-lg shadow-black/30 transition-opacity hover:opacity-90"
               >
                 Start Sprint 1 — Build Now
