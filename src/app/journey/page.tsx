@@ -9,23 +9,49 @@ import { Particles } from "@/components/Particles";
 
 const SPRINT1_COURSE_URL = "https://pioneeryourcreative.thinkific.com/courses/sprint1" as const;
 
-type Lesson = {
+type SystemCard = {
+  icon: string;
   title: string;
   description: string;
 };
 
-type FutureSprintCard = {
+type TimelineLesson = {
+  number: number;
+  title: string;
+  description: string;
+};
+
+type TimelineSprint = {
+  number: number;
+  title: string;
+  days: string;
+  status: string;
+  statusVariant: "available" | "upcoming";
+  description: string;
+  lessons: TimelineLesson[];
+};
+
+type Phase = {
   badge: string;
   title: string;
   meta: string;
-  listHeading: string;
-  listItems: string[];
-  promise: string;
-  outcome: string;
-  reality?: string;
-  note?: string;
-  toolsHeading?: string;
-  tools?: string[];
+  description: string;
+  sprints: TimelineSprint[];
+};
+
+type Milestone = {
+  day: number;
+  icon: string;
+  badge: string;
+  title: string;
+  description: string;
+};
+
+type PathOutcome = {
+  name: string;
+  icon: string;
+  headline: string;
+  bullets: string[];
 };
 
 type Comparison = {
@@ -71,137 +97,252 @@ type FaqItem = {
   answer: string;
 };
 
-const sprintOne = {
-  badge: "AVAILABLE NOW",
-  title: "Sprint 1: Break Free From Blocks",
-  meta: "Days 1-10 | Foundation",
-  reality:
-    "You know what you need to do. Start the business. Send the pitch. Share the work. But somehow, you keep not doing it. Not because you don&apos;t care—because fear shows up disguised as &apos;I&apos;m not ready yet.&apos;",
-  lessonsHeading: "What You&apos;ll Learn:",
-  lessons: [
-    {
-      title: "**Lesson 1: Fear** - Break the Inaction Cycle",
-      description:
-        "Understand what fear actually is (neurological, not personal failing) and learn the 3-minute protocol that breaks the freeze response in real time.",
-    },
-    {
-      title: "**Lesson 2: Resistance** - Recognize Your Patterns",
-      description:
-        "Identify your specific avoidance behaviors (research loops, perfectionism, timing optimization) so you stop falling for your own excuses.",
-    },
-    {
-      title: "**Lesson 3: Identity** - Permission to Evolve",
-      description:
-        "Update the outdated rules you&apos;re following (from old economy, old career, old version of you) and test new behaviors without pressure of permanent change.",
-    },
-  ] as Lesson[],
-  promise: "Transform blocks into fuel for forward motion.",
-  outcome: "Replace paralysis with daily action; shift fear into courage; release old identities holding you back.",
-  toolsHeading: "Tools You Get:",
-  tools: ["Fear Interrupt Protocol", "Resistance Pattern Map", "Identity Experiment Framework"],
-  price: "$97",
-  priceNote: "regularly $297 after beta",
-  ctaLabel: "Start Sprint 1 — $97",
-  ctaHref: SPRINT1_COURSE_URL,
+const systemCards: SystemCard[] = [
+  {
+    icon: "⚡",
+    title: "Accountability Engine",
+    description: "Daily AI check-ins track progress, identify patterns, and calibrate goals based on actual performance.",
+  },
+  {
+    icon: "🎯",
+    title: "One Goal System",
+    description: "Single daily action calibrated to capacity—never overwhelming, always achievable, and constantly building momentum.",
+  },
+  {
+    icon: "🤖",
+    title: "Adaptive Learning Path",
+    description: "AI personalizes your journey by path (Pivot/Build/Evolve), patterns, and real-time feedback so you only focus on what matters now.",
+  },
+];
+
+const phases: Phase[] = [
+  {
+    badge: "PHASE 1",
+    title: "Unlock Your Creative Energy",
+    meta: "Days 1-30 • 3 Sprints • 9 Lessons",
+    description: "Break the freeze, lock in direction, and start operating like the future version of you.",
+    sprints: [
+      {
+        number: 1,
+        title: "Break Free From Blocks",
+        days: "Days 1-10",
+        status: "AVAILABLE NOW",
+        statusVariant: "available",
+        description:
+          "You know what you need to do, but you're frozen. This sprint gets you moving despite fear, procrastination, and feeling like you're not ready yet.",
+        lessons: [
+          { number: 1, title: "Fear", description: "Stop overthinking and take the action you've been avoiding." },
+          { number: 2, title: "Resistance", description: "Catch yourself procrastinating and do the real work instead." },
+          { number: 3, title: "Identity", description: "Stop waiting to be ready and start acting like who you're becoming." },
+        ],
+      },
+      {
+        number: 2,
+        title: "Design Your Future",
+        days: "Days 13-22",
+        status: "RELEASING JANUARY 2026",
+        statusVariant: "upcoming",
+        description:
+          "You're taking action but don't know where you're going. This sprint gives you a clear destination so you make decisions with confidence.",
+        lessons: [
+          { number: 4, title: "See Your Future", description: "Know exactly where you're going so you stop feeling lost." },
+          { number: 5, title: "Find Your Why", description: "Connect to what actually matters so you keep going when it gets hard." },
+          { number: 6, title: "Fuel with Desire", description: "Want it badly enough that you do the work even on bad days." },
+        ],
+      },
+      {
+        number: 3,
+        title: "Think Like Your Future Self",
+        days: "Days 25-34",
+        status: "RELEASING FEBRUARY 2026",
+        statusVariant: "upcoming",
+        description:
+          "You're taking action but still playing small. This sprint shifts how you think so you make bold moves and handle setbacks like someone who's already succeeded.",
+        lessons: [
+          { number: 7, title: "Adopt Growth Mindset", description: "Stop taking rejection personally and use it to get better." },
+          { number: 8, title: "Shift Your State", description: "Show up confident in big moments instead of anxious and frozen." },
+          { number: 9, title: "Step Into Future Self", description: "Make the brave decision instead of the safe one." },
+        ],
+      },
+    ],
+  },
+  {
+    badge: "PHASE 2",
+    title: "Strengthen Your Creative Energy",
+    meta: "Days 31-60 • 3 Sprints • 9 Lessons",
+    description: "Clear the mental clutter, install power systems, and build the stamina to keep going.",
+    sprints: [
+      {
+        number: 4,
+        title: "Clear Mental Clutter",
+        days: "Days 37-46",
+        status: "RELEASING MARCH 2026",
+        statusVariant: "upcoming",
+        description:
+          "You're moving forward but constantly distracted and exhausted. This sprint clears the noise so you can focus and actually finish things.",
+        lessons: [
+          { number: 10, title: "Detox Distractions", description: "Stop losing afternoons to your phone and social media." },
+          { number: 11, title: "Stop Emotional Hijacking", description: "Don't let one bad email or rejection derail your day." },
+          { number: 12, title: "Simplify Decisions", description: "Stop wasting mental energy on things that don't matter." },
+        ],
+      },
+      {
+        number: 5,
+        title: "Build Your Power Systems",
+        days: "Days 49-58",
+        status: "RELEASING APRIL 2026",
+        statusVariant: "upcoming",
+        description:
+          "You're working hard but not getting results fast enough. This sprint installs internal systems that make progress feel easier and sustainable.",
+        lessons: [
+          { number: 13, title: "Upgrade Beliefs", description: "Stop sabotaging yourself with 'I'm not good at this' stories." },
+          { number: 14, title: "Learn Faster", description: "Retain what you learn instead of forgetting it immediately." },
+          { number: 15, title: "Energize Daily", description: "Stop fighting exhaustion and work when you actually have energy." },
+        ],
+      },
+      {
+        number: 6,
+        title: "Become Unbreakable",
+        days: "Days 61-70",
+        status: "RELEASING MAY 2026",
+        statusVariant: "upcoming",
+        description:
+          "You're making progress but worried you'll burn out or quit. This sprint builds resilience so you keep going no matter what happens.",
+        lessons: [
+          { number: 16, title: "Leverage Strengths", description: "Do what you're naturally good at instead of fixing weaknesses." },
+          { number: 17, title: "Build Daily Grit", description: "Keep going when you don't feel like it—without burning out." },
+          { number: 18, title: "Recover & Recharge", description: "Prevent burnout before it hits so you sustain momentum." },
+        ],
+      },
+    ],
+  },
+  {
+    badge: "PHASE 3",
+    title: "Activate Your Creative Energy",
+    meta: "Days 61-90 • 3 Sprints • 9 Lessons",
+    description: "Solve harder problems, build your human edge, and ship undeniable proof.",
+    sprints: [
+      {
+        number: 7,
+        title: "Solve Problems Like a Pro",
+        days: "Days 73-82",
+        status: "RELEASING JUNE 2026",
+        statusVariant: "upcoming",
+        description:
+          "You're ready to execute but stuck on complex problems. This sprint shows you how to think through challenges and learn what you need fast.",
+        lessons: [
+          { number: 19, title: "Think Creatively", description: "Find solutions when the obvious answer isn't working." },
+          { number: 20, title: "Learn What You Need, Fast", description: "Pick up new skills in weeks instead of months." },
+          { number: 21, title: "Adapt & Iterate Quickly", description: "Fix what's not working instead of staying stuck." },
+        ],
+      },
+      {
+        number: 8,
+        title: "Build Your Human Edge",
+        days: "Days 84-93",
+        status: "RELEASING JULY 2026",
+        statusVariant: "upcoming",
+        description:
+          "Your skills are strong but you're not getting the buy-in you deserve. This sprint builds the people skills humans value and AI can't replace.",
+        lessons: [
+          { number: 22, title: "Master Emotional Intelligence", description: "Read the room and build trust quickly." },
+          { number: 23, title: "Communicate With Impact", description: "Get people to understand and act on your ideas." },
+          { number: 24, title: "Lead Without Authority", description: "Enroll others in your vision even if you're not the boss." },
+        ],
+      },
+      {
+        number: 9,
+        title: "Ship & Get Results",
+        days: "Days 95-104",
+        status: "RELEASING AUGUST 2026",
+        statusVariant: "upcoming",
+        description:
+          "You've done the work but struggle to finish. This sprint gets you across the finish line with results you can point to—not just progress.",
+        lessons: [
+          { number: 25, title: "Design Your Flow State", description: "Do your best work when it matters most." },
+          { number: 26, title: "Ship With Confidence", description: "Finish and share your work instead of perfecting forever." },
+          { number: 27, title: "Build Your Shipping System", description: "Make finishing a habit instead of a struggle." },
+        ],
+      },
+    ],
+  },
+];
+
+const milestones: Milestone[] = [
+  {
+    day: 10,
+    icon: "🎉",
+    badge: "FIRST WIN",
+    title: "Day 10 - Sprint 1 Complete",
+    description: "You've taken action despite fear. First proof shipped. Momentum started.",
+  },
+  {
+    day: 30,
+    icon: "🏆",
+    badge: "PHASE 1 UNLOCKED",
+    title: "Day 30 - Phase 1 Complete",
+    description: "You're no longer frozen. Clear vision in place. Moving with purpose daily.",
+  },
+  {
+    day: 60,
+    icon: "⚡",
+    badge: "HALFWAY THERE",
+    title: "Day 60 - Phase 2 Complete",
+    description: "Attention reclaimed. Energy systems installed. Sustainable momentum without burnout.",
+  },
+  {
+    day: 90,
+    icon: "🚀",
+    badge: "TRANSFORMATION COMPLETE",
+    title: "Day 90 - Full Journey Complete",
+    description: "Real results shipped. Systems installed. You're the person who executes now.",
+  },
+];
+
+const pathOutcomes: PathOutcome[] = [
+  {
+    name: "Pivot Path",
+    icon: "🔁",
+    headline: "\"Career Transformation\"",
+    bullets: [
+      "Landed new role or final interviews",
+      "Updated positioning and portfolio",
+      "Networked with 10-20+ people",
+      "Confident in transferable value",
+      "Career momentum system installed",
+    ],
+  },
+  {
+    name: "Build Path",
+    icon: "🚀",
+    headline: "\"Business Launch\"",
+    bullets: [
+      "Business launched with revenue",
+      "Paying clients or strong pipeline",
+      "Offer tested and optimized",
+      "Client acquisition systematic",
+      "Growth system installed",
+    ],
+  },
+  {
+    name: "Evolve Path",
+    icon: "🌱",
+    headline: "\"Leadership Advancement\"",
+    bullets: [
+      "Promoted or on promotion track",
+      "Leading high-visibility projects",
+      "Known as adaptive innovator",
+      "Positioned as indispensable",
+      "Leadership system installed",
+    ],
+  },
+];
+
+const PATH_GRADIENTS: Record<"Pivot Path" | "Build Path" | "Evolve Path", string> = {
+  "Pivot Path": "from-[#9AE6B4]/15 via-[#68D391]/10 to-[#040608]",
+  "Build Path": "from-[#63E6BE]/15 via-[#38B2AC]/10 to-[#040608]",
+  "Evolve Path": "from-[#9AE6B4]/15 via-[#7F9CF5]/10 to-[#040608]",
 };
-
-const phaseOneFutureSprints: FutureSprintCard[] = [
-  {
-    badge: "RELEASING JANUARY 2026",
-    title: "Sprint 2: Ignite Vision & Purpose",
-    meta: "Days 11-20 | Direction",
-    reality:
-      "Moving without direction burns energy. You need a compelling vision anchored in purpose—not just goals, but a future so vivid it pulls you forward even when you&apos;re tired.",
-    listHeading: "Planned Lessons:",
-    listItems: ["See Your Future - Build a 3-Year Vision", "Find Your Why - Anchor in Purpose", "Fuel with Desire - Harness Motivation"],
-    promise: "Build a compelling vision anchored in purpose.",
-    outcome: "Vivid 3-year vision; daily actions aligned with deeper meaning; stronger desire fueling motivation.",
-    note: "Final lesson structure will be refined based on Sprint 1 pioneer feedback.",
-  },
-  {
-    badge: "RELEASING FEBRUARY 2026",
-    title: "Sprint 3: Master Your Mindset",
-    meta: "Days 21-30 | Mental Control",
-    reality:
-      "Your default mindset determines everything. Fixed mindset sees obstacles as proof you can&apos;t. Growth mindset sees them as data for improvement. State control determines whether you access your best thinking or your worst reactions.",
-    listHeading: "Planned Lessons:",
-    listItems: ["Adopt Growth Mindset - Shift Your Beliefs", "Control Your State - Master Your Emotions", "Step into Future Self - Embody Who You&apos;re Becoming"],
-    promise: "Develop the mindset and state control of resilient creators.",
-    outcome: "Shift from fixed → growth mindset; practical state-switch tools; daily embodiment of future self.",
-  },
-];
-
-const phaseTwoFutureSprints: FutureSprintCard[] = [
-  {
-    badge: "RELEASING MARCH 2026",
-    title: "Sprint 4: Clear Mental Clutter",
-    meta: "Days 31-40 | Focus",
-    reality:
-      "Your attention is shredded by other people&apos;s agendas. Meetings, Slack, social media, notifications. Your brain never gets a clear runway to build anything meaningful.",
-    listHeading: "Planned Lessons:",
-    listItems: ["Audit Your Attention - Spot Your Traps", "Design Your Focus Windows", "Protect Them Daily"],
-    promise: "Reclaim your attention and build deep-work capacity.",
-    outcome: "Cut context switching; protect execution time; focus like a pro in 90 minutes or less.",
-  },
-  {
-    badge: "RELEASING APRIL 2026",
-    title: "Sprint 5: Fuel Body & Mind",
-    meta: "Days 41-50 | Energy",
-    reality:
-      "You&apos;re exhausted. Stress hormones are running the show. Your body doesn&apos;t know if it&apos;s safe. You can&apos;t create at your best when you&apos;re running on fumes.",
-    listHeading: "Planned Lessons:",
-    listItems: ["Reset Your Nervous System", "Design Your Energy Protocol", "Build Rest Without Guilt"],
-    promise: "Restore energy so execution becomes sustainable.",
-    outcome: "Energy baseline returns; nervous system calms; body supports your ambition.",
-  },
-  {
-    badge: "RELEASING MAY 2026",
-    title: "Sprint 6: Build Resilience & Strength",
-    meta: "Days 51-60 | Stamina",
-    reality:
-      "Momentum dies because life happens. Kids get sick. Launch gets messy. Motivation dips. Resilience is how you keep going—and how you keep coming back when you fall off.",
-    listHeading: "Planned Lessons:",
-    listItems: ["Design Your Resilience Toolkit", "Install Bounce-Back Rituals", "Strengthen Creative Confidence"],
-    promise: "Make consistency effortless and self-trust unshakable.",
-    outcome: "Bounce back faster; stay on track despite setbacks; move from fragile to anti-fragile.",
-  },
-];
-
-const phaseThreeFutureSprints: FutureSprintCard[] = [
-  {
-    badge: "RELEASING JUNE 2026",
-    title: "Sprint 7: Think Like an Alchemist",
-    meta: "Days 61-70 | Creative Leverage",
-    reality:
-      "You have ideas. Too many. But they never gel into something you can ship. Your brain needs structure to turn sparks into systems—ideas that compound, assets that build equity.",
-    listHeading: "Planned Lessons:",
-    listItems: ["Surface The Signal - Choose Breakthrough Ideas", "Engineer Your Edge - Build Differentiation", "Prototype Fast - Ship & Learn"],
-    promise: "Think like a creative strategist who can build anything.",
-    outcome: "Clear creative angle; personal point of view; ideas mapped to execution.",
-  },
-  {
-    badge: "RELEASING JULY 2026",
-    title: "Sprint 8: Master Your Creative Toolkit",
-    meta: "Days 71-80 | Production Flow",
-    reality:
-      "Even when you know what to build, the tools slow you down. You&apos;re half-confident with video, avoid landing pages, open five AI apps and never finish.",
-    listHeading: "Planned Lessons:",
-    listItems: ["Build Your Tool Stack - AI + No-Code + Systems", "Understand Flow States - Operate in Peak Creativity", "Ship Fast - Templates that Shorten Production"],
-    promise: "Turn ideas into assets fast and consistently.",
-    outcome: "Tool mastery; repeatable creative system; frictionless publish pipeline.",
-  },
-  {
-    badge: "RELEASING AUGUST 2026",
-    title: "Sprint 9: Create, Ship & Scale",
-    meta: "Days 81-90 | Launch Momentum",
-    reality:
-      "Finishing is the hardest part. Launching is even harder. If you&apos;ve ever ghosted your own project at 90%, you know the feeling. You need an environment that makes shipping inevitable.",
-    listHeading: "Planned Lessons:",
-    listItems: ["Final 10% Protocol - Finish Strong", "Launch With Confidence - Scripts, Emails, Offers", "Scale Strategically - Momentum Plan"],
-    promise: "Turn creative energy into a launch you can feel.",
-    outcome: "Launch complete; post-launch plan; expansion roadmap.",
-  },
-];
 
 const comparisons: Comparison[] = [
   {
@@ -410,8 +551,6 @@ const faqItems: FaqItem[] = [
   },
 ];
 
-const futureSprints = [...phaseOneFutureSprints, ...phaseTwoFutureSprints, ...phaseThreeFutureSprints];
-
 export default function JourneyPage() {
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
@@ -442,7 +581,7 @@ export default function JourneyPage() {
                 Start Sprint 1 — $97
               </Link>
               <Link
-                href="#future-sprints"
+                href="#journey-timeline"
                 className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
               >
                 See The Full Journey
@@ -452,117 +591,159 @@ export default function JourneyPage() {
         </section>
 
         <section className="bg-gradient-to-b from-black via-[#111B24] to-[#101523] py-24">
-          <div className="mx-auto max-w-6xl space-y-14 px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
-              <div className="space-y-6">
-                <span className="inline-flex items-center rounded-full bg-[#9AE6B4]/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">
-                  Sprint 1
-                </span>
-                <div className="space-y-5 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_0_50px_rgba(15,20,30,0.35)]">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="inline-flex items-center rounded-full border border-[#9AE6B4]/40 bg-[#9AE6B4]/10 px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-[#9AE6B4]">
-                      {sprintOne.badge}
-                    </span>
-                    <span className="text-xs uppercase tracking-[0.32em] text-white/60">{sprintOne.meta}</span>
-                  </div>
-                  <h2 className="text-3xl font-bold text-white sm:text-4xl">{sprintOne.title}</h2>
-                  <p className="text-base text-secondary">{sprintOne.reality}</p>
-                  <div className="space-y-4 rounded-2xl border border-white/10 bg-black/40 p-6 text-sm text-white/70">
-                    <h3 className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">{sprintOne.lessonsHeading}</h3>
-                    <ul className="space-y-3">
-                      {sprintOne.lessons.map((lesson) => (
-                        <li key={lesson.title}>
-                          <p className="text-sm text-white/90" dangerouslySetInnerHTML={{ __html: lesson.title }} />
-                          <p className="text-sm text-white/70">{lesson.description}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <p className="text-base font-semibold text-white">{sprintOne.promise}</p>
-                  <p className="text-sm text-white/70">{sprintOne.outcome}</p>
-                  <div className="rounded-2xl border border-[#9AE6B4]/30 bg-[#9AE6B4]/10 p-6">
-                    <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9AE6B4]">{sprintOne.toolsHeading}</h3>
-                    <p className="mt-3 text-base font-semibold text-[#9AE6B4]">Tools You Get: {sprintOne.tools.join(" • ")}</p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-black/50 p-6">
-                    <p className="text-3xl font-bold text-white">{sprintOne.price}</p>
-                    <p className="text-sm text-white/70">{sprintOne.priceNote}</p>
-                    <Link
-                      href={sprintOne.ctaHref}
-                      className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#9AE6B4] px-8 py-4 text-base font-semibold uppercase tracking-wide text-black shadow-lg shadow-black/30 transition-opacity hover:opacity-90"
-                    >
-                      {sprintOne.ctaLabel}
-                    </Link>
-                  </div>
+          <div className="mx-auto max-w-6xl space-y-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">The Systems</p>
+              <h2 className="mt-3 text-4xl font-bold sm:text-5xl">The Systems That Make Execution Inevitable</h2>
+              <p className="mt-4 text-base text-white/70">
+                Most programs give you content. This gives you the environment that makes shipping automatic.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {systemCards.map((card) => (
+                <div
+                  key={card.title}
+                  className="relative flex h-full flex-col items-center rounded-3xl border-2 border-[#9AE6B4]/30 bg-gradient-to-br from-[#9AE6B4]/10 via-transparent to-transparent p-8 text-center shadow-[0_0_50px_rgba(15,20,30,0.35)] backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <div className="text-5xl">{card.icon}</div>
+                  <h3 className="mt-5 text-2xl font-semibold text-white">{card.title}</h3>
+                  <p className="mt-4 text-base text-white/70">{card.description}</p>
                 </div>
-              </div>
-              <div className="space-y-6">
-                <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_0_50px_rgba(15,20,30,0.35)]">
-                  <h3 className="text-xl font-semibold text-white">Why Sprint 1 Comes First</h3>
-                  <div className="mt-4 space-y-3 text-sm text-white/70">
-                    <p>You can&apos;t build vision on burnout. You can&apos;t enter flow while frozen by fear. You can&apos;t ship while distracted and depleted.</p>
-                    <p>
-                      Sprint 1 rebuilds your execution operating system. It gives you the proof that you can move, the confidence to keep going, and the clarity to trust yourself again.
-                    </p>
-                    <p>Everything that follows—focus, resilience, shipping—depends on it.</p>
-                  </div>
-                </div>
-                <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_0_50px_rgba(15,20,30,0.35)]">
-                  <h3 className="text-xl font-semibold text-white">You&apos;ll Ship A Real Result In 10 Days</h3>
-                  <ul className="mt-4 space-y-3 text-sm text-white/70">
-                    <li>• Career pivot? You&apos;ll send the message, post the work, or ship the portfolio update you&apos;ve avoided for months.</li>
-                    <li>• Business? You&apos;ll launch the landing page, start the pilot, or sell the offer that felt “not ready.”</li>
-                    <li>• Creative project? You&apos;ll publish one piece publicly and build your momentum plan for the next 3 weeks.</li>
-                  </ul>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="future-sprints" className="bg-gradient-to-b from-[#101523] via-[#0A1014] to-[#040608] py-24">
-          <div className="mx-auto max-w-6xl space-y-14 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">Upcoming Sprints</p>
-              <h2 className="text-4xl font-bold sm:text-5xl">The Journey Unfolds. You&apos;re Part Of The Build.</h2>
-              <p className="text-lg text-secondary">
-                Sprint 1 pioneers shape what releases next. Every sprint is built on real student data: what blocks you, what moves you, what helps you ship. Here&apos;s what&apos;s planned, and what you&apos;ll help refine.
+        <section id="journey-timeline" className="bg-gradient-to-b from-[#101523] via-[#0A1014] to-[#040608] py-24">
+          <div className="mx-auto max-w-6xl space-y-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">The Complete Journey</p>
+              <h2 className="mt-3 text-4xl font-bold sm:text-5xl">See All 9 Sprints At A Glance</h2>
+              <p className="mt-4 text-base text-white/70">
+                Scan the full 90-day flowchart—every sprint, lesson, and release date laid out so you know exactly what happens when.
               </p>
             </div>
-            <div className="grid gap-10 lg:grid-cols-3">
-              {futureSprints.map((sprint) => (
-                <div key={sprint.title} className="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-7 shadow-[0_0_50px_rgba(15,20,30,0.35)]">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center rounded-full border border-[#9AE6B4]/40 bg-[#9AE6B4]/10 px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-[#9AE6B4]">
-                      {sprint.badge}
-                    </span>
-                    <span className="text-xs uppercase tracking-[0.32em] text-white/60">{sprint.meta}</span>
-                  </div>
-                  <h3 className="mt-4 text-2xl font-semibold text-white">{sprint.title}</h3>
-                  {sprint.reality ? <p className="mt-3 text-sm text-white/70">{sprint.reality}</p> : null}
-                  <div className="mt-4 space-y-2 rounded-2xl border border-white/10 bg-black/40 p-5">
-                    <h4 className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">{sprint.listHeading}</h4>
-                    <ul className="space-y-2 text-sm text-white/70">
-                      {sprint.listItems.map((item) => (
-                        <li key={item}>→ {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="mt-4 space-y-2 text-sm text-white/70">
-                    <p>
-                      <strong>Promise:</strong> {sprint.promise}
-                    </p>
-                    <p>
-                      <strong>Outcome:</strong> {sprint.outcome}
-                    </p>
-                    {sprint.note ? <p className="text-xs text-white/50">{sprint.note}</p> : null}
-                  </div>
-                  {sprint.toolsHeading && sprint.tools ? (
-                    <div className="mt-4 rounded-2xl border border-[#9AE6B4]/20 bg-[#9AE6B4]/10 p-4">
-                      <h4 className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">{sprint.toolsHeading}</h4>
-                      <p className="mt-2 text-sm text-white/80">{sprint.tools.join(" • ")}</p>
+            <div className="space-y-20">
+              {phases.map((phase, index) => (
+                <div key={phase.title} className="grid gap-8 lg:grid-cols-[auto_1fr]">
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#9AE6B4]/40 bg-black/50 text-base font-semibold text-[#9AE6B4]">
+                      {phase.badge.split(" ")[1] ?? index + 1}
                     </div>
-                  ) : null}
+                    {index < phases.length - 1 ? <div className="mt-2 flex-1 w-px bg-white/10" /> : null}
+                  </div>
+                  <div className="space-y-10">
+                    <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_0_45px_rgba(15,20,30,0.35)]">
+                      <span className="inline-flex items-center rounded-full border border-[#9AE6B4]/40 bg-[#9AE6B4]/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#9AE6B4]">
+                        {phase.badge}
+                      </span>
+                      <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-baseline lg:justify-between">
+                        <h3 className="text-3xl font-bold text-white sm:text-4xl">{phase.title}</h3>
+                        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">{phase.meta}</p>
+                      </div>
+                      <p className="mt-3 text-base text-white/70">{phase.description}</p>
+                    </div>
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                      {phase.sprints.map((sprint) => (
+                        <article
+                          key={sprint.title}
+                          className={`group relative flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_0_50px_rgba(15,20,30,0.35)] transition-transform duration-300 hover:-translate-y-1 ${
+                            sprint.statusVariant === "available" ? "border-[#9AE6B4]/40 shadow-[0_0_60px_rgba(154,230,180,0.25)]" : ""
+                          }`}
+                        >
+                          <div className="flex flex-wrap items-center justify-between gap-3">
+                            <span className="inline-flex items-center rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70">
+                              {`Sprint ${sprint.number} • ${sprint.days}`}
+                            </span>
+                            <span
+                              className={`inline-flex items-center rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] ${
+                                sprint.statusVariant === "available"
+                                  ? "border border-[#9AE6B4]/40 bg-[#9AE6B4]/20 text-[#9AE6B4]"
+                                  : "border border-white/10 bg-white/5 text-white/50"
+                              }`}
+                            >
+                              {sprint.status}
+                            </span>
+                          </div>
+                          <h4 className="mt-4 text-2xl font-semibold text-white">{sprint.title}</h4>
+                          <p className="mt-3 border-b border-white/10 pb-4 text-base text-white/80">{sprint.description}</p>
+                          <ul className="divide-y divide-white/5">
+                            {sprint.lessons.map((lesson) => (
+                              <li key={lesson.number} className="py-3">
+                                <p className="text-sm font-semibold text-[#a0b0ff]">{`Lesson ${lesson.number}: ${lesson.title}`}</p>
+                                <p className="mt-1 text-sm text-white/70">{lesson.description}</p>
+                              </li>
+                            ))}
+                          </ul>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-gradient-to-b from-[#040608] via-[#0A1014] to-[#101523] py-24">
+          <div className="mx-auto max-w-6xl space-y-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl text-center md:text-left">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">Milestones</p>
+              <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Your Transformation Milestones</h2>
+              <p className="mt-4 text-base text-white/70">
+                Day-by-day checkpoints keep you grounded in proof. Here&apos;s what shifts as you move through the journey.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {milestones.map((milestone) => (
+                <div
+                  key={milestone.day}
+                  className="relative overflow-hidden rounded-3xl border border-[#9AE6B4]/20 bg-gradient-to-br from-[#9AE6B4]/10 via-transparent to-transparent p-8 text-center shadow-[0_0_45px_rgba(15,20,30,0.35)] transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#9AE6B4]/15 text-3xl">{milestone.icon}</div>
+                  <span className="mt-4 inline-flex items-center justify-center rounded-full border border-[#9AE6B4]/30 bg-[#9AE6B4]/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#9AE6B4]">
+                    {milestone.badge}
+                  </span>
+                  <div className="mx-auto mt-4 flex h-12 w-12 items-center justify-center rounded-full border border-[#9AE6B4]/40 bg-black/40 text-base font-semibold text-[#9AE6B4]">
+                    {milestone.day}
+                  </div>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.28em] text-white/60">{`Day ${milestone.day}`}</p>
+                  <h3 className="mt-4 text-xl font-semibold text-white">{milestone.title}</h3>
+                  <p className="mt-3 text-sm text-white/70">{milestone.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-gradient-to-b from-[#101523] via-[#0A1014] to-[#040608] py-24">
+          <div className="mx-auto max-w-6xl space-y-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">Path Outcomes</p>
+              <h2 className="mt-3 text-4xl font-bold sm:text-5xl">What You&apos;ll Ship By Day 90</h2>
+              <p className="mt-4 text-base text-white/70">Choose your path. Ship real results.</p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {pathOutcomes.map((path) => (
+                <div
+                  key={path.name}
+                  className={`flex h-full flex-col rounded-3xl border border-white/10 bg-gradient-to-br ${PATH_GRADIENTS[path.name as keyof typeof PATH_GRADIENTS]} p-8 shadow-[0_0_45px_rgba(15,20,30,0.35)] backdrop-blur-sm`}
+                >
+                  <div className="flex items-center gap-3 text-white">
+                    <span className="text-3xl">{path.icon}</span>
+                    <div>
+                      <h3 className="text-2xl font-semibold">{path.name}</h3>
+                      <p className="text-sm text-white/70">{path.headline}</p>
+                    </div>
+                  </div>
+                  <ul className="mt-6 space-y-3 text-sm text-white/80">
+                    {path.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <span className="mt-0.5 text-[#9AE6B4]">✓</span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
@@ -838,7 +1019,7 @@ export default function JourneyPage() {
           <div className="mx-auto max-w-4xl space-y-6 rounded-3xl border border-white/10 bg-black/40 p-10 text-center shadow-[0_0_80px_rgba(154,230,180,0.18)]">
             <h2 className="text-4xl font-bold sm:text-5xl">Sprint 1 is ready. Your blocks are costing you daily.</h2>
             <p className="text-xl text-secondary">
-              Another day of "I&apos;ll start when I&apos;m ready" compounds the cost of staying stuck.
+              Another day of &quot;I&apos;ll start when I&apos;m ready&quot; compounds the cost of staying stuck.
               <br />
               Join the pioneers. Break free from blocks. Shape what comes next.
             </p>

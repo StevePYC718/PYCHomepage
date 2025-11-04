@@ -874,7 +874,7 @@ export default function HomePage() {
       <Header />
       <Navbar onCtaClick={trackCta} />
       <main className="bg-black text-white">
-        <section id="hero" className="relative min-h-screen overflow-hidden pt-32 pb-24 md:pt-40 md:pb-16 scroll-mt-28">
+        <section id="hero" className="relative overflow-hidden py-24 md:py-28 px-6 md:px-16 lg:px-24 scroll-mt-28">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-black" aria-hidden="true" />
             <div className="absolute inset-0 bg-gradient-to-l from-red-500/30 via-red-700/15 to-transparent" aria-hidden="true" />
@@ -884,34 +884,18 @@ export default function HomePage() {
             <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black to-transparent" aria-hidden="true" />
           </div>
           <Particles />
-          <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-start px-6 pt-2 sm:px-8 md:pt-6 lg:px-10">
-            <div className="max-w-3xl">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[var(--green-primary)] opacity-80">
+          <div className="relative z-10 mx-auto flex min-h-[70vh] w-full max-w-7xl flex-col items-start justify-center">
+            <div className="flex max-w-3xl flex-col items-start">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-emerald-400">
                 Stay Human. Stay Creative.
               </p>
-              <h1 className="text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
+              <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-white max-w-3xl">
                 Build a Life AI Can’t Replace.
               </h1>
-              <div className="max-w-2xl md:max-w-3xl mt-4 space-y-4">
-                <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-                  You're too burned out to pivot. Too anxious to stay still.
-                  <br />
-                  AI is automating your job faster than you can recover from it.
-                </p>
-                <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-                  <span className="font-semibold text-white">
-                    The antidote isn’t more information — it’s execution.
-                  </span>
-                </p>
-                <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-                  A 90-day system that rebuilds your energy, restores your focus, and ships the work that <span className="font-semibold text-white">sets you free</span> — whether{' '}
-                  <span className="font-semibold text-[var(--brand-accent)]">
-                    pivoting careers, starting a business, or building something of your own
-                  </span>
-                  .
-                </p>
-              </div>
-              <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center md:mt-8">
+              <p className="mt-5 text-lg md:text-xl text-white/80 max-w-2xl">
+                90 days to <span className="font-semibold text-white">rebuild your energy, sharpen focus, and start shipping again</span> — whether you&apos;re <span className="font-semibold text-[var(--green-primary)]">pivoting your career, starting a business, or building something of your own.</span>
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href={SPRINT1_COURSE_URL}
                   data-cta="sprint1"
@@ -930,7 +914,7 @@ export default function HomePage() {
                   Explore the 90-Day Framework →
                 </Link>
               </div>
-              <p className="mt-3 text-xs opacity-70 md:text-sm">
+              <p className="mt-3 text-xs text-white/60">
                 10-day foundation • Money-back guarantee • Beta pricing
               </p>
             </div>
@@ -940,24 +924,16 @@ export default function HomePage() {
         <section
           id="join"
           aria-labelledby="bridge-title"
-          className="relative -mt-16 md:-mt-20 lg:-mt-24 bg-gradient-to-b from-[rgba(64,10,12,0.35)] via-black/80 to-black py-12 md:py-14 scroll-mt-28"
+          className="relative -mt-20 md:-mt-24 lg:-mt-28 bg-gradient-to-b from-[rgba(64,10,12,0.35)] via-black/80 to-black py-12 md:py-16 scroll-mt-28"
         >
           <div className="mx-auto max-w-5xl px-6">
             <div className="rounded-2xl border border-[rgba(99,255,173,0.18)] bg-black/35 p-5 md:p-6 backdrop-blur-md shadow-[0_0_40px_-12px_rgba(99,255,173,0.18)]">
-              <p className="text-center text-[10px] md:text-xs tracking-[.28em] uppercase text-[var(--green-primary)]">
-                90 Days • 3 Phases • Start • Sustain • Ship
-              </p>
-
-              <h2 id="bridge-title" className="mt-3 text-center text-2xl md:text-3xl font-bold">
-                Not education. <span className="text-[var(--green-primary)]">Execution.</span>
+              <h2 id="bridge-title" className="mt-3 text-center text-2xl md:text-3xl font-bold text-white">
+                The Human Edge Blueprint
               </h2>
 
-              <p className="mt-3 text-center text-sm md:text-base font-semibold text-white">
-                You&apos;re exhausted, paralyzed, and watching your window close in real time.
-              </p>
-
-              <p className="mt-2 text-center text-sm md:text-base text-white/80 max-w-2xl mx-auto">
-                Get the 10-Day Starter Kit: prompts, checklists, and daily micro-goals to start your pivot in 15–30 minutes a day.
+              <p className="mt-3 text-center text-sm md:text-base text-white/80 max-w-2xl mx-auto">
+                A 10-day starter system to strengthen the five creative skills AI can’t replace. (15–30 minutes/day.)
               </p>
 
               <form
@@ -988,11 +964,11 @@ export default function HomePage() {
                   onClick={() => trackCta('leadmagnet')}
                   className="rounded-full bg-[var(--green-primary)] px-6 py-3 font-medium text-black transition hover:translate-y-[-1px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
                 >
-                  Get the Starter Kit →
+                  Get the Blueprint →
                 </button>
               </form>
 
-              <p className="mt-3 text-xs text-center text-white/50">No spam. One-click unsubscribe.</p>
+              <p className="mt-2 text-xs text-center text-white/50">No spam. Only evolution.</p>
             </div>
           </div>
         </section>
@@ -1011,30 +987,27 @@ export default function HomePage() {
             <div className="mt-10 grid items-start gap-6 md:mt-12 md:grid-cols-2 md:gap-8">
               <div className="max-w-2xl md:max-w-3xl space-y-4">
                 <p className="eg-block fade-up text-[17px] md:text-[18px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[140ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
-                  <strong className="text-[var(--green-primary)]">You don’t need more ideas. You need the energy and structure to ship them.</strong>
+                  <strong className="text-[var(--green-primary)]">You don&apos;t need more ideas. You need the energy and structure to ship them.</strong>
                 </p>
                 <p className="eg-block fade-up text-[17px] md:text-[18px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[170ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
-                  You already know what to build—a pivot, a project, a path out. But you&apos;re trapped in the space between knowing and doing.
-                </p>
-                <p className="eg-block fade-up text-[17px] md:text-[18px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[200ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
-                  You live in the space between <em>knowing</em> and <em>doing.</em>
+                  You already know what to build—a pivot, a project, a path out. But you&apos;re stuck between knowing and doing.
                 </p>
                 <ul className="mt-4 space-y-2 list-disc list-outside pl-5">
                   <li className="eg-anim fade-up text-[16px] md:text-[17px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[0ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
-                    Fear hijacks every leap — your identity stays "employee."
+                    Fear keeps your identity as &quot;employee.&quot;
                   </li>
                   <li className="eg-anim fade-up text-[16px] md:text-[17px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[90ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
-                    Burnout drains your drive — nothing left for your dream.
+                    Burnout drains your drive — nothing left for dreams.
                   </li>
                   <li className="eg-anim fade-up text-[16px] md:text-[17px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[180ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
                     Perfectionism traps you in endless drafts.
                   </li>
                 </ul>
                 <p className="eg-block fade-up text-[17px] md:text-[18px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[210ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
-                  This isn’t a motivation problem — it’s a <strong>human operating system</strong> problem.
+                  This isn&apos;t a motivation problem — it&apos;s a <strong>human operating system</strong> problem.
                 </p>
                 <p className="eg-block fade-up text-[17px] md:text-[18px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[240ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
-                  You can’t create freedom while running on survival.
+                  You can&apos;t create freedom while running on survival.
                 </p>
               </div>
               <div className="grid gap-4 self-start md:gap-5 xl:translate-x-4">
@@ -1044,7 +1017,7 @@ export default function HomePage() {
                   </p>
                   <ul className="mt-3 space-y-2 list-disc list-outside pl-5">
                     <li className="eg-anim fade-up text-[16px] md:text-[17px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[0ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
-                      Every month you wait, your energy funds someone else's dream
+                      Every month you wait, your energy funds someone else&apos;s dream
                     </li>
                     <li className="eg-anim fade-up text-[16px] md:text-[17px] leading-relaxed opacity-90 opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[90ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
                       Creators half your age are shipping six-figure ideas
@@ -1062,10 +1035,10 @@ export default function HomePage() {
             >
               <div className="eg-block fade-up mx-auto max-w-3xl rounded-sm border-l-2 border-green-400/40 bg-gradient-to-r from-green-500/5 to-transparent px-6 py-5 text-left opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] delay-[220ms] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none">
                 <p className="font-semibold text-base md:text-lg text-red-400">
-                  The Shift — the gap between <em>employed</em> and <em>free</em> isn’t knowledge; it’s execution.
+                  <span className="font-semibold">The Shift</span> — the gap between <em>employed</em> and <em>free</em> isn&apos;t knowledge; it&apos;s execution.
                 </p>
                 <p className="mt-2 text-base md:text-lg leading-relaxed opacity-90">
-                  And execution starts with restored energy, emotional resilience, and a daily system for progress.
+                  Execution starts with restored energy, emotional resilience, and a daily system for progress.
                 </p>
               </div>
             </div>
@@ -1094,7 +1067,7 @@ export default function HomePage() {
               data-anim-type="fade-10"
               data-anim-key="paradox-copy-1"
             >
-              AI can replicate your output. It can&apos;t replicate your <span className="font-semibold text-white">creative energy—</span>the fuel that turns ideas into momentum, fear into focus, and frustration into finished work.
+              AI can replicate your output. It can&apos;t replicate your <span className="font-semibold text-white">creative energy</span>—the fuel that turns ideas into momentum, fear into focus, and frustration into finished work.
             </p>
 
             <p
@@ -1102,7 +1075,7 @@ export default function HomePage() {
               data-anim-type="fade-10"
               data-anim-key="paradox-copy-2"
             >
-              For the first time in history, <span className="font-semibold text-[var(--brand-accent)]">a single creative can build a business or movement without permission.</span> But only if you protect and direct that energy instead of letting burnout drain it.
+              For the first time in history, a single creative can build a business or movement without permission.
             </p>
 
             <p
@@ -1110,15 +1083,23 @@ export default function HomePage() {
               data-anim-type="fade-10"
               data-anim-key="paradox-copy-3"
             >
-              The system that exhausted you? It also taught you what not to do. Harness that creative energy, channel it with precision, and the machine that burned you out becomes your launchpad.
+              But only if you protect that energy instead of letting burnout drain it.
             </p>
 
             <p
-              className="fade-up-10-init mt-4 text-base md:text-lg font-semibold text-[var(--green-primary)]"
+              className="fade-up-10-init mt-3 text-base md:text-lg leading-relaxed text-white/80"
               data-anim-type="fade-10"
               data-anim-key="paradox-copy-4"
             >
-              That's where the 90-Day Framework begins: building a life AI can't replace.
+              The system that exhausted you also taught you what not to do. Harness your creative energy, channel it with precision, and what burned you out becomes your launchpad.
+            </p>
+
+            <p
+              className="fade-up-10-init mt-4 text-base md:text-lg leading-relaxed text-white/90"
+              data-anim-type="fade-10"
+              data-anim-key="paradox-copy-5"
+            >
+              That&apos;s where the 90-Day Framework begins: building a life AI can&apos;t replace.
             </p>
 
             {/* Bridge to the next section */}
@@ -1133,7 +1114,7 @@ export default function HomePage() {
                 data-anim-type="fade-10"
                 data-anim-key="paradox-bridge"
               >
-                You've seen the paradox — here’s how we make execution inevitable.
+                You&apos;ve seen the paradox — here&apos;s how we make execution inevitable.
             </span>
           </div>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -1191,7 +1172,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-accent)]">Your Journey Starts Here</p>
             <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">Choose Your Path</h2>
             <p className="mt-4 text-base md:text-lg leading-relaxed text-white/80">
-              No matter where you're headed, you need the same foundation: confidence, focus, and creative edge.
+              No matter where you&apos;re headed, you need the same foundation: confidence, focus, and creative edge.
             </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -1235,32 +1216,40 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <div className="mt-16 text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-accent)]">Here's What All Three Paths Have in Common:</p>
-            <h3 className="mt-3 text-2xl md:text-4xl font-bold leading-tight">They all require the same inner upgrades.</h3>
-            <p className="mt-4 text-base md:text-lg leading-relaxed text-white/80">They all require you to overcome the same three obstacles:</p>
-            <div className="mx-auto mt-5 max-w-2xl text-left">
-              <ul className="list-disc space-y-2 pl-5 text-base leading-relaxed text-white/85">
-                <li>Fear and self-doubt that keep you stuck</li>
-                <li>Digital distraction that kills your focus and energy</li>
-                <li>Creative paralysis in an AI-driven world</li>
+          <div className="mt-16 mx-auto w-full max-w-4xl text-center md:text-left">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-accent)]">Here&apos;s What All Three Paths Have in Common:</p>
+            <h3 className="mt-3 text-2xl md:text-4xl font-bold leading-tight text-white">They all require the same inner upgrades.</h3>
+            <div className="mt-5 space-y-5 text-base md:text-lg leading-relaxed text-white/80">
+              <p>They all require you to overcome the same three obstacles:</p>
+              <ul className="space-y-3 text-left">
+                <li className="relative pl-7 text-white/85 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--green-primary)]">
+                  Fear and self-doubt that keep you stuck
+                </li>
+                <li className="relative pl-7 text-white/85 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--green-primary)]">
+                  Digital distraction that kills your focus and energy
+                </li>
+                <li className="relative pl-7 text-white/85 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--green-primary)]">
+                  Creative paralysis in an AI-driven world
+                </li>
               </ul>
+              <p>That&apos;s exactly what the 90-day framework is built to solve.</p>
             </div>
-            <p className="mt-5 text-base md:text-lg leading-relaxed text-white/80">That's exactly what the 90-day framework is built to solve.</p>
-            <Link
-              href="#framework"
-              data-scroll-link
-              data-cta="journey-see-framework"
-              onClick={() => trackCta('journey-see-framework')}
-              className="mt-6 inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
-            >
-              See How It Works
-            </Link>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="#framework"
+                data-scroll-link
+                data-cta="journey-see-framework"
+                onClick={() => trackCta('journey-see-framework')}
+                className="inline-flex items-center justify-center rounded-full bg-white/5 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
+              >
+                See How It Works
+              </Link>
+            </div>
           </div>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-12 flex justify-center">
             <div className="w-full max-w-3xl rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center shadow-[0_20px_45px_rgba(5,8,20,0.4)]">
-              <p className="text-xl font-semibold text-white">Not sure which path you're on?</p>
-              <p className="mt-2 text-base leading-relaxed text-white/75">That's okay. Book a clarity call and we'll figure it out together.</p>
+              <p className="text-xl font-semibold text-white">Not sure which path you&apos;re on?</p>
+              <p className="mt-2 text-base leading-relaxed text-white/75">That&apos;s okay. Book a clarity call and we&apos;ll figure it out together.</p>
               <Link
                 href={CLARITY_CALL_URL}
                 data-cta="journey-clarity"
@@ -1335,7 +1324,7 @@ export default function HomePage() {
                   <li>20% learning, 80% doing—you&apos;re always making progress, not just consuming</li>
                 </ul>
                 <p className="fade-up-10-init mt-3 text-sm md:text-base text-white/70" data-anim-type="fade-10" data-anim-key="three-systems-card1-result-text">
-                  <span className="font-medium text-[var(--green-primary)]">Result:</span> You can focus and take action even when you&apos;re exhausted—because the experience changes how you feel, not just what you know.
+                  <span className="font-semibold text-[var(--green-primary)]">Result:</span> You can focus and take action even when you&apos;re exhausted—because the experience changes how you feel, not just what you know.
                 </p>
               </div>
 
@@ -1363,7 +1352,7 @@ export default function HomePage() {
                   <li>No grandiose hustle-culture goals or rigid timelines—just small, high-value micro-sprints that match where you actually are</li>
                 </ul>
                 <p className="fade-up-10-init mt-3 text-sm md:text-base text-white/70" data-anim-type="fade-10" data-anim-key="three-systems-card2-result-text">
-                  <span className="font-medium text-[var(--green-primary)]">Result:</span> You know exactly what to do next—and it feels doable, even on chaotic days.
+                  <span className="font-semibold text-[var(--green-primary)]">Result:</span> You know exactly what to do next—and it feels doable, even on chaotic days.
                 </p>
               </div>
 
@@ -1391,7 +1380,7 @@ export default function HomePage() {
                   <li>Printable journey sheets and physical toolkits create analog anchors (writing by hand rewires your brain for commitment)</li>
                 </ul>
                 <p className="fade-up-10-init mt-3 text-sm md:text-base text-white/70" data-anim-type="fade-10" data-anim-key="three-systems-card3-result-text">
-                  <span className="font-medium text-[var(--green-primary)]">Result:</span> You don&apos;t fall off when life happens—because the system adapts to you, not the other way around.
+                  <span className="font-semibold text-[var(--green-primary)]">Result:</span> You don&apos;t fall off when life happens—because the system adapts to you, not the other way around.
                 </p>
               </div>
             </div>
@@ -1401,7 +1390,7 @@ export default function HomePage() {
               data-anim-key="three-systems-closer"
             >
               <p className="mx-auto max-w-2xl text-base text-white/80 md:text-lg md:leading-relaxed">
-                This isn't another course you watch and forget. It's a sensory-driven system that rebuilds how you operate—so execution becomes inevitable, not aspirational.
+                This isn&apos;t another course you watch and forget. It&apos;s a sensory-driven system that rebuilds how you operate—so execution becomes inevitable, not aspirational.
               </p>
               <Link
                 href="#framework"
@@ -1420,7 +1409,7 @@ export default function HomePage() {
           id="framework"
           className="relative mx-auto max-w-6xl px-6 py-20 md:py-24 scroll-mt-28"
         >
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-left lg:mx-0">
             <p className="text-xs tracking-[0.18em] uppercase text-[var(--green-primary)]">THE 90-DAY FRAMEWORK</p>
             <h2 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
               Start. Sustain. Ship.
@@ -1433,7 +1422,7 @@ export default function HomePage() {
             <p className="mt-3 text-sm md:text-base leading-relaxed text-white/70">
               Every phase builds on the last so you stop stalling, build momentum, and become unmissable in 90 days.
             </p>
-            <div aria-hidden="true" className="mx-auto mt-6 h-[2px] w-32 overflow-hidden rounded-full bg-white/10">
+            <div aria-hidden="true" className="mt-6 h-[2px] w-32 overflow-hidden rounded-full bg-white/10">
               <div
                 id="fw-progress-fill"
                 className="h-full rounded-full bg-green-400/60 transition-[width] duration-300 ease-out"
@@ -1468,7 +1457,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mx-auto mt-12 max-w-3xl text-center">
-            <p className="text-2xl font-bold text-white">This isn't theory. It's execution.</p>
+            <p className="text-2xl font-bold text-white">This isn&apos;t theory. It&apos;s execution.</p>
             <p className="mt-3 text-base md:text-lg leading-relaxed text-white/80">
               Every sprint gives you exactly what you need to move forward—immersive lessons, daily micro-goals, and accountability that keeps you on track.
             </p>
@@ -1486,9 +1475,9 @@ export default function HomePage() {
 
         <section className="relative mx-auto max-w-7xl px-6 pb-20 md:pb-24">
           <div className="mx-auto mt-4 max-w-3xl rounded-2xl border-2 border-[#9AE6B4] bg-[#9AE6B4]/10 p-8 text-center shadow-[0_0_60px_rgba(154,230,180,0.2)]">
-            <p className="text-2xl font-bold text-white">"Stop planning. Start building."</p>
+            <p className="text-2xl font-bold text-white">&quot;Stop planning. Start building.&quot;</p>
             <p className="mt-4 text-base text-white/80">
-              You can't build vision on burnout. You can't ship while frozen by fear. Sprint 1 interrupts the drains—fear, distraction, identity—so everything else becomes possible.
+              You can&apos;t build vision on burnout. You can&apos;t ship while frozen by fear. Sprint 1 interrupts the drains—fear, distraction, identity—so everything else becomes possible.
             </p>
           </div>
           <div
@@ -1498,7 +1487,7 @@ export default function HomePage() {
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-white">Why Sprint 1 Comes First</h3>
               <p className="text-lg text-white/80">
-                You can't build vision on burnout. You can't enter flow while frozen by fear. You can't ship while distracted and depleted.
+                You can&apos;t build vision on burnout. You can&apos;t enter flow while frozen by fear. You can&apos;t ship while distracted and depleted.
               </p>
             </div>
             <div className="space-y-4">
@@ -1513,12 +1502,12 @@ export default function HomePage() {
               </div>
             </div>
             <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-white">By Day 10, you'll have:</h4>
+              <h4 className="text-xl font-semibold text-white">By Day 10, you&apos;ll have:</h4>
               <ul className="space-y-2 text-base text-white/80">
                 <li>✅ Broken your fear pattern (identified + interrupted)</li>
-                <li>✅ Taken action you've been avoiding for weeks/months</li>
+                <li>✅ Taken action you&apos;ve been avoiding for weeks/months</li>
                 <li>✅ Shipped something small (proof you can execute)</li>
-                <li>✅ Clarity on who you're becoming vs. who you're leaving behind</li>
+                <li>✅ Clarity on who you&apos;re becoming vs. who you&apos;re leaving behind</li>
               </ul>
             </div>
             <p className="text-base font-semibold text-[#9AE6B4]">Tools You Get: {sprintOneTools.join(' • ')}</p>
@@ -1543,66 +1532,48 @@ export default function HomePage() {
             </p>
           </header>
 
-          <div className="mt-10 grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2">
             {[
               {
-                title: "Cinematic Immersive Experience",
+                title: "Cinematic Audio Transformation",
                 bullets: [
-                  "Too burned out to act? Spatial audio shifts your state first",
-                  "Motivation fails when depleted—multi-sensory immersion rewires you",
-                  "You move because you feel different, not forced",
+                  "Burned out? Spatial audio shifts your nervous system before you even \"try\"—cinematic stories rewire your state at the subconscious level",
+                  "Multi-sensory immersion bypasses resistance—you move because you feel different, not because you forced yourself",
+                  "ADHD-optimized soundscapes make focus effortless—designed for minds that won't sit still",
                 ],
                 delay: '0ms',
               },
               {
                 title: "AI-Powered Personalization",
                 bullets: [
-                  "Generic programs don't work—yours adapts to YOUR patterns",
-                  "Drowning in advice? Get only what you need, when you need it",
-                  "Life gets messy—your system adapts without shame",
+                  "Your system adapts to YOUR patterns—not generic advice you'll ignore",
+                  "Get only what you need, when you need it—no drowning in content",
+                  "AI tracks your progress and adjusts in real-time—accountability without shame",
                 ],
                 delay: '80ms',
               },
               {
-                title: "Creative Energy First",
+                title: "Train Skills AI Can't Replace",
                 bullets: [
-                  "Can't execute while burned out? We restore energy first",
-                  "Other programs assume you're ready—we fill the tank",
-                  "Running on empty? Mental clarity rebuilt before productivity",
+                  "Stop learning automatable skills—build your human edge: divergent thinking, emotional intelligence, creative problem-solving",
+                  "AI makes you faster, not obsolete—learn to wield it as your co-pilot",
+                  "Future-proof through creativity, not credentials",
                 ],
                 delay: '160ms',
               },
               {
-                title: "Holistic System, Not Just One Thing",
+                title: "Ship Real Work, Not Just Insights",
                 bullets: [
-                  "Fixed mindset but not execution? We do both simultaneously",
-                  "Stop patching one problem while another bleeds",
-                  "Get transformation AND results—not one or the other",
+                  "Every sprint delivers tangible output—portfolio pieces, client work, job interviews",
+                  "Day 90 = results you can show, not just feelings you describe",
+                  "Inner transformation AND outer proof—both matter",
                 ],
                 delay: '240ms',
-              },
-              {
-                title: "Build What AI Can't Replace",
-                bullets: [
-                  "Scared of obsolescence? Train what AI can't replicate",
-                  "Stop learning automatable skills—build your human edge",
-                  "Future-proof through divergent thinking and emotional intelligence",
-                ],
-                delay: '320ms',
-              },
-              {
-                title: "Measurable Transformation",
-                bullets: [
-                  "Tired of vague promises? Every sprint ships tangible work",
-                  "Need proof, not feelings? Day 90 = results you can show",
-                  "Inner work that goes somewhere—both transformation AND outcomes",
-                ],
-                delay: '400ms',
               },
             ].map((card) => (
               <article
                 key={card.title}
-                className="wiw-anim rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2"
+                className="wiw-anim h-full rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col transition-all duration-500 ease-out hover:-translate-y-[2px] hover:bg-white/[0.06] opacity-0 translate-y-2"
                 style={{ transitionDelay: card.delay }}
               >
                 <div className="flex items-center gap-3">
@@ -1681,7 +1652,7 @@ export default function HomePage() {
             <article className="wif-anim delay-0 rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 transition-all duration-500 ease-out hover:bg-white/[0.06] hover:-translate-y-[2px] opacity-0 translate-y-2">
               <h3 className="text-lg font-semibold">This Is For You If</h3>
               <ul className="mt-3 space-y-2 text-sm md:text-base leading-relaxed opacity-90">
-                <li>✓ You have a "good" job but it’s draining your creative energy.</li>
+                <li>✓ You have a &quot;good&quot; job but it’s draining your creative energy.</li>
                 <li>✓ AI is reshaping your industry and you want ownership and autonomy.</li>
                 <li>✓ You&apos;re watching AI eat your industry and you refuse to become obsolete.</li>
                 <li>✓ You’ve got ideas but can’t get yourself to start (or keep going).</li>
@@ -1738,7 +1709,7 @@ export default function HomePage() {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-left shadow-lg shadow-black/30">
                 <h3 className="text-2xl font-bold text-white">For Individuals</h3>
                 <p className="mt-4 text-base text-white/80">
-                  Build a life AI can't replace. Escape corporate. Launch your business. Own your creative future.
+                  Build a life AI can&apos;t replace. Escape corporate. Launch your business. Own your creative future.
                 </p>
                 <Link
                   href={SPRINT1_COURSE_URL}
@@ -1766,7 +1737,7 @@ export default function HomePage() {
         <section id="pricing" className="bg-gradient-to-b from-[#101523] via-[#0A1014] to-[#110C13] py-24">
           <div className="mx-auto max-w-5xl space-y-6 px-4 text-center sm:px-6 lg:px-8">
             <h2 className="text-4xl font-bold sm:text-5xl">Start Building Today</h2>
-            <p className="text-xl text-white/80">Beta pioneers shape the system. Lock in founder pricing. Build a life AI can't replace.</p>
+            <p className="text-xl text-white/80">Beta pioneers shape the system. Lock in founder pricing. Build a life AI can&apos;t replace.</p>
           </div>
           <div className="mx-auto mt-12 max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 md:grid-cols-2">
@@ -1814,9 +1785,9 @@ export default function HomePage() {
             <p className="mt-4 text-lg text-white/80">
               Complete Sprint 1 (all 3 lessons + tools) and use the AI Co-Pilot for 10 days.
               <br />
-              If you don't see measurable progress in your ability to take action and build a life you own, email us for a full refund.
+              If you don&apos;t see measurable progress in your ability to take action and build a life you own, email us for a full refund.
               <br />
-              We're not asking you to trust the system. We're asking you to test it.
+              We&apos;re not asking you to trust the system. We&apos;re asking you to test it.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-white/60">
               <span>🔒 Secure checkout</span>
@@ -1853,7 +1824,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-4xl space-y-6 rounded-3xl border border-white/10 bg-black/40 p-10 text-center shadow-[0_0_80px_rgba(154,230,180,0.18)]">
             <h2 className="text-4xl font-bold sm:text-5xl">Your Creative Energy Is Your Greatest Asset</h2>
             <p className="text-xl text-white/80">
-              Every day you wait, AI automates another skill. But a life AI can't replace? That's yours to build.
+              Every day you wait, AI automates another skill. But a life AI can&apos;t replace? That&apos;s yours to build.
               <br />
               <br />
               90 days from now: shipped work, sustainable systems, a life you own.

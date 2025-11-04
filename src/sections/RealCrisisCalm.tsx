@@ -13,78 +13,53 @@ export default function RealCrisisCalm() {
 
         {/* Headline + subhead */}
         <h2 id="rc-title" className="text-3xl font-bold leading-tight md:text-5xl">
-          <span className="block">You&apos;re Burned Out</span>
-          <span className="block">You&apos;re Running Out of Time</span>
+          <span className="block">AI Is Reshaping Your Industry</span>
+          <span className="block">Faster Than You Can Recover</span>
         </h2>
-        <p className="mt-3 text-[17px] md:text-[18px] leading-relaxed opacity-90 max-w-3xl">
-          <span className="font-semibold text-[var(--green-primary)]">You’re drained by the system, and too tired to build your way out.</span>
-        </p>
-
         {/* Divider */}
         <div className="mt-8 w-24 border-t border-[var(--green-primary)]" />
 
         {/* 3 stacked messages (no cards) */}
         <div className="mt-8 space-y-4 max-w-3xl">
-          <div className="space-y-2.5">
-            <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-              <strong className="text-[var(--coral)]">You’ve been building someone else’s dream</strong>
-            </p>
-            <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-              Your best energy disappears into meetings, metrics, and inboxes that don’t matter
-            </p>
-          </div>
-          <div className="space-y-2.5">
-            <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-              <strong className="text-[var(--coral)]">Your own ideas are collecting dust</strong>
-            </p>
-            <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-              They live in notes apps and half-finished files while your focus and confidence fade
-            </p>
-          </div>
-          <div className="space-y-2.5">
-            <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-              <strong className="text-[var(--coral)]">You're trading your future for a paycheck that barely covers the present</strong>
-            </p>
-            <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
-              Every month you trade freedom for stability that never feels worth it
-            </p>
-          </div>
+          <p className="text-[17px] md:text-[18px] leading-relaxed opacity-90">
+            You&apos;re burned out. Your best ideas sit unfinished. And now the window to build something AI can&apos;t replace is closing.
+          </p>
         </div>
 
         {/* Divider */}
         <div className="mt-8 w-24 border-t border-white/10" />
 
         {/* Dual lists */}
-        <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 max-w-5xl">
-          <div className="space-y-3.5">
-            <p className="text-base font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
-              What it feels like
+        <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 max-w-5xl items-stretch">
+          <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 grid grid-rows-[auto,1fr]">
+            <p className="mb-4 text-base font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
+              WHAT IT FEELS LIKE
             </p>
-            <ul className="space-y-1.5 list-disc list-outside pl-5">
-              <li className="text-[16px] md:text-[17px] leading-relaxed opacity-90">
-                You wake up tired, already running someone else’s race.
+            <ul className="space-y-5 list-disc list-outside pl-5">
+              <li className="text-[16px] md:text-[17px] leading-[1.55] text-white/90">
+                You wake up tired, running someone else&apos;s race.
               </li>
-              <li className="text-[16px] md:text-[17px] leading-relaxed opacity-90">
-                You scroll and call it “research,” but it is really avoidance.
+              <li className="text-[16px] md:text-[17px] leading-[1.55] text-white/90">
+                You call it &quot;research,&quot; but it&apos;s avoidance.
               </li>
-              <li className="text-[16px] md:text-[17px] leading-relaxed opacity-90">
-                You have ideas, but nothing to move them forward.
+              <li className="text-[16px] md:text-[17px] leading-[1.55] text-white/90">
+                Ideas pile up. Nothing ships.
               </li>
             </ul>
           </div>
-          <div className="space-y-3.5">
-            <p className="text-base font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
-              What’s really going on
+          <div className="h-full rounded-xl border border-white/10 bg-white/5 p-6 grid grid-rows-[auto,1fr]">
+            <p className="mb-4 text-base font-semibold uppercase tracking-[0.18em] text-[var(--coral)]">
+              WHAT’S REALLY GOING ON
             </p>
-            <ul className="space-y-1.5 list-disc list-outside pl-5">
-              <li className="text-[16px] md:text-[17px] leading-relaxed opacity-90">
-                You were optimized for output, not originality.
+            <ul className="space-y-5 list-disc list-outside pl-5">
+              <li className="text-[16px] md:text-[17px] leading-[1.55] text-white/90">
+                You were built for output, not originality.
               </li>
-              <li className="text-[16px] md:text-[17px] leading-relaxed opacity-90">
-                Busy days hide empty output and shrinking courage.
+              <li className="text-[16px] md:text-[17px] leading-[1.55] text-white/90">
+                You don&apos;t need more info—you need a system that forces action.
               </li>
-              <li className="text-[16px] md:text-[17px] leading-relaxed opacity-90">
-                You don’t need motivation. You need a system that forces action.
+              <li className="text-[16px] md:text-[17px] leading-[1.55] text-white/90">
+                AI is reshaping your industry faster than you can recover.
               </li>
             </ul>
           </div>
@@ -96,7 +71,7 @@ export default function RealCrisisCalm() {
             The White Space
           </p>
           <p className="text-emerald-50 text-[16px] leading-relaxed">
-            We rebuild your human OS—creative energy, focus, execution—so you can pivot before it&apos;s too late.<br />
+            We rebuild your creative operating system—energy, focus, execution—so you can ship work that matters before it&apos;s too late.<br />
             <span className="inline-block mt-3 font-semibold">Build a life AI can&apos;t replace.</span>
           </p>
         </div>
