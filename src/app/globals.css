@@ -19,10 +19,307 @@
   }
 }
 
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Hero particle layer */
+.hero-particles {
+  opacity: 0.45;
+  animation: float 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Scroll reveal */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typography utilities */
+.hero-headline {
+  font-size: clamp(2.5rem, 3vw + 1.5rem, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-headline {
+  font-size: clamp(2rem, 2.5vw + 1.25rem, 3rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.subsection-headline {
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.body-large {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.body {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #a0a0a0;
+}
+
+.body-small {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #a0a0a0;
+}
+
+.label {
+  font-size: 0.875rem;
+  line-height: 1.35;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #63ffad;
+}
+
+/* Cards */
+.card {
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: #9ae6b4;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(154, 230, 180, 0.1);
+}
+
+.card-emphasis {
+  border: 2px solid #9ae6b4;
+}
+
+.card-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9ae6b4;
+  margin-bottom: 12px;
+}
+
+.card-bullets {
+  list-style: none;
+  padding: 0;
+}
+
+.card-bullets li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #a0a0a0;
+}
+
+.card-bullets li:before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: #9ae6b4;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(154, 230, 180, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #9ae6b4;
+}
+
+.card-outcome {
+  margin-top: 24px;
+  padding: 16px;
+  background: rgba(154, 230, 180, 0.08);
+  border: 1px solid rgba(154, 230, 180, 0.2);
+  border-radius: 8px;
+}
+
+.card-outcome strong {
+  color: #9ae6b4;
+}
+
+.card-challenge {
+  margin-top: 24px;
+  padding: 16px;
+  background: rgba(248, 113, 113, 0.05);
+  border-left: 3px solid #f87171;
+  border-radius: 4px;
+}
+
+.card-challenge p {
+  font-style: italic;
+  color: #a0a0a0;
+}
+
+/* Card hover variants */
+.path-card,
+.phase-card {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.path-card:hover,
+.phase-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(99, 255, 173, 0.15);
+  border-color: #63ffad;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-particles {
+    animation: none;
+  }
+  .path-card:hover,
+  .phase-card:hover {
+    transform: none;
+    box-shadow: 0 0 0 2px rgba(99, 255, 173, 0.4);
+  }
+}
+
+.cta-button {
+  transition: transform 0.15s ease-out, background-color 0.15s ease-out;
+}
+
+.cta-button:hover {
+  transform: scale(1.03);
+  background-color: #57ffb7;
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+.cta-primary {
+  background: #00ff85;
+  color: #000;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  border-radius: 8px;
+  border: 2px solid #00ff85;
+  box-shadow: 0 4px 12px rgba(0, 255, 133, 0.3);
+  transition: transform 0.15s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.cta-primary:hover {
+  transform: scale(1.03);
+  background-color: #57ffb7;
+  box-shadow: 0 6px 16px rgba(0, 255, 133, 0.35);
+}
+
+.cta-primary:active {
+  transform: scale(0.98);
+}
+
+.cta-secondary {
+  background: transparent;
+  color: #00ff85;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  border-radius: 8px;
+  border: 2px solid #00ff85;
+  transition: transform 0.15s ease-out, border-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+.cta-secondary:hover {
+  transform: scale(1.03);
+  color: #57ffb7;
+  border-color: #57ffb7;
+}
+
+.cta-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Real Crisis line hover emphasis */
+.rc-lines .rc-line {
+  opacity: 0.8;
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+.rc-lines:hover .rc-line {
+  opacity: 0.5;
+}
+
+.rc-lines .rc-line:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  color: #f87171;
+  background-color: rgba(248, 113, 113, 0.08);
+  box-shadow: 0 8px 24px rgba(248, 113, 113, 0.25);
 }
 
 :root {
@@ -40,4 +337,49 @@ body {
   --brand-green-70: color-mix(in srgb, var(--brand-green) 70%, transparent);
   --brand-green-40: color-mix(in srgb, var(--brand-green) 40%, transparent);
   --green-primary: #63ffad;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  .hero-headline {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .section-headline {
+    font-size: 2rem;
+  }
+
+  .subsection-headline {
+    font-size: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .cta-primary,
+  .cta-secondary,
+  .cta-button {
+    width: 100%;
+    padding: 1.25rem;
+    font-size: 1.125rem;
+    min-height: 48px;
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  .path-card,
+  .phase-card {
+    margin-bottom: 2rem;
+  }
 }
