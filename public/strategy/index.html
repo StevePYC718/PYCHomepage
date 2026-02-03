@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYC Strategy Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #FAF9F6;
+            padding: 40px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #5B8A8A;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #A1A1AA;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Visual Map */
+        .visual-map {
+            background: #18181B;
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-map::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #5B8A8A, #B8856C, #6B8E6B);
+        }
+
+        .map-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #71717A;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .flow-node {
+            background: #27272A;
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+            min-width: 140px;
+            position: relative;
+        }
+
+        .flow-node.foundation {
+            background: rgba(184, 133, 108, 0.15);
+            border: 1px solid rgba(184, 133, 108, 0.3);
+        }
+
+        .flow-node.unlock {
+            background: rgba(91, 138, 138, 0.15);
+            border: 1px solid rgba(91, 138, 138, 0.3);
+        }
+
+        .flow-node.strengthen {
+            background: rgba(184, 133, 108, 0.15);
+            border: 1px solid rgba(184, 133, 108, 0.3);
+        }
+
+        .flow-node.activate {
+            background: rgba(107, 142, 107, 0.15);
+            border: 1px solid rgba(107, 142, 107, 0.3);
+        }
+
+        .flow-node-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #71717A;
+            margin-bottom: 4px;
+        }
+
+        .flow-node-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #FAF9F6;
+        }
+
+        .flow-node.foundation .flow-node-name { color: #B8856C; }
+        .flow-node.unlock .flow-node-name { color: #5B8A8A; }
+        .flow-node.strengthen .flow-node-name { color: #B8856C; }
+        .flow-node.activate .flow-node-name { color: #6B8E6B; }
+
+        .flow-arrow {
+            color: #3F3F46;
+            font-size: 1.25rem;
+        }
+
+        .support-layer {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding-top: 24px;
+            border-top: 1px dashed #27272A;
+            flex-wrap: wrap;
+        }
+
+        .support-item {
+            font-size: 0.75rem;
+            color: #71717A;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .support-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #5B8A8A;
+        }
+
+        /* Brief Grid */
+        .section-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(91, 138, 138, 0.2);
+        }
+
+        .brief-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 900px) {
+            .brief-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .brief-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .brief-card {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 28px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            display: block;
+        }
+
+        .brief-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .brief-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #27272A;
+            transition: background 0.2s ease;
+        }
+
+        .brief-card:hover::before {
+            background: #5B8A8A;
+        }
+
+        .brief-card.ready::before {
+            background: #5B8A8A;
+        }
+
+        .brief-card.coming-soon {
+            opacity: 0.6;
+        }
+
+        .brief-card.coming-soon:hover {
+            transform: none;
+            cursor: default;
+        }
+
+        .brief-status {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brief-status.ready {
+            color: #6B8E6B;
+        }
+
+        .brief-status.coming {
+            color: #71717A;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .status-dot.ready {
+            background: #6B8E6B;
+        }
+
+        .status-dot.coming {
+            background: #71717A;
+        }
+
+        .brief-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 8px;
+        }
+
+        .brief-desc {
+            font-size: 0.85rem;
+            color: #A1A1AA;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .brief-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .brief-tag {
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #27272A;
+            color: #71717A;
+        }
+
+        .brief-tag.foundation { background: rgba(184, 133, 108, 0.15); color: #B8856C; }
+        .brief-tag.product { background: rgba(91, 138, 138, 0.15); color: #5B8A8A; }
+        .brief-tag.ux { background: rgba(107, 142, 107, 0.15); color: #6B8E6B; }
+
+        .brief-arrow {
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+            font-size: 1.25rem;
+            color: #3F3F46;
+            transition: all 0.2s ease;
+        }
+
+        .brief-card:hover .brief-arrow {
+            color: #5B8A8A;
+            transform: translateX(4px);
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 60px;
+        }
+
+        .quick-links-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 16px;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .quick-links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .quick-link {
+            background: #27272A;
+            border-radius: 8px;
+            padding: 16px;
+            text-decoration: none;
+            color: #A1A1AA;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .quick-link:hover {
+            background: #3F3F46;
+            color: #FAF9F6;
+        }
+
+        .quick-link-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            margin-bottom: 60px;
+        }
+
+        .progress-bar-container {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .progress-label {
+            font-size: 0.85rem;
+            color: #A1A1AA;
+        }
+
+        .progress-count {
+            font-size: 0.85rem;
+            color: #5B8A8A;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #27272A;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #5B8A8A, #6B8E6B);
+            border-radius: 4px;
+            width: 29%; /* 2 of 7 briefs */
+            transition: width 0.3s ease;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: #71717A;
+            font-size: 0.8rem;
+            padding-top: 32px;
+            border-top: 1px solid #27272A;
+        }
+
+        footer a {
+            color: #5B8A8A;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">Pioneer Your Creative</div>
+            <h1>Strategy Hub</h1>
+            <p class="subtitle">Product specs, UX flows, and brand strategy — all connected to the narrative that makes PYC different.</p>
+        </div>
+
+        <!-- Visual Map -->
+        <div class="visual-map">
+            <div class="map-title">The PYC Journey</div>
+
+            <div class="flow-container">
+                <div class="flow-node foundation">
+                    <div class="flow-node-label">Pre-Phase</div>
+                    <div class="flow-node-name">Reconnect</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node unlock">
+                    <div class="flow-node-label">Phase 1</div>
+                    <div class="flow-node-name">Unlock</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node strengthen">
+                    <div class="flow-node-label">Phase 2</div>
+                    <div class="flow-node-name">Strengthen</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node activate">
+                    <div class="flow-node-label">Phase 3</div>
+                    <div class="flow-node-name">Activate</div>
+                </div>
+            </div>
+
+            <div class="support-layer">
+                <div class="support-item">
+                    <div class="support-dot"></div>
+                    Co-Pilot (Memory)
+                </div>
+                <div class="support-item">
+                    <div class="support-dot"></div>
+                    Morning Spark
+                </div>
+                <div class="support-item">
+                    <div class="support-dot"></div>
+                    Evidence System
+                </div>
+                <div class="support-item">
+                    <div class="support-dot"></div>
+                    SOS Button
+                </div>
+                <div class="support-item">
+                    <div class="support-dot"></div>
+                    Immersive Audio
+                </div>
+            </div>
+        </div>
+
+        <!-- Brief Grid -->
+        <div class="section-title">Strategy Briefs</div>
+
+        <div class="brief-grid">
+
+            <!-- Brand Narrative - Ready -->
+            <a href="brand-narrative.html" class="brief-card ready">
+                <div class="brief-status ready">
+                    <span class="status-dot ready"></span>
+                    Ready
+                </div>
+                <div class="brief-title">Brand Narrative</div>
+                <div class="brief-desc">The strategic thesis — threat stack, creative paradox, solution framework. The "why" behind everything.</div>
+                <div class="brief-tags">
+                    <span class="brief-tag foundation">Foundation</span>
+                    <span class="brief-tag">Strategy</span>
+                </div>
+                <div class="brief-arrow">→</div>
+            </a>
+
+            <!-- Creative Archaeology - Ready -->
+            <a href="creative-archaeology.html" class="brief-card ready">
+                <div class="brief-status ready">
+                    <span class="status-dot ready"></span>
+                    Ready
+                </div>
+                <div class="brief-title">Creative Archaeology + Freemium</div>
+                <div class="brief-desc">Onboarding flow, freemium conversion, profile reveal. The emotional entry point.</div>
+                <div class="brief-tags">
+                    <span class="brief-tag product">Product</span>
+                    <span class="brief-tag ux">UX Flow</span>
+                </div>
+                <div class="brief-arrow">→</div>
+            </a>
+
+            <!-- Paid Journey - Ready -->
+            <a href="paid-journey.html" class="brief-card ready">
+                <div class="brief-status ready">
+                    <span class="status-dot ready"></span>
+                    Ready
+                </div>
+                <div class="brief-title">Paid Journey Value</div>
+                <div class="brief-desc">How the 90 days deliver real value — pragmatic outcomes + emotional transformation.</div>
+                <div class="brief-tags">
+                    <span class="brief-tag product">Product</span>
+                    <span class="brief-tag">Value Prop</span>
+                </div>
+                <div class="brief-arrow">→</div>
+            </a>
+
+            <!-- Sprint Structure - Coming Soon -->
+            <div class="brief-card coming-soon">
+                <div class="brief-status coming">
+                    <span class="status-dot coming"></span>
+                    Coming Soon
+                </div>
+                <div class="brief-title">Sprint Structure</div>
+                <div class="brief-desc">Tools, rituals, resources per sprint. The systematic breakdown of each 10-day block.</div>
+                <div class="brief-tags">
+                    <span class="brief-tag product">Product</span>
+                    <span class="brief-tag">Content</span>
+                </div>
+            </div>
+
+            <!-- Co-Pilot System - Ready -->
+            <a href="co-pilot.html" class="brief-card ready">
+                <div class="brief-status ready">
+                    <span class="status-dot ready"></span>
+                    Ready
+                </div>
+                <div class="brief-title">Co-Pilot System</div>
+                <div class="brief-desc">Memory architecture, personalization engine, conversation design. The AI that "gets" them.</div>
+                <div class="brief-tags">
+                    <span class="brief-tag product">Product</span>
+                    <span class="brief-tag">AI</span>
+                </div>
+                <div class="brief-arrow">→</div>
+            </a>
+
+            <!-- Evidence System - Ready -->
+            <a href="evidence-system.html" class="brief-card ready">
+                <div class="brief-status ready">
+                    <span class="status-dot ready"></span>
+                    Ready
+                </div>
+                <div class="brief-title">Evidence System</div>
+                <div class="brief-desc">Proofs, wins, metrics, milestones. How users see and feel their progress.</div>
+                <div class="brief-tags">
+                    <span class="brief-tag product">Product</span>
+                    <span class="brief-tag ux">UX</span>
+                </div>
+                <div class="brief-arrow">→</div>
+            </a>
+
+        </div>
+
+        <!-- Progress Section -->
+        <div class="progress-section">
+            <div class="progress-bar-container">
+                <div class="progress-header">
+                    <div class="progress-label">Brief Documentation Progress</div>
+                    <div class="progress-count">5 of 7 complete</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 71%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <div class="quick-links-title">Quick Reference</div>
+            <div class="quick-links-grid">
+                <a href="brand-narrative.html#section-1" class="quick-link">
+                    <span class="quick-link-icon">⚠️</span>
+                    Threat Stack
+                </a>
+                <a href="brand-narrative.html#section-2" class="quick-link">
+                    <span class="quick-link-icon">⚡</span>
+                    The Paradox
+                </a>
+                <a href="creative-archaeology.html#section-4" class="quick-link">
+                    <span class="quick-link-icon">📱</span>
+                    Screen Specs
+                </a>
+                <a href="creative-archaeology.html#section-8" class="quick-link">
+                    <span class="quick-link-icon">🎨</span>
+                    Design System
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            PYC Strategy Hub — January 2026<br>
+            <span style="color: #5B8A8A;">The product, the brand, the build — all connected.</span>
+        </footer>
+
+    </div>
+</body>
+</html>

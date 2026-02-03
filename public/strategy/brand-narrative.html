@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYC Brand Narrative Spec — The Strategic Thesis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #FAF9F6;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(184, 133, 108, 0.15);
+            color: #B8856C;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 48px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(91, 138, 138, 0.2);
+        }
+
+        .section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #FAF9F6;
+        }
+
+        .section h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #B8856C;
+        }
+
+        p {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .teal { color: #5B8A8A; }
+        .copper { color: #B8856C; }
+        .green { color: #6B8E6B; }
+        .red { color: #A65D57; }
+        .cream { color: #FAF9F6; }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(180deg, rgba(91, 138, 138, 0.08) 0%, transparent 100%);
+            border-radius: 24px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #5B8A8A, transparent);
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #FAF9F6;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: #A1A1AA;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Threat Stack */
+        .threat-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .threat-card {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            border-left: 4px solid;
+        }
+
+        .threat-card.existential {
+            border-left-color: #A65D57;
+        }
+
+        .threat-card.external {
+            border-left-color: #C4A04A;
+        }
+
+        .threat-card.internal {
+            border-left-color: #5B7A8A;
+        }
+
+        .threat-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .threat-card.existential .threat-label { color: #A65D57; }
+        .threat-card.external .threat-label { color: #C4A04A; }
+        .threat-card.internal .threat-label { color: #5B7A8A; }
+
+        .threat-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 12px;
+        }
+
+        .threat-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .threat-list li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #A1A1AA;
+            font-size: 0.9rem;
+        }
+
+        .threat-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #71717A;
+        }
+
+        /* Paradox Section */
+        .paradox-container {
+            background: linear-gradient(135deg, rgba(184, 133, 108, 0.1) 0%, rgba(91, 138, 138, 0.1) 100%);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(184, 133, 108, 0.2);
+        }
+
+        .paradox-container::before {
+            content: 'THE PARADOX';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a0a0a;
+            padding: 4px 16px;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: #B8856C;
+        }
+
+        .paradox-statement {
+            font-size: 1.75rem;
+            font-weight: 300;
+            color: #FAF9F6;
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+
+        .paradox-because {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            text-align: left;
+            margin-top: 32px;
+        }
+
+        .because-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .because-card h5 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #5B8A8A;
+            margin-bottom: 8px;
+        }
+
+        .because-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Solution Framework */
+        .solution-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .solution-phase {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 24px 32px;
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .solution-phase.active {
+            background: rgba(91, 138, 138, 0.15);
+            border: 1px solid #5B8A8A;
+        }
+
+        .phase-number {
+            font-size: 0.65rem;
+            color: #71717A;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .phase-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 4px;
+        }
+
+        .phase-desc {
+            font-size: 0.8rem;
+            color: #A1A1AA;
+        }
+
+        .solution-arrow {
+            font-size: 1.5rem;
+            color: #5B8A8A;
+        }
+
+        /* Feature Connection */
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .connection-card {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 24px;
+            border-top: 3px solid #27272A;
+            transition: border-color 0.3s ease;
+        }
+
+        .connection-card:hover {
+            border-top-color: #5B8A8A;
+        }
+
+        .connection-card h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 8px;
+        }
+
+        .connection-card p {
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .connection-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(91, 138, 138, 0.15);
+            color: #5B8A8A;
+        }
+
+        /* Voice Examples */
+        .voice-example {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border-left: 3px solid #B8856C;
+        }
+
+        .voice-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #B8856C;
+            margin-bottom: 12px;
+        }
+
+        .voice-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #FAF9F6;
+            line-height: 1.5;
+        }
+
+        .voice-context {
+            font-size: 0.8rem;
+            color: #71717A;
+            margin-top: 12px;
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .nav-link {
+            background: #27272A;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: #A1A1AA;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: #3F3F46;
+            color: #FAF9F6;
+        }
+
+        .nav-link.active {
+            background: rgba(91, 138, 138, 0.15);
+            color: #5B8A8A;
+            border: 1px solid rgba(91, 138, 138, 0.3);
+        }
+
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .connection-grid {
+                grid-template-columns: 1fr;
+            }
+            .paradox-because {
+                grid-template-columns: 1fr;
+            }
+            .solution-flow {
+                flex-direction: column;
+            }
+            .solution-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Quote Block */
+        .quote-block {
+            border-left: 2px solid #B8856C;
+            padding-left: 24px;
+            margin: 32px 0;
+        }
+
+        .quote-block p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #FAF9F6;
+            margin-bottom: 8px;
+        }
+
+        .quote-source {
+            font-size: 0.85rem;
+            color: #71717A;
+            font-style: normal;
+        }
+
+        /* Callout */
+        .callout {
+            background: rgba(91, 138, 138, 0.1);
+            border-left: 3px solid #5B8A8A;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+
+        .callout.copper {
+            background: rgba(184, 133, 108, 0.1);
+            border-left-color: #B8856C;
+        }
+
+        .callout-title {
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 8px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #27272A;
+            color: #5B8A8A;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #A1A1AA;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .badge.unlock { background: rgba(91, 138, 138, 0.2); color: #5B8A8A; }
+        .badge.strengthen { background: rgba(184, 133, 108, 0.2); color: #B8856C; }
+        .badge.activate { background: rgba(107, 142, 107, 0.2); color: #6B8E6B; }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid #27272A;
+            text-align: center;
+            color: #71717A;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <h1>The PYC Brand Narrative</h1>
+        <p class="subtitle">The strategic thesis that connects every feature, flow, and word</p>
+        <span class="version-badge">Foundation Document — v1.0</span>
+
+        <!-- Hero -->
+        <div class="hero">
+            <p class="hero-tagline">
+                In a world where AI threatens creative jobs,<br>
+                modern life burns people out,<br>
+                and institutions are failing —<br><br>
+                <span class="copper">Creatives are the most threatened.</span><br>
+                <span class="teal">And the most equipped to thrive.</span>
+            </p>
+            <p class="hero-sub">
+                PYC exists to bridge that gap — helping burned-out creative professionals unlock, strengthen, and activate their creative energy so they can pioneer their own path.
+            </p>
+        </div>
+
+        <!-- Section 1: The Threat Stack -->
+        <div class="section">
+            <h2>Section 1 — The Threat Stack</h2>
+            <p>Our audience faces a unique convergence of pressures. Understanding this stack is essential — it's not just marketing copy, it's the lived reality that makes PYC necessary.</p>
+
+            <div class="threat-stack">
+
+                <!-- Existential Threat -->
+                <div class="threat-card existential">
+                    <div class="threat-label">
+                        <span>⚠️</span> Existential Threat
+                    </div>
+                    <div class="threat-title">GenAI is Coming for Creative Jobs</div>
+                    <ul class="threat-list">
+                        <li>AI can now write copy, generate images, compose music, code software</li>
+                        <li>Skills that took years to develop are being commoditized in months</li>
+                        <li>The "safe" creative career paths are becoming unsafe</li>
+                        <li>Degrees and credentials are losing their protective value</li>
+                        <li>"Half my job functions are already automated" — the fear is real</li>
+                    </ul>
+                </div>
+
+                <!-- External Threats -->
+                <div class="threat-card external">
+                    <div class="threat-label">
+                        <span>🔥</span> External Threats
+                    </div>
+                    <div class="threat-title">Modern Society is Engineered Against You</div>
+                    <ul class="threat-list">
+                        <li><strong>Distraction by design:</strong> Algorithms optimized to capture attention, not serve your goals</li>
+                        <li><strong>Burnout as baseline:</strong> Hustle culture + always-on connectivity = chronic exhaustion</li>
+                        <li><strong>Institutions crumbling:</strong> Higher education ROI declining, corporate job security is a myth, retirement funds uncertain</li>
+                        <li><strong>Economic pressure:</strong> Cost of living rising while creative work is devalued</li>
+                        <li><strong>Numbing mechanisms:</strong> Endless entertainment designed to keep you comfortable and passive</li>
+                    </ul>
+                </div>
+
+                <!-- Internal Blockers -->
+                <div class="threat-card internal">
+                    <div class="threat-label">
+                        <span>🧠</span> Internal Blockers
+                    </div>
+                    <div class="threat-title">The Result: A Crisis of Action</div>
+                    <ul class="threat-list">
+                        <li><strong>Fear:</strong> Paralysis disguised as "being practical" or "waiting for the right time"</li>
+                        <li><strong>Anxiety:</strong> Future-focused catastrophizing that prevents present action</li>
+                        <li><strong>Imposter syndrome:</strong> "Who am I to do this?" blocking every bold move</li>
+                        <li><strong>Digital distraction:</strong> Creative brains are MORE susceptible (hello, ADHD)</li>
+                        <li><strong>Negative self-talk:</strong> The inner critic running 24/7, drowning out creative instincts</li>
+                        <li><strong>Disconnection from creative identity:</strong> "I lost who I was before work and the children"</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 2: The Creative Paradox -->
+        <div class="section">
+            <h2>Section 2 — The Creative Paradox</h2>
+
+            <div class="paradox-container">
+                <p class="paradox-statement">
+                    Creatives are <span class="red">most threatened</span> by these forces.<br>
+                    And <span class="copper">most equipped</span> to thrive because of them.
+                </p>
+
+                <div class="paradox-because">
+                    <div class="because-card">
+                        <h5>AI Can't Replace This</h5>
+                        <p>AI can generate, but it can't <em>create</em>. It can't imagine what doesn't exist. It can't feel. It can't empathize. It can't connect seemingly unrelated ideas into novel solutions of value.</p>
+                    </div>
+                    <div class="because-card">
+                        <h5>Creative Energy is the Edge</h5>
+                        <p>Divergent thinking. Emotional intelligence. The ability to see patterns others miss. To move people with story. To solve problems that don't have playbooks. These are creative superpowers.</p>
+                    </div>
+                    <div class="because-card">
+                        <h5>Creatives Can Orchestrate AI</h5>
+                        <p>The best AI operators will be creatives — people who can direct, curate, and elevate AI output. Human + AI together, with the human conducting the orchestra.</p>
+                    </div>
+                    <div class="because-card">
+                        <h5>Novel Problems Need Novel Minds</h5>
+                        <p>The roadblocks in this new world are unprecedented. They require the exact skills creatives have: connecting unrelated ideas, innovating under constraints, building something from nothing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout copper" style="margin-top: 32px;">
+                <div class="callout-title">The Bottom Line</div>
+                <p style="margin-bottom: 0;">Creatives have the power to build, pivot, and evolve into anything they want in this scary new world. <strong>But only if they unlock, strengthen, and activate their creative energy.</strong></p>
+            </div>
+        </div>
+
+        <!-- Section 3: The Solution Framework -->
+        <div class="section">
+            <h2>Section 3 — The Solution Framework</h2>
+
+            <p>PYC is a 90-day transformation system built on three phases. Each phase builds on the last. Skip a phase, and the foundation crumbles.</p>
+
+            <div class="solution-flow">
+                <div class="solution-phase active">
+                    <div class="phase-number">Phase 1 — Days 1-30</div>
+                    <div class="phase-name" style="color: #5B8A8A;">UNLOCK</div>
+                    <div class="phase-desc">Clear what's blocking you</div>
+                </div>
+                <div class="solution-arrow">→</div>
+                <div class="solution-phase">
+                    <div class="phase-number">Phase 2 — Days 31-60</div>
+                    <div class="phase-name" style="color: #B8856C;">STRENGTHEN</div>
+                    <div class="phase-desc">Build self-knowledge</div>
+                </div>
+                <div class="solution-arrow">→</div>
+                <div class="solution-phase">
+                    <div class="phase-number">Phase 3 — Days 61-90</div>
+                    <div class="phase-name" style="color: #6B8E6B;">ACTIVATE</div>
+                    <div class="phase-desc">Deploy creative energy</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 48px;">But Before They Can Unlock...</h3>
+
+            <div class="two-col" style="margin-top: 24px;">
+                <div>
+                    <p>They need to <span class="copper">reconnect with their creative selves</span>.</p>
+                    <p>Before you can do the hard work of transformation, you need to remember why it matters. You need to feel — not just intellectually understand — that you ARE creative. That you WERE someone who made things, who lost track of time in flow, who felt alive when creating.</p>
+                    <p>This is why <strong>Creative Archaeology</strong> comes first. It's not just onboarding. It's the emotional foundation everything else builds on.</p>
+                </div>
+                <div class="callout">
+                    <div class="callout-title">The Research Says</div>
+                    <p style="margin-bottom: 0; font-size: 0.9rem;">"I was concerned that I lost a lot of who I was before work and the children. I'm like, what if I don't know how to get back?"</p>
+                    <p style="margin-bottom: 0; font-size: 0.8rem; color: #71717A; margin-top: 8px;">— User Research, Part 4</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 48px;">The Three Paths</h3>
+            <p>Once unlocked, creative energy needs a direction. PYC offers three:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>For Who</th>
+                        <th>The Move</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong class="teal">PIVOT</strong></td>
+                        <td>Your current path is fundamentally misaligned with who you've become</td>
+                        <td>Change direction entirely. Leave your field. Start fresh.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="copper">BUILD</strong></td>
+                        <td>You have something inside that needs to exist in the world</td>
+                        <td>Create something of your own. A business, product, or project.</td>
+                    </tr>
+                    <tr>
+                        <td><strong class="green">EVOLVE</strong></td>
+                        <td>The foundation is right but the execution is stale</td>
+                        <td>Transform where you are. Level up your current role.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 4: How Every Feature Connects -->
+        <div class="section">
+            <h2>Section 4 — How Every Feature Connects to the Narrative</h2>
+
+            <p>Every feature in PYC should tie back to the brand thesis. If it doesn't address a threat, support a phase, or advance a path — it doesn't belong.</p>
+
+            <div class="connection-grid">
+                <div class="connection-card">
+                    <h5>Creative Archaeology</h5>
+                    <p>Addresses: Disconnection from creative identity (Internal Blocker)</p>
+                    <p>Delivers: Emotional foundation, personalization data, "being seen"</p>
+                    <span class="connection-tag">Pre-Phase • Foundation</span>
+                </div>
+                <div class="connection-card">
+                    <h5>Morning Spark</h5>
+                    <p>Addresses: Numbing mechanisms, distraction (External Threat)</p>
+                    <p>Delivers: Daily creative reconnection, joy before productivity</p>
+                    <span class="connection-tag">Ongoing • Creative Energy</span>
+                </div>
+                <div class="connection-card">
+                    <h5>Co-Pilot with Memory</h5>
+                    <p>Addresses: Isolation, generic advice (Why competitors fail)</p>
+                    <p>Delivers: Personalized guidance that "gets" their specific situation</p>
+                    <span class="connection-tag">All Phases • Connection Layer</span>
+                </div>
+                <div class="connection-card">
+                    <h5>Fear Interrupt Protocol</h5>
+                    <p>Addresses: Fear and paralysis (Internal Blocker)</p>
+                    <p>Delivers: Real-time nervous system reset, breaks fear-avoidance cycle</p>
+                    <span class="connection-tag badge unlock">UNLOCK • Sprint 1</span>
+                </div>
+                <div class="connection-card">
+                    <h5>SOS Button</h5>
+                    <p>Addresses: Burnout, anxiety (External + Internal)</p>
+                    <p>Delivers: Immediate breathwork, guided reset when overwhelmed</p>
+                    <span class="connection-tag">Emergency • Any Phase</span>
+                </div>
+                <div class="connection-card">
+                    <h5>Commitment Lock</h5>
+                    <p>Addresses: Escape hatches, "I'll do it later" (Internal Blocker)</p>
+                    <p>Delivers: Accountability architecture, makes retreat harder than progress</p>
+                    <span class="connection-tag badge unlock">UNLOCK • Sprint 2</span>
+                </div>
+                <div class="connection-card">
+                    <h5>Evidence System (Proofs/Wins)</h5>
+                    <p>Addresses: Imposter syndrome, "nothing's working" (Internal Blocker)</p>
+                    <p>Delivers: Concrete proof of progress, visible momentum</p>
+                    <span class="connection-tag">All Phases • Proof Layer</span>
+                </div>
+                <div class="connection-card">
+                    <h5>Path-Specific Content</h5>
+                    <p>Addresses: Generic advice (Why competitors fail)</p>
+                    <p>Delivers: Relevant guidance for PIVOT, BUILD, or EVOLVE</p>
+                    <span class="connection-tag">All Phases • Personalization</span>
+                </div>
+                <div class="connection-card">
+                    <h5>Human Edge Audit</h5>
+                    <p>Addresses: AI replacing creative jobs (Existential Threat)</p>
+                    <p>Delivers: Clarity on irreplaceable skills, AI-proof positioning</p>
+                    <span class="connection-tag badge activate">ACTIVATE • Sprint 8</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Brand Voice -->
+        <div class="section">
+            <h2>Section 5 — Brand Voice Examples</h2>
+
+            <p>The PYC voice is warm but direct. It acknowledges the fear without feeding it. It's the friend who sees you clearly and won't let you stay stuck.</p>
+
+            <div class="voice-example">
+                <div class="voice-label">Addressing the Existential Threat</div>
+                <p class="voice-text">"Half my job functions are already automated. My degree was supposed to be my ticket to security, but it's so specialized... and I'm still paying for that 'investment' eight years later."</p>
+                <p class="voice-context">From Sprint 1, Lesson 1 Monologue — Names the fear directly so users feel seen</p>
+            </div>
+
+            <div class="voice-example">
+                <div class="voice-label">Addressing the Paradox</div>
+                <p class="voice-text">"The skills AI can't replace? All creative: seeing what others miss, connecting unrelated ideas, moving people with story, solving problems that don't have playbooks. Your creative energy is your unfair advantage."</p>
+                <p class="voice-context">From Creative Archaeology, "Why Creativity" module — Reframes threat as opportunity</p>
+            </div>
+
+            <div class="voice-example">
+                <div class="voice-label">Addressing Internal Blockers</div>
+                <p class="voice-text">"Fear has disguises. It shows up as 'I need to research this more.' As 'now's not the right time.' As 'let me just fix this one thing first.' These aren't legitimate concerns. They're fear wearing a productivity mask."</p>
+                <p class="voice-context">From Sprint 1 Learnings — Names the pattern so they can see it</p>
+            </div>
+
+            <div class="voice-example">
+                <div class="voice-label">Addressing Disconnection</div>
+                <p class="voice-text">"Before we talk about where you're going, let's remember where you came from. This will take about 5 minutes. There are no wrong answers."</p>
+                <p class="voice-context">From Creative Archaeology Welcome — Gentle invitation to reconnect</p>
+            </div>
+
+            <div class="voice-example">
+                <div class="voice-label">The Profile Reveal (Emotional Peak)</div>
+                <p class="voice-text">"You're a dormant musician. You stopped creating 5-10 years ago, when work took over. But creativity didn't leave you. You still solve problems in unusual ways. When you were making music, time disappeared. That feeling is still available to you."</p>
+                <p class="voice-context">From Creative Archaeology Profile Reveal — The mirror moment</p>
+            </div>
+        </div>
+
+        <!-- Section 6: Using This Document -->
+        <div class="section">
+            <h2>Section 6 — How to Use This Document</h2>
+
+            <div class="two-col">
+                <div>
+                    <h4>When Writing Copy</h4>
+                    <p>Every piece of copy should connect to at least one element of the threat stack or solution framework. Ask: "Which threat does this address? Which phase does this serve? Which path does this support?"</p>
+
+                    <h4>When Building Features</h4>
+                    <p>Before building, map the feature to the narrative. If you can't articulate how it connects to the thesis, reconsider whether it belongs.</p>
+
+                    <h4>When Making Decisions</h4>
+                    <p>Use the paradox as a filter. Does this help creatives recognize they're both threatened AND equipped? Does it move them from stuck to action?</p>
+                </div>
+                <div>
+                    <h4>The Litmus Test</h4>
+                    <div class="callout">
+                        <p style="margin-bottom: 8px;"><strong>Does this feature/copy/decision...</strong></p>
+                        <ul style="padding-left: 16px; margin-bottom: 0; color: #A1A1AA; font-size: 0.9rem;">
+                            <li style="margin-bottom: 4px;">Address a real threat our audience faces?</li>
+                            <li style="margin-bottom: 4px;">Help them reconnect with their creative identity?</li>
+                            <li style="margin-bottom: 4px;">Move them through UNLOCK → STRENGTHEN → ACTIVATE?</li>
+                            <li style="margin-bottom: 4px;">Support their specific path (PIVOT/BUILD/EVOLVE)?</li>
+                            <li>Deliver real value (not just content)?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="section">
+            <h2>Related Briefs</h2>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← Strategy Hub</a>
+                <a href="brand-narrative.html" class="nav-link active">Brand Narrative</a>
+                <a href="creative-archaeology.html" class="nav-link">Creative Archaeology + Freemium</a>
+                <a href="paid-journey.html" class="nav-link">Paid Journey Value</a>
+                <a href="sprint-structure.html" class="nav-link">Sprint Structure</a>
+                <a href="co-pilot.html" class="nav-link">Co-Pilot System</a>
+                <a href="evidence-system.html" class="nav-link">Evidence System</a>
+            </div>
+        </div>
+
+        <footer>
+            PYC Brand Narrative Spec — v1.0 — January 2026<br>
+            <span style="color: #B8856C;">The thesis that connects everything</span>
+        </footer>
+
+    </div>
+</body>
+</html>

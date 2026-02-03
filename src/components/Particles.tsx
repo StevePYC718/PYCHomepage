@@ -21,10 +21,10 @@ type Particle = {
 export function Particles({
   className,
   color = 'rgba(99,255,173,0.85)',
-  density = 0.5,
-  speed = 0.95,
+  density = 0.45,
+  speed = 0.85,
   size = 1.2,
-  maxParticles = 80,
+  maxParticles = 45,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -41,6 +41,19 @@ export function Particles({
       typeof window !== 'undefined' &&
       window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const saveData =
+      typeof navigator !== 'undefined' &&
+      (navigator as any).connection &&
+      (navigator as any).connection.saveData;
+
+    const deviceMemory =
+      typeof navigator !== 'undefined' && (navigator as any).deviceMemory
+        ? Number((navigator as any).deviceMemory)
+        : undefined;
+
+    const lowPower = saveData || (deviceMemory && deviceMemory <= 4);
+    const disableAnimation = prefersReduced || saveData;
 
     // create particles
     let particles: Particle[] = [];
@@ -65,9 +78,12 @@ export function Particles({
       canvasEl.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
+      const adjustedDensity = lowPower ? density * 0.5 : density;
+      const allowedParticles = lowPower ? Math.min(maxParticles, 32) : maxParticles;
+
       const targetCount = Math.min(
-        maxParticles,
-        Math.floor(width * height * baseDensity * density)
+        allowedParticles,
+        Math.floor(width * height * baseDensity * adjustedDensity)
       );
 
       // regenerate to fit new area
@@ -76,19 +92,20 @@ export function Particles({
         const angle = upward
           ? -Math.PI / 2 + (Math.random() - 0.5) * (Math.PI / 3)
           : Math.random() * Math.PI * 2;
-        const s = (0.3 + Math.random() * 1.2) * speed; // 0.3..1.5 * speed
+        const speedMultiplier = lowPower ? speed * 0.7 : speed; // slow down on low-power
+        const s = (0.25 + Math.random() * 1.0) * speedMultiplier; // 0.25..1.25 * speed
         return {
           x: Math.random() * width,
           y: Math.random() * height,
           vx: Math.cos(angle) * s * (upward ? 0.4 : 1),
           vy: Math.sin(angle) * s,
           r: (1.0 + Math.random() * 1.6) * size, // radius 1.0..2.6 * size
-          a: 0.55 + Math.random() * 0.4,          // alpha 0.55..0.95
+          a: 0.75 + Math.random() * 0.25,         // alpha 0.75..1.0
         };
       });
 
       // draw once if reduced motion
-      if (prefersReduced) {
+      if (disableAnimation) {
         draw(true);
       }
     }
@@ -129,7 +146,7 @@ export function Particles({
     resize();
     window.addEventListener('resize', resize, { passive: true });
 
-    if (!prefersReduced) {
+    if (!disableAnimation) {
       rafRef.current = requestAnimationFrame(loop);
     }
 

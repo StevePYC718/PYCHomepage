@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYC Evidence System — Proof You Can See</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #FAF9F6;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(107, 142, 107, 0.15);
+            color: #6B8E6B;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 48px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(91, 138, 138, 0.2);
+        }
+
+        .section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #FAF9F6;
+        }
+
+        .section h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #B8856C;
+        }
+
+        p {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .teal { color: #5B8A8A; }
+        .copper { color: #B8856C; }
+        .green { color: #6B8E6B; }
+        .red { color: #A65D57; }
+        .cream { color: #FAF9F6; }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(180deg, rgba(107, 142, 107, 0.08) 0%, transparent 100%);
+            border-radius: 24px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6B8E6B, transparent);
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #FAF9F6;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: #A1A1AA;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #18181B;
+            color: #5B8A8A;
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #27272A;
+            vertical-align: top;
+            color: #A1A1AA;
+        }
+
+        td strong {
+            color: #FAF9F6;
+        }
+
+        tr:hover td {
+            background: rgba(91, 138, 138, 0.03);
+        }
+
+        /* Evidence Type Cards */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .evidence-card {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 28px;
+            border-top: 3px solid;
+        }
+
+        .evidence-card.wins { border-top-color: #6B8E6B; }
+        .evidence-card.milestones { border-top-color: #B8856C; }
+        .evidence-card.streaks { border-top-color: #5B8A8A; }
+        .evidence-card.artifacts { border-top-color: #C4A04A; }
+
+        .evidence-icon {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .evidence-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 8px;
+        }
+
+        .evidence-desc {
+            font-size: 0.9rem;
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .evidence-examples {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .evidence-examples-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #71717A;
+            margin-bottom: 8px;
+        }
+
+        .evidence-examples-list {
+            font-size: 0.8rem;
+            color: #A1A1AA;
+        }
+
+        .evidence-examples-list div {
+            padding: 4px 0;
+            border-bottom: 1px solid #27272A;
+        }
+
+        .evidence-examples-list div:last-child {
+            border-bottom: none;
+        }
+
+        /* Milestone Timeline */
+        .milestone-timeline {
+            position: relative;
+            margin: 32px 0;
+        }
+
+        .milestone-row {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .milestone-row::before {
+            content: '';
+            position: absolute;
+            left: 39px;
+            top: 24px;
+            bottom: -24px;
+            width: 2px;
+            background: #27272A;
+        }
+
+        .milestone-row:last-child::before {
+            display: none;
+        }
+
+        .milestone-day {
+            text-align: center;
+        }
+
+        .milestone-day-num {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #FAF9F6;
+        }
+
+        .milestone-day-label {
+            font-size: 0.7rem;
+            color: #71717A;
+            text-transform: uppercase;
+        }
+
+        .milestone-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #5B8A8A;
+            margin: 8px auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .milestone-row.phase .milestone-dot { background: #B8856C; }
+        .milestone-row.complete .milestone-dot { background: #6B8E6B; }
+
+        .milestone-content {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .milestone-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 4px;
+        }
+
+        .milestone-type {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #5B8A8A;
+            margin-bottom: 8px;
+        }
+
+        .milestone-row.phase .milestone-type { color: #B8856C; }
+        .milestone-row.complete .milestone-type { color: #6B8E6B; }
+
+        .milestone-unlocks {
+            font-size: 0.85rem;
+            color: #A1A1AA;
+        }
+
+        /* Win Logger Mock */
+        .win-logger-mock {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+            max-width: 400px;
+        }
+
+        .win-logger-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .win-logger-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(107, 142, 107, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .win-logger-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+        }
+
+        .win-logger-subtitle {
+            font-size: 0.8rem;
+            color: #71717A;
+        }
+
+        .win-logger-input {
+            background: #27272A;
+            border: 1px solid #3f3f46;
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #FAF9F6;
+            font-size: 0.9rem;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .win-logger-input::placeholder {
+            color: #71717A;
+        }
+
+        .win-logger-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .win-tag {
+            background: #27272A;
+            border: 1px solid #3f3f46;
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            color: #A1A1AA;
+            cursor: pointer;
+        }
+
+        .win-tag.selected {
+            background: rgba(107, 142, 107, 0.15);
+            border-color: #6B8E6B;
+            color: #6B8E6B;
+        }
+
+        .win-logger-btn {
+            background: #6B8E6B;
+            color: #FAF9F6;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* Progress Display Mock */
+        .progress-mock {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .progress-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+        }
+
+        .progress-day {
+            font-size: 0.85rem;
+            color: #5B8A8A;
+        }
+
+        .progress-bar-container {
+            background: #27272A;
+            border-radius: 8px;
+            height: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #5B8A8A 0%, #5B8A8A 33%, #B8856C 33%, #B8856C 66%, #6B8E6B 66%, #6B8E6B 100%);
+            width: 45%;
+        }
+
+        .progress-phases {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+        }
+
+        .progress-phase {
+            text-align: center;
+        }
+
+        .progress-phase-label {
+            color: #71717A;
+        }
+
+        .progress-phase.active .progress-phase-label {
+            color: #5B8A8A;
+            font-weight: 600;
+        }
+
+        .progress-phase.complete .progress-phase-label {
+            color: #6B8E6B;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .stat-card {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .stat-card:nth-child(1) .stat-number { color: #6B8E6B; }
+        .stat-card:nth-child(2) .stat-number { color: #5B8A8A; }
+        .stat-card:nth-child(3) .stat-number { color: #B8856C; }
+        .stat-card:nth-child(4) .stat-number { color: #C4A04A; }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #71717A;
+        }
+
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin: 32px 0;
+        }
+
+        /* Callout */
+        .callout {
+            background: rgba(91, 138, 138, 0.08);
+            border: 1px solid rgba(91, 138, 138, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .callout.green {
+            background: rgba(107, 142, 107, 0.08);
+            border-color: rgba(107, 142, 107, 0.2);
+        }
+
+        .callout.copper {
+            background: rgba(184, 133, 108, 0.08);
+            border-color: rgba(184, 133, 108, 0.2);
+        }
+
+        /* Badge Gallery */
+        .badge-gallery {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+
+        .badge {
+            width: 72px;
+            text-align: center;
+        }
+
+        .badge-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            font-size: 1.5rem;
+            background: #27272A;
+            border: 2px solid #3f3f46;
+        }
+
+        .badge-icon.earned {
+            background: rgba(184, 133, 108, 0.15);
+            border-color: #B8856C;
+        }
+
+        .badge-label {
+            font-size: 0.7rem;
+            color: #71717A;
+        }
+
+        .badge-icon.earned + .badge-label {
+            color: #B8856C;
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .nav-link {
+            background: #18181B;
+            color: #A1A1AA;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: #27272A;
+            color: #FAF9F6;
+        }
+
+        .nav-link.active {
+            background: rgba(107, 142, 107, 0.15);
+            color: #6B8E6B;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid #27272A;
+            text-align: center;
+            color: #71717A;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .evidence-grid, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Evidence System</h1>
+        <p class="subtitle">How users see and feel their progress — proof against imposter syndrome</p>
+        <span class="version-badge">UX Architecture Brief • v1.0</span>
+
+        <!-- Hero -->
+        <div class="hero">
+            <p class="hero-tagline">
+                Transformation without proof feels like imagination.<br>
+                <span class="green">Evidence makes change real.</span>
+            </p>
+            <p class="hero-sub">
+                The Evidence System captures, displays, and celebrates progress throughout the 90-day journey. It's the antidote to "nothing's working" and the proof users need when imposter syndrome strikes.
+            </p>
+        </div>
+
+        <!-- Section 1: Why Evidence Matters -->
+        <div class="section">
+            <h2>Section 1 — Why Evidence Matters</h2>
+
+            <p>Internal transformation is invisible. Users often can't see their own growth because it happens gradually. Without evidence, they discount progress and quit — or finish and forget how far they came.</p>
+
+            <div class="callout green">
+                <p style="margin: 0; font-size: 1.1rem;"><strong class="cream">The Evidence Principle:</strong> What gets measured gets managed. What gets celebrated gets repeated. The Evidence System does both — it tracks progress <em>and</em> makes progress feel good.</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h4>Without Evidence</h4>
+                    <p>"I've been doing this for 30 days and I don't feel any different."</p>
+                    <p>"I don't know if this is actually working."</p>
+                    <p>"Maybe I'm just not cut out for this."</p>
+                    <p style="font-size: 0.85rem; color: #A65D57;">→ Quits at Day 45</p>
+                </div>
+                <div>
+                    <h4>With Evidence</h4>
+                    <p>"I've logged 23 wins. I ran the Fear Interrupt 6 times. I finished Sprint 3."</p>
+                    <p>"I can see exactly where I was on Day 1 vs. now."</p>
+                    <p>"The proof is right here. I'm different."</p>
+                    <p style="font-size: 0.85rem; color: #6B8E6B;">→ Finishes and keeps going</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Four Types of Evidence -->
+        <div class="section">
+            <h2>Section 2 — The Four Types of Evidence</h2>
+
+            <p>PYC captures different kinds of proof to create a complete picture of progress.</p>
+
+            <div class="evidence-grid">
+                <div class="evidence-card wins">
+                    <div class="evidence-icon">🏆</div>
+                    <div class="evidence-title">Wins</div>
+                    <div class="evidence-desc">User-logged victories, big and small. The things that went right. Proof that action creates results.</div>
+                    <div class="evidence-examples">
+                        <div class="evidence-examples-label">Examples</div>
+                        <div class="evidence-examples-list">
+                            <div>"Sent the pitch email I'd been avoiding"</div>
+                            <div>"Had the difficult conversation with my boss"</div>
+                            <div>"Finished first draft of my project"</div>
+                            <div>"Used Fear Interrupt and moved through it"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evidence-card milestones">
+                    <div class="evidence-icon">🎯</div>
+                    <div class="evidence-title">Milestones</div>
+                    <div class="evidence-desc">System-tracked achievements. Sprint completions, phase transitions, tool mastery. The structure rewards consistency.</div>
+                    <div class="evidence-examples">
+                        <div class="evidence-examples-label">Examples</div>
+                        <div class="evidence-examples-list">
+                            <div>"Completed Sprint 1: Break Free From Blocks"</div>
+                            <div>"Entered Phase 2: STRENGTHEN"</div>
+                            <div>"Mastered all 9 tools"</div>
+                            <div>"Completed 90-day journey"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evidence-card streaks">
+                    <div class="evidence-icon">🔥</div>
+                    <div class="evidence-title">Streaks</div>
+                    <div class="evidence-desc">Consistency tracking. Days in a row, weeks completed, momentum maintained. The habit becoming automatic.</div>
+                    <div class="evidence-examples">
+                        <div class="evidence-examples-label">Examples</div>
+                        <div class="evidence-examples-list">
+                            <div>"7-day streak"</div>
+                            <div>"3 sprints completed without missing a day"</div>
+                            <div>"Morning Spark: 14 days straight"</div>
+                            <div>"Perfect week (all days completed)"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evidence-card artifacts">
+                    <div class="evidence-icon">📄</div>
+                    <div class="evidence-title">Artifacts</div>
+                    <div class="evidence-desc">Created documents and captured insights. The tangible outputs of reflection and tool use.</div>
+                    <div class="evidence-examples">
+                        <div class="evidence-examples-label">Examples</div>
+                        <div class="evidence-examples-list">
+                            <div>"Block Breaker Blueprint (27 reflections)"</div>
+                            <div>"Vision Statement (committed Day 18)"</div>
+                            <div>"Personal Operating Profile"</div>
+                            <div>"Human Edge Audit results"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Win Logging -->
+        <div class="section">
+            <h2>Section 3 — Win Logging System</h2>
+
+            <p>The heart of the Evidence System. Users capture wins as they happen — training themselves to notice progress instead of dismissing it.</p>
+
+            <div class="two-col">
+                <div>
+                    <div class="win-logger-mock">
+                        <div class="win-logger-header">
+                            <div class="win-logger-icon">🏆</div>
+                            <div>
+                                <div class="win-logger-title">Log a Win</div>
+                                <div class="win-logger-subtitle">What went right today?</div>
+                            </div>
+                        </div>
+                        <input type="text" class="win-logger-input" placeholder="I finally sent that email..." />
+                        <div class="win-logger-tags">
+                            <span class="win-tag selected">Action taken</span>
+                            <span class="win-tag">Fear overcome</span>
+                            <span class="win-tag">Insight gained</span>
+                            <span class="win-tag">Connection made</span>
+                        </div>
+                        <button class="win-logger-btn">Log Win</button>
+                    </div>
+                </div>
+                <div>
+                    <h4>Win Categories</h4>
+                    <table>
+                        <tr><td><strong>Action taken</strong></td><td>Did something you'd been avoiding</td></tr>
+                        <tr><td><strong>Fear overcome</strong></td><td>Moved through resistance</td></tr>
+                        <tr><td><strong>Insight gained</strong></td><td>Realized something important</td></tr>
+                        <tr><td><strong>Connection made</strong></td><td>Relationship or opportunity opened</td></tr>
+                        <tr><td><strong>Skill applied</strong></td><td>Used a PYC tool in real life</td></tr>
+                        <tr><td><strong>Milestone hit</strong></td><td>Reached a goal or checkpoint</td></tr>
+                    </table>
+
+                    <h4 style="margin-top: 24px;">Design Principles</h4>
+                    <p>• Low friction — log in under 30 seconds<br>
+                    • Prompted but not nagging<br>
+                    • Categories help pattern recognition<br>
+                    • Visible from home screen</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Milestone System -->
+        <div class="section">
+            <h2>Section 4 — Milestone System</h2>
+
+            <p>Automatic recognition for structural achievements. These create the rhythm of progress.</p>
+
+            <div class="milestone-timeline">
+                <div class="milestone-row">
+                    <div class="milestone-day">
+                        <div class="milestone-day-num">10</div>
+                        <div class="milestone-day-label">Day</div>
+                        <div class="milestone-dot"></div>
+                    </div>
+                    <div class="milestone-content">
+                        <div class="milestone-type">Sprint Complete</div>
+                        <div class="milestone-title">Sprint 1: Break Free From Blocks</div>
+                        <div class="milestone-unlocks">Fear Interrupt mastered • First badge earned • Phase 1 progress: 33%</div>
+                    </div>
+                </div>
+
+                <div class="milestone-row">
+                    <div class="milestone-day">
+                        <div class="milestone-day-num">20</div>
+                        <div class="milestone-day-label">Day</div>
+                        <div class="milestone-dot"></div>
+                    </div>
+                    <div class="milestone-content">
+                        <div class="milestone-type">Sprint Complete</div>
+                        <div class="milestone-title">Sprint 2: Set Your Direction</div>
+                        <div class="milestone-unlocks">Vision locked • Path confirmed (Pivot/Build/Evolve) • Commitment made</div>
+                    </div>
+                </div>
+
+                <div class="milestone-row phase">
+                    <div class="milestone-day">
+                        <div class="milestone-day-num">30</div>
+                        <div class="milestone-day-label">Day</div>
+                        <div class="milestone-dot"></div>
+                    </div>
+                    <div class="milestone-content">
+                        <div class="milestone-type">Phase Complete</div>
+                        <div class="milestone-title">Phase 1: UNLOCK Complete</div>
+                        <div class="milestone-unlocks">3 sprints done • 3 tools mastered • Internal blocks cleared • Direction set</div>
+                    </div>
+                </div>
+
+                <div class="milestone-row">
+                    <div class="milestone-day">
+                        <div class="milestone-day-num">45</div>
+                        <div class="milestone-day-label">Day</div>
+                        <div class="milestone-dot"></div>
+                    </div>
+                    <div class="milestone-content">
+                        <div class="milestone-type">Midpoint Check</div>
+                        <div class="milestone-title">Halfway There</div>
+                        <div class="milestone-unlocks">Special Co-Pilot session • Before/after reflection • Recalibration opportunity</div>
+                    </div>
+                </div>
+
+                <div class="milestone-row phase">
+                    <div class="milestone-day">
+                        <div class="milestone-day-num">60</div>
+                        <div class="milestone-day-label">Day</div>
+                        <div class="milestone-dot"></div>
+                    </div>
+                    <div class="milestone-content">
+                        <div class="milestone-type">Phase Complete</div>
+                        <div class="milestone-title">Phase 2: STRENGTHEN Complete</div>
+                        <div class="milestone-unlocks">6 sprints done • 6 tools mastered • Personal Operating Profile built</div>
+                    </div>
+                </div>
+
+                <div class="milestone-row complete">
+                    <div class="milestone-day">
+                        <div class="milestone-day-num">90</div>
+                        <div class="milestone-day-label">Day</div>
+                        <div class="milestone-dot"></div>
+                    </div>
+                    <div class="milestone-content">
+                        <div class="milestone-type">Journey Complete</div>
+                        <div class="milestone-title">Completion Ceremony</div>
+                        <div class="milestone-unlocks">All 9 tools mastered • Full Blueprint complete • Graduation certificate • Transformation documented</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Progress Display -->
+        <div class="section">
+            <h2>Section 5 — Progress Display</h2>
+
+            <p>Evidence needs to be visible. Here's how progress appears throughout the app.</p>
+
+            <div class="progress-mock">
+                <div class="progress-header">
+                    <div class="progress-title">Your Journey</div>
+                    <div class="progress-day">Day 41 of 90</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="progress-phases">
+                    <div class="progress-phase complete">
+                        <div class="progress-phase-label">UNLOCK</div>
+                        <div style="color: #6B8E6B; font-size: 0.7rem;">✓ Complete</div>
+                    </div>
+                    <div class="progress-phase active">
+                        <div class="progress-phase-label">STRENGTHEN</div>
+                        <div style="color: #5B8A8A; font-size: 0.7rem;">In Progress</div>
+                    </div>
+                    <div class="progress-phase">
+                        <div class="progress-phase-label">ACTIVATE</div>
+                        <div style="color: #71717A; font-size: 0.7rem;">Locked</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">23</div>
+                    <div class="stat-label">Wins Logged</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Sprints Done</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Lessons Complete</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Day Streak</div>
+                </div>
+            </div>
+
+            <h4>Where Evidence Appears</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>What's Shown</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Home Screen</strong></td>
+                        <td>Day count, current streak, recent wins, progress bar</td>
+                        <td>Daily motivation, at-a-glance status</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Proofs Tab</strong></td>
+                        <td>Full wins history, all badges, complete stats</td>
+                        <td>Deep dive into accumulated evidence</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sprint Debrief</strong></td>
+                        <td>Sprint-specific wins, lessons learned, badge earned</td>
+                        <td>Closure and celebration at sprint end</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blueprint</strong></td>
+                        <td>All reflections, tool outputs, insights captured</td>
+                        <td>Artifact of the journey</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Co-Pilot</strong></td>
+                        <td>Referenced in conversations</td>
+                        <td>"You've logged 5 wins this week..."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 6: Badge System -->
+        <div class="section">
+            <h2>Section 6 — Badge System</h2>
+
+            <p>Visual markers of achievement. Badges provide recognition and create a collection effect.</p>
+
+            <div class="badge-gallery">
+                <div class="badge">
+                    <div class="badge-icon earned">🚀</div>
+                    <div class="badge-label">Day 1</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon earned">💪</div>
+                    <div class="badge-label">Sprint 1</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon earned">🎯</div>
+                    <div class="badge-label">Sprint 2</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon earned">⚡</div>
+                    <div class="badge-label">Sprint 3</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon earned">🔓</div>
+                    <div class="badge-label">Phase 1</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🛡️</div>
+                    <div class="badge-label">Sprint 4</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🧠</div>
+                    <div class="badge-label">Sprint 5</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🔄</div>
+                    <div class="badge-label">Sprint 6</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">💡</div>
+                    <div class="badge-label">Sprint 7</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">❤️</div>
+                    <div class="badge-label">Sprint 8</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">✅</div>
+                    <div class="badge-label">Sprint 9</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🏆</div>
+                    <div class="badge-label">Complete</div>
+                </div>
+            </div>
+
+            <div class="callout copper">
+                <p style="margin: 0;"><strong class="copper">Design Note:</strong> Badges use the copper (#B8856C) accent when earned — the "reward" color in the Studio Teal system. Locked badges are gray. This creates visual momentum as the collection fills with color.</p>
+            </div>
+        </div>
+
+        <!-- Section 7: Before/After Capture -->
+        <div class="section">
+            <h2>Section 7 — Before/After Capture</h2>
+
+            <p>The most powerful evidence is the contrast between Day 1 and Day 90. We capture this explicitly.</p>
+
+            <div class="two-col">
+                <div>
+                    <h4>Day 1 Capture (Onboarding)</h4>
+                    <p>During Creative Archaeology, we capture:</p>
+                    <table>
+                        <tr><td>Creative dormancy duration</td></tr>
+                        <tr><td>Primary blockers identified</td></tr>
+                        <tr><td>Current emotional state</td></tr>
+                        <tr><td>What they want to change</td></tr>
+                        <tr><td>Biggest fear about trying</td></tr>
+                    </table>
+                </div>
+                <div>
+                    <h4>Day 90 Capture (Completion)</h4>
+                    <p>During Completion Ceremony, we capture:</p>
+                    <table>
+                        <tr><td>Current creative state</td></tr>
+                        <tr><td>Blockers overcome</td></tr>
+                        <tr><td>Biggest transformation</td></tr>
+                        <tr><td>What they built/started/changed</td></tr>
+                        <tr><td>Message to Day 1 self</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="callout">
+                <p style="margin: 0;"><strong class="cream">The Before/After Artifact:</strong> At completion, users see their Day 1 answers alongside their Day 90 answers. This is often an emotional moment — concrete proof they're different. This artifact becomes their testimonial (with permission) and their personal proof for life.</p>
+            </div>
+        </div>
+
+        <!-- Section 8: Implementation -->
+        <div class="section">
+            <h2>Section 8 — Implementation Notes</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Data Source</th>
+                        <th>Display Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wins</strong></td>
+                        <td>user_wins table (text, category, date, sprint)</td>
+                        <td>Home, Proofs tab, Co-Pilot context</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Milestones</strong></td>
+                        <td>Computed from user_progress (sprint/phase completion)</td>
+                        <td>Home, Proofs tab, push notifications</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Streaks</strong></td>
+                        <td>Computed from daily_completions</td>
+                        <td>Home (current streak), Proofs tab (history)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Badges</strong></td>
+                        <td>user_badges table (unlocked when conditions met)</td>
+                        <td>Home (recent), Proofs tab (collection)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Before/After</strong></td>
+                        <td>creative_profiles (day 1) + completion_ceremony (day 90)</td>
+                        <td>Completion screen, exportable artifact</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin-top: 32px;">Notification Strategy</h4>
+            <p>Evidence moments trigger celebration, not nagging:</p>
+            <table>
+                <tr><td><strong>Sprint complete</strong></td><td>Push + in-app celebration</td></tr>
+                <tr><td><strong>Phase complete</strong></td><td>Push + special animation + Co-Pilot acknowledgment</td></tr>
+                <tr><td><strong>Streak milestone (7, 14, 30)</strong></td><td>Push + badge unlock</td></tr>
+                <tr><td><strong>Win logged</strong></td><td>Subtle in-app confirmation only</td></tr>
+                <tr><td><strong>Journey complete</strong></td><td>Full ceremony experience</td></tr>
+            </table>
+        </div>
+
+        <!-- Navigation -->
+        <div class="section">
+            <h2>Related Briefs</h2>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← Strategy Hub</a>
+                <a href="brand-narrative.html" class="nav-link">Brand Narrative</a>
+                <a href="creative-archaeology.html" class="nav-link">Creative Archaeology + Freemium</a>
+                <a href="paid-journey.html" class="nav-link">Paid Journey Value</a>
+                <a href="sprint-structure.html" class="nav-link">Sprint Structure</a>
+                <a href="co-pilot.html" class="nav-link">Co-Pilot System</a>
+                <a href="evidence-system.html" class="nav-link active">Evidence System</a>
+            </div>
+        </div>
+
+        <footer>
+            PYC Evidence System Spec — v1.0 — January 2026<br>
+            <span style="color: #6B8E6B;">Proof you can see, progress you can feel</span>
+        </footer>
+
+    </div>
+</body>
+</html>

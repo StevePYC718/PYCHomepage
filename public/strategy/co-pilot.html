@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYC Co-Pilot System — The AI That Gets You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #FAF9F6;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(91, 138, 138, 0.15);
+            color: #5B8A8A;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 48px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(91, 138, 138, 0.2);
+        }
+
+        .section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #FAF9F6;
+        }
+
+        .section h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #B8856C;
+        }
+
+        p {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .teal { color: #5B8A8A; }
+        .copper { color: #B8856C; }
+        .green { color: #6B8E6B; }
+        .red { color: #A65D57; }
+        .cream { color: #FAF9F6; }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(180deg, rgba(91, 138, 138, 0.08) 0%, transparent 100%);
+            border-radius: 24px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #5B8A8A, transparent);
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #FAF9F6;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: #A1A1AA;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #18181B;
+            color: #5B8A8A;
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #27272A;
+            vertical-align: top;
+            color: #A1A1AA;
+        }
+
+        td strong {
+            color: #FAF9F6;
+        }
+
+        tr:hover td {
+            background: rgba(91, 138, 138, 0.03);
+        }
+
+        /* Memory Architecture */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .memory-card {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 28px;
+            border-left: 4px solid #5B8A8A;
+        }
+
+        .memory-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 12px;
+        }
+
+        .memory-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 12px;
+        }
+
+        .memory-desc {
+            font-size: 0.9rem;
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .memory-data {
+            background: rgba(91, 138, 138, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .memory-data-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 8px;
+        }
+
+        .memory-data-list {
+            font-size: 0.8rem;
+            color: #71717A;
+        }
+
+        .memory-data-list span {
+            display: inline-block;
+            background: #27272A;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin: 2px 4px 2px 0;
+        }
+
+        /* Conversation Examples */
+        .convo-block {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 24px 0;
+        }
+
+        .convo-context {
+            font-size: 0.8rem;
+            color: #71717A;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #27272A;
+        }
+
+        .convo-message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .convo-message:last-child {
+            margin-bottom: 0;
+        }
+
+        .convo-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .convo-avatar.user {
+            background: rgba(184, 133, 108, 0.2);
+            color: #B8856C;
+        }
+
+        .convo-avatar.copilot {
+            background: rgba(91, 138, 138, 0.2);
+            color: #5B8A8A;
+        }
+
+        .convo-content {
+            flex: 1;
+        }
+
+        .convo-sender {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .convo-message.user .convo-sender { color: #B8856C; }
+        .convo-message.copilot .convo-sender { color: #5B8A8A; }
+
+        .convo-text {
+            font-size: 0.9rem;
+            color: #A1A1AA;
+            line-height: 1.6;
+        }
+
+        .convo-text em {
+            color: #5B8A8A;
+            font-style: normal;
+        }
+
+        /* Touchpoint Cards */
+        .touchpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .touchpoint-card {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .touchpoint-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.25rem;
+            background: rgba(91, 138, 138, 0.15);
+        }
+
+        .touchpoint-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 8px;
+        }
+
+        .touchpoint-when {
+            font-size: 0.8rem;
+            color: #5B8A8A;
+            margin-bottom: 12px;
+        }
+
+        .touchpoint-desc {
+            font-size: 0.85rem;
+            color: #A1A1AA;
+        }
+
+        /* Personality Traits */
+        .trait-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .trait-card {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .trait-do {
+            border-left: 3px solid #6B8E6B;
+            padding-left: 16px;
+        }
+
+        .trait-dont {
+            border-left: 3px solid #A65D57;
+            padding-left: 16px;
+        }
+
+        .trait-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .trait-do .trait-label { color: #6B8E6B; }
+        .trait-dont .trait-label { color: #A65D57; }
+
+        .trait-text {
+            font-size: 0.9rem;
+            color: #A1A1AA;
+        }
+
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin: 32px 0;
+        }
+
+        /* Callout */
+        .callout {
+            background: rgba(91, 138, 138, 0.08);
+            border: 1px solid rgba(91, 138, 138, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .callout.copper {
+            background: rgba(184, 133, 108, 0.08);
+            border-color: rgba(184, 133, 108, 0.2);
+        }
+
+        /* Context Injection Diagram */
+        .context-diagram {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .context-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+
+        .context-source {
+            background: #27272A;
+            border-radius: 8px;
+            padding: 12px 16px;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .context-source-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #71717A;
+            margin-bottom: 4px;
+        }
+
+        .context-source-name {
+            font-size: 0.85rem;
+            color: #FAF9F6;
+        }
+
+        .context-arrow {
+            color: #5B8A8A;
+            font-size: 1.25rem;
+        }
+
+        .context-output {
+            background: rgba(91, 138, 138, 0.15);
+            border: 1px solid rgba(91, 138, 138, 0.3);
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+        }
+
+        .context-output-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 4px;
+        }
+
+        .context-output-name {
+            font-size: 1rem;
+            color: #FAF9F6;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .nav-link {
+            background: #18181B;
+            color: #A1A1AA;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: #27272A;
+            color: #FAF9F6;
+        }
+
+        .nav-link.active {
+            background: rgba(91, 138, 138, 0.15);
+            color: #5B8A8A;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid #27272A;
+            text-align: center;
+            color: #71717A;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .memory-grid, .touchpoint-grid, .trait-grid {
+                grid-template-columns: 1fr;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Co-Pilot System</h1>
+        <p class="subtitle">The AI companion that remembers, understands, and guides</p>
+        <span class="version-badge">AI Architecture Brief • v1.0</span>
+
+        <!-- Hero -->
+        <div class="hero">
+            <p class="hero-tagline">
+                Not a chatbot. Not a coach.<br>
+                <span class="teal">A guide who actually knows you.</span>
+            </p>
+            <p class="hero-sub">
+                The Co-Pilot is PYC's secret weapon. It's an AI that has context — your creative history, your blockers, your wins, your path. It doesn't give generic advice. It gives <em>your</em> advice.
+            </p>
+        </div>
+
+        <!-- Section 1: Why Co-Pilot Matters -->
+        <div class="section">
+            <h2>Section 1 — Why Co-Pilot Matters</h2>
+
+            <p>Most AI interactions are stateless. You explain your situation every time. The AI gives generic responses because it doesn't know you. This is why ChatGPT feels helpful but hollow for personal transformation.</p>
+
+            <div class="callout">
+                <p style="margin: 0; font-size: 1.1rem;"><strong class="cream">The Co-Pilot Difference:</strong> Every conversation builds on what came before. By Day 30, the Co-Pilot knows your fear patterns, your creative wounds, your energy rhythms, your wins. By Day 90, it's the most informed guide you've ever had.</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h4>What Generic AI Does</h4>
+                    <p>"I notice you're feeling stuck. Have you tried breaking your goal into smaller steps? Many people find journaling helpful..."</p>
+                    <p style="font-size: 0.85rem; color: #71717A;">Correct but useless. Could apply to anyone.</p>
+                </div>
+                <div>
+                    <h4>What Co-Pilot Does</h4>
+                    <p>"You mentioned fear shows up as 'researching more' — that's the same pattern from Sprint 1. Your Fear Interrupt worked last time. Want to run it now, or talk through what's different?"</p>
+                    <p style="font-size: 0.85rem; color: #71717A;">Specific, contextual, actionable.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Memory Architecture -->
+        <div class="section">
+            <h2>Section 2 — Memory Architecture</h2>
+
+            <p>The Co-Pilot's power comes from accumulated context. Here's what it knows about each user.</p>
+
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="memory-label">Creative Archaeology Data</div>
+                    <div class="memory-title">Who They Were</div>
+                    <div class="memory-desc">Creative history, disciplines practiced, peak creative periods, dormancy timeline, and what triggered the disconnection.</div>
+                    <div class="memory-data">
+                        <div class="memory-data-label">Example Data Points</div>
+                        <div class="memory-data-list">
+                            <span>musician</span>
+                            <span>5-10 years dormant</span>
+                            <span>peak: college</span>
+                            <span>trigger: first job</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-card">
+                    <div class="memory-label">Blocker Profile</div>
+                    <div class="memory-title">What Stops Them</div>
+                    <div class="memory-desc">Identified fear patterns, resistance signatures, self-sabotage mechanisms, and the specific language their inner critic uses.</div>
+                    <div class="memory-data">
+                        <div class="memory-data-label">Example Data Points</div>
+                        <div class="memory-data-list">
+                            <span>perfectionism</span>
+                            <span>fear of judgment</span>
+                            <span>"not ready yet"</span>
+                            <span>over-research</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-card">
+                    <div class="memory-label">Path & Progress</div>
+                    <div class="memory-title">Where They're Going</div>
+                    <div class="memory-desc">Chosen path (Pivot/Build/Evolve), vision statement, current sprint, completed lessons, and key milestones achieved.</div>
+                    <div class="memory-data">
+                        <div class="memory-data-label">Example Data Points</div>
+                        <div class="memory-data-list">
+                            <span>BUILD path</span>
+                            <span>Sprint 4</span>
+                            <span>Day 35</span>
+                            <span>12 lessons done</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-card">
+                    <div class="memory-label">Reflections & Wins</div>
+                    <div class="memory-title">What They've Learned</div>
+                    <div class="memory-desc">Answers to reflection questions, logged wins, tool outputs, and key insights captured throughout the journey.</div>
+                    <div class="memory-data">
+                        <div class="memory-data-label">Example Data Points</div>
+                        <div class="memory-data-list">
+                            <span>27 reflections</span>
+                            <span>18 wins logged</span>
+                            <span>Fear Interrupt: 4x</span>
+                            <span>key insight: "I avoid shipping"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="memory-label">Operating Profile</div>
+                    <div class="memory-title">How They Work</div>
+                    <div class="memory-desc">Energy rhythms, peak hours, work style preferences, strengths, blindspots, and non-negotiables (built in Sprint 5).</div>
+                    <div class="memory-data">
+                        <div class="memory-data-label">Example Data Points</div>
+                        <div class="memory-data-list">
+                            <span>morning person</span>
+                            <span>introvert</span>
+                            <span>sprints > marathons</span>
+                            <span>blindspot: over-commit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-card">
+                    <div class="memory-label">Conversation History</div>
+                    <div class="memory-title">What They've Discussed</div>
+                    <div class="memory-desc">Previous Co-Pilot conversations, topics explored, advice given, and commitments made in past sessions.</div>
+                    <div class="memory-data">
+                        <div class="memory-data-label">Example Data Points</div>
+                        <div class="memory-data-list">
+                            <span>8 sessions</span>
+                            <span>discussed: career pivot</span>
+                            <span>committed: pitch by Friday</span>
+                            <span>recurring theme: imposter</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Context Injection -->
+        <div class="section">
+            <h2>Section 3 — Context Injection Model</h2>
+
+            <p>Every Co-Pilot conversation is enriched with relevant context before the AI responds. This is what makes responses feel personal.</p>
+
+            <div class="context-diagram">
+                <h4 style="text-align: center; margin-bottom: 24px;">How Context Flows Into Each Conversation</h4>
+
+                <div class="context-flow">
+                    <div class="context-source">
+                        <div class="context-source-label">Source 1</div>
+                        <div class="context-source-name">Creative Profile</div>
+                    </div>
+                    <div class="context-source">
+                        <div class="context-source-label">Source 2</div>
+                        <div class="context-source-name">Blocker Data</div>
+                    </div>
+                    <div class="context-source">
+                        <div class="context-source-label">Source 3</div>
+                        <div class="context-source-name">Path & Progress</div>
+                    </div>
+                    <div class="context-source">
+                        <div class="context-source-label">Source 4</div>
+                        <div class="context-source-name">Recent Reflections</div>
+                    </div>
+                </div>
+
+                <div class="context-flow">
+                    <span class="context-arrow">↓</span>
+                </div>
+
+                <div class="context-flow">
+                    <div class="context-output">
+                        <div class="context-output-label">Assembled Into</div>
+                        <div class="context-output-name">Personalized System Prompt</div>
+                    </div>
+                </div>
+
+                <div class="context-flow">
+                    <span class="context-arrow">↓</span>
+                </div>
+
+                <div class="context-flow">
+                    <div class="context-source">
+                        <div class="context-source-label">Combined With</div>
+                        <div class="context-source-name">User Message</div>
+                    </div>
+                    <span class="context-arrow">→</span>
+                    <div class="context-source">
+                        <div class="context-source-label">Produces</div>
+                        <div class="context-source-name">Contextual Response</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <p style="margin: 0;"><strong class="cream">Technical Note:</strong> Context is assembled dynamically based on relevance. A conversation about fear pulls blocker data. A conversation about next steps pulls path and progress. The system is smart about what context matters for each interaction.</p>
+            </div>
+        </div>
+
+        <!-- Section 4: Co-Pilot Touchpoints -->
+        <div class="section">
+            <h2>Section 4 — When Co-Pilot Appears</h2>
+
+            <p>The Co-Pilot isn't always-on noise. It appears at strategic moments when personalized guidance adds value.</p>
+
+            <div class="touchpoint-grid">
+                <div class="touchpoint-card">
+                    <div class="touchpoint-icon">📅</div>
+                    <div class="touchpoint-title">Integration Days</div>
+                    <div class="touchpoint-when">Day 8 of each sprint</div>
+                    <div class="touchpoint-desc">Structured session connecting the sprint's three lessons to the user's path. Synthesizes learning, surfaces patterns.</div>
+                </div>
+
+                <div class="touchpoint-card">
+                    <div class="touchpoint-icon">🆘</div>
+                    <div class="touchpoint-title">SOS Mode</div>
+                    <div class="touchpoint-when">On-demand, any time</div>
+                    <div class="touchpoint-desc">When user is struggling. Co-Pilot assesses situation and guides to appropriate tool or intervention.</div>
+                </div>
+
+                <div class="touchpoint-card">
+                    <div class="touchpoint-icon">💬</div>
+                    <div class="touchpoint-title">Open Chat</div>
+                    <div class="touchpoint-when">Accessible from home</div>
+                    <div class="touchpoint-desc">Freeform conversation when user wants to think through something. Always available, never pushy.</div>
+                </div>
+
+                <div class="touchpoint-card">
+                    <div class="touchpoint-icon">🎯</div>
+                    <div class="touchpoint-title">Path Moments</div>
+                    <div class="touchpoint-when">Key decision points</div>
+                    <div class="touchpoint-desc">Path selection (Sprint 2), mid-journey check-in (Day 45), pre-completion reflection (Day 85).</div>
+                </div>
+
+                <div class="touchpoint-card">
+                    <div class="touchpoint-icon">🔧</div>
+                    <div class="touchpoint-title">Tool Guidance</div>
+                    <div class="touchpoint-when">During tool use</div>
+                    <div class="touchpoint-desc">If user gets stuck mid-tool, Co-Pilot can help think through a step without abandoning the protocol.</div>
+                </div>
+
+                <div class="touchpoint-card">
+                    <div class="touchpoint-icon">🎉</div>
+                    <div class="touchpoint-title">Win Celebrations</div>
+                    <div class="touchpoint-when">After logging wins</div>
+                    <div class="touchpoint-desc">Brief, genuine acknowledgment that connects the win to their larger journey. Not generic praise.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Conversation Examples -->
+        <div class="section">
+            <h2>Section 5 — Conversation Examples</h2>
+
+            <p>Here's what Co-Pilot conversations actually look like — grounded in user context, not generic coaching.</p>
+
+            <div class="convo-block">
+                <div class="convo-context">
+                    <strong>Context:</strong> User is on Day 35 (Sprint 4), BUILD path. Creative Profile shows "dormant musician, 8 years." Blocker profile includes "perfectionism" and "fear of judgment." Recently logged a win about finishing a first draft.
+                </div>
+
+                <div class="convo-message user">
+                    <div class="convo-avatar user">U</div>
+                    <div class="convo-content">
+                        <div class="convo-sender">User</div>
+                        <div class="convo-text">I've been stuck on whether to share my project publicly. Every time I think about posting it, I freeze up.</div>
+                    </div>
+                </div>
+
+                <div class="convo-message copilot">
+                    <div class="convo-avatar copilot">CP</div>
+                    <div class="convo-content">
+                        <div class="convo-sender">Co-Pilot</div>
+                        <div class="convo-text">This sounds like the perfectionism pattern we identified — the "not ready yet" voice. You finished that first draft last week, which is real progress. <em>What specifically happens when you imagine hitting 'post'?</em> Is it the judgment piece, or something else?</div>
+                    </div>
+                </div>
+
+                <div class="convo-message user">
+                    <div class="convo-avatar user">U</div>
+                    <div class="convo-content">
+                        <div class="convo-sender">User</div>
+                        <div class="convo-text">I think it's judgment. Like, what if people think it's amateur? I haven't made music in 8 years.</div>
+                    </div>
+                </div>
+
+                <div class="convo-message copilot">
+                    <div class="convo-avatar copilot">CP</div>
+                    <div class="convo-content">
+                        <div class="convo-sender">Co-Pilot</div>
+                        <div class="convo-text">Eight years of not sharing is exactly why sharing matters now. Remember from Sprint 1: <em>fear protects you from feeling, not from danger.</em> The discomfort of posting is temporary. The cost of waiting compounds. What if you framed it as "Day 1 of returning" rather than "here's my finished work"? That's honest and takes pressure off perfection.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="convo-block">
+                <div class="convo-context">
+                    <strong>Context:</strong> User is on Day 62 (Sprint 7), EVOLVE path. Operating Profile shows "introvert, morning person, sprints not marathons." Current sprint theme is Problem Solving.
+                </div>
+
+                <div class="convo-message user">
+                    <div class="convo-avatar user">U</div>
+                    <div class="convo-content">
+                        <div class="convo-sender">User</div>
+                        <div class="convo-text">My manager wants me to lead a cross-functional project but I'm not sure I'm ready. It's a big visibility opportunity but also high stakes.</div>
+                    </div>
+                </div>
+
+                <div class="convo-message copilot">
+                    <div class="convo-avatar copilot">CP</div>
+                    <div class="convo-content">
+                        <div class="convo-sender">Co-Pilot</div>
+                        <div class="convo-text">Good timing — you're in the problem-solving sprint, and this is a real one. Let's reframe: <em>"not ready" was your Sprint 3 lesson.</em> You learned readiness is often a trap. The question isn't whether you're ready. It's whether this aligns with your EVOLVE path — leveling up where you are. Does leading this project move you toward what you said you wanted?</div>
+                    </div>
+                </div>
+
+                <div class="convo-message user">
+                    <div class="convo-avatar user">U</div>
+                    <div class="convo-content">
+                        <div class="convo-sender">User</div>
+                        <div class="convo-text">Yeah, it does. I said I wanted more leadership visibility without changing companies.</div>
+                    </div>
+                </div>
+
+                <div class="convo-message copilot">
+                    <div class="convo-avatar copilot">CP</div>
+                    <div class="convo-content">
+                        <div class="convo-sender">Co-Pilot</div>
+                        <div class="convo-text">Then the answer is probably yes — and the fear is just doing its job. One thing: your Operating Profile says you're an introvert who works best in sprints. <em>How might you structure this project to play to those strengths?</em> Maybe deep work mornings, meetings batched, clear sprint milestones instead of constant status updates?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Co-Pilot Personality -->
+        <div class="section">
+            <h2>Section 6 — Co-Pilot Personality & Voice</h2>
+
+            <p>The Co-Pilot has a defined personality. It's not neutral — it has a point of view. But it's not preachy either.</p>
+
+            <div class="callout copper">
+                <h4 style="margin-bottom: 12px;">The Voice in One Line</h4>
+                <p style="margin: 0; font-size: 1.05rem;">The friend who sees you clearly, believes in you completely, and won't let you stay stuck — but never makes you feel judged.</p>
+            </div>
+
+            <div class="trait-grid">
+                <div class="trait-card">
+                    <div class="trait-do">
+                        <div class="trait-label">Do</div>
+                        <div class="trait-text">Reference specific things the user has shared. "You mentioned..." or "In your reflection, you said..."</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-dont">
+                        <div class="trait-label">Don't</div>
+                        <div class="trait-text">Give generic advice that could apply to anyone. "Many people find it helpful to..."</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-do">
+                        <div class="trait-label">Do</div>
+                        <div class="trait-text">Ask one good question that moves thinking forward. Curious, not interrogating.</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-dont">
+                        <div class="trait-label">Don't</div>
+                        <div class="trait-text">Overwhelm with multiple questions or lengthy explanations. Keep it tight.</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-do">
+                        <div class="trait-label">Do</div>
+                        <div class="trait-text">Connect current struggle to past lessons or tools. "This is what Sprint 1 was about..."</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-dont">
+                        <div class="trait-label">Don't</div>
+                        <div class="trait-text">Be a cheerleader. Empty praise doesn't help. Be warm but substantive.</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-do">
+                        <div class="trait-label">Do</div>
+                        <div class="trait-text">Challenge gently when you see avoidance patterns. "That sounds like the fear talking..."</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-dont">
+                        <div class="trait-label">Don't</div>
+                        <div class="trait-text">Be harsh or judgmental. The user should feel supported, not shamed.</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-do">
+                        <div class="trait-label">Do</div>
+                        <div class="trait-text">Suggest relevant tools when appropriate. "Want to run the Fear Interrupt?"</div>
+                    </div>
+                </div>
+
+                <div class="trait-card">
+                    <div class="trait-dont">
+                        <div class="trait-label">Don't</div>
+                        <div class="trait-text">Push tools every conversation. Sometimes people just need to be heard.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Technical Architecture -->
+        <div class="section">
+            <h2>Section 7 — Technical Implementation (High-Level)</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Purpose</th>
+                        <th>Implementation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>User Context Store</strong></td>
+                        <td>Persistent storage of all user data that feeds Co-Pilot</td>
+                        <td>Supabase tables: creative_profiles, reflections, wins, conversations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Context Assembler</strong></td>
+                        <td>Dynamically builds relevant context for each conversation</td>
+                        <td>Server function that queries relevant data based on conversation topic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>System Prompt Builder</strong></td>
+                        <td>Constructs personalized system prompt with injected context</td>
+                        <td>Template + dynamic insertion of user-specific data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LLM Integration</strong></td>
+                        <td>Generates contextual responses</td>
+                        <td>Claude API with assembled system prompt + user message</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conversation Memory</strong></td>
+                        <td>Maintains thread context within a session</td>
+                        <td>Message history passed with each request (last N messages)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insight Extractor</strong></td>
+                        <td>Identifies key themes/commitments from conversations</td>
+                        <td>Post-conversation analysis that updates user profile</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <p style="margin: 0;"><strong class="cream">Privacy Note:</strong> All user data stays within their account. No cross-user training. No sharing. The Co-Pilot knows <em>this user</em>, not patterns from other users.</p>
+            </div>
+        </div>
+
+        <!-- Section 8: Success Metrics -->
+        <div class="section">
+            <h2>Section 8 — Success Metrics</h2>
+
+            <p>How we know the Co-Pilot is working.</p>
+
+            <div class="two-col">
+                <div>
+                    <h4>Engagement Metrics</h4>
+                    <table>
+                        <tr><td>Sessions per user per week</td><td><strong>Target: 2+</strong></td></tr>
+                        <tr><td>Avg messages per session</td><td><strong>Target: 4-8</strong></td></tr>
+                        <tr><td>Return rate (use again within 7d)</td><td><strong>Target: 70%+</strong></td></tr>
+                        <tr><td>SOS → Tool completion rate</td><td><strong>Target: 60%+</strong></td></tr>
+                    </table>
+                </div>
+                <div>
+                    <h4>Quality Signals</h4>
+                    <table>
+                        <tr><td>Context references per response</td><td><strong>Target: 1-2</strong></td></tr>
+                        <tr><td>User-reported helpfulness (thumbs)</td><td><strong>Target: 85%+ positive</strong></td></tr>
+                        <tr><td>Conversation → action rate</td><td><strong>Target: 40%+</strong></td></tr>
+                        <tr><td>Mentioned in exit surveys</td><td><strong>Target: Top 3 feature</strong></td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="section">
+            <h2>Related Briefs</h2>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← Strategy Hub</a>
+                <a href="brand-narrative.html" class="nav-link">Brand Narrative</a>
+                <a href="creative-archaeology.html" class="nav-link">Creative Archaeology + Freemium</a>
+                <a href="paid-journey.html" class="nav-link">Paid Journey Value</a>
+                <a href="sprint-structure.html" class="nav-link">Sprint Structure</a>
+                <a href="co-pilot.html" class="nav-link active">Co-Pilot System</a>
+                <a href="evidence-system.html" class="nav-link">Evidence System</a>
+            </div>
+        </div>
+
+        <footer>
+            PYC Co-Pilot System Spec — v1.0 — January 2026<br>
+            <span style="color: #5B8A8A;">The AI that actually knows you</span>
+        </footer>
+
+    </div>
+</body>
+</html>

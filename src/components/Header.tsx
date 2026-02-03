@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, type FocusEvent } from "react";
 
 const PRIMARY_LINKS = [
-  { href: "/journey", label: "Your Journey" },
+  { href: "/journey", label: "The Journey" },
   { href: "/how-it-works", label: "Why It Works" },
 ];
 
@@ -14,14 +14,31 @@ const PATH_LINKS = [
   { href: "/stay-level-up", label: "Stay & Level Up" },
 ];
 
+const STRATEGY_LINKS = [
+  { href: "/strategy/index.html", label: "Strategy Hub" },
+  { href: "/strategy/brand-narrative.html", label: "Brand Narrative" },
+  { href: "/strategy/creative-archaeology.html", label: "Creative Archaeology" },
+  { href: "/strategy/paid-journey.html", label: "Paid Journey Value" },
+  { href: "/strategy/co-pilot.html", label: "Co-Pilot System" },
+  { href: "/strategy/evidence-system.html", label: "Evidence System" },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [pathMenuOpen, setPathMenuOpen] = useState(false);
+  const [strategyMenuOpen, setStrategyMenuOpen] = useState(false);
 
   const handlePathFocus = () => setPathMenuOpen(true);
   const handlePathBlur = (event: FocusEvent<HTMLLIElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget as Node)) {
       setPathMenuOpen(false);
+    }
+  };
+
+  const handleStrategyFocus = () => setStrategyMenuOpen(true);
+  const handleStrategyBlur = (event: FocusEvent<HTMLLIElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+      setStrategyMenuOpen(false);
     }
   };
 
@@ -40,11 +57,11 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="group relative inline-flex items-center py-2 text-[18px] font-medium text-white/80 transition-colors hover:text-white"
+                  className="group relative inline-flex items-center py-2 text-[18px] font-medium text-white/80 transition-colors hover:text-[var(--green-primary)]"
                 >
                   {link.label}
                   <span
-                    className="absolute left-0 -bottom-1 h-[2px] w-0 bg-white transition-all duration-200 group-hover:w-full"
+                    className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[var(--green-primary)] transition-all duration-200 group-hover:w-full"
                     aria-hidden="true"
                   />
                 </Link>
@@ -61,13 +78,17 @@ export default function Header() {
                 type="button"
                 aria-haspopup="true"
                 aria-expanded={pathMenuOpen}
-                className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-[18px] font-medium text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
+                className="group relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-[18px] font-medium text-white/80 transition-colors hover:text-[var(--green-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
                 onClick={() => setPathMenuOpen((value) => !value)}
               >
                 Choose Your Path
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={`transition-transform ${pathMenuOpen ? "rotate-180" : ""}`}>
                   <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
+                <span
+                  className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[var(--green-primary)] transition-all duration-200 group-hover:w-full"
+                  aria-hidden="true"
+                />
               </button>
               <div
                 className={`absolute left-1/2 top-full z-20 mt-2 w-64 -translate-x-1/2 rounded-2xl border border-white/10 bg-[#0B0F13] p-2 shadow-2xl shadow-black/50 transition-all duration-200 ${
@@ -78,11 +99,52 @@ export default function Header() {
                   <Link
                     key={path.href}
                     href={path.href}
-                    className="flex items-center gap-2 rounded-xl px-3 py-3 text-left text-sm font-medium text-white/80 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
+                    className="flex items-center gap-2 rounded-xl px-3 py-3 text-left text-sm font-medium text-white/80 transition hover:bg-white/5 hover:text-[var(--green-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
                     onClick={() => setPathMenuOpen(false)}
                   >
                     <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-[var(--green-primary)]">→</span>
                     <span>{path.label}</span>
+                  </Link>
+                ))}
+              </div>
+            </li>
+            <li
+              className="relative"
+              onMouseEnter={handleStrategyFocus}
+              onMouseLeave={() => setStrategyMenuOpen(false)}
+              onFocusCapture={handleStrategyFocus}
+              onBlurCapture={handleStrategyBlur}
+            >
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={strategyMenuOpen}
+                className="group relative inline-flex items-center gap-1 rounded-full px-4 py-2 text-[18px] font-medium text-white/80 transition-colors hover:text-[var(--green-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
+                onClick={() => setStrategyMenuOpen((value) => !value)}
+              >
+                Strategy
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={`transition-transform ${strategyMenuOpen ? "rotate-180" : ""}`}>
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span
+                  className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[var(--green-primary)] transition-all duration-200 group-hover:w-full"
+                  aria-hidden="true"
+                />
+              </button>
+              <div
+                className={`absolute left-1/2 top-full z-20 mt-2 w-64 -translate-x-1/2 rounded-2xl border border-white/10 bg-[#0B0F13] p-2 shadow-2xl shadow-black/50 transition-all duration-200 ${
+                  strategyMenuOpen ? "visible opacity-100 translate-y-0" : "invisible opacity-0 translate-y-2"
+                }`}
+              >
+                {STRATEGY_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="flex items-center gap-2 rounded-xl px-3 py-3 text-left text-sm font-medium text-white/80 transition hover:bg-white/5 hover:text-[var(--green-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--green-primary)]/60"
+                    onClick={() => setStrategyMenuOpen(false)}
+                  >
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-[var(--green-primary)]">◆</span>
+                    <span>{link.label}</span>
                   </Link>
                 ))}
               </div>
@@ -94,7 +156,7 @@ export default function Header() {
             href="/assessment"
             className="hidden items-center justify-center rounded-full bg-[var(--brand-accent)] px-8 py-3 text-[14px] font-semibold uppercase tracking-wide text-black shadow-lg shadow-black/30 transition-opacity hover:opacity-90 lg:inline-flex"
           >
-            Get Starter Kit
+            Free Blueprint
           </Link>
           <button
             type="button"
@@ -136,12 +198,27 @@ export default function Header() {
                 ))}
               </div>
             </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--green-primary)]">Strategy</p>
+              <div className="mt-3 space-y-2">
+                {STRATEGY_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-xl px-3 py-2 text-base font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <Link
               href="/assessment"
               className="block py-3 text-base font-semibold text-[var(--brand-accent)] transition-colors hover:text-[var(--brand-accent)]/80"
               onClick={() => setOpen(false)}
             >
-              Get Starter Kit
+              Free Blueprint
             </Link>
           </div>
         </div>

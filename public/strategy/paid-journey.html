@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYC Paid Journey Value — Why 90 Days Is Worth It</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #FAF9F6;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(184, 133, 108, 0.15);
+            color: #B8856C;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 48px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(91, 138, 138, 0.2);
+        }
+
+        .section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #FAF9F6;
+        }
+
+        .section h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #B8856C;
+        }
+
+        p {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .teal { color: #5B8A8A; }
+        .copper { color: #B8856C; }
+        .green { color: #6B8E6B; }
+        .red { color: #A65D57; }
+        .cream { color: #FAF9F6; }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(180deg, rgba(184, 133, 108, 0.08) 0%, transparent 100%);
+            border-radius: 24px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #B8856C, transparent);
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #FAF9F6;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: #A1A1AA;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #18181B;
+            color: #5B8A8A;
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #27272A;
+            vertical-align: top;
+            color: #A1A1AA;
+        }
+
+        td strong {
+            color: #FAF9F6;
+        }
+
+        tr:hover td {
+            background: rgba(91, 138, 138, 0.03);
+        }
+
+        /* Value Cards */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .value-card {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+        }
+
+        .value-card.tangible {
+            border-left: 4px solid #5B8A8A;
+        }
+
+        .value-card.intangible {
+            border-left: 4px solid #B8856C;
+        }
+
+        .value-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .value-card.tangible .value-label { color: #5B8A8A; }
+        .value-card.intangible .value-label { color: #B8856C; }
+
+        .value-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 12px;
+        }
+
+        .value-desc {
+            font-size: 0.9rem;
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .value-proof {
+            font-size: 0.8rem;
+            color: #71717A;
+            font-style: italic;
+            padding-top: 12px;
+            border-top: 1px solid #27272A;
+        }
+
+        /* Before/After */
+        .ba-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 32px;
+            align-items: start;
+            margin: 32px 0;
+        }
+
+        .ba-card {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .ba-card.before {
+            border-top: 3px solid #A65D57;
+        }
+
+        .ba-card.after {
+            border-top: 3px solid #6B8E6B;
+        }
+
+        .ba-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .ba-card.before .ba-label { color: #A65D57; }
+        .ba-card.after .ba-label { color: #6B8E6B; }
+
+        .ba-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ba-list li {
+            padding: 10px 0;
+            padding-left: 24px;
+            position: relative;
+            color: #A1A1AA;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #27272A;
+        }
+
+        .ba-list li:last-child {
+            border-bottom: none;
+        }
+
+        .ba-card.before .ba-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #A65D57;
+        }
+
+        .ba-card.after .ba-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6B8E6B;
+        }
+
+        .ba-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #5B8A8A;
+            padding-top: 100px;
+        }
+
+        /* Phase Value */
+        .phase-value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .phase-value-card {
+            background: #18181B;
+            border-radius: 16px;
+            padding: 28px;
+            border-top: 3px solid;
+        }
+
+        .phase-value-card.unlock { border-top-color: #5B8A8A; }
+        .phase-value-card.strengthen { border-top-color: #B8856C; }
+        .phase-value-card.activate { border-top-color: #6B8E6B; }
+
+        .phase-value-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .phase-value-card.unlock .phase-value-label { color: #5B8A8A; }
+        .phase-value-card.strengthen .phase-value-label { color: #B8856C; }
+        .phase-value-card.activate .phase-value-label { color: #6B8E6B; }
+
+        .phase-value-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 16px;
+        }
+
+        .phase-outcome {
+            font-size: 0.85rem;
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .phase-tangible {
+            background: rgba(91, 138, 138, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .phase-tangible-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 4px;
+        }
+
+        .phase-tangible-item {
+            font-size: 0.85rem;
+            color: #FAF9F6;
+        }
+
+        .phase-emotional {
+            font-size: 0.8rem;
+            color: #71717A;
+            font-style: italic;
+        }
+
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin: 32px 0;
+        }
+
+        /* Callout */
+        .callout {
+            background: rgba(91, 138, 138, 0.08);
+            border: 1px solid rgba(91, 138, 138, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .callout.copper {
+            background: rgba(184, 133, 108, 0.08);
+            border-color: rgba(184, 133, 108, 0.2);
+        }
+
+        .callout.green {
+            background: rgba(107, 142, 107, 0.08);
+            border-color: rgba(107, 142, 107, 0.2);
+        }
+
+        /* ROI Block */
+        .roi-block {
+            background: linear-gradient(135deg, #18181B 0%, #1f1f22 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 32px 0;
+            text-align: center;
+            border: 1px solid #27272A;
+        }
+
+        .roi-headline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #FAF9F6;
+            margin-bottom: 16px;
+        }
+
+        .roi-subhead {
+            font-size: 1rem;
+            color: #A1A1AA;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .roi-item {
+            text-align: center;
+        }
+
+        .roi-number {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .roi-item:nth-child(1) .roi-number { color: #5B8A8A; }
+        .roi-item:nth-child(2) .roi-number { color: #B8856C; }
+        .roi-item:nth-child(3) .roi-number { color: #6B8E6B; }
+
+        .roi-label {
+            font-size: 0.85rem;
+            color: #71717A;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            margin: 32px 0;
+        }
+
+        .comparison-table th:first-child {
+            width: 40%;
+        }
+
+        .comparison-table .check {
+            color: #6B8E6B;
+            font-weight: 600;
+        }
+
+        .comparison-table .x {
+            color: #A65D57;
+        }
+
+        .comparison-table .partial {
+            color: #C4A04A;
+        }
+
+        /* Objection Cards */
+        .objection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .objection-card {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .objection-q {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 12px;
+        }
+
+        .objection-a {
+            font-size: 0.9rem;
+            color: #A1A1AA;
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .nav-link {
+            background: #18181B;
+            color: #A1A1AA;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: #27272A;
+            color: #FAF9F6;
+        }
+
+        .nav-link.active {
+            background: rgba(184, 133, 108, 0.15);
+            color: #B8856C;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid #27272A;
+            text-align: center;
+            color: #71717A;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .value-grid, .phase-value-grid, .objection-grid, .roi-grid {
+                grid-template-columns: 1fr;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .ba-container {
+                grid-template-columns: 1fr;
+            }
+            .ba-arrow {
+                padding: 16px 0;
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Paid Journey Value</h1>
+        <p class="subtitle">Why 90 days of PYC is worth paying for — and how to articulate it</p>
+        <span class="version-badge">Value Prop Brief • v1.0</span>
+
+        <!-- Hero -->
+        <div class="hero">
+            <p class="hero-tagline">
+                They're not paying for content.<br>
+                <span class="copper">They're paying for transformation.</span>
+            </p>
+            <p class="hero-sub">
+                PYC delivers two types of value: tangible outcomes they can measure and intangible shifts they can feel. Both are real. Both matter. This brief articulates exactly what users get.
+            </p>
+        </div>
+
+        <!-- Section 1: The Value Proposition -->
+        <div class="section">
+            <h2>Section 1 — The Core Value Proposition</h2>
+
+            <p>Users aren't buying lessons, tools, or features. They're buying a result. The question they're asking (consciously or not): <em>"Will this get me unstuck?"</em></p>
+
+            <div class="callout">
+                <p style="margin: 0; font-size: 1.1rem;"><strong class="cream">The Promise:</strong> In 90 days, you'll go from creatively stuck and professionally anxious to clear, confident, and moving — with proof you can see and a toolkit you can use forever.</p>
+            </div>
+
+            <h3 style="margin-top: 40px;">The Two Types of Value</h3>
+
+            <div class="value-grid">
+                <div class="value-card tangible">
+                    <div class="value-label">Tangible Value</div>
+                    <div class="value-title">What You Can Measure</div>
+                    <div class="value-desc">Concrete deliverables, completed artifacts, visible progress. The stuff you can point to and say "I made that" or "I did that."</div>
+                    <div class="value-proof">Examples: Completed Blueprint, 9 tools mastered, 27 reflections captured, path confirmed, wins logged</div>
+                </div>
+
+                <div class="value-card intangible">
+                    <div class="value-label">Intangible Value</div>
+                    <div class="value-title">What You Can Feel</div>
+                    <div class="value-desc">Internal shifts in confidence, clarity, and capability. The transformation that's hard to quantify but impossible to fake.</div>
+                    <div class="value-proof">Examples: Fear doesn't stop you, decisions feel easier, creative identity restored, momentum feels natural</div>
+                </div>
+            </div>
+
+            <p><strong class="cream">Why both matter:</strong> Tangible value provides proof ("Look what I accomplished"). Intangible value provides staying power ("I'm different now"). Programs that only deliver one fail — either you can't prove it worked, or the results don't last.</p>
+        </div>
+
+        <!-- Section 2: Before/After State -->
+        <div class="section">
+            <h2>Section 2 — The Before/After Transformation</h2>
+
+            <p>This is what users are buying. Not 27 lessons — the distance between these two states.</p>
+
+            <div class="ba-container">
+                <div class="ba-card before">
+                    <div class="ba-label">Day 0 — Before PYC</div>
+                    <ul class="ba-list">
+                        <li>Fear stops you before you start</li>
+                        <li>Creative identity feels distant or dead</li>
+                        <li>Stuck in a job that's slowly killing you</li>
+                        <li>Anxious about AI making you obsolete</li>
+                        <li>No clear direction, just vague restlessness</li>
+                        <li>Start things but don't finish them</li>
+                        <li>Distraction wins more than focus</li>
+                        <li>Self-doubt disguised as "being realistic"</li>
+                        <li>Alone in your struggle, no one gets it</li>
+                        <li>Waiting for permission that isn't coming</li>
+                    </ul>
+                </div>
+
+                <div class="ba-arrow">→</div>
+
+                <div class="ba-card after">
+                    <div class="ba-label">Day 90 — After PYC</div>
+                    <ul class="ba-list">
+                        <li>Fear still shows up, but you move anyway</li>
+                        <li>Creative identity reconnected and active</li>
+                        <li>Path chosen and in motion (Pivot/Build/Evolve)</li>
+                        <li>Human edge clarified — what AI can't replace</li>
+                        <li>Clear vision you've committed to publicly</li>
+                        <li>Completion habit built, things get finished</li>
+                        <li>Environment designed for focus</li>
+                        <li>Evidence of progress you can point to</li>
+                        <li>"Seen" by an AI that knows your story</li>
+                        <li>Permission given by yourself, acted on</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Value by Phase -->
+        <div class="section">
+            <h2>Section 3 — What Each Phase Delivers</h2>
+
+            <p>The 90 days aren't arbitrary. Each 30-day phase delivers specific, compounding value.</p>
+
+            <div class="phase-value-grid">
+                <div class="phase-value-card unlock">
+                    <div class="phase-value-label">Phase 1 • Days 1-30</div>
+                    <div class="phase-value-title">UNLOCK</div>
+                    <div class="phase-outcome">Clear the internal blocks. Reconnect with creative identity. Set direction. Start moving.</div>
+                    <div class="phase-tangible">
+                        <div class="phase-tangible-label">Tangible Deliverables</div>
+                        <div class="phase-tangible-item">Fear Interrupt Protocol mastered</div>
+                        <div class="phase-tangible-item">Vision Statement written</div>
+                        <div class="phase-tangible-item">Path selected (Pivot/Build/Evolve)</div>
+                        <div class="phase-tangible-item">First actions completed</div>
+                    </div>
+                    <div class="phase-emotional">"I can see what's been stopping me — and I know how to interrupt it."</div>
+                </div>
+
+                <div class="phase-value-card strengthen">
+                    <div class="phase-value-label">Phase 2 • Days 31-60</div>
+                    <div class="phase-value-title">STRENGTHEN</div>
+                    <div class="phase-outcome">Build self-knowledge. Protect focus. Develop resilience. Create sustainable systems.</div>
+                    <div class="phase-tangible">
+                        <div class="phase-tangible-label">Tangible Deliverables</div>
+                        <div class="phase-tangible-item">Personal Operating Profile complete</div>
+                        <div class="phase-tangible-item">Focus environment designed</div>
+                        <div class="phase-tangible-item">Setback recovery protocol ready</div>
+                        <div class="phase-tangible-item">Energy rhythm mapped</div>
+                    </div>
+                    <div class="phase-emotional">"I know how I work best — and I've built systems that protect that."</div>
+                </div>
+
+                <div class="phase-value-card activate">
+                    <div class="phase-value-label">Phase 3 • Days 61-90</div>
+                    <div class="phase-value-title">ACTIVATE</div>
+                    <div class="phase-outcome">Deploy creative energy. Solve problems. Build human edge. Finish strong.</div>
+                    <div class="phase-tangible">
+                        <div class="phase-tangible-label">Tangible Deliverables</div>
+                        <div class="phase-tangible-item">Human Edge Audit complete</div>
+                        <div class="phase-tangible-item">Problem Reframe skills sharpened</div>
+                        <div class="phase-tangible-item">Open loops closed</div>
+                        <div class="phase-tangible-item">Completion Ceremony (graduation)</div>
+                    </div>
+                    <div class="phase-emotional">"I know what makes me irreplaceable — and I've proven I can finish what I start."</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: The Concrete Deliverables -->
+        <div class="section">
+            <h2>Section 4 — What Users Walk Away With</h2>
+
+            <p>At the end of 90 days, users have accumulated tangible assets they keep forever.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Deliverable</th>
+                        <th>Description</th>
+                        <th>Long-Term Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Block Breaker Blueprint</strong></td>
+                        <td>Personal document built from 27 lesson reflections, capturing patterns, insights, and decisions</td>
+                        <td>Reference guide for future decisions and setbacks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Creative Profile</strong></td>
+                        <td>AI-generated synthesis of creative history, dormancy patterns, blockers, and strengths</td>
+                        <td>Self-knowledge artifact; "who I am creatively"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9 Mastered Tools</strong></td>
+                        <td>Protocols for fear, vision, action, focus, self-knowledge, setbacks, problems, human edge, completion</td>
+                        <td>Lifetime toolkit for any creative challenge</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Personal Operating Profile</strong></td>
+                        <td>Documented wiring, energy rhythms, strengths, blindspots, non-negotiables</td>
+                        <td>User manual for yourself; share with teams/partners</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Human Edge Audit</strong></td>
+                        <td>Clarity on irreplaceable skills AI can't replicate</td>
+                        <td>Career positioning in AI economy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vision Statement</strong></td>
+                        <td>Written, committed-to direction with specific path (Pivot/Build/Evolve)</td>
+                        <td>North star for decision-making</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wins Log</strong></td>
+                        <td>90 days of documented progress, small victories, evidence of change</td>
+                        <td>Proof against imposter syndrome forever</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Completion Certificate</strong></td>
+                        <td>Graduation artifact marking the transformation</td>
+                        <td>Symbolic closure; identity marker</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 5: ROI Framework -->
+        <div class="section">
+            <h2>Section 5 — The ROI Conversation</h2>
+
+            <p>Our audience earns $150K+. They understand investment thinking. Here's how to frame ROI without being salesy.</p>
+
+            <div class="roi-block">
+                <div class="roi-headline">The Cost of Staying Stuck</div>
+                <div class="roi-subhead">Every month of inaction has a price. PYC pays for itself by accelerating the move you're already trying to make.</div>
+                <div class="roi-grid">
+                    <div class="roi-item">
+                        <div class="roi-number">$12,500</div>
+                        <div class="roi-label">Monthly income at $150K salary</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-number">6-12 mo</div>
+                        <div class="roi-label">Avg time stuck before taking action</div>
+                    </div>
+                    <div class="roi-item">
+                        <div class="roi-number">$497</div>
+                        <div class="roi-label">PYC investment (one month)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h4>For the PIVOT Path</h4>
+                    <p>If you're considering a career change, every month you delay costs you salary differential, compounding experience, and opportunity cost. A 3-month acceleration = $30K+ in lifetime earnings difference.</p>
+                </div>
+                <div>
+                    <h4>For the BUILD Path</h4>
+                    <p>If you're launching something, every month of inaction is a month your business isn't generating revenue or learning. First customers 90 days sooner = compounding advantage.</p>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h4>For the EVOLVE Path</h4>
+                    <p>If you're stuck in a role that could be better, every month of "going through the motions" is a month you're not getting promoted, not building leverage, not growing.</p>
+                </div>
+                <div>
+                    <h4>The Intangible ROI</h4>
+                    <p>Beyond money: reduced anxiety, restored creative identity, better relationships (you're not bringing work dread home), improved health (stress kills), more energy for what matters.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Why Not Free/Cheap -->
+        <div class="section">
+            <h2>Section 6 — Why This Isn't Free (And Shouldn't Be)</h2>
+
+            <p>Price is a filter. It signals commitment to the user and creates skin in the game.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>What You Could Do Instead</th>
+                        <th>Cost</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Read self-help books</strong></td>
+                        <td>$15-30 each</td>
+                        <td><span class="partial">Information without application. 95% don't finish.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Watch YouTube videos</strong></td>
+                        <td>Free</td>
+                        <td><span class="x">Fragmented, no structure, algorithm optimized for watch time not results.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Take an online course</strong></td>
+                        <td>$200-2000</td>
+                        <td><span class="partial">Information dump. No personalization. 90% don't complete.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hire a coach</strong></td>
+                        <td>$300-500/session</td>
+                        <td><span class="check">Personalized, but expensive. 12 sessions = $3,600-6,000.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Figure it out yourself</strong></td>
+                        <td>"Free"</td>
+                        <td><span class="x">6-24 months of wandering. Opportunity cost: $75K-150K.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>PYC</strong></td>
+                        <td>$497-997</td>
+                        <td><span class="check">Structured, personalized, AI-supported, 90-day transformation with proof.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout green">
+                <p style="margin: 0;"><strong class="green">The positioning:</strong> More structured than books/videos. More affordable than coaching. More personalized than courses. More proven than going alone.</p>
+            </div>
+        </div>
+
+        <!-- Section 7: Objection Handling -->
+        <div class="section">
+            <h2>Section 7 — Common Objections (And Honest Answers)</h2>
+
+            <div class="objection-grid">
+                <div class="objection-card">
+                    <div class="objection-q">"I don't have time for a 90-day program"</div>
+                    <div class="objection-a">Each day takes 10-20 minutes. That's less than you spend scrolling. The question isn't whether you have time — it's whether you'll spend that time on transformation or distraction.</div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-q">"I've tried programs before and they didn't work"</div>
+                    <div class="objection-a">Most programs dump content and leave you alone. PYC has built-in application days, AI check-ins, and a structure that makes completion the default. 90% of users who start Day 1 finish Day 90.</div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-q">"Can't I just use ChatGPT for this?"</div>
+                    <div class="objection-a">ChatGPT doesn't remember your creative history, your blockers, your wins. It can't guide you through a proven 90-day arc. And it won't hold you accountable. PYC's Co-Pilot knows you.</div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-q">"What if I fall behind?"</div>
+                    <div class="objection-a">Life happens. You can pause and resume. The structure is firm (no skipping) but forgiving (catch up at your pace). The only way to fail is to quit completely.</div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-q">"Is this just positive thinking woo-woo?"</div>
+                    <div class="objection-a">No affirmations. No vision boards. PYC is neuroscience, psychology, and practical tools. Every concept is backed by research. Every tool is designed for the skeptical professional.</div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-q">"What if I'm not sure which path (Pivot/Build/Evolve) is right?"</div>
+                    <div class="objection-a">That's exactly what Sprint 2 is for. By Day 20, you'll have clarity. If you're unsure now, that's the point — PYC helps you decide, not just execute.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: The Guarantee Frame -->
+        <div class="section">
+            <h2>Section 8 — The Confidence Frame</h2>
+
+            <p>This isn't about risk reversal gimmicks. It's about genuine confidence in the transformation.</p>
+
+            <div class="callout copper">
+                <h4 style="margin-bottom: 12px;">The Promise We Can Make</h4>
+                <p style="margin: 0;">If you complete 90 days of PYC — actually do the work, not just watch the videos — you will be measurably different. You'll have proof. You'll have tools. You'll have clarity you didn't have before. That's not a hope. That's the structure working.</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h4>What We Don't Promise</h4>
+                    <p>We don't promise you'll quit your job, launch a successful business, or make more money immediately. External outcomes depend on variables we can't control.</p>
+                </div>
+                <div>
+                    <h4>What We Do Promise</h4>
+                    <p>You'll be in motion. You'll have clarity. You'll have tools that work. You'll have evidence of your own capability. The external outcomes follow internal transformation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Pricing Rationale -->
+        <div class="section">
+            <h2>Section 9 — Pricing Rationale</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Price</th>
+                        <th>Includes</th>
+                        <th>For Who</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Core</strong></td>
+                        <td>$497</td>
+                        <td>Full 90-day journey, all tools, Co-Pilot AI, Blueprint</td>
+                        <td>Self-directed users who thrive with structure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Premium</strong></td>
+                        <td>$997</td>
+                        <td>Everything in Core + group coaching calls + priority support</td>
+                        <td>Users who want community and live touchpoints</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Launch pricing:</strong> Consider 20-30% early bird discount to reward first cohort and generate testimonials. Full price once proof of transformation is documented.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="section">
+            <h2>Related Briefs</h2>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← Strategy Hub</a>
+                <a href="brand-narrative.html" class="nav-link">Brand Narrative</a>
+                <a href="creative-archaeology.html" class="nav-link">Creative Archaeology + Freemium</a>
+                <a href="paid-journey.html" class="nav-link active">Paid Journey Value</a>
+                <a href="sprint-structure.html" class="nav-link">Sprint Structure</a>
+                <a href="co-pilot.html" class="nav-link">Co-Pilot System</a>
+                <a href="evidence-system.html" class="nav-link">Evidence System</a>
+            </div>
+        </div>
+
+        <footer>
+            PYC Paid Journey Value Spec — v1.0 — January 2026<br>
+            <span style="color: #B8856C;">What they're actually buying — and why it's worth it</span>
+        </footer>
+
+    </div>
+</body>
+</html>

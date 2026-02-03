@@ -569,7 +569,7 @@ export default function JourneyPage() {
           </div>
           <Particles />
           <div className="relative z-10 mx-auto max-w-5xl px-4 py-24 sm:px-6 lg:px-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">Your Journey</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.32em]" style={{ color: '#63ffad' }}>The Journey</p>
             <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">The 90-Day Creative Reboot</h1>
             <p className="mt-6 text-xl text-secondary">Break blocks. Restore focus. Ship work that opens the next chapter of your life.</p>
             <p className="mt-6 text-lg text-secondary">This is for employed creatives, founders, and multi-hyphenates stuck between obligation and the work that makes them free.</p>
@@ -593,7 +593,7 @@ export default function JourneyPage() {
         <section className="bg-gradient-to-b from-black via-[#111B24] to-[#101523] py-24">
           <div className="mx-auto max-w-6xl space-y-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">The Systems</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.32em]" style={{ color: '#63ffad' }}>The Systems</p>
               <h2 className="mt-3 text-4xl font-bold sm:text-5xl">The Systems That Make Execution Inevitable</h2>
               <p className="mt-4 text-base text-white/70">
                 Most programs give you content. This gives you the environment that makes shipping automatic.
@@ -617,7 +617,7 @@ export default function JourneyPage() {
         <section id="journey-timeline" className="bg-gradient-to-b from-[#101523] via-[#0A1014] to-[#040608] py-24">
           <div className="mx-auto max-w-6xl space-y-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9AE6B4]">The Complete Journey</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.32em]" style={{ color: '#63ffad' }}>The Complete Journey</p>
               <h2 className="mt-3 text-4xl font-bold sm:text-5xl">See All 9 Sprints At A Glance</h2>
               <p className="mt-4 text-base text-white/70">
                 Scan the full 90-day flowchart—every sprint, lesson, and release date laid out so you know exactly what happens when.

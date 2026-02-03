@@ -93,7 +93,7 @@ function Header() {
                 href="/sprint-1"
                 className="group relative inline-flex items-center py-2 text-[18px] font-medium text-white/90 transition-colors hover:text-white"
               >
-                Your Journey
+                <span style={{ color: '#63ffad' }}>The Journey</span>
                 <span
                   className="absolute left-0 -bottom-1 h-[2px] w-0 bg-white transition-all duration-200 group-hover:w-full"
                   aria-hidden="true"
@@ -153,7 +153,7 @@ function Header() {
               className="block py-3 text-base font-medium text-white/90 transition-colors hover:text-white"
               onClick={() => setOpen(false)}
             >
-              Your Journey
+              <span style={{ color: '#63ffad' }}>The Journey</span>
             </Link>
             <Link
               href="/how-it-works"
@@ -218,6 +218,7 @@ const CONTENT = {
         "Understand fear as a neurological signal, not a personal failing, and learn the 3-minute protocol that unsticks you in real time.",
       tool: "Fear Interrupt Protocol",
       summary: "Deploy it whenever you freeze so you can move within seconds, not days.",
+      immerseVideo: "VIDEO_PLACEHOLDER_LESSON_1",
     },
     {
       title: "Lesson 2: Resistance — Recognize Your Patterns",
@@ -225,12 +226,14 @@ const CONTENT = {
         "Spot avoidance loops—research binges, perfectionism, and timing optimization—so you stop falling for your own excuses.",
       tool: "Resistance Pattern Map",
       summary: "Document the exact moves you make to avoid executing and replace them with counter-behaviors.",
+      immerseVideo: "VIDEO_PLACEHOLDER_LESSON_2",
     },
     {
       title: "Lesson 3: Identity — Permission to Evolve",
       description: "Update the rules you're following from old economies, old careers, and old identities.",
       tool: "Identity Experiment Framework",
       summary: "Prototype new ways of working in low-pressure reps that prove you can evolve.",
+      immerseVideo: "VIDEO_PLACEHOLDER_LESSON_3",
     },
   ],
   deliverables: [

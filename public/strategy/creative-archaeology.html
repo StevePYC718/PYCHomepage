@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYC Creative Archaeology + Freemium Flow Spec</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #FAF9F6;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(91, 138, 138, 0.15);
+            color: #5B8A8A;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 48px;
+        }
+
+        .section {
+            margin-bottom: 72px;
+        }
+
+        .section h2 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #5B8A8A;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(91, 138, 138, 0.2);
+        }
+
+        .section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #FAF9F6;
+        }
+
+        .section h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #B8856C;
+        }
+
+        p {
+            color: #A1A1AA;
+            margin-bottom: 16px;
+        }
+
+        .teal { color: #5B8A8A; }
+        .copper { color: #B8856C; }
+        .green { color: #6B8E6B; }
+        .red { color: #A65D57; }
+
+        /* Cards */
+        .card {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .card-small {
+            background: #27272A;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .card-highlight {
+            border: 1px solid #5B8A8A;
+        }
+
+        .card-copper {
+            border: 1px solid #B8856C;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #27272A;
+            color: #5B8A8A;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #A1A1AA;
+        }
+
+        tr:hover td {
+            background: rgba(91, 138, 138, 0.05);
+        }
+
+        /* Flow Diagram */
+        .flow-diagram {
+            background: #18181B;
+            border-radius: 12px;
+            padding: 32px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.8;
+        }
+
+        .flow-box {
+            display: inline-block;
+            background: #27272A;
+            border-radius: 6px;
+            padding: 8px 16px;
+            margin: 4px 0;
+        }
+
+        .flow-box.highlight {
+            background: rgba(91, 138, 138, 0.2);
+            border: 1px solid #5B8A8A;
+        }
+
+        .flow-box.copper {
+            background: rgba(184, 133, 108, 0.15);
+            border: 1px solid #B8856C;
+        }
+
+        /* Phone Mockups */
+        .phone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .phone-wrapper {
+            text-align: center;
+        }
+
+        .phone-label {
+            font-size: 0.75rem;
+            color: #71717A;
+            margin-bottom: 12px;
+        }
+
+        .phone-frame {
+            width: 100%;
+            max-width: 220px;
+            aspect-ratio: 9 / 19;
+            background: #18181B;
+            border-radius: 24px;
+            padding: 8px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #18181B;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 16px 12px;
+        }
+
+        .phone-screen::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .screen-header {
+            font-size: 0.6rem;
+            color: #71717A;
+            margin-bottom: 8px;
+        }
+
+        .screen-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 4px;
+        }
+
+        .screen-subtitle {
+            font-size: 0.65rem;
+            color: #A1A1AA;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .screen-card {
+            background: #27272A;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 8px;
+            font-size: 0.6rem;
+            color: #A1A1AA;
+        }
+
+        .screen-card.copper-border {
+            border: 1px solid #B8856C;
+        }
+
+        .screen-card.teal-border {
+            border: 1px solid #5B8A8A;
+        }
+
+        .screen-btn {
+            background: #5B8A8A;
+            color: #FAF9F6;
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: 500;
+            margin-top: auto;
+        }
+
+        .screen-btn.secondary {
+            background: transparent;
+            border: 1px solid #5B8A8A;
+            color: #5B8A8A;
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #3F3F46;
+        }
+
+        .dot.active {
+            background: #5B8A8A;
+        }
+
+        .dot.complete {
+            background: #B8856C;
+        }
+
+        /* Selection Grid */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .selection-item {
+            background: #27272A;
+            border-radius: 6px;
+            padding: 8px 6px;
+            text-align: center;
+            font-size: 0.55rem;
+            color: #A1A1AA;
+        }
+
+        .selection-item.selected {
+            background: rgba(91, 138, 138, 0.2);
+            border: 1px solid #5B8A8A;
+            color: #5B8A8A;
+        }
+
+        .selection-emoji {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: #27272A;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #5B8A8A;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: #71717A;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: #18181B;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            margin-bottom: 16px;
+        }
+
+        .code-block .comment {
+            color: #71717A;
+        }
+
+        .code-block .keyword {
+            color: #5B8A8A;
+        }
+
+        .code-block .string {
+            color: #B8856C;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: #27272A;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .checklist-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-box {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #5B8A8A;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .checklist-item.done .check-box {
+            background: #5B8A8A;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #27272A;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 24px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #27272A;
+            border: 2px solid #5B8A8A;
+        }
+
+        .timeline-item.complete::before {
+            background: #5B8A8A;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 4px;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: #71717A;
+        }
+
+        .timeline-hours {
+            font-size: 0.75rem;
+            color: #5B8A8A;
+            margin-top: 4px;
+        }
+
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Callout */
+        .callout {
+            background: rgba(91, 138, 138, 0.1);
+            border-left: 3px solid #5B8A8A;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 24px;
+        }
+
+        .callout.copper {
+            background: rgba(184, 133, 108, 0.1);
+            border-left-color: #B8856C;
+        }
+
+        .callout-title {
+            font-weight: 600;
+            color: #FAF9F6;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .badge.green {
+            background: rgba(107, 142, 107, 0.2);
+            color: #6B8E6B;
+        }
+
+        .badge.red {
+            background: rgba(166, 93, 87, 0.2);
+            color: #A65D57;
+        }
+
+        .badge.teal {
+            background: rgba(91, 138, 138, 0.2);
+            color: #5B8A8A;
+        }
+
+        .badge.copper {
+            background: rgba(184, 133, 108, 0.2);
+            color: #B8856C;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid #27272A;
+            text-align: center;
+            color: #71717A;
+            font-size: 0.8rem;
+        }
+
+        /* Nav bar mock */
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 4px;
+            background: #27272A;
+            border-radius: 0 0 18px 18px;
+            margin-top: auto;
+        }
+
+        .nav-item {
+            text-align: center;
+            font-size: 0.5rem;
+            color: #71717A;
+        }
+
+        .nav-item.active {
+            color: #5B8A8A;
+        }
+
+        .nav-icon {
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+
+        /* Quote block */
+        .quote {
+            border-left: 2px solid #B8856C;
+            padding-left: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            color: #A1A1AA;
+        }
+
+        .quote-source {
+            font-style: normal;
+            color: #71717A;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        /* Artifact placeholder */
+        .artifact {
+            position: absolute;
+            bottom: 40px;
+            right: 8px;
+            width: 40px;
+            height: 30px;
+            opacity: 0.2;
+        }
+
+        .artifact svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .artifact path, .artifact line {
+            stroke: #71717A;
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .artifact.copper path, .artifact.copper line {
+            stroke: #B8856C;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <h1>Creative Archaeology + Freemium Flow</h1>
+        <p class="subtitle">Implementation Brief — Pioneer Your Creative</p>
+        <span class="version-badge">v2.0 — January 2026</span>
+
+        <!-- Section 1: Strategic Overview -->
+        <div class="section">
+            <h2>Section 1 — Strategic Overview</h2>
+
+            <div class="two-col">
+                <div>
+                    <h3>What Creative Archaeology Is</h3>
+                    <p>A 5-7 minute guided onboarding that excavates the user's buried creative identity. Not a personality quiz — a <span class="copper">remembering exercise</span>.</p>
+
+                    <h4>Why It Exists</h4>
+                    <ul style="color: #A1A1AA; padding-left: 20px; margin-bottom: 24px;">
+                        <li style="margin-bottom: 8px;">Creates emotional investment before any paywall</li>
+                        <li style="margin-bottom: 8px;">Generates personalization data for the entire 90-day journey</li>
+                        <li style="margin-bottom: 8px;">Differentiates PYC from every competitor</li>
+                        <li>This is the freemium entry point</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="callout copper">
+                        <div class="callout-title">Research Validation</div>
+                        <p>"I was concerned that I lost a lot of who I was before work and the children. I'm like, what if I don't know how to get back?"</p>
+                        <p class="quote-source" style="margin-top: 8px;">— User Research, Part 4</p>
+                    </div>
+
+                    <div class="card-small" style="margin-top: 16px;">
+                        <p style="margin-bottom: 8px; font-size: 0.85rem; color: #FAF9F6;">Competitor White Space</p>
+                        <p style="margin-bottom: 0; font-size: 0.8rem;">No one addresses creative identity recovery for burned-out professionals. This is PYC's soul differentiator.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 32px;">Research-Backed Foundations</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Finding</th>
+                        <th>Source</th>
+                        <th>PYC Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Users want to feel creative again, for FUN</td>
+                        <td class="teal">User Research Part 4</td>
+                        <td>Creative Archaeology + Morning Spark</td>
+                    </tr>
+                    <tr>
+                        <td>Personalization is #1 instant-buy feature</td>
+                        <td class="teal">Research Part 3</td>
+                        <td>Profile generates personalized experience</td>
+                    </tr>
+                    <tr>
+                        <td>"Content library" feel = churn trigger</td>
+                        <td class="teal">Competitor gap analysis</td>
+                        <td>Archaeology creates emotional stake</td>
+                    </tr>
+                    <tr>
+                        <td>Flow state nostalgia is powerful hook</td>
+                        <td class="teal">Research Part 4</td>
+                        <td>"When you were creating, time disappeared"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 2: High-Level Flow -->
+        <div class="section">
+            <h2>Section 2 — High-Level Flow</h2>
+
+            <div class="flow-diagram">
+┌─────────────────────────────────────────────────────────────────────┐
+│                         <span class="teal">APP DOWNLOAD</span>                                 │
+└─────────────────────────────────────┬───────────────────────────────┘
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                      <span class="teal">ACCOUNT CREATION</span>                               │
+│                   (name, email, password)                           │
+└─────────────────────────────────────┬───────────────────────────────┘
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│              <span class="copper">★ CREATIVE ARCHAEOLOGY (FREE) ★</span>                        │
+│                                                                     │
+│  Screen 0: Welcome                                                  │
+│  Screen 1: Creative Past (what did you make?)                       │
+│  Screen 1B: Reframe (if "not creative")                             │
+│  Screen 2: Timeline (when did it stop?)                             │
+│  Screen 2B: Hidden Creativity (if "not creative")                   │
+│  Screen 3: Blockers (what happened?)                                │
+│  Screen 4: Feelings (how did creating feel?)                        │
+│  Screen 5: The Spark (what do you want to create?)                  │
+│  Screen 6: Profile Reveal — <span class="copper">EMOTIONAL PEAK</span>                         │
+│  Screen 7: Why Creativity (mini-module)                             │
+│  Screen 8: Path Selection (Pivot/Build/Evolve)                      │
+│  Screen 9: Commitment                                               │
+│                                                                     │
+└─────────────────────────────────────┬───────────────────────────────┘
+                                    ▼
+                    ┌───────────────────────┐
+                    │   <span class="teal">PAID USER CHECK</span>     │
+                    │   has subscription?   │
+                    └───────────┬───────────┘
+                                │
+              ┌─────────────────┴────────────────┐
+              ▼                                   ▼
+┌─────────────────────────────┐         ┌─────────────────────────────┐
+│     <span class="teal">FREE USER HOME</span>      │         │     <span class="copper">PAID USER FLOW</span>      │
+│                         │         │                         │
+│  • Creative Profile     │         │  Sprint 1 Micro-Intake  │
+│  • Daily Spark prompt   │         │  (avoided action+stakes)│
+│  • Paywall CTA          │         │           ↓             │
+│                         │         │       Day 1 Home        │
+└─────────────────────────────┘         └─────────────────────────────┘
+            </div>
+        </div>
+
+        <!-- Section 3: What Gets Cut -->
+        <div class="section">
+            <h2>Section 3 — What Gets Cut</h2>
+
+            <h3>Old Onboarding → New Flow</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Old Screen</th>
+                        <th>Verdict</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Welcome Pioneer</td>
+                        <td><span class="badge red">CUT</span></td>
+                        <td>Redundant with archaeology welcome</td>
+                    </tr>
+                    <tr>
+                        <td>How It Works</td>
+                        <td><span class="badge red">CUT</span></td>
+                        <td>Explain in marketing, not app</td>
+                    </tr>
+                    <tr>
+                        <td>Daily Rhythm</td>
+                        <td><span class="badge red">CUT</span></td>
+                        <td>Discover through doing</td>
+                    </tr>
+                    <tr>
+                        <td>Path Selection</td>
+                        <td><span class="badge teal">MOVED</span></td>
+                        <td>Now in archaeology flow (Screen 8)</td>
+                    </tr>
+                    <tr>
+                        <td>Stage Selection</td>
+                        <td><span class="badge red">CUT</span></td>
+                        <td>Not needed</td>
+                    </tr>
+                    <tr>
+                        <td>DNA Builder</td>
+                        <td><span class="badge red">CUT</span></td>
+                        <td>Archaeology covers this better</td>
+                    </tr>
+                    <tr>
+                        <td>Trigger Questions</td>
+                        <td><span class="badge red">CUT</span></td>
+                        <td>Absorbed into archaeology</td>
+                    </tr>
+                    <tr>
+                        <td>Time Commitment</td>
+                        <td><span class="badge red">CUT</span></td>
+                        <td>Marketing handles this</td>
+                    </tr>
+                    <tr>
+                        <td>Sprint 1 Micro-Intake</td>
+                        <td><span class="badge green">KEEP</span></td>
+                        <td>Essential context for paid users only</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Screens Cut</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1</div>
+                    <div class="stat-label">Screen Kept</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">9</div>
+                    <div class="stat-label">Archaeology Screens</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5-7</div>
+                    <div class="stat-label">Minutes to Complete</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Screen-by-Screen Specs -->
+        <div class="section">
+            <h2>Section 4 — Screen-by-Screen Specifications</h2>
+
+            <h3>Creative Archaeology Flow</h3>
+
+            <div class="phone-grid">
+                <!-- Screen 0: Welcome -->
+                <div class="phone-wrapper">
+                    <div class="phone-label">Screen 0 — Welcome</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen" style="justify-content: center; text-align: center;">
+                            <div style="padding: 0 8px;">
+                                <p style="font-size: 0.75rem; color: #FAF9F6; margin-bottom: 16px; line-height: 1.5;">Before we talk about where you're going, let's remember where you came from.</p>
+                                <p style="font-size: 0.6rem; color: #71717A; margin-bottom: 24px;">This will take about 5 minutes.<br>There are no wrong answers.</p>
+                                <div class="screen-btn">Begin</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 1: Creative Past -->
+                <div class="phone-wrapper">
+                    <div class="phone-label">Screen 1 — Creative Past</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="progress-dots">
+                                <div class="dot active"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="screen-title">What did you used to create?</div>
+                            <div class="screen-subtitle">Before the job, the responsibilities — what did you make?</div>
+                            <div class="selection-grid">
+                                <div class="selection-item selected">
+                                    <span class="selection-emoji">🎸</span>
+                                    Music
+                                </div>
+                                <div class="selection-item">
+                                    <span class="selection-emoji">🎨</span>
+                                    Visual Art
+                                </div>
+                                <div class="selection-item">
+                                    <span class="selection-emoji">✏️</span>
+                                    Writing
+                                </div>
+                                <div class="selection-item">
+                                    <span class="selection-emoji">💃</span>
+                                    Movement
+                                </div>
+                                <div class="selection-item">
+                                    <span class="selection-emoji">🔧</span>
+                                    Building
+                                </div>
+                                <div class="selection-item">
+                                    <span class="selection-emoji">🎭</span>
+                                    Performance
+                                </div>
+                            </div>
+                            <div class="screen-btn" style="margin-top: auto;">Continue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 3: Blockers -->
+                <div class="phone-wrapper">
+                    <div class="phone-label">Screen 3 — Blockers</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="progress-dots">
+                                <div class="dot complete"></div>
+                                <div class="dot complete"></div>
+                                <div class="dot active"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="screen-title">What happened?</div>
+                            <div class="screen-subtitle">There's usually a reason creativity fades. What was yours? <span style="color: #5B8A8A;">(max 3)</span></div>
+                            <div class="selection-grid">
+                                <div class="selection-item selected">Work took over</div>
+                                <div class="selection-item">Family responsibilities</div>
+                                <div class="selection-item selected">Someone criticized it</div>
+                                <div class="selection-item">Wasn't good enough</div>
+                                <div class="selection-item">No time</div>
+                                <div class="selection-item">Felt selfish</div>
+                            </div>
+                            <div class="screen-btn" style="margin-top: auto;">Continue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 6: Profile Reveal -->
+                <div class="phone-wrapper">
+                    <div class="phone-label">Screen 6 — Profile Reveal <span class="copper">★</span></div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="screen-header">Your Creative Profile</div>
+                            <div class="screen-card copper-border" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                                <p style="font-size: 0.75rem; color: #FAF9F6; margin-bottom: 8px; font-weight: 600;">You're a dormant musician.</p>
+                                <p style="font-size: 0.6rem; line-height: 1.5; margin-bottom: 0;">
+                                    You stopped creating 5-10 years ago, when work took over.<br><br>
+                                    But creativity didn't leave you. You still solve problems in unusual ways.<br><br>
+                                    When you were making music, <span class="copper">time disappeared</span>.<br><br>
+                                    That feeling is still available to you.
+                                </p>
+                            </div>
+                            <div class="screen-btn">This feels right</div>
+                            <p style="text-align: center; font-size: 0.55rem; color: #71717A; margin-top: 8px;">Edit my profile →</p>
+
+                            <!-- Artifact hint -->
+                            <div class="artifact copper">
+                                <svg viewBox="0 0 80 60">
+                                    <path d="M5,30 Q15,15 25,30 T45,30 T65,30" />
+                                    <line x1="10" y1="45" x2="10" y2="55" />
+                                    <line x1="20" y1="42" x2="20" y2="58" />
+                                    <line x1="30" y1="40" x2="30" y2="60" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 8: Path Selection -->
+                <div class="phone-wrapper">
+                    <div class="phone-label">Screen 8 — Path Selection</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="screen-title" style="font-size: 0.8rem;">Where do you want to go?</div>
+                            <div class="screen-subtitle">Your creativity needs a direction.</div>
+
+                            <div class="screen-card teal-border" style="margin-bottom: 6px;">
+                                <p style="font-weight: 600; color: #5B8A8A; margin-bottom: 2px; font-size: 0.65rem;">PIVOT</p>
+                                <p style="font-size: 0.55rem; margin-bottom: 0;">Change direction entirely. Leave your current field.</p>
+                            </div>
+                            <div class="screen-card">
+                                <p style="font-weight: 600; color: #FAF9F6; margin-bottom: 2px; font-size: 0.65rem;">BUILD</p>
+                                <p style="font-size: 0.55rem; margin-bottom: 0;">Create something of your own. A business or project.</p>
+                            </div>
+                            <div class="screen-card">
+                                <p style="font-weight: 600; color: #FAF9F6; margin-bottom: 2px; font-size: 0.65rem;">EVOLVE</p>
+                                <p style="font-size: 0.55rem; margin-bottom: 0;">Transform where you are. Level up your current role.</p>
+                            </div>
+
+                            <div class="screen-btn" style="margin-top: auto;">Continue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 9: Commitment -->
+                <div class="phone-wrapper">
+                    <div class="phone-label">Screen 9 — Commitment</div>
+                    <div class="phone-frame">
+                        <div class="phone-screen" style="justify-content: center; text-align: center;">
+                            <div style="padding: 0 8px;">
+                                <p style="font-size: 0.7rem; color: #FAF9F6; margin-bottom: 16px;">One last thing.</p>
+                                <p style="font-size: 0.6rem; color: #A1A1AA; margin-bottom: 16px; line-height: 1.5;">
+                                    This is a 90-day program.<br>
+                                    Not 90 days of perfection —<br>
+                                    90 days of showing up.<br><br>
+                                    Some days will be hard.<br>
+                                    Some days you'll want to quit.<br>
+                                    <span class="copper">That's normal. That's the work.</span>
+                                </p>
+                                <p style="font-size: 0.65rem; color: #FAF9F6; margin-bottom: 20px;">Are you ready to commit to yourself for the next 90 days?</p>
+                                <div class="screen-btn">I'm ready. Let's go.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Freemium Value -->
+        <div class="section">
+            <h2>Section 5 — Freemium Value Proposition</h2>
+
+            <div class="two-col">
+                <div>
+                    <h3>Why Free Users Get Value</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>What They Get</th>
+                                <th>Why It's Valuable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="copper">Creative Profile</span></td>
+                                <td>Feels like being seen for the first time. Emotional mirror that validates their buried identity.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="teal">Daily Spark</span></td>
+                                <td>Low-friction creative practice. Morning Pages-style without commitment.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="teal">Shareable Identity</span></td>
+                                <td>Profile they can screenshot. Social proof potential.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 style="margin-top: 24px;">What Free Users DON'T Get</h4>
+                    <div class="card-small">
+                        <ul style="color: #A65D57; font-size: 0.85rem; padding-left: 16px; margin: 0;">
+                            <li style="margin-bottom: 4px;">Sprint content (lessons, tools, reflections)</li>
+                            <li style="margin-bottom: 4px;">Co-Pilot conversations</li>
+                            <li style="margin-bottom: 4px;">Progress tracking and metrics</li>
+                            <li style="margin-bottom: 4px;">Proofs and wins logging</li>
+                            <li style="margin-bottom: 4px;">SOS Button</li>
+                            <li>Commitment Lock</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <!-- Free User Home Mockup -->
+                    <div class="phone-wrapper" style="max-width: 280px; margin: 0 auto;">
+                        <div class="phone-label">Free User Home Screen</div>
+                        <div class="phone-frame" style="max-width: 100%;">
+                            <div class="phone-screen">
+                                <div class="screen-header">Good morning, Steve</div>
+
+                                <div class="screen-card copper-border" style="margin-bottom: 10px;">
+                                    <p style="font-size: 0.6rem; color: #71717A; margin-bottom: 4px;">YOUR CREATIVE PROFILE</p>
+                                    <p style="font-size: 0.65rem; color: #FAF9F6; margin-bottom: 4px;">You're a dormant musician...</p>
+                                    <p style="font-size: 0.55rem; color: #5B8A8A; margin-bottom: 0;">View Full Profile →</p>
+                                </div>
+
+                                <div class="screen-card" style="margin-bottom: 10px;">
+                                    <p style="font-size: 0.6rem; color: #71717A; margin-bottom: 4px;">TODAY'S SPARK</p>
+                                    <p style="font-size: 0.6rem; color: #A1A1AA; margin-bottom: 6px;">What would you create if no one was watching?</p>
+                                    <div style="background: #3F3F46; border-radius: 4px; padding: 6px; font-size: 0.55rem; color: #71717A;">Write your answer...</div>
+                                </div>
+
+                                <div class="screen-card teal-border" style="background: rgba(91, 138, 138, 0.1); flex: 1;">
+                                    <p style="font-size: 0.7rem; color: #5B8A8A; margin-bottom: 6px; font-weight: 600; text-align: center;">START YOUR 90-DAY JOURNEY</p>
+                                    <p style="font-size: 0.55rem; color: #A1A1AA; margin-bottom: 8px; text-align: center;">You've remembered who you were. Now become who you're meant to be.</p>
+                                    <ul style="font-size: 0.5rem; color: #A1A1AA; padding-left: 12px; margin-bottom: 8px;">
+                                        <li>9 transformation sprints</li>
+                                        <li>AI Co-Pilot with memory</li>
+                                        <li>Tools that actually work</li>
+                                    </ul>
+                                    <div class="screen-btn" style="font-size: 0.6rem;">$497 — One-Time</div>
+                                </div>
+
+                                <div class="nav-bar">
+                                    <div class="nav-item">
+                                        <div class="nav-icon">👤</div>
+                                        Profile
+                                    </div>
+                                    <div class="nav-item active">
+                                        <div class="nav-icon">🏠</div>
+                                        Home
+                                    </div>
+                                    <div class="nav-item">
+                                        <div class="nav-icon">✨</div>
+                                        Spark
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Paid User Home -->
+        <div class="section">
+            <h2>Section 6 — Simplified Paid Home Screen</h2>
+
+            <div class="two-col">
+                <div>
+                    <h3>What Gets Cut from Current Home</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Current Element</th>
+                                <th>Verdict</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Greeting + Sprint info</td>
+                                <td><span class="badge green">KEEP</span></td>
+                                <td>Essential context</td>
+                            </tr>
+                            <tr>
+                                <td>10-day progress dots</td>
+                                <td><span class="badge green">KEEP</span></td>
+                                <td>Clear progress signal</td>
+                            </tr>
+                            <tr>
+                                <td>Multiple lesson cards</td>
+                                <td><span class="badge teal">SIMPLIFY</span></td>
+                                <td>One "Today's Lesson" CTA</td>
+                            </tr>
+                            <tr>
+                                <td>Spark card + streak</td>
+                                <td><span class="badge green">KEEP</span></td>
+                                <td>Core engagement loop</td>
+                            </tr>
+                            <tr>
+                                <td>Waveform visual</td>
+                                <td><span class="badge red">CUT</span></td>
+                                <td>Decorative → Creative Artifact</td>
+                            </tr>
+                            <tr>
+                                <td>Step 1, 2, 3 cards</td>
+                                <td><span class="badge red">CUT</span></td>
+                                <td>Move inside lesson</td>
+                            </tr>
+                            <tr>
+                                <td>Co-Pilot card</td>
+                                <td><span class="badge green">KEEP</span></td>
+                                <td>Core feature</td>
+                            </tr>
+                            <tr>
+                                <td>Breathe card</td>
+                                <td><span class="badge teal">MOVE</span></td>
+                                <td>To SOS Button (built)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="callout" style="margin-top: 24px;">
+                        <div class="callout-title">Design Principle</div>
+                        <p>One clear CTA per screen. The paid home should answer: "What's my ONE thing today?"</p>
+                    </div>
+                </div>
+
+                <div>
+                    <!-- Paid User Home Mockup -->
+                    <div class="phone-wrapper" style="max-width: 280px; margin: 0 auto;">
+                        <div class="phone-label">Paid User Home Screen</div>
+                        <div class="phone-frame" style="max-width: 100%;">
+                            <div class="phone-screen">
+                                <div class="screen-header">Sprint 1 • Day 3 of 10</div>
+                                <div class="progress-dots" style="margin-bottom: 16px;">
+                                    <div class="dot complete"></div>
+                                    <div class="dot complete"></div>
+                                    <div class="dot active"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+
+                                <div class="screen-card teal-border" style="margin-bottom: 10px;">
+                                    <p style="font-size: 0.55rem; color: #5B8A8A; margin-bottom: 4px;">TODAY'S LESSON</p>
+                                    <p style="font-size: 0.7rem; color: #FAF9F6; margin-bottom: 4px; font-weight: 600;">"Break the Inaction Cycle"</p>
+                                    <p style="font-size: 0.55rem; color: #A1A1AA; margin-bottom: 8px;">Fear creates stillness. Let's break through.</p>
+                                    <div class="screen-btn" style="font-size: 0.6rem;">▶ Start Lesson</div>
+                                </div>
+
+                                <div class="screen-card" style="margin-bottom: 10px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                        <p style="font-size: 0.55rem; color: #71717A; margin-bottom: 0;">YOUR SPARK</p>
+                                        <span style="font-size: 0.55rem; color: #B8856C;">🔥 7-day streak</span>
+                                    </div>
+                                    <p style="font-size: 0.55rem; color: #A1A1AA; margin-bottom: 4px;">What's one thing you're avoiding today?</p>
+                                    <p style="font-size: 0.5rem; color: #5B8A8A;">Quick answer →</p>
+                                </div>
+
+                                <div class="screen-card" style="margin-bottom: 10px;">
+                                    <p style="font-size: 0.55rem; color: #71717A; margin-bottom: 4px;">CO-PILOT</p>
+                                    <p style="font-size: 0.55rem; color: #A1A1AA; margin-bottom: 4px;">💬 "Yesterday you said you were avoiding..."</p>
+                                    <p style="font-size: 0.5rem; color: #5B8A8A;">Continue conversation →</p>
+                                </div>
+
+                                <div class="screen-card" style="background: #A65D57; border-radius: 6px; text-align: center;">
+                                    <p style="font-size: 0.6rem; color: #FAF9F6; margin-bottom: 0;">🆘 SOS — Nervous System Reset</p>
+                                </div>
+
+                                <div class="nav-bar">
+                                    <div class="nav-item">
+                                        <div class="nav-icon">👤</div>
+                                        Profile
+                                    </div>
+                                    <div class="nav-item active">
+                                        <div class="nav-icon">🏠</div>
+                                        Home
+                                    </div>
+                                    <div class="nav-item">
+                                        <div class="nav-icon">📋</div>
+                                        Proofs
+                                    </div>
+                                    <div class="nav-item">
+                                        <div class="nav-icon">🧰</div>
+                                        Tools
+                                    </div>
+                                </div>
+
+                                <!-- Artifact -->
+                                <div class="artifact">
+                                    <svg viewBox="0 0 80 60">
+                                        <path d="M5,30 Q15,15 25,30 T45,30 T65,30" />
+                                        <line x1="10" y1="45" x2="10" y2="55" />
+                                        <line x1="20" y1="42" x2="20" y2="58" />
+                                        <line x1="30" y1="40" x2="30" y2="60" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Conversion Strategy -->
+        <div class="section">
+            <h2>Section 7 — Conversion Strategy</h2>
+
+            <h3>Paywall Trigger Points</h3>
+            <div class="card-grid">
+                <div class="card card-highlight">
+                    <h4>Primary Trigger</h4>
+                    <p style="margin-bottom: 8px; font-size: 0.9rem;">After Commitment (Screen 9)</p>
+                    <p style="margin-bottom: 0; font-size: 0.85rem; color: #71717A;">"Start Your 90-Day Journey"</p>
+                </div>
+                <div class="card">
+                    <h4>Secondary Trigger</h4>
+                    <p style="margin-bottom: 8px; font-size: 0.9rem;">Free Home CTA</p>
+                    <p style="margin-bottom: 0; font-size: 0.85rem; color: #71717A;">"You've remembered who you were. Now become who you're meant to be."</p>
+                </div>
+                <div class="card">
+                    <h4>Soft Gate</h4>
+                    <p style="margin-bottom: 8px; font-size: 0.9rem;">If free user taps Sprint content</p>
+                    <p style="margin-bottom: 0; font-size: 0.85rem; color: #71717A;">"This is part of the full journey. Unlock all 9 sprints?"</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 32px;">Paywall Screen Design</h3>
+            <div class="two-col">
+                <div class="phone-wrapper" style="max-width: 280px;">
+                    <div class="phone-label">Paywall Screen</div>
+                    <div class="phone-frame" style="max-width: 100%;">
+                        <div class="phone-screen" style="text-align: center;">
+                            <div style="margin-bottom: 16px;">
+                                <p style="font-size: 0.75rem; color: #FAF9F6; margin-bottom: 4px;">You're a <span class="copper">dormant musician</span></p>
+                                <p style="font-size: 0.65rem; color: #5B8A8A; margin-bottom: 0;">on the PIVOT path.</p>
+                            </div>
+
+                            <div style="width: 100%; height: 1px; background: #27272A; margin-bottom: 16px;"></div>
+
+                            <p style="font-size: 0.6rem; color: #71717A; margin-bottom: 12px;">Your 90-day journey includes:</p>
+
+                            <div style="text-align: left; padding: 0 8px; margin-bottom: 16px;">
+                                <p style="font-size: 0.6rem; color: #A1A1AA; margin-bottom: 6px;">✓ 9 transformation sprints</p>
+                                <p style="font-size: 0.6rem; color: #A1A1AA; margin-bottom: 6px;">✓ AI Co-Pilot that remembers you</p>
+                                <p style="font-size: 0.6rem; color: #A1A1AA; margin-bottom: 6px;">✓ Tools that actually work</p>
+                                <p style="font-size: 0.6rem; color: #A1A1AA; margin-bottom: 6px;">✓ Progress tracking + proof system</p>
+                                <p style="font-size: 0.6rem; color: #A1A1AA; margin-bottom: 0;">✓ SOS Button for hard days</p>
+                            </div>
+
+                            <div style="width: 100%; height: 1px; background: #27272A; margin-bottom: 16px;"></div>
+
+                            <div class="screen-card teal-border" style="background: rgba(91, 138, 138, 0.1);">
+                                <p style="font-size: 0.85rem; color: #FAF9F6; margin-bottom: 4px; font-weight: 600;">$497 — One-Time Access</p>
+                                <div class="screen-btn" style="margin-top: 8px;">Start My Journey</div>
+                            </div>
+
+                            <p style="font-size: 0.5rem; color: #71717A; margin-top: 12px;">30-day money-back guarantee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="callout copper">
+                        <div class="callout-title">Personalization Continues</div>
+                        <p>The paywall recalls their creative profile + chosen path. This maintains the emotional through-line from archaeology.</p>
+                    </div>
+
+                    <h4 style="margin-top: 24px;">Conversion Psychology</h4>
+                    <ul style="color: #A1A1AA; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;"><span class="copper">Identity recall:</span> "You're a dormant musician" — reminds them of the emotional mirror they just experienced</li>
+                        <li style="margin-bottom: 8px;"><span class="copper">Path specificity:</span> "on the PIVOT path" — they've already made a choice, momentum is building</li>
+                        <li style="margin-bottom: 8px;"><span class="teal">Value list:</span> Specific, not generic — "AI Co-Pilot that remembers you"</li>
+                        <li><span class="teal">Guarantee:</span> Reduces perceived risk</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Design System Reference -->
+        <div class="section">
+            <h2>Section 8 — Design System Reference</h2>
+
+            <h3>Studio Teal Color Palette</h3>
+            <div class="card-grid">
+                <div class="card-small">
+                    <p style="font-size: 0.7rem; color: #71717A; margin-bottom: 8px;">BACKGROUNDS</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <div style="width: 32px; height: 32px; background: #18181B; border-radius: 4px; border: 1px solid #333;"></div>
+                        <div style="width: 32px; height: 32px; background: #27272A; border-radius: 4px;"></div>
+                        <div style="width: 32px; height: 32px; background: #3F3F46; border-radius: 4px;"></div>
+                    </div>
+                    <p style="font-family: monospace; font-size: 0.7rem; color: #A1A1AA; margin-bottom: 0;">#18181B • #27272A • #3F3F46</p>
+                </div>
+                <div class="card-small">
+                    <p style="font-size: 0.7rem; color: #71717A; margin-bottom: 8px;">ACCENTS</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <div style="width: 32px; height: 32px; background: #5B8A8A; border-radius: 4px;"></div>
+                        <div style="width: 32px; height: 32px; background: #B8856C; border-radius: 4px;"></div>
+                    </div>
+                    <p style="font-family: monospace; font-size: 0.7rem; color: #A1A1AA; margin-bottom: 0;">Teal: #5B8A8A • Copper: #B8856C</p>
+                </div>
+                <div class="card-small">
+                    <p style="font-size: 0.7rem; color: #71717A; margin-bottom: 8px;">TEXT</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <div style="width: 32px; height: 32px; background: #FAF9F6; border-radius: 4px;"></div>
+                        <div style="width: 32px; height: 32px; background: #A1A1AA; border-radius: 4px;"></div>
+                        <div style="width: 32px; height: 32px; background: #71717A; border-radius: 4px;"></div>
+                    </div>
+                    <p style="font-family: monospace; font-size: 0.7rem; color: #A1A1AA; margin-bottom: 0;">#FAF9F6 • #A1A1AA • #71717A</p>
+                </div>
+                <div class="card-small">
+                    <p style="font-size: 0.7rem; color: #71717A; margin-bottom: 8px;">SEMANTIC</p>
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <div style="width: 32px; height: 32px; background: #6B8E6B; border-radius: 4px;"></div>
+                        <div style="width: 32px; height: 32px; background: #C4A04A; border-radius: 4px;"></div>
+                        <div style="width: 32px; height: 32px; background: #A65D57; border-radius: 4px;"></div>
+                    </div>
+                    <p style="font-family: monospace; font-size: 0.7rem; color: #A1A1AA; margin-bottom: 0;">Success • Warning • Error</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 32px;">Typography</h3>
+            <div class="card">
+                <div style="display: grid; grid-template-columns: 120px 1fr 1fr 1fr; gap: 16px; font-size: 0.85rem;">
+                    <div style="color: #71717A;">Token</div>
+                    <div style="color: #71717A;">Size</div>
+                    <div style="color: #71717A;">Weight</div>
+                    <div style="color: #71717A;">Usage</div>
+
+                    <div style="color: #5B8A8A;">h1</div>
+                    <div>28px</div>
+                    <div>600</div>
+                    <div style="color: #A1A1AA;">Page titles</div>
+
+                    <div style="color: #5B8A8A;">h2</div>
+                    <div>22px</div>
+                    <div>600</div>
+                    <div style="color: #A1A1AA;">Card titles</div>
+
+                    <div style="color: #5B8A8A;">body.large</div>
+                    <div>18px</div>
+                    <div>400</div>
+                    <div style="color: #A1A1AA;">Lead paragraphs</div>
+
+                    <div style="color: #5B8A8A;">body</div>
+                    <div>16px</div>
+                    <div>400</div>
+                    <div style="color: #A1A1AA;">Body text</div>
+
+                    <div style="color: #5B8A8A;">caption</div>
+                    <div>12px</div>
+                    <div>400</div>
+                    <div style="color: #A1A1AA;">Timestamps, hints</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 32px;">Creative Artifacts</h3>
+            <p>Personalized discipline motifs that appear as subtle background elements. Selected during archaeology, persist throughout the app.</p>
+
+            <div class="card" style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 45px; margin-bottom: 8px;">
+                        <svg viewBox="0 0 80 60" style="width: 100%; height: 100%;">
+                            <path d="M5,30 Q15,15 25,30 T45,30 T65,30 T85,30" stroke="#71717A" stroke-width="1.5" fill="none" opacity="0.4"/>
+                            <line x1="10" y1="45" x2="10" y2="55" stroke="#71717A" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="20" y1="42" x2="20" y2="58" stroke="#71717A" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="30" y1="40" x2="30" y2="60" stroke="#71717A" stroke-width="1.5" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <p style="font-size: 0.7rem; color: #71717A; margin-bottom: 0;">Music (default)</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 45px; margin-bottom: 8px;">
+                        <svg viewBox="0 0 80 60" style="width: 100%; height: 100%;">
+                            <path d="M5,30 Q15,15 25,30 T45,30 T65,30 T85,30" stroke="#B8856C" stroke-width="1.5" fill="none" opacity="0.5"/>
+                            <line x1="10" y1="45" x2="10" y2="55" stroke="#B8856C" stroke-width="1.5" opacity="0.5"/>
+                            <line x1="20" y1="42" x2="20" y2="58" stroke="#B8856C" stroke-width="1.5" opacity="0.5"/>
+                            <line x1="30" y1="40" x2="30" y2="60" stroke="#B8856C" stroke-width="1.5" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <p style="font-size: 0.7rem; color: #B8856C; margin-bottom: 0;">Music (completion)</p>
+                </div>
+                <div style="flex: 1; padding-left: 24px; border-left: 1px solid #27272A;">
+                    <p style="font-size: 0.85rem; margin-bottom: 8px;"><span class="teal">Default state:</span> Gray (#71717A) at 20% opacity</p>
+                    <p style="font-size: 0.85rem; margin-bottom: 8px;"><span class="copper">Completion state:</span> Copper (#B8856C) at 50% opacity</p>
+                    <p style="font-size: 0.85rem; margin-bottom: 0;"><span style="color: #A1A1AA;">Position:</span> Bottom-right corner, never center</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Implementation -->
+        <div class="section">
+            <h2>Section 9 — Implementation Order</h2>
+
+            <div class="two-col">
+                <div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Phase 1: Data Layer</div>
+                            <div class="timeline-desc">Add is_paid, paid_at columns. Create Zustand store. Test RLS.</div>
+                            <div class="timeline-hours">2-3 hours</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Phase 2: Routing Logic</div>
+                            <div class="timeline-desc">Subscription check utility. Post-archaeology routing. Free vs paid split.</div>
+                            <div class="timeline-hours">2-3 hours</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Phase 3: Free User Home</div>
+                            <div class="timeline-desc">Simplified home screen. Profile card. Daily Spark. Paywall CTA.</div>
+                            <div class="timeline-hours">4-6 hours</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Phase 4: Simplify Paid Home</div>
+                            <div class="timeline-desc">Reduce to 4 elements. Remove Step 1/2/3. Add Creative Artifact.</div>
+                            <div class="timeline-hours">4-6 hours</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Phase 5: Paywall Screen</div>
+                            <div class="timeline-desc">Build paywall with profile recap. Connect to Stripe/RevenueCat.</div>
+                            <div class="timeline-hours">3-4 hours</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Phase 6: Cut Old Onboarding</div>
+                            <div class="timeline-desc">Remove 8 redundant screens. Keep Sprint 1 Micro-Intake for paid only.</div>
+                            <div class="timeline-hours">2-3 hours</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="stats-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="stat-card">
+                            <div class="stat-value">17-25</div>
+                            <div class="stat-label">Total Hours</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">6</div>
+                            <div class="stat-label">Phases</div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 24px;">Database Changes</h4>
+                    <div class="code-block">
+<span class="comment">-- Add subscription tracking:</span>
+<span class="keyword">ALTER TABLE</span> users
+<span class="keyword">ADD COLUMN IF NOT EXISTS</span> is_paid <span class="teal">BOOLEAN DEFAULT false</span>;
+<span class="keyword">ADD COLUMN IF NOT EXISTS</span> paid_at <span class="teal">TIMESTAMP</span>;
+<span class="keyword">ADD COLUMN IF NOT EXISTS</span> payment_provider <span class="teal">TEXT</span>;
+                    </div>
+
+                    <h4 style="margin-top: 24px;">Routing Logic</h4>
+                    <div class="code-block">
+<span class="comment">// After archaeology completion:</span>
+<span class="keyword">const</span> handleArchaeologyComplete = <span class="keyword">async</span> () => {
+  <span class="keyword">const</span> isPaid = <span class="keyword">await</span> checkSubscriptionStatus();
+
+  <span class="keyword">if</span> (isPaid) {
+    router.push(<span class="string">'/onboarding/sprint1-intake'</span>);
+  } <span class="keyword">else</span> {
+    router.push(<span class="string">'/home/free'</span>);
+  }
+};
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Success Metrics -->
+        <div class="section">
+            <h2>Section 10 — Success Metrics</h2>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(5, 1fr);">
+                <div class="stat-card">
+                    <div class="stat-value">85%+</div>
+                    <div class="stat-label">Archaeology Completion</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">80%+</div>
+                    <div class="stat-label">"This Feels Right"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15%+</div>
+                    <div class="stat-label">Free → Paid (7 days)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">80%+</div>
+                    <div class="stat-label">Day 3 Retention (Paid)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">30%+</div>
+                    <div class="stat-label">Daily Spark (Free)</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 32px;">Measurement Details</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Target</th>
+                        <th>How Measured</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Archaeology completion rate</td>
+                        <td><span class="green">85%+</span></td>
+                        <td>Users who finish all 9 screens / users who start</td>
+                    </tr>
+                    <tr>
+                        <td>Profile resonance</td>
+                        <td><span class="green">80%+</span></td>
+                        <td>"This feels right" taps vs "Edit profile" taps</td>
+                    </tr>
+                    <tr>
+                        <td>Free → Paid conversion</td>
+                        <td><span class="green">15%+</span></td>
+                        <td>Paywall tap → successful purchase within 7 days</td>
+                    </tr>
+                    <tr>
+                        <td>Day 3 retention (paid)</td>
+                        <td><span class="green">80%+</span></td>
+                        <td>Paid users who complete Day 3 content</td>
+                    </tr>
+                    <tr>
+                        <td>Spark engagement (free)</td>
+                        <td><span class="green">30%+</span></td>
+                        <td>Free users answering daily spark / total free users</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 11: Open Questions -->
+        <div class="section">
+            <h2>Section 11 — Open Questions</h2>
+
+            <div class="card-grid">
+                <div class="card card-highlight">
+                    <h4>Pricing Model</h4>
+                    <p style="margin-bottom: 0;">$497 one-time or $97/month subscription?<br><span style="color: #71717A; font-size: 0.85rem;">Current spec assumes one-time.</span></p>
+                </div>
+                <div class="card">
+                    <h4>Trial Period</h4>
+                    <p style="margin-bottom: 0;">Should free users get 3 days of Sprint 1 before paywall?<br><span style="color: #71717A; font-size: 0.85rem;">Could increase conversion but adds complexity.</span></p>
+                </div>
+                <div class="card">
+                    <h4>Creative Artifacts</h4>
+                    <p style="margin-bottom: 0;">Is this built? Should it be MVP or V1.1?<br><span style="color: #71717A; font-size: 0.85rem;">Prompts were given, status unconfirmed.</span></p>
+                </div>
+                <div class="card">
+                    <h4>Payment Provider</h4>
+                    <p style="margin-bottom: 0;">Stripe direct or RevenueCat for mobile?<br><span style="color: #71717A; font-size: 0.85rem;">RevenueCat handles iOS/Android complexities.</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Approval Section -->
+        <div class="section">
+            <h2>Ready to Build?</h2>
+
+            <div class="checklist" style="max-width: 600px;">
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <span>Creative Archaeology flow approved as designed</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <span>Freemium split (free home vs paid home) approved</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <span>Old onboarding screens approved for removal</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <span>Paywall design and copy approved</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <span>Pricing decided ($497 one-time vs subscription)</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <span>Payment provider selected (Stripe vs RevenueCat)</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 24px; color: #71717A;">Once approved, I'll generate Claude Code prompts for each implementation phase.</p>
+        </div>
+
+        <footer>
+            PYC Creative Archaeology + Freemium Flow Spec — v2.0 — January 2026<br>
+            <span style="color: #5B8A8A;">Pioneer Your Creative</span>
+        </footer>
+
+    </div>
+</body>
+</html>

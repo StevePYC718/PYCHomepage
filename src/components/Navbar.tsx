@@ -8,9 +8,9 @@ type NavbarProps = {
 };
 
 const NAV_LINKS = [
-  { id: "crisis", label: "Why It Works" },
-  { id: "systems", label: "The Framework" },
-  { id: "creatives", label: "About" },
+  { id: "who-its-for", label: "The Journey" },
+  { id: "how-it-works", label: "Why It Works" },
+  { id: "your-path", label: "Choose Your Path" },
 ];
 
 const SPRINT1_COURSE_URL = "https://pioneeryourcreative.thinkific.com/courses/sprint1" as const;
@@ -58,7 +58,7 @@ export default function Navbar({ onCtaClick }: NavbarProps) {
       return;
     }
 
-    const sectionIds = ["hero", ...NAV_LINKS.map((item) => item.id), "join", "start"];
+  const sectionIds = ["hero", ...NAV_LINKS.map((item) => item.id), "join", "start"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
@@ -104,7 +104,9 @@ export default function Navbar({ onCtaClick }: NavbarProps) {
   const linkClasses = (id: string) =>
     [
       "relative inline-flex items-center py-2 text-[15px] font-medium transition-colors",
-      activeSection === id ? "text-white" : "text-white/70 hover:text-white",
+      activeSection === id
+        ? "text-white"
+        : "text-white/70 hover:text-[var(--green-primary)]",
     ].join(" ");
 
   const handleCta = (cta: string) => {
@@ -189,7 +191,7 @@ export default function Navbar({ onCtaClick }: NavbarProps) {
             }}
             className="inline-flex items-center justify-center rounded-lg border border-[#5BE597] px-5 py-2 text-sm font-semibold text-[#5BE597] transition hover:bg-[#5BE597]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5BE597]/60"
           >
-            Free Guide
+            Free Blueprint
           </Link>
           <Link
             href={SPRINT1_COURSE_URL}
@@ -252,7 +254,7 @@ export default function Navbar({ onCtaClick }: NavbarProps) {
               }}
               className="inline-flex w-full items-center justify-center rounded-lg border border-[#5BE597] px-5 py-2 text-sm font-semibold text-[#5BE597] transition hover:bg-[#5BE597]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5BE597]/60"
             >
-              Free Guide
+              Free Blueprint
             </Link>
             <Link
               href={SPRINT1_COURSE_URL}
