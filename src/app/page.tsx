@@ -2,8 +2,8 @@ import './landing.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pioneer Your Creative — 90-Day Transformation for Burned-Out Creatives',
-  description: 'Escape burnout and build entrepreneurial freedom. A 90-day transformation program for creative professionals ready to pioneer their own path.',
+  title: 'Pioneer Your Creative — Pivot, Build, or Evolve Your Creative Career',
+  description: 'You didn\'t lose your creativity. You buried it. The system for creative professionals ready to pivot their career, build their business, or evolve their role.',
 }
 
 export default function Home() {
@@ -23,11 +23,12 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-text">
               <h1>
-                <span className="copper">Stuck.</span> <span className="teal">Burned out.</span><br />
-                <strong>Ready to pioneer.</strong>
+                You didn&apos;t lose it.<br />
+                <span className="teal">You buried it.</span>
               </h1>
               <p className="hero-subtitle">
-                The 90-day system for creative professionals ready to make a real change.
+                Now <span className="red">pivot</span> with it. <span className="copper">Build</span> with it. <span className="teal">Evolve</span> with it.<br />
+                The system for creative professionals who are done waiting.
               </p>
               <div className="hero-cta-group">
                 <a href="#pricing" className="btn-primary">Start Free — No Credit Card</a>
@@ -462,13 +463,9 @@ export default function Home() {
       <section style={{textAlign: 'center', padding: '100px 0'}}>
         <div className="container">
           <h2 className="section-title" style={{maxWidth: '700px', margin: '0 auto 24px'}}>
-            You&apos;ve been stuck long enough.<br />
-            <span className="copper">It&apos;s time to pioneer.</span>
+            You buried it under years of &ldquo;being practical.&rdquo;<br />
+            <span className="copper">It&apos;s still there.</span>
           </h2>
-          <p className="section-subtitle" style={{margin: '0 auto 32px'}}>
-            Start with Creative Archaeology — free, no credit card required.
-            See your creative profile. Feel what&apos;s possible. Then decide.
-          </p>
           <a href="#" className="btn-primary">Start Free →</a>
         </div>
       </section>
