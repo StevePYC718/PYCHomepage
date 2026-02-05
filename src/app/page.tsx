@@ -2,8 +2,8 @@ import './landing.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pioneer Your Creative — Pivot, Build, or Evolve Your Creative Career',
-  description: 'You didn\'t lose your creativity. You buried it. The system for creative professionals ready to pivot their career, build their business, or evolve their role.',
+  title: 'Pioneer Your Creative — The 90-Day System for Creative Minds',
+  description: 'A 90-day system for creative minds who are done waiting. Set your North Star Goal, move through 9 structured sprints, and make real progress — with AI guidance designed for how your brain actually works.',
 }
 
 export default function Home() {
@@ -24,11 +24,13 @@ export default function Home() {
             <div className="hero-text">
               <h1>
                 You didn&apos;t lose it.<br />
-                <span className="teal">You buried it.</span>
+                <strong className="teal">You <span className="copper">buried</span> it.</strong>
               </h1>
               <p className="hero-subtitle">
-                Now <span className="red">pivot</span> with it. <span className="copper">Build</span> with it. <span className="teal">Evolve</span> with it.<br />
-                The system for creative professionals who are done waiting.
+                Now — <span className="teal">Pivot</span> with it. <span className="copper">Build</span> with it. <span className="green">Evolve</span> with it.
+              </p>
+              <p className="hero-sub-tagline">
+                A 90-day system for creative minds who are done waiting and ready to move.
               </p>
               <div className="hero-cta-group">
                 <a href="#pricing" className="btn-primary">Start Free — No Credit Card</a>
@@ -90,39 +92,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Value Prop Section */}
-      <section className="value-prop-section">
+      {/* Callout Strip */}
+      <section style={{padding: '0'}}>
         <div className="container">
-          <div className="paths-headline">
-            <div className="section-label">Your Direction</div>
-            <h2>Pioneer Your Path</h2>
-          </div>
-          <div className="paths-main-grid">
-            <div className="path-outcome-card pivot">
-              <div className="path-outcome-name">PIVOT</div>
-              <div className="path-outcome-desc">Change careers entirely</div>
+          <div className="callout-strip-grid">
+            <div>
+              <p style={{fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: 500, marginBottom: '6px'}}>Not a course</p>
+              <p style={{fontSize: '0.85rem', color: 'var(--text-tertiary)', lineHeight: 1.5}}>A quarterly system with sprints, metrics, and real accountability</p>
             </div>
-            <div className="path-outcome-card build">
-              <div className="path-outcome-name">BUILD</div>
-              <div className="path-outcome-desc">Start your own business</div>
+            <div>
+              <p style={{fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: 500, marginBottom: '6px'}}>Not meditation</p>
+              <p style={{fontSize: '0.85rem', color: 'var(--text-tertiary)', lineHeight: 1.5}}>Immersive audio designed to change your state — then move you to action</p>
             </div>
-            <div className="path-outcome-card evolve">
-              <div className="path-outcome-name">EVOLVE</div>
-              <div className="path-outcome-desc">Transform your current role</div>
-            </div>
-          </div>
-          <div className="differentiators-row">
-            <div className="diff-item">
-              <span className="diff-not">Not a course</span>
-              An execution system with daily sprints and real accountability
-            </div>
-            <div className="diff-item">
-              <span className="diff-not">Not meditation</span>
-              Immersive audio that drives action, not just calm
-            </div>
-            <div className="diff-item">
-              <span className="diff-not">Not journaling</span>
-              Track real metrics: applications, revenue, projects shipped
+            <div>
+              <p style={{fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: 500, marginBottom: '6px'}}>Not journaling</p>
+              <p style={{fontSize: '0.85rem', color: 'var(--text-tertiary)', lineHeight: 1.5}}>Track the metric that matters: revenue, applications, pages written, projects shipped</p>
             </div>
           </div>
         </div>
@@ -141,19 +125,19 @@ export default function Home() {
             <div className="threat-card existential">
               <div className="threat-label">⚠️ Existential Threat</div>
               <div className="threat-title">AI is coming for creative jobs</div>
-              <p>Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; paths are becoming unsafe.</p>
+              <p>Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; creative career paths are becoming unsafe. Half your job functions may already be automated.</p>
             </div>
 
             <div className="threat-card external">
               <div className="threat-label">🔥 External Pressure</div>
               <div className="threat-title">Modern life is engineered against you</div>
-              <p>Distraction by design — and creative brains are MORE susceptible. Your nervous system is constantly triggered. You can&apos;t think your way out.</p>
+              <p>Distraction by design — and creative brains are MORE susceptible. Your nervous system is constantly triggered. You can&apos;t think your way out of a feeling problem.</p>
             </div>
 
             <div className="threat-card internal">
               <div className="threat-label">🧠 Internal Blockers</div>
               <div className="threat-title">The result: a crisis of action</div>
-              <p>Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. Disconnection from who you used to be.</p>
+              <p>Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. Disconnection from who you used to be. You know you need to move — but something keeps you frozen.</p>
             </div>
           </div>
         </div>
@@ -163,13 +147,18 @@ export default function Home() {
       <section className="paradox-section">
         <div className="container">
           <div className="paradox-box">
-            <p className="paradox-statement">
+            <div className="paradox-statement">
               Creatives are <span className="red">most threatened</span> by these forces.<br />
-              And <span className="copper">most equipped</span> to thrive.
+              And <span className="teal">most equipped</span> to thrive.
+            </div>
+            <p className="paradox-sub" style={{marginBottom: 0}}>
+              <strong>Creative Energy</strong> — divergent thinking, emotional intelligence, connecting unrelated ideas — these are the skills AI can&apos;t replace.
             </p>
-            <p className="paradox-sub">
-              <strong>Creative Energy</strong> — divergent thinking, emotional intelligence, connecting unrelated ideas —
-              these are the skills AI can&apos;t replace. Your unfair advantage. Buried under fear and burnout. <strong>Until now.</strong>
+            <p className="paradox-sub" style={{marginTop: '16px'}}>
+              Your unfair advantage? <span className="copper"><strong>Buried under fear and burnout.</strong></span>
+            </p>
+            <p className="paradox-sub" style={{marginTop: '12px', fontSize: '1.25rem'}}>
+              <strong className="copper">Until now.</strong>
             </p>
           </div>
           <a href="#pricing" className="btn-primary">Unlock Your Creative Energy →</a>
@@ -179,12 +168,11 @@ export default function Home() {
       {/* Solution Section */}
       <section className="solution-section" id="how-it-works">
         <div className="container">
-          <div className="section-label">The 90-Day Execution System</div>
+          <div className="section-label">The 90-Day System</div>
           <h2 className="section-title">Three phases. Nine sprints. Real results.</h2>
           <p className="section-subtitle">
-            PYC isn&apos;t content to consume — it&apos;s a sprint-based execution system.
-            Each 10-day sprint builds specific skills, with tools you actually use
-            and metrics you actually track. Skip a phase, the foundation crumbles.
+            PYC isn&apos;t content to consume — it&apos;s a sprint-based system designed for creative brains.
+            Each 10-day sprint builds specific skills, with tools you actually use and metrics you actually track.
           </p>
 
           <div className="phases-grid">
@@ -197,7 +185,7 @@ export default function Home() {
             <div className="phase-card">
               <div className="phase-number">Phase 2 — Days 31-60</div>
               <div className="phase-name">STRENGTHEN</div>
-              <div className="phase-desc">Build self-knowledge. Protect your focus from digital poison, understand your energy rhythms, develop emotional resilience for the hard moments ahead.</div>
+              <div className="phase-desc">Build self-knowledge. Protect your focus, understand your energy rhythms, develop emotional resilience for the hard moments ahead.</div>
               <div className="phase-sprints">Sprints 4-6</div>
             </div>
             <div className="phase-card">
@@ -208,13 +196,53 @@ export default function Home() {
             </div>
           </div>
 
-          {/* App Walkthrough */}
-          <div className="app-walkthrough">
-            <h3>Here&apos;s how it works in the app</h3>
-            <p>Every day, you&apos;ll have a clear path forward. Lessons, tools, and reflection — designed for busy professionals.</p>
+          {/* How It Works — 4-Step Flow */}
+          <div className="how-it-works-flow">
+            <h3>Your quarter. Your goal. A system that gets you there.</h3>
+            <p>Most goal tools give you a blank page. PYC gives you a container — structured sprints, AI guidance, and creative fuel designed for how your brain actually works.</p>
 
-            <div className="screens-showcase">
-              <div className="screen-item">
+            <div className="steps-grid">
+              <div className="step-card">
+                <div className="step-number">Step 1</div>
+                <div className="step-name">Excavate</div>
+                <div className="step-desc">Creative Archaeology uncovers who you were before work buried it. Your creative profile becomes the foundation.</div>
+                <span className="step-free-tag">Free for everyone</span>
+              </div>
+              <div className="step-card">
+                <div className="step-number">Step 2</div>
+                <div className="step-name">Aim</div>
+                <div className="step-desc">Choose your path. Set a North Star Goal and the metrics that prove you&apos;re moving.</div>
+                <span className="step-free-tag">Free for everyone</span>
+              </div>
+              <div className="step-card">
+                <div className="step-number">Step 3</div>
+                <div className="step-name">Execute</div>
+                <div className="step-desc">9 sprints over 90 days. Immersive audio, daily tools, and an AI co-pilot that remembers everything.</div>
+              </div>
+              <div className="step-card">
+                <div className="step-number">Step 4</div>
+                <div className="step-name">Ship</div>
+                <div className="step-desc">The career launched. The book written. The project shipped. Real outcomes, tracked and proven.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Showcase */}
+      <section>
+        <div className="container">
+          <div className="section-label">Feel Different, Not Just Think Different</div>
+          <h2 className="section-title">Built for creative brains.</h2>
+          <p className="section-subtitle">
+            Five things that make PYC different from everything else you&apos;ve tried.
+          </p>
+
+          <div className="feature-showcase">
+
+            {/* Feature 1: Creative Archaeology */}
+            <div className="feature-row">
+              <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-screen" style={{justifyContent: 'center', textAlign: 'center'}}>
                     <div style={{padding: '0 8px'}}>
@@ -224,10 +252,47 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="screen-label"><strong>1.</strong> Creative Archaeology</div>
               </div>
+              <div className="feature-text">
+                <div className="feature-label">Creative Archaeology</div>
+                <h3>Remember who you were before work took over.</h3>
+                <p>Before you set a goal, you need to feel — not just intellectually understand — that you ARE creative. Creative Archaeology excavates your buried identity in 5 minutes. No other program does this.</p>
+                <p className="feature-detail">The Artist&apos;s Way meets The Art of Impossible. Your creative profile becomes the emotional foundation everything else builds on.</p>
+              </div>
+            </div>
 
-              <div className="screen-item">
+            {/* Feature 2: AI Co-Pilot */}
+            <div className="feature-row reverse">
+              <div className="feature-visual">
+                <div className="phone-frame">
+                  <div className="phone-screen">
+                    <div className="screen-header">Co-Pilot</div>
+                    <div style={{flex: 1, display: 'flex', flexDirection: 'column', gap: '8px'}}>
+                      <div style={{background: 'var(--bg-secondary)', borderRadius: '12px 12px 12px 4px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-secondary)', alignSelf: 'flex-start', maxWidth: '85%'}}>
+                        I noticed you&apos;ve been avoiding the networking outreach from Sprint 2. What&apos;s coming up when you think about it?
+                      </div>
+                      <div style={{background: 'rgba(91, 138, 138, 0.2)', borderRadius: '12px 12px 4px 12px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-primary)', alignSelf: 'flex-end', maxWidth: '85%'}}>
+                        Honestly? I&apos;m scared they&apos;ll think I&apos;m desperate.
+                      </div>
+                      <div style={{background: 'var(--bg-secondary)', borderRadius: '12px 12px 12px 4px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-secondary)', alignSelf: 'flex-start', maxWidth: '85%'}}>
+                        That&apos;s fear talking — the &ldquo;perception&rdquo; disguise from Lesson 2. Remember: people want to help. What&apos;s one person you could reach out to today?
+                      </div>
+                    </div>
+                    <div style={{background: 'var(--bg-tertiary)', borderRadius: '8px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-tertiary)', marginTop: '12px'}}>Type your message...</div>
+                  </div>
+                </div>
+              </div>
+              <div className="feature-text">
+                <div className="feature-label">AI Co-Pilot with Memory</div>
+                <h3>A guide that actually knows your story.</h3>
+                <p>Not a chatbot. The Co-Pilot remembers your fears, your wins, your patterns. It knows what you committed to last week and whether you followed through. It calls you out when you&apos;re hiding.</p>
+                <p className="feature-detail">Personalized guidance that &ldquo;gets&rdquo; your specific situation — because it&apos;s been paying attention since day one.</p>
+              </div>
+            </div>
+
+            {/* Feature 3: Sprint System */}
+            <div className="feature-row">
+              <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-screen">
                     <div className="screen-header">Good morning, Steve</div>
@@ -245,15 +310,23 @@ export default function Home() {
                     <div className="screen-card teal-border" style={{flex: 1}}>
                       <p style={{fontSize: '0.6rem', color: 'var(--text-tertiary)', marginBottom: '4px'}}>TODAY&apos;S LESSON</p>
                       <p style={{fontSize: '0.7rem', color: 'var(--text-primary)', marginBottom: '4px', fontWeight: 500}}>The Fear Disguises</p>
-                      <p style={{fontSize: '0.55rem', color: 'var(--text-secondary)'}}>8 min • Video + Reflection</p>
+                      <p style={{fontSize: '0.55rem', color: 'var(--text-secondary)'}}>8 min • Audio + Reflection</p>
                     </div>
                     <div className="screen-btn">Start Lesson →</div>
                   </div>
                 </div>
-                <div className="screen-label"><strong>2.</strong> Daily Home</div>
               </div>
+              <div className="feature-text">
+                <div className="feature-label">Immersive Sprint System</div>
+                <h3>9 structured sprints. Not a blank page.</h3>
+                <p>Each 10-day sprint is a themed container — cinematic audio narratives, practical tools, and guided reflection. Designed to change your state first, then move you to action. Like a song that transports you, then hands you a blueprint.</p>
+                <p className="feature-detail">10-20 minutes a day. Built for busy professionals, not monks with empty calendars.</p>
+              </div>
+            </div>
 
-              <div className="screen-item">
+            {/* Feature 4: Evidence System */}
+            <div className="feature-row reverse">
+              <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-screen">
                     <div className="screen-header" style={{color: 'var(--accent-secondary)'}}>🔥 Log a Win</div>
@@ -278,74 +351,37 @@ export default function Home() {
                     <div className="screen-btn">Log Win</div>
                   </div>
                 </div>
-                <div className="screen-label"><strong>3.</strong> Track Wins</div>
               </div>
+              <div className="feature-text">
+                <div className="feature-label">Evidence System</div>
+                <h3>Track real metrics. Build undeniable proof.</h3>
+                <p>Log wins. Track your North Star metric — applications sent, revenue earned, pages written, projects shipped. When imposter syndrome hits, open your evidence and let the data talk.</p>
+                <p className="feature-detail">Commitment Lock keeps you accountable. The Evidence System proves it&apos;s working.</p>
+              </div>
+            </div>
 
-              <div className="screen-item">
-                <div className="phone-frame">
-                  <div className="phone-screen">
-                    <div className="screen-header">Co-Pilot</div>
-                    <div style={{flex: 1, display: 'flex', flexDirection: 'column', gap: '8px'}}>
-                      <div style={{background: 'var(--bg-secondary)', borderRadius: '12px 12px 12px 4px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-secondary)', alignSelf: 'flex-start', maxWidth: '85%'}}>
-                        I noticed you&apos;ve been avoiding the networking outreach from Sprint 2. What&apos;s coming up when you think about it?
-                      </div>
-                      <div style={{background: 'rgba(91, 138, 138, 0.2)', borderRadius: '12px 12px 4px 12px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-primary)', alignSelf: 'flex-end', maxWidth: '85%'}}>
-                        Honestly? I&apos;m scared they&apos;ll think I&apos;m desperate.
-                      </div>
-                      <div style={{background: 'var(--bg-secondary)', borderRadius: '12px 12px 12px 4px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-secondary)', alignSelf: 'flex-start', maxWidth: '85%'}}>
-                        That&apos;s fear talking — the &ldquo;perception&rdquo; disguise from Lesson 2. Remember: people want to help. What&apos;s one person you could reach out to today?
-                      </div>
-                    </div>
-                    <div style={{background: 'var(--bg-tertiary)', borderRadius: '8px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-tertiary)', marginTop: '12px'}}>Type your message...</div>
+            {/* Feature 5: Morning Spark + SOS */}
+            <div className="feature-row">
+              <div className="feature-visual">
+                <div style={{maxWidth: '240px', margin: '0 auto'}}>
+                  <div style={{background: 'var(--bg-primary)', borderRadius: '24px', padding: '32px 24px', border: '1px solid var(--border-default)', textAlign: 'center'}}>
+                    <p style={{fontSize: '0.65rem', color: 'var(--accent-primary)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '16px'}}>Morning Spark — Day 14</p>
+                    <p style={{fontSize: '1rem', color: 'var(--text-primary)', lineHeight: 1.5, marginBottom: '24px', fontStyle: 'italic'}}>&ldquo;Write a six-word story about your day so far.&rdquo;</p>
+                    <div style={{width: '100%', height: '1px', background: 'var(--border-default)', marginBottom: '24px'}}></div>
+                    <p style={{fontSize: '0.65rem', color: 'var(--semantic-error)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px'}}>🚨 SOS Button</p>
+                    <p style={{fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '16px'}}>Overwhelmed? One tap.</p>
+                    <div style={{background: 'rgba(166, 93, 87, 0.15)', border: '1px solid var(--semantic-error)', borderRadius: '10px', padding: '12px', fontSize: '0.8rem', color: 'var(--semantic-error)', fontWeight: 500}}>90-Second Reset</div>
                   </div>
                 </div>
-                <div className="screen-label"><strong>4.</strong> AI Co-Pilot</div>
+              </div>
+              <div className="feature-text">
+                <div className="feature-label">Morning Spark + SOS Button</div>
+                <h3>Creative joy before productivity. Calm when you need it.</h3>
+                <p><strong>Morning Spark:</strong> 2 minutes to reconnect with creativity for fun. Daily prompts tied to your craft — remember, notice, play. The joy comes back before the work begins.</p>
+                <p><strong>SOS Button:</strong> Overwhelmed? Anxious? One tap for guided breathwork and nervous system reset. 90 seconds to calm. Then back to work.</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Features Section */}
-      <section>
-        <div className="container">
-          <div className="section-label">Feel Different, Not Just Think Different</div>
-          <h2 className="section-title">Built for creative brains.</h2>
-          <p className="section-subtitle">
-            An immersive system designed for how creatives actually learn and change.
-          </p>
-
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon">🎧</div>
-              <h4>Immersive Audio</h4>
-              <p>Cinematic narratives that change your state — like a song that transports you. Story → Learning → Insight → Reflection. Your creative DNA shifts.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">🪞</div>
-              <h4>Creative Archaeology</h4>
-              <p>Remember who you were before work took over. No other program does this. <em>The Artist&apos;s Way</em> meets <em>The Art of Impossible</em>.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">🤖</div>
-              <h4>AI Co-Pilot</h4>
-              <p>A guide that remembers your fears, wins, and patterns. Knows your story. Calls you out when you&apos;re hiding.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">🚨</div>
-              <h4>SOS Button</h4>
-              <p>Overwhelmed? One tap. 90 seconds. Nervous system reset. Back to work.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">📊</div>
-              <h4>Evidence System</h4>
-              <p>Track real metrics: applications sent, revenue earned, projects shipped. Proof this is working.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">✨</div>
-              <h4>Morning Spark</h4>
-              <p>2 minutes to reconnect with creativity for fun. Daily prompts tied to your craft. The joy returns.</p>
-            </div>
           </div>
         </div>
       </section>
@@ -354,27 +390,27 @@ export default function Home() {
       <section className="paths-section">
         <div className="container">
           <div className="section-label">Pioneer Your Path</div>
-          <h2 className="section-title">Three paths. Real-world outcomes.</h2>
+          <h2 className="section-title">Pick a direction. Set a goal. Execute for 90 days.</h2>
           <p className="section-subtitle">
-            This isn&apos;t journaling and hoping for the best. You pick a direction,
-            track a concrete metric, and execute for 90 days. Your creative energy needs a target.
+            PYC isn&apos;t journaling and hoping. You choose a path, set a North Star Goal with real metrics,
+            and your AI co-pilot helps you execute through 9 structured sprints. Your creative energy needs a target — this gives it one.
           </p>
 
           <div className="paths-grid">
             <div className="path-card pivot">
               <div className="path-name">PIVOT</div>
-              <div className="path-for">Your current path is fundamentally misaligned with who you&apos;ve become.</div>
-              <div className="path-action"><strong>Outcome:</strong> New career launched — applications sent, interviews completed, offers received.</div>
+              <div className="path-for">Your current direction is fundamentally misaligned with who you&apos;ve become.</div>
+              <div className="path-examples"><strong>Examples:</strong> Change careers. Break a pattern that&apos;s held you back for years. Make the life transition you keep postponing.</div>
             </div>
             <div className="path-card build">
               <div className="path-name">BUILD</div>
               <div className="path-for">You have something inside that needs to exist in the world.</div>
-              <div className="path-action"><strong>Outcome:</strong> Business or project shipped — revenue generated, customers acquired, work launched.</div>
+              <div className="path-examples"><strong>Examples:</strong> Launch a business. Write the book. Ship the project. Start the thing you&apos;ve been &ldquo;planning&rdquo; for two years.</div>
             </div>
             <div className="path-card evolve">
               <div className="path-name">EVOLVE</div>
-              <div className="path-for">The foundation is right but the execution is stale.</div>
-              <div className="path-action"><strong>Outcome:</strong> Role transformed — promotion earned, projects led, recognition gained.</div>
+              <div className="path-for">The foundation is right but you&apos;ve plateaued.</div>
+              <div className="path-examples"><strong>Examples:</strong> Deepen your craft. Transform your current role. Level up a skill. Become the person the next chapter requires.</div>
             </div>
           </div>
         </div>
@@ -384,30 +420,42 @@ export default function Home() {
       <section className="pricing-section" id="pricing">
         <div className="container">
           <div className="section-label">Investment</div>
-          <h2 className="section-title">One price. Full transformation.</h2>
+          <h2 className="section-title">Start free. Go all-in when you&apos;re ready.</h2>
           <p className="section-subtitle" style={{marginLeft: 'auto', marginRight: 'auto'}}>
-            No tiers. No upsells. No subscription traps.
-            One payment for the complete 90-day system.
+            Creative Archaeology is free — discover who you are before you invest.
+            When you&apos;re ready to execute, one payment unlocks the full system.
           </p>
 
-          <div className="pricing-card">
-            <div className="pricing-label">Full Access</div>
-            <div className="pricing-amount">$497</div>
-            <div className="pricing-term">One-time payment • Lifetime access</div>
-
-            <ul className="pricing-features">
-              <li>9 transformation sprints (90 days of content)</li>
-              <li>AI Co-Pilot with memory</li>
-              <li>Creative Archaeology onboarding</li>
-              <li>All tools: SOS Button, Commitment Lock, Evidence System</li>
-              <li>Path-specific guidance (Pivot, Build, or Evolve)</li>
-              <li>Morning Spark daily prompts</li>
-              <li>Future updates included</li>
-            </ul>
-
-            <a href="#" className="btn-primary" style={{width: '100%', textAlign: 'center'}}>Start Free — Upgrade Anytime</a>
-
-            <p className="pricing-guarantee">30-day money-back guarantee. No questions asked.</p>
+          <div className="pricing-grid">
+            <div className="pricing-card">
+              <div className="pricing-label">Free — Forever</div>
+              <div className="pricing-amount">$0</div>
+              <div className="pricing-term">No credit card required</div>
+              <ul className="pricing-features">
+                <li>Creative Archaeology onboarding</li>
+                <li>Your creative profile &amp; identity map</li>
+                <li>Path selection (Pivot, Build, Evolve)</li>
+                <li>North Star Goal setting</li>
+                <li>Daily Morning Spark prompts</li>
+              </ul>
+              <a href="#" className="pricing-btn-secondary">Start Free →</a>
+            </div>
+            <div className="pricing-card featured">
+              <div className="pricing-label">Full Access</div>
+              <div className="pricing-amount">$497</div>
+              <div className="pricing-term">One-time payment · Lifetime access</div>
+              <ul className="pricing-features">
+                <li className="includes-tag">Everything in Free, plus:</li>
+                <li>9 transformation sprints (90 days)</li>
+                <li>AI Co-Pilot with memory</li>
+                <li>All tools: SOS Button, Commitment Lock, Evidence System</li>
+                <li>Path-specific guidance &amp; content</li>
+                <li>Metric tracking &amp; progress proof</li>
+                <li>Future updates included</li>
+              </ul>
+              <a href="#" className="pricing-btn-primary">Upgrade to Full Access</a>
+              <p className="pricing-guarantee">30-day money-back guarantee. No questions asked.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -419,6 +467,21 @@ export default function Home() {
           <h2 className="section-title">Before you decide.</h2>
 
           <div className="faq-grid">
+            <div className="faq-item">
+              <div className="faq-question">What exactly is the free version?</div>
+              <div className="faq-answer">
+                Creative Archaeology — a 5-minute deep dive into your creative identity. You&apos;ll get your creative profile,
+                choose your path (Pivot, Build, or Evolve), and set your North Star Goal. Plus daily Morning Spark prompts to reconnect
+                with creativity. It&apos;s the foundation. When you&apos;re ready to execute with sprints, tools, and AI guidance, you upgrade.
+              </div>
+            </div>
+            <div className="faq-item">
+              <div className="faq-question">Is this only for creative careers?</div>
+              <div className="faq-answer">
+                No. The three paths — Pivot, Build, and Evolve — work for any meaningful goal. Write a book. Break a pattern.
+                Launch a side project. Level up a skill. The system is designed for creative minds, but your goal doesn&apos;t have to be a career move.
+              </div>
+            </div>
             <div className="faq-item">
               <div className="faq-question">How much time does this take each day?</div>
               <div className="faq-answer">
@@ -443,9 +506,9 @@ export default function Home() {
             <div className="faq-item">
               <div className="faq-question">What makes this different from other coaching programs?</div>
               <div className="faq-answer">
-                Three things: (1) Creative Archaeology creates an emotional foundation no one else offers.
-                (2) The AI Co-Pilot remembers your journey and provides personalized guidance.
-                (3) Path-specific content means you&apos;re not getting generic advice — you&apos;re getting what YOU need.
+                PYC isn&apos;t coaching — it&apos;s a structured system. Three things set it apart: (1) Creative Archaeology builds an
+                emotional foundation no other tool offers. (2) The AI Co-Pilot remembers your journey and adapts its guidance.
+                (3) You&apos;re not consuming content — you&apos;re running 9 structured sprints toward a specific, measurable goal.
               </div>
             </div>
             <div className="faq-item">
@@ -462,11 +525,13 @@ export default function Home() {
       {/* Final CTA */}
       <section style={{textAlign: 'center', padding: '100px 0'}}>
         <div className="container">
-          <h2 className="section-title" style={{maxWidth: '700px', margin: '0 auto 24px'}}>
-            You buried it under years of &ldquo;being practical.&rdquo;<br />
-            <span className="copper">It&apos;s still there.</span>
+          <h2 className="section-title" style={{maxWidth: '700px', margin: '0 auto 16px'}}>
+            You buried it under years of<br />&ldquo;being practical.&rdquo;
           </h2>
-          <a href="#" className="btn-primary">Start Free →</a>
+          <p className="section-subtitle" style={{margin: '0 auto 32px', textAlign: 'center'}}>
+            <span className="copper">It&apos;s still there.</span>
+          </p>
+          <a href="#pricing" className="btn-primary">Start Free →</a>
         </div>
       </section>
 
