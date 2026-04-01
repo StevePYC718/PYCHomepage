@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { DM_Sans, DM_Serif_Display, Space_Mono } from 'next/font/google'
+import { DM_Sans, DM_Serif_Display, Space_Mono, Inter_Tight } from 'next/font/google'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -22,9 +22,16 @@ const spaceMono = Space_Mono({
   variable: '--font-space-mono',
 })
 
+const interTight = Inter_Tight({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-inter-tight',
+})
+
 export const metadata: Metadata = {
-  title: 'Pioneer Your Creative — Clear the Noise. Do the Work That Matters.',
-  description: 'Built for creative professionals navigating the AI shift. Structured sprints, immersive audio, and an AI coach that actually knows you. Start free.',
+  title: 'Pioneer Your Creative — Pioneer a path AI can\'t replace.',
+  description: 'An app for creative professionals navigating the AI shift. Put on headphones. Go through immersive audio sessions that change your state. Meet an AI coach that actually learns about you.',
 }
 
 export default function RootLayout({
@@ -33,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerif.variable} ${spaceMono.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${dmSerif.variable} ${spaceMono.variable} ${interTight.variable}`}>
       <body>{children}</body>
     </html>
   )
