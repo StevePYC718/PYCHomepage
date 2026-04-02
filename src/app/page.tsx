@@ -15,22 +15,171 @@ export default function Home() {
       <section className="hero">
         <div className="container">
           <div className="hero-content">
-            <div className="hero-text">
+            <div className="hero-left">
               <h1>
                 Pioneer a path<br/>
                 <span className="hero-accent">AI can&apos;t replace.</span>
               </h1>
-            </div>
-            <div className="hero-right">
-              <p className="hero-descriptor">
-                <strong>An app for creative professionals navigating the AI shift</strong> &mdash; whether you&apos;re building a business, pivoting careers, or evolving where you are.
-              </p>
-              <p className="hero-feature-line">Put on headphones. Go through immersive audio sessions that change your state.</p>
-              <p className="hero-feature-line">Meet an AI coach that actually learns about you and tells you what to do next.</p>
-              <p className="hero-closer">Nobody else does this.</p>
+              <h2 className="hero-headline">An app for creative professionals navigating the AI shift</h2>
+              <p className="hero-subline">Whether you&apos;re building a business, pivoting careers, or evolving where you are.</p>
               <div className="hero-cta-group">
                 <a href="#pricing" className="btn-primary">Start Free &mdash; No Credit Card</a>
                 <a href="#how-it-works" className="btn-secondary">See How It Works</a>
+              </div>
+            </div>
+            <div className="hero-phone">
+              <div className="phone-frame">
+                <div className="phone-notch"></div>
+                <div className="phone-screen-carousel">
+
+                  {/* Screen 1: Co-Pilot Daily Driver */}
+                  <div className="carousel-screen screen-1">
+                    <div className="pm-header">
+                      <span className="pm-sprint">Sprint 3 &middot; Day 4</span>
+                      <span className="pm-dropdown">S3 &#9660;</span>
+                    </div>
+                    <p className="pm-greeting">Good morning.</p>
+                    <div className="pm-energy">
+                      <div className="pm-energy-dot">&#128164;</div>
+                      <div className="pm-energy-dot">&#128528;</div>
+                      <div className="pm-energy-dot pm-energy-active">&#128170;</div>
+                      <div className="pm-energy-dot">&#9889;</div>
+                      <div className="pm-energy-dot">&#128293;</div>
+                    </div>
+                    <div className="pm-focus-card">
+                      <span className="pm-focus-label">TODAY&apos;S FOCUS</span>
+                      <p className="pm-focus-title">Network outreach (0/2)</p>
+                      <p className="pm-focus-sub">Co-Pilot has a plan.</p>
+                    </div>
+                    <div className="pm-ai-bubble">
+                      <span className="pm-ai-label">CO-PILOT &middot; 8:12 AM</span>
+                      <p className="pm-ai-text">Good energy. Let&apos;s use it on the one thing you keep pushing off. Want me to draft a message you can tweak and send?</p>
+                    </div>
+                    <div className="pm-user-bubble">
+                      <p>Yeah, that would help.</p>
+                    </div>
+                    <div className="pm-input-bar">
+                      <span className="pm-input-placeholder">What&apos;s on your mind?</span>
+                      <span className="pm-send-btn">&#9650;</span>
+                    </div>
+                    <div className="pm-tab-bar">
+                      <span className="pm-tab pm-tab-active">Co-Pilot</span>
+                      <span className="pm-tab">Today</span>
+                      <span className="pm-tab">Audio</span>
+                      <span className="pm-tab">Toolkit</span>
+                    </div>
+                  </div>
+
+                  {/* Screen 2: Immersive Experience */}
+                  <div className="carousel-screen screen-2 pm-immersive">
+                    <button className="pm-close-btn">&times;</button>
+                    <div className="pm-immersive-content">
+                      <div className="pm-play-btn">
+                        <span className="pm-play-triangle">&#9654;</span>
+                      </div>
+                      <p className="pm-imm-title">The Cost of Waiting</p>
+                      <p className="pm-imm-subtitle">Sprint 3 &middot; Lesson 1 &middot; Immersive Story</p>
+                      <div className="pm-waveform">
+                        <div className="pm-waveform-bars">
+                          {Array.from({length: 32}).map((_, i) => (
+                            <div key={i} className={`pm-wave-bar ${i < 11 ? 'pm-wave-filled' : ''}`} style={{height: `${6 + Math.sin(i * 0.7) * 8 + Math.random() * 4}px`}}></div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="pm-timestamps">
+                        <span>2:47</span>
+                        <span>8:30</span>
+                      </div>
+                      <div className="pm-caption-card">
+                        <p>Everyone talks about starting. Nobody talks about the cost of not starting. Every day you wait, the gap between who you are and who you could be gets a little wider&hellip;</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Screen 3: Reflection → Co-Pilot */}
+                  <div className="carousel-screen screen-3">
+                    <span className="pm-reflect-label">REFLECTION &middot; SPRINT 3, LESSON 1</span>
+                    <p className="pm-reflect-question">What are you choosing inaction on right now?</p>
+                    <div className="pm-reflect-input">
+                      <p>Honestly... the conversation with my manager about the role change. I keep telling myself the timing isn&apos;t right.</p>
+                    </div>
+                    <div className="pm-reflect-divider"></div>
+                    <div className="pm-ai-bubble">
+                      <span className="pm-ai-label pm-ai-label-copper">CO-PILOT</span>
+                      <p className="pm-ai-text">You just named it. The &ldquo;timing&rdquo; excuse is the Sprint 1 fear pattern &mdash; fear of judgment wearing a practical disguise. When is your next 1:1?</p>
+                    </div>
+                    <div className="pm-screen3-spacer"></div>
+                    <div className="pm-input-bar">
+                      <span className="pm-input-placeholder">What&apos;s on your mind?</span>
+                      <span className="pm-send-btn">&#9650;</span>
+                    </div>
+                    <div className="pm-tab-bar">
+                      <span className="pm-tab pm-tab-active">Co-Pilot</span>
+                      <span className="pm-tab">Today</span>
+                      <span className="pm-tab">Audio</span>
+                      <span className="pm-tab">Toolkit</span>
+                    </div>
+                  </div>
+
+                  {/* Screen 4: Today Scoreboard */}
+                  <div className="carousel-screen screen-4">
+                    <div className="pm-header">
+                      <span className="pm-sprint">Sprint 3 &middot; Day 4 of 10</span>
+                      <span className="pm-streak">&#9679; 12</span>
+                    </div>
+                    <div className="pm-progress-dots">
+                      <span className="pm-pdot pm-pdot-done"></span>
+                      <span className="pm-pdot pm-pdot-done"></span>
+                      <span className="pm-pdot pm-pdot-done"></span>
+                      <span className="pm-pdot pm-pdot-current"></span>
+                      <span className="pm-pdot"></span>
+                      <span className="pm-pdot"></span>
+                      <span className="pm-pdot"></span>
+                      <span className="pm-pdot"></span>
+                      <span className="pm-pdot"></span>
+                      <span className="pm-pdot"></span>
+                    </div>
+                    <div className="pm-goal-card">
+                      <span className="pm-goal-label">&#9733; NORTH STAR &middot; PIVOT PATH</span>
+                      <p className="pm-goal-text">Land a UX role at an AI company</p>
+                      <div className="pm-goal-bar">
+                        <div className="pm-goal-fill"></div>
+                      </div>
+                      <span className="pm-goal-metric">7 / 15 applications</span>
+                    </div>
+                    <div className="pm-actions-card">
+                      <span className="pm-actions-label">SPRINT 3 ACTIONS</span>
+                      <div className="pm-action-item">
+                        <span className="pm-action-check pm-action-done">&#10003;</span>
+                        <span className="pm-action-text pm-action-strike">Send 3 applications</span>
+                        <span className="pm-action-count pm-action-count-done">3/3</span>
+                      </div>
+                      <div className="pm-action-item">
+                        <span className="pm-action-check pm-action-progress">&#9679;</span>
+                        <span className="pm-action-text">Update portfolio</span>
+                        <span className="pm-action-count pm-action-count-progress">1/2</span>
+                      </div>
+                      <div className="pm-action-item">
+                        <span className="pm-action-check">&#9633;</span>
+                        <span className="pm-action-text">Network outreach</span>
+                        <span className="pm-action-count">0/2</span>
+                      </div>
+                    </div>
+                    <div className="pm-lesson-card">
+                      <span className="pm-lesson-label">&#9654; TODAY&apos;S LESSON</span>
+                      <p className="pm-lesson-title">The Cost of Waiting</p>
+                      <p className="pm-lesson-subtitle">Immersive Story &middot; 12 min</p>
+                      <span className="pm-lesson-cta">Start Lesson &rarr;</span>
+                    </div>
+                    <div className="pm-tab-bar">
+                      <span className="pm-tab">Co-Pilot</span>
+                      <span className="pm-tab pm-tab-today-active">Today</span>
+                      <span className="pm-tab">Audio</span>
+                      <span className="pm-tab">Toolkit</span>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
             <div className="hero-landscape-section">
@@ -147,25 +296,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Differentiators */}
-      <section style={{padding: '0 0 60px'}}>
-        <div className="container">
-          <div className="diff-callouts">
-            <div className="diff-callout">
-              <div className="diff-callout-label"><strong>Not a course</strong></div>
-              <div className="diff-callout-desc">A quarterly execution system with sprints, metrics, and real accountability</div>
-            </div>
-            <div className="diff-callout">
-              <div className="diff-callout-label"><strong>Not meditation</strong></div>
-              <div className="diff-callout-desc">Immersive audio designed to change your state &mdash; then move you to action</div>
-            </div>
-            <div className="diff-callout">
-              <div className="diff-callout-label"><strong>Not journaling</strong></div>
-              <div className="diff-callout-desc">Track the metric that matters: revenue, applications, pages written, projects shipped</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Problem Section */}
       <section className="problem-section">
@@ -223,44 +353,67 @@ export default function Home() {
         <div className="container">
           <div className="paradox-box">
             <div className="paradox-statement">
-              Creatives are <span className="ember">most threatened</span> by these forces.<br/>
+              Creatives are <span className="ember">the most threatened.</span><br/>
               And <span className="teal">most equipped</span> to thrive.
             </div>
-            <p className="paradox-sub">
-              <strong>Creative Energy</strong> &mdash; divergent thinking, emotional intelligence, connecting unrelated ideas &mdash; these are the skills AI can&apos;t replace. Your unfair advantage. Buried under fear and burnout. <strong className="copper">Until now.</strong>
-            </p>
+            <div className="paradox-lines">
+              <p className="paradox-line paradox-line-bright">Divergent thinking. Emotional intelligence. Connecting unrelated ideas.</p>
+              <p className="paradox-line paradox-line-muted">These are the skills AI can&apos;t replace.</p>
+              <p className="paradox-line paradox-line-advantage">Your unfair advantage.</p>
+              <p className="paradox-line paradox-line-muted">Buried under fear and burnout.</p>
+              <p className="paradox-punch copper">Until now.</p>
+            </div>
           </div>
           <a href="#pricing" className="btn-primary">Unlock Your Creative Energy</a>
+        </div>
+      </section>
+
+      {/* Experience Model */}
+      <section style={{padding: '0 0 60px'}}>
+        <div className="container">
+          <div className="diff-callouts">
+            <div className="diff-callout">
+              <div className="diff-callout-label"><strong>Immerse</strong></div>
+              <div className="diff-callout-desc">Cinematic audio experiences that change your emotional state &mdash; not lectures, not podcasts. Art.</div>
+            </div>
+            <div className="diff-callout">
+              <div className="diff-callout-label"><strong>Reflect</strong></div>
+              <div className="diff-callout-desc">Answer honest questions while you&apos;re still open. That truth trains an AI coach that knows you deeper every sprint.</div>
+            </div>
+            <div className="diff-callout">
+              <div className="diff-callout-label"><strong>Act</strong></div>
+              <div className="diff-callout-desc">Real goals. Real metrics. Real accountability. Your Co-Pilot tells you what to do next &mdash; and follows up when you don&apos;t.</div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Solution / 90-Day System */}
       <section className="solution-section" id="how-it-works">
         <div className="container">
-          <div className="section-label">The 90-Day Execution System</div>
-          <h2 className="section-title">Three phases. Nine sprints. Real results.</h2>
+          <div className="section-label">The Execution System</div>
+          <h2 className="section-title">Three threats. Three phases. Nine sprints.</h2>
           <p className="section-subtitle">
-            Not content to consume &mdash; a sprint-based execution system.
-            Each 10-day sprint builds specific skills, with tools you actually use and metrics you actually track.
+            Each phase directly confronts one of the forces keeping you stuck. Immersive audio experiences change your state. Honest reflections train your AI coach. Real actions move you forward. The loop compounds every sprint.
           </p>
 
           <div className="phases-grid">
             <div className="phase-card">
               <div className="phase-number">Phase 1 &mdash; Days 1-30</div>
               <div className="phase-name">UNLOCK</div>
-              <div className="phase-desc">Clear what&apos;s blocking you. Face the fear, break the inaction cycle, build your commitment architecture.</div>
+              <div className="phase-desc">Confront your internal blockers. Fear, imposter syndrome, identity disconnect. Experience them, name them, and act anyway. Your Co-Pilot learns what holds you back.</div>
               <div className="phase-sprints">Sprints 1-3</div>
             </div>
             <div className="phase-card">
               <div className="phase-number">Phase 2 &mdash; Days 31-60</div>
               <div className="phase-name">STRENGTHEN</div>
-              <div className="phase-desc">Build self-knowledge. Protect your focus, understand your energy rhythms, develop emotional resilience for the hard moments ahead.</div>
+              <div className="phase-desc">Defend against external pressure. Reclaim the cognitive bandwidth modern life has stolen. Build the personal operating system that protects your creative energy.</div>
               <div className="phase-sprints">Sprints 4-6</div>
             </div>
             <div className="phase-card">
               <div className="phase-number">Phase 3 &mdash; Days 61-90</div>
               <div className="phase-name">ACTIVATE</div>
-              <div className="phase-desc">Deploy your edge. Sharpen creative problem-solving, build your human advantage over AI, and finish what you start. Ship the work that matters.</div>
+              <div className="phase-desc">Deploy your creative edge. Identify the skills AI can&apos;t replace, learn to trust and articulate them, and ship the work that creates real-world value. This is where the pioneer path pays off.</div>
               <div className="phase-sprints">Sprints 7-9</div>
             </div>
           </div>
@@ -271,25 +424,25 @@ export default function Home() {
             <div className="steps-grid">
               <div className="step-card">
                 <div className="step-number">Step 1</div>
-                <div className="step-name">Excavate</div>
-                <div className="step-desc">Creative Archaeology uncovers who you were before work buried it. Your creative profile becomes the foundation.</div>
+                <div className="step-name">Remember</div>
+                <div className="step-desc">Creative Archaeology uncovers your creative identity in under 3 minutes. Your answers train the AI coach that guides your entire journey.</div>
                 <span className="step-free-tag">Free for everyone</span>
               </div>
               <div className="step-card">
                 <div className="step-number">Step 2</div>
                 <div className="step-name">Aim</div>
-                <div className="step-desc">Choose your path. Set a North Star Goal and the metrics that prove you&apos;re moving.</div>
+                <div className="step-desc">Choose your path: Pivot, Build, or Evolve. Set a North Star Goal with one metric that proves you&apos;re moving. Your Co-Pilot helps you refine it.</div>
                 <span className="step-free-tag">Free for everyone</span>
               </div>
               <div className="step-card">
                 <div className="step-number">Step 3</div>
                 <div className="step-name">Execute</div>
-                <div className="step-desc">9 sprints over 90 days. Immersive audio, daily tools, and an AI co-pilot that remembers everything.</div>
+                <div className="step-desc">9 sprints of immersive audio experiences, honest reflections, and real-world actions. Your AI coach compounds every sprint &mdash; it remembers what you said, follows up on what you committed to, and pushes back when you&apos;re hiding.</div>
               </div>
               <div className="step-card">
                 <div className="step-number">Step 4</div>
                 <div className="step-name">Ship</div>
-                <div className="step-desc">The career launched. The book written. The project shipped. Real outcomes, tracked and proven.</div>
+                <div className="step-desc">The career launched. The business built. The project shipped. Not abstract growth &mdash; tracked, measured, proven results.</div>
               </div>
             </div>
           </div>
@@ -309,26 +462,32 @@ export default function Home() {
             <div className="feature-row">
               <div className="feature-visual">
                 <div className="phone-frame">
-                  <div className="phone-screen">
-                    <div className="screen-header">Your Creative Profile</div>
-                    <div className="screen-card copper-border" style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-                      <p style={{fontSize: '0.8rem', color: 'var(--text)', marginBottom: '10px', fontWeight: 600}}>You&apos;re a dormant musician.</p>
-                      <p style={{fontSize: '0.65rem', lineHeight: 1.6, marginBottom: 0}}>
-                        You stopped creating 5-10 years ago, when work took over.<br/><br/>
-                        But creativity didn&apos;t leave you. You still solve problems in unusual ways.<br/><br/>
-                        When you were making music, <span className="copper">time disappeared</span>.<br/><br/>
-                        That feeling is still available to you.
-                      </p>
+                  <div className="phone-notch"></div>
+                  <div className="phone-screen fm-screen">
+                    <div className="fm-progress-dots">
+                      <span className="fm-dot fm-dot-done"></span>
+                      <span className="fm-dot fm-dot-done"></span>
+                      <span className="fm-dot fm-dot-active"></span>
+                      <span className="fm-dot"></span>
                     </div>
-                    <div className="screen-btn">This feels right</div>
+                    <p className="fm-question">When did it stop &mdash; and what took its place?</p>
+                    <p className="fm-subtext">What filled the space where creating used to be?</p>
+                    <div className="fm-options">
+                      <div className="fm-option fm-option-selected">Work took over</div>
+                      <div className="fm-option fm-option-selected">Someone&apos;s voice said it wasn&apos;t worth it</div>
+                      <div className="fm-option">Fear of not being good enough</div>
+                      <div className="fm-option">Time just slipped away</div>
+                    </div>
+                    <div className="fm-spacer"></div>
+                    <div className="fm-continue-btn">Continue</div>
                   </div>
                 </div>
               </div>
               <div className="feature-text">
                 <div className="feature-label">Creative Archaeology</div>
-                <h3>Remember who you were before you got &ldquo;practical.&rdquo;</h3>
-                <p>A 5-minute deep dive into your creative identity. Not a quiz &mdash; an excavation. The app learns your creative past, your relationship with creativity now, and builds a personalized profile that shapes everything that follows.</p>
-                <p className="feature-detail">Free for everyone. Because knowing who you are should never cost anything.</p>
+                <h3>Find what you lost. Use it to build what&apos;s next.</h3>
+                <p>3 minutes. 4 questions. One reveal that changes how you see yourself. Your answers train an AI coach that knows your creative identity, your wounds, and your ambitions from the first conversation.</p>
+                <p className="feature-detail">Free for everyone. Your unfair advantage shouldn&apos;t cost anything to discover.</p>
               </div>
             </div>
 
@@ -336,28 +495,51 @@ export default function Home() {
             <div className="feature-row reverse">
               <div className="feature-visual">
                 <div className="phone-frame">
-                  <div className="phone-screen">
-                    <div className="screen-header" style={{color: 'var(--teal)'}}>Co-Pilot</div>
-                    <div style={{flex: 1, display: 'flex', flexDirection: 'column', gap: '8px'}}>
-                      <div style={{background: 'var(--surface)', borderRadius: '12px 12px 12px 4px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-secondary)', alignSelf: 'flex-start', maxWidth: '85%'}}>
-                        I noticed you&apos;ve been avoiding the networking outreach from Sprint 2. What&apos;s coming up when you think about it?
-                      </div>
-                      <div style={{background: 'rgba(91, 191, 186, 0.15)', borderRadius: '12px 12px 4px 12px', padding: '10px', fontSize: '0.6rem', color: 'var(--text)', alignSelf: 'flex-end', maxWidth: '85%'}}>
-                        Honestly? I&apos;m scared they&apos;ll think I&apos;m desperate.
-                      </div>
-                      <div style={{background: 'var(--surface)', borderRadius: '12px 12px 12px 4px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-secondary)', alignSelf: 'flex-start', maxWidth: '85%'}}>
-                        That&apos;s fear talking &mdash; the &ldquo;perception&rdquo; disguise from Lesson 2. Remember: people want to help. What&apos;s one person you could reach out to today?
-                      </div>
+                  <div className="phone-notch"></div>
+                  <div className="phone-screen fm-screen">
+                    <div className="pm-header">
+                      <span className="pm-sprint">Sprint 5 &middot; Day 3</span>
+                      <span className="pm-dropdown">S5 &#9660;</span>
                     </div>
-                    <div style={{background: 'var(--surface-elevated)', borderRadius: '8px', padding: '10px', fontSize: '0.6rem', color: 'var(--text-dim)', marginTop: '12px'}}>Type your message...</div>
+                    <p className="pm-greeting">Good morning.</p>
+                    <div className="pm-energy">
+                      <div className="pm-energy-dot">&#128164;</div>
+                      <div className="pm-energy-dot">&#128528;</div>
+                      <div className="pm-energy-dot">&#128170;</div>
+                      <div className="pm-energy-dot pm-energy-active">&#9889;</div>
+                      <div className="pm-energy-dot">&#128293;</div>
+                    </div>
+                    <div className="pm-goal-card">
+                      <span className="pm-goal-label">&#9733; NORTH STAR &middot; PIVOT PATH</span>
+                      <p className="pm-goal-text">Land a UX role at an AI company</p>
+                      <div className="pm-goal-bar"><div className="pm-goal-fill" style={{width: '60%'}}></div></div>
+                      <span className="pm-goal-metric">9 / 15 applications</span>
+                    </div>
+                    <div className="pm-ai-bubble">
+                      <span className="pm-ai-label">CO-PILOT &middot; 8:12 AM</span>
+                      <p className="pm-ai-text">You&apos;ve sent 9 applications but zero follow-ups. The pattern from Sprint 2 &mdash; avoidance disguised as patience. Pick one. Follow up today.</p>
+                    </div>
+                    <div className="pm-user-bubble">
+                      <p>You&apos;re right. Sending the follow-up to Carta now.</p>
+                    </div>
+                    <div className="pm-input-bar">
+                      <span className="pm-input-placeholder">What&apos;s on your mind?</span>
+                      <span className="pm-send-btn">&#9650;</span>
+                    </div>
+                    <div className="pm-tab-bar">
+                      <span className="pm-tab pm-tab-active">Co-Pilot</span>
+                      <span className="pm-tab">Today</span>
+                      <span className="pm-tab">Audio</span>
+                      <span className="pm-tab">Toolkit</span>
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="feature-text">
                 <div className="feature-label">AI Co-Pilot with Memory</div>
-                <h3>A guide that actually knows your story.</h3>
-                <p>Not a chatbot. The Co-Pilot remembers your fears, your wins, your patterns. It knows what you committed to last week and whether you followed through. It calls you out when you&apos;re hiding.</p>
-                <p className="feature-detail">Personalized guidance that gets your specific situation &mdash; because it&apos;s been paying attention since day one.</p>
+                <h3>An AI coach that compounds. The more you use it, the more it knows you.</h3>
+                <p>It remembers what you said three sprints ago. It follows up on commitments you made last week. It names the pattern when you&apos;re avoiding the hard thing. Every reflection makes it sharper. By Sprint 6, it knows you better than any coach you&apos;ve ever had.</p>
+                <p className="feature-detail">It doesn&apos;t just respond. It initiates. It pushes back. It gets you to act.</p>
               </div>
             </div>
 
@@ -365,33 +547,38 @@ export default function Home() {
             <div className="feature-row">
               <div className="feature-visual">
                 <div className="phone-frame">
-                  <div className="phone-screen">
-                    <div className="screen-header">Good morning</div>
-                    <div className="screen-card" style={{marginBottom: '10px'}}>
-                      <p style={{fontSize: '0.6rem', color: 'var(--text-dim)', marginBottom: '4px'}}>SPRINT 1 &bull; DAY 3</p>
-                      <p style={{fontSize: '0.7rem', color: 'var(--text)', marginBottom: '4px', fontWeight: 500}}>Break the Inaction Cycle</p>
-                      <div className="progress-dots" style={{margin: '8px 0 0 0'}}>
-                        <div className="dot complete"></div>
-                        <div className="dot complete"></div>
-                        <div className="dot active"></div>
-                        <div className="dot"></div>
-                        <div className="dot"></div>
+                  <div className="phone-notch"></div>
+                  <div className="phone-screen fm-screen fm-immersive-screen">
+                    <button className="pm-close-btn">&times;</button>
+                    <div className="pm-immersive-content">
+                      <div className="pm-play-btn">
+                        <span className="pm-play-triangle">&#9654;</span>
+                      </div>
+                      <p className="pm-imm-title">The Cost of Waiting</p>
+                      <p className="pm-imm-subtitle">Sprint 3 &middot; Immersive Story</p>
+                      <div className="pm-waveform">
+                        <div className="pm-waveform-bars">
+                          {Array.from({length: 28}).map((_, i) => (
+                            <div key={i} className={`pm-wave-bar ${i < 11 ? 'pm-wave-filled' : ''}`} style={{height: `${5 + Math.sin(i * 0.7) * 7 + Math.random() * 4}px`}}></div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="pm-timestamps">
+                        <span>3:24</span>
+                        <span>8:30</span>
+                      </div>
+                      <div className="pm-caption-card">
+                        <p>Every day you wait, the gap between who you are and who you could be gets a little wider&hellip;</p>
                       </div>
                     </div>
-                    <div className="screen-card teal-border" style={{flex: 1}}>
-                      <p style={{fontSize: '0.6rem', color: 'var(--text-dim)', marginBottom: '4px'}}>TODAY&apos;S LESSON</p>
-                      <p style={{fontSize: '0.7rem', color: 'var(--text)', marginBottom: '4px', fontWeight: 500}}>The Fear Disguises</p>
-                      <p style={{fontSize: '0.55rem', color: 'var(--text-secondary)'}}>8 min &bull; Audio + Reflection</p>
-                    </div>
-                    <div className="screen-btn">Start Lesson</div>
                   </div>
                 </div>
               </div>
               <div className="feature-text">
                 <div className="feature-label">Immersive Sprint System</div>
-                <h3>9 structured sprints. Not a blank page.</h3>
-                <p>Each 10-day sprint is a themed container &mdash; cinematic audio narratives, practical tools, and guided reflection. Designed to change your state first, then move you to action.</p>
-                <p className="feature-detail">10-20 minutes a day. Built for busy professionals, not monks with empty calendars.</p>
+                <h3>Art, not courses. State change, then action.</h3>
+                <p>Cinematic stories you feel, not lectures you endure. The experience changes your state. The reflections that follow capture the truth while you&apos;re still open. That truth trains your AI coach. The coach moves you to action. The loop compounds every sprint.</p>
+                <p className="feature-detail">10-20 minutes a day. Built for people with real lives.</p>
               </div>
             </div>
 
@@ -399,59 +586,52 @@ export default function Home() {
             <div className="feature-row reverse">
               <div className="feature-visual">
                 <div className="phone-frame">
-                  <div className="phone-screen">
-                    <div className="screen-header" style={{color: 'var(--copper)'}}>Log a Win</div>
-                    <div className="screen-title" style={{marginBottom: '16px'}}>What happened?</div>
-                    <div className="screen-card" style={{flex: 1, background: 'var(--surface-elevated)'}}>
-                      <p style={{fontSize: '0.65rem', color: 'var(--text-dim)', fontStyle: 'italic'}}>I sent the scary email...</p>
+                  <div className="phone-notch"></div>
+                  <div className="phone-screen fm-screen">
+                    <div className="pm-header">
+                      <span className="fm-ew-header">Evidence Wall</span>
+                      <span className="fm-ew-metric">9/15</span>
                     </div>
-                    <div style={{display: 'flex', gap: '8px', marginBottom: '12px'}}>
-                      <div style={{flex: 1, textAlign: 'center', padding: '10px', background: 'var(--surface)', borderRadius: '8px', fontSize: '0.6rem'}}>
-                        <span style={{fontFamily: "'Space Mono', monospace", fontSize: '0.8rem', display: 'block', color: 'var(--copper)'}}>&#x25CB;</span>
-                        <span style={{color: 'var(--text-dim)'}}>Small</span>
+                    <div className="fm-ew-goal">
+                      <span className="fm-ew-goal-label">&#9733; PIVOT PATH</span>
+                      <span className="fm-ew-goal-text">Land a UX role</span>
+                      <div className="pm-goal-bar"><div className="pm-goal-fill" style={{width: '60%'}}></div></div>
+                    </div>
+                    <div className="fm-ew-feed">
+                      <div className="fm-ew-item fm-ew-green">
+                        <p className="fm-ew-item-title">Sent follow-up to Carta</p>
+                        <p className="fm-ew-item-meta">Solid win &middot; Today</p>
                       </div>
-                      <div style={{flex: 1, textAlign: 'center', padding: '10px', background: 'rgba(91, 191, 186, 0.12)', border: '1px solid var(--teal)', borderRadius: '8px', fontSize: '0.6rem'}}>
-                        <span style={{fontFamily: "'Space Mono', monospace", fontSize: '0.8rem', display: 'block', color: 'var(--teal)'}}>&#x25C6;</span>
-                        <span style={{color: 'var(--teal)'}}>Solid</span>
+                      <div className="fm-ew-item fm-ew-teal">
+                        <p className="fm-ew-item-title">Sprint 4 Complete &#10003;</p>
+                        <p className="fm-ew-item-meta">Proof &middot; 2 days ago</p>
                       </div>
-                      <div style={{flex: 1, textAlign: 'center', padding: '10px', background: 'var(--surface)', borderRadius: '8px', fontSize: '0.6rem'}}>
-                        <span style={{fontFamily: "'Space Mono', monospace", fontSize: '0.8rem', display: 'block', color: 'var(--copper)'}}>&#x2726;</span>
-                        <span style={{color: 'var(--text-dim)'}}>Huge</span>
+                      <div className="fm-ew-item fm-ew-copper">
+                        <p className="fm-ew-item-title">Had the hard conversation with manager</p>
+                        <p className="fm-ew-item-meta">Huge win &middot; 4 days ago</p>
+                      </div>
+                      <div className="fm-ew-item fm-ew-green">
+                        <p className="fm-ew-item-title">Updated portfolio with 2 case studies</p>
+                        <p className="fm-ew-item-meta">Solid win &middot; 1 week ago</p>
                       </div>
                     </div>
-                    <div className="screen-btn">Log Win</div>
+                    <div className="pm-tab-bar">
+                      <span className="pm-tab">Co-Pilot</span>
+                      <span className="pm-tab">Today</span>
+                      <span className="pm-tab">Audio</span>
+                      <span className="pm-tab">Toolkit</span>
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="feature-text">
                 <div className="feature-label">Evidence System</div>
                 <h3>Track real metrics. Build undeniable proof.</h3>
-                <p>Log wins. Track your North Star metric &mdash; applications sent, revenue earned, pages written, projects shipped. When imposter syndrome hits, open your evidence and let the data talk.</p>
-                <p className="feature-detail">Commitment Lock keeps you accountable. The Evidence System proves it&apos;s working.</p>
+                <p>Applications sent. Revenue earned. Pages written. Projects shipped. When imposter syndrome hits, open your evidence and let the data talk.</p>
+                <p className="feature-detail">Your Co-Pilot holds you accountable. Your Evidence Wall proves it&apos;s working.</p>
               </div>
             </div>
 
-            {/* Feature 5: Morning Spark + SOS */}
-            <div className="feature-row">
-              <div className="feature-visual">
-                <div style={{maxWidth: '240px', margin: '0 auto'}}>
-                  <div style={{background: 'var(--bg)', borderRadius: '24px', padding: '32px 24px', border: '1px solid var(--warm-border)', textAlign: 'center'}}>
-                    <p style={{fontFamily: "'Space Mono', monospace", fontSize: '0.6rem', color: 'var(--teal)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '16px'}}>Morning Spark &mdash; Day 14</p>
-                    <p style={{fontFamily: "'DM Serif Display', serif", fontSize: '1rem', color: 'var(--text)', lineHeight: 1.5, marginBottom: '24px', fontStyle: 'italic'}}>&ldquo;Write a six-word story about your day so far.&rdquo;</p>
-                    <div style={{width: '100%', height: '1px', background: 'var(--warm-border)', marginBottom: '24px'}}></div>
-                    <p style={{fontFamily: "'Space Mono', monospace", fontSize: '0.6rem', color: 'var(--error)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '12px'}}>SOS Button</p>
-                    <p style={{fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '16px'}}>Overwhelmed? One tap.</p>
-                    <div style={{background: 'rgba(166, 93, 87, 0.12)', border: '1px solid var(--error)', borderRadius: '10px', padding: '12px', fontSize: '0.8rem', color: 'var(--error)', fontWeight: 600}}>90-Second Reset</div>
-                  </div>
-                </div>
-              </div>
-              <div className="feature-text">
-                <div className="feature-label">Morning Spark + SOS Button</div>
-                <h3>Creative joy before productivity. Calm when you need it.</h3>
-                <p><strong>Morning Spark:</strong> 2 minutes to reconnect with creativity for fun. Daily prompts tied to your craft &mdash; remember, notice, play. The joy comes back before the work begins.</p>
-                <p><strong>SOS Button:</strong> Overwhelmed? Anxious? One tap for guided breathwork and nervous system reset. 90 seconds to calm. Then back to work.</p>
-              </div>
-            </div>
 
           </div>
         </div>
@@ -505,7 +685,6 @@ export default function Home() {
                 <li>Your creative profile &amp; identity map</li>
                 <li>Path selection (Pivot, Build, Evolve)</li>
                 <li>North Star Goal setting</li>
-                <li>Daily Morning Spark prompts</li>
               </ul>
               <a href="#" className="pricing-btn-secondary">Start Free</a>
             </div>
@@ -515,12 +694,14 @@ export default function Home() {
               <div className="pricing-term">One-time payment &bull; Lifetime access</div>
               <ul className="pricing-features">
                 <li className="includes-tag">Everything in Free, plus:</li>
-                <li>9 transformation sprints (90 days)</li>
-                <li>AI Co-Pilot with memory</li>
-                <li>All tools: SOS Button, Commitment Lock, Evidence System</li>
-                <li>Path-specific guidance &amp; content</li>
-                <li>Metric tracking &amp; progress proof</li>
-                <li>Future updates included</li>
+                <li>AI Co-Pilot with memory that compounds every sprint</li>
+                <li>9 immersive transformation sprints (90 days)</li>
+                <li>Cinematic audio stories + lesson learnings</li>
+                <li>State-change audio (focus, calm, energy)</li>
+                <li>Evidence Wall with metric tracking</li>
+                <li>SOS Button (90-second nervous system reset)</li>
+                <li>Path-specific coaching + content</li>
+                <li>Future sprints + updates included</li>
               </ul>
               <a href="#" className="pricing-btn-primary">Upgrade to Full Access</a>
               <p className="pricing-guarantee">30-day money-back guarantee. No questions asked.</p>
@@ -538,9 +719,7 @@ export default function Home() {
             <div className="faq-item">
               <div className="faq-question">What exactly is the free version?</div>
               <div className="faq-answer">
-                Creative Archaeology &mdash; a 5-minute deep dive into your creative identity. You&apos;ll get your creative profile,
-                choose your path (Pivot, Build, or Evolve), and set your North Star Goal. Plus daily Morning Spark prompts to reconnect
-                with creativity. It&apos;s the foundation. When you&apos;re ready to execute with sprints, tools, and AI guidance, you upgrade.
+                Creative Archaeology &mdash; an experience that uncovers your creative identity in under 3 minutes. You&apos;ll get your creative profile, choose your path (Pivot, Build, or Evolve), and set your North Star Goal. It&apos;s the foundation &mdash; and your answers start training the AI coach that guides everything. When you&apos;re ready to execute with sprints, audio, and full AI coaching, you upgrade.
               </div>
             </div>
             <div className="faq-item">
@@ -560,8 +739,7 @@ export default function Home() {
             <div className="faq-item">
               <div className="faq-question">What if I miss days?</div>
               <div className="faq-answer">
-                The program is self-paced. Life happens. The Commitment Lock feature helps you stay accountable
-                without making you feel like a failure when you need to pause. Progress, not perfection.
+                The program is self-paced. Life happens. Your AI Co-Pilot picks up where you left off &mdash; it remembers what you were working on and what you committed to. No guilt trips. Just &ldquo;welcome back, here&apos;s where we are.&rdquo; Progress, not perfection.
               </div>
             </div>
             <div className="faq-item">
@@ -574,9 +752,7 @@ export default function Home() {
             <div className="faq-item">
               <div className="faq-question">What makes this different from other coaching programs?</div>
               <div className="faq-answer">
-                PYC isn&apos;t coaching &mdash; it&apos;s an execution system. Three things set it apart: (1) Creative Archaeology builds an
-                emotional foundation no other tool offers. (2) The AI Co-Pilot remembers your journey and adapts its guidance.
-                (3) You&apos;re not consuming content &mdash; you&apos;re running 9 structured sprints toward a specific, measurable goal.
+                Three things: (1) Creative Archaeology builds an emotional foundation no other tool offers &mdash; it reconnects you with the creative energy that&apos;s your actual competitive advantage. (2) The AI Co-Pilot compounds &mdash; every reflection, every conversation, every win makes it know you deeper. By Sprint 6, it coaches with precision no human achieves in that timeframe. (3) The audio content is art, not lectures. It changes your state first, then moves you to action. The reflections hit while you&apos;re still open. That honesty is what makes everything else work.
               </div>
             </div>
             <div className="faq-item">
@@ -594,10 +770,10 @@ export default function Home() {
       <section style={{textAlign: 'center', padding: '100px 0'}}>
         <div className="container">
           <h2 className="section-title" style={{maxWidth: '700px', margin: '0 auto 16px'}}>
-            You buried it under years of<br/>&ldquo;being practical.&rdquo;
+            Your creative energy is your<br/>unfair advantage.
           </h2>
           <p className="section-subtitle" style={{margin: '0 auto 32px', textAlign: 'center'}}>
-            <span className="copper">It&apos;s still there.</span>
+            <span className="copper">It&apos;s been there the whole time.</span>
           </p>
           <a href="#pricing" className="btn-primary">Start Free</a>
         </div>
