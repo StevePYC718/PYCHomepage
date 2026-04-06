@@ -368,93 +368,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience Model */}
-      <section style={{padding: '0 0 60px'}}>
+      {/* The Bridge — Why Nothing Else Works */}
+      <section className="bridge-section">
         <div className="container">
-          <div className="diff-callouts">
-            <div className="diff-callout">
-              <div className="diff-callout-label"><strong>Immerse</strong></div>
-              <div className="diff-callout-desc">Cinematic audio experiences that change your emotional state &mdash; not lectures, not podcasts. Art.</div>
+          <div className="section-label">Why Nothing Else Has Worked</div>
+          <h2 className="section-title">You&apos;ve tried. It didn&apos;t stick. Here&apos;s why.</h2>
+          <p className="section-subtitle">You&apos;ve tried meditation apps, productivity tools, coaching, AI. Each one solves a piece. None solves the problem.</p>
+          <div className="bridge-grid">
+            <div className="bridge-card">
+              <div className="bridge-card-title">Meditation apps</div>
+              <p className="bridge-card-body bridge-card-body-first">Calm you down but don&apos;t move you forward.</p>
+              <p className="bridge-card-body">You feel better for 10 minutes, then open your laptop to the same problems.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> state</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> action, memory, accountability</div>
+              </div>
             </div>
-            <div className="diff-callout">
-              <div className="diff-callout-label"><strong>Reflect</strong></div>
-              <div className="diff-callout-desc">Answer honest questions while you&apos;re still open. That truth trains an AI coach that knows you deeper every sprint.</div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">Productivity apps</div>
+              <p className="bridge-card-body bridge-card-body-first">Track tasks but ignore the fear blocking you from starting.</p>
+              <p className="bridge-card-body">You don&apos;t need a better to-do list.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> tracking</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> state change, emotional depth, coaching</div>
+              </div>
             </div>
-            <div className="diff-callout">
-              <div className="diff-callout-label"><strong>Act</strong></div>
-              <div className="diff-callout-desc">Real goals. Real metrics. Real accountability. Your Co-Pilot tells you what to do next &mdash; and follows up when you don&apos;t.</div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">Traditional coaching</div>
+              <p className="bridge-card-body bridge-card-body-first">Gives you clarity once a week but disappears between sessions.</p>
+              <p className="bridge-card-body">The breakthroughs happen at 11pm on a Tuesday.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> personalization</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> always-on, affordability, memory</div>
+              </div>
             </div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">AI chatbots</div>
+              <p className="bridge-card-body bridge-card-body-first">Give generic advice because they don&apos;t know you.</p>
+              <p className="bridge-card-body">You&apos;ll get the same answer as everyone else.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> availability</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> personalization, state change, accountability</div>
+              </div>
+            </div>
+          </div>
+          <div className="bridge-bottom">
+            <p className="bridge-punchline">PYC is the first system that combines <span className="copper">all four</span>: state change, emotional depth, AI memory, and real-world execution.</p>
+            <p className="bridge-subline">Whether you&apos;re building a business, pivoting careers, or evolving where you are &mdash; this system adapts to your path.</p>
           </div>
         </div>
       </section>
 
-      {/* Solution / 90-Day System */}
-      <section className="solution-section" id="how-it-works">
-        <div className="container">
-          <div className="section-label">The Execution System</div>
-          <h2 className="section-title">Three threats. Three phases. Nine sprints.</h2>
-          <p className="section-subtitle">
-            Each phase directly confronts one of the forces keeping you stuck. Immersive audio experiences change your state. Honest reflections train your AI coach. Real actions move you forward. The loop compounds every sprint.
-          </p>
 
+      {/* Part C: The Execution System */}
+      <section className="execution-section">
+        <div className="container">
+          <div className="section-label">What You&apos;ll Achieve</div>
+          <h2 className="section-title">Three phases. Each one removes what&apos;s in your way.</h2>
+          <p className="section-subtitle">You don&apos;t need more motivation. You need to systematically clear the forces keeping you stuck &mdash; in the right order.</p>
           <div className="phases-grid">
             <div className="phase-card">
               <div className="phase-number">Phase 1 &mdash; Days 1-30</div>
               <div className="phase-name">UNLOCK</div>
-              <div className="phase-desc">Confront your internal blockers. Fear, imposter syndrome, identity disconnect. Experience them, name them, and act anyway. Your Co-Pilot learns what holds you back.</div>
+              <div className="phase-desc">Walk into the room without the voice saying &lsquo;who are you to do this?&rsquo; Phase 1 teaches you to name the fear, feel it, and act anyway.</div>
               <div className="phase-sprints">Sprints 1-3</div>
             </div>
             <div className="phase-card">
               <div className="phase-number">Phase 2 &mdash; Days 31-60</div>
               <div className="phase-name">STRENGTHEN</div>
-              <div className="phase-desc">Defend against external pressure. Reclaim the cognitive bandwidth modern life has stolen. Build the personal operating system that protects your creative energy.</div>
+              <div className="phase-desc">Reclaim the 2 hours a day you&apos;re losing to noise and distraction. Phase 2 builds your personal operating system &mdash; protecting your focus and freeing up bandwidth to execute.</div>
               <div className="phase-sprints">Sprints 4-6</div>
             </div>
             <div className="phase-card">
               <div className="phase-number">Phase 3 &mdash; Days 61-90</div>
               <div className="phase-name">ACTIVATE</div>
-              <div className="phase-desc">Deploy your creative edge. Identify the skills AI can&apos;t replace, learn to trust and articulate them, and ship the work that creates real-world value. This is where the pioneer path pays off.</div>
+              <div className="phase-desc">Deploy the skills AI can&apos;t replace. Use AI to amplify the rest. Phase 3 teaches you to trust your divergent thinking, articulate it, and use it professionally.</div>
               <div className="phase-sprints">Sprints 7-9</div>
-            </div>
-          </div>
-
-          <div className="how-it-works-flow">
-            <h3>Your quarter. Your goal. A system that gets you there.</h3>
-            <p>Most goal tools give you a blank page. PYC gives you a container &mdash; structured sprints, AI guidance, and creative fuel designed for how your brain actually works.</p>
-            <div className="steps-grid">
-              <div className="step-card">
-                <div className="step-number">Step 1</div>
-                <div className="step-name">Remember</div>
-                <div className="step-desc">Creative Archaeology uncovers your creative identity in under 3 minutes. Your answers train the AI coach that guides your entire journey.</div>
-                <span className="step-free-tag">Free for everyone</span>
-              </div>
-              <div className="step-card">
-                <div className="step-number">Step 2</div>
-                <div className="step-name">Aim</div>
-                <div className="step-desc">Choose your path: Pivot, Build, or Evolve. Set a North Star Goal with one metric that proves you&apos;re moving. Your Co-Pilot helps you refine it.</div>
-                <span className="step-free-tag">Free for everyone</span>
-              </div>
-              <div className="step-card">
-                <div className="step-number">Step 3</div>
-                <div className="step-name">Execute</div>
-                <div className="step-desc">9 sprints of immersive audio experiences, honest reflections, and real-world actions. Your AI coach compounds every sprint &mdash; it remembers what you said, follows up on what you committed to, and pushes back when you&apos;re hiding.</div>
-              </div>
-              <div className="step-card">
-                <div className="step-number">Step 4</div>
-                <div className="step-name">Ship</div>
-                <div className="step-desc">The career launched. The business built. The project shipped. Not abstract growth &mdash; tracked, measured, proven results.</div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section>
+      <section id="how-it-works">
         <div className="container">
-          <div className="section-label">What&apos;s Inside</div>
+          <div className="section-label">How It Works</div>
           <h2 className="section-title">Built for creative brains. Not productivity generics.</h2>
-          <p className="section-subtitle">Every feature exists because creative professionals need it &mdash; tested on real people navigating real transitions.</p>
+          <p className="section-subtitle">Sprints instead of habits. State change before action. An AI coach that remembers everything.</p>
 
           <div className="feature-showcase">
 
@@ -484,9 +484,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">Creative Archaeology</div>
-                <h3>Find what you lost. Use it to build what&apos;s next.</h3>
-                <p>3 minutes. 4 questions. One reveal that changes how you see yourself. Your answers train an AI coach that knows your creative identity, your wounds, and your ambitions from the first conversation.</p>
+                <div className="feature-label">Where It Starts</div>
+                <h3>Reconnect with the energy source you buried.</h3>
+                <p>3 minutes. 4 questions. You rediscover the creative identity you left behind &mdash; the music, the writing, the making. Neuroscience shows this reconnection triggers the dopamine and flow-state chemistry that powers focus and execution. It&apos;s not nostalgia. It&apos;s performance fuel.</p>
                 <p className="feature-detail">Free for everyone. Your unfair advantage shouldn&apos;t cost anything to discover.</p>
               </div>
             </div>
@@ -536,15 +536,72 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">AI Co-Pilot with Memory</div>
-                <h3>An AI coach that compounds. The more you use it, the more it knows you.</h3>
-                <p>It remembers what you said three sprints ago. It follows up on commitments you made last week. It names the pattern when you&apos;re avoiding the hard thing. Every reflection makes it sharper. By Sprint 6, it knows you better than any coach you&apos;ve ever had.</p>
+                <div className="feature-label">Who Holds You Accountable</div>
+                <h3>A coach that&apos;s there at 11pm on a Tuesday.</h3>
+                <p>It names the pattern when you&apos;re avoiding the hard thing &mdash; before you recognize it yourself. Every reflection makes it sharper. By Sprint 6, it coaches with a precision no human achieves in that timeframe.</p>
                 <p className="feature-detail">It doesn&apos;t just respond. It initiates. It pushes back. It gets you to act.</p>
               </div>
             </div>
 
-            {/* Feature 3: Sprint System */}
+            {/* Feature 3: Structured Sprints */}
             <div className="feature-row">
+              <div className="feature-visual">
+                <div className="phone-frame">
+                  <div className="phone-notch"></div>
+                  <div className="phone-screen fm-screen">
+                    <div className="pm-header">
+                      <span className="pm-sprint">Sprint 3 &middot; Day 4 of 10</span>
+                      <span className="pm-streak">&#9679; 8</span>
+                    </div>
+                    <div className="pm-goal-card">
+                      <span className="pm-goal-label">&#9733; NORTH STAR &middot; BUILD PATH</span>
+                      <p className="pm-goal-text">Launch freelance design business</p>
+                      <div className="pm-goal-bar"><div className="pm-goal-fill" style={{width: '35%'}}></div></div>
+                      <span className="pm-goal-metric">7 / 20 clients</span>
+                    </div>
+                    <div className="pm-actions-card">
+                      <span className="pm-actions-label">SPRINT 3 ACTIONS</span>
+                      <div className="pm-action-item">
+                        <span className="pm-action-check pm-action-done">&#10003;</span>
+                        <span className="pm-action-text pm-action-strike">Update portfolio site</span>
+                        <span className="pm-action-count pm-action-count-done">Done</span>
+                      </div>
+                      <div className="pm-action-item">
+                        <span className="pm-action-check pm-action-progress">&#9679;</span>
+                        <span className="pm-action-text">Send 5 cold outreach emails</span>
+                        <span className="pm-action-count pm-action-count-progress">3/5</span>
+                      </div>
+                      <div className="pm-action-item">
+                        <span className="pm-action-check">&#9633;</span>
+                        <span className="pm-action-text">Schedule 2 coffee meetings</span>
+                        <span className="pm-action-count">0/2</span>
+                      </div>
+                    </div>
+                    <div className="pm-lesson-card">
+                      <span className="pm-lesson-label">&#9654; TODAY&apos;S LESSON</span>
+                      <p className="pm-lesson-title">Start Ugly</p>
+                      <p className="pm-lesson-subtitle">Immersive Story &middot; 10 min</p>
+                      <span className="pm-lesson-cta">Start Lesson &rarr;</span>
+                    </div>
+                    <div className="pm-tab-bar">
+                      <span className="pm-tab">Co-Pilot</span>
+                      <span className="pm-tab pm-tab-today-active">Today</span>
+                      <span className="pm-tab">Sprints</span>
+                      <span className="pm-tab">Toolkit</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="feature-text">
+                <div className="feature-label">How You Execute</div>
+                <h3>One goal. One metric. You never guess what to do next.</h3>
+                <p>Choose your path. Set one North Star Goal with one number that proves you&apos;re moving. Then execute through 10-day sprints designed for creative brains &mdash; each day has one clear action, each sprint builds on the last.</p>
+                <p className="feature-detail">Sprints instead of habits. Because creative brains don&apos;t do &ldquo;a little every day.&rdquo; They do intense bursts, then recover.</p>
+              </div>
+            </div>
+
+            {/* Feature 4: Immersive Experiences */}
+            <div className="feature-row reverse">
               <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-notch"></div>
@@ -575,15 +632,15 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">Immersive Sprint System</div>
-                <h3>Art, not courses. State change, then action.</h3>
-                <p>Cinematic stories you feel, not lectures you endure. The experience changes your state. The reflections that follow capture the truth while you&apos;re still open. That truth trains your AI coach. The coach moves you to action. The loop compounds every sprint.</p>
-                <p className="feature-detail">10-20 minutes a day. Built for people with real lives.</p>
+                <div className="feature-label">How You Shift</div>
+                <h3>Feel it first. Then act.</h3>
+                <p>You already know what you need to do. The problem is your nervous system. Cinematic audio stories &mdash; crafted with film and TV sound design &mdash; change your physiological state. You feel the obstacle before you learn to overcome it.</p>
+                <p className="feature-detail">10-20 minutes a day. For people with jobs, families, and 47 open browser tabs.</p>
               </div>
             </div>
 
-            {/* Feature 4: Evidence System */}
-            <div className="feature-row reverse">
+            {/* Feature 5: Evidence System */}
+            <div className="feature-row">
               <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-notch"></div>
@@ -625,9 +682,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">Evidence System</div>
-                <h3>Track real metrics. Build undeniable proof.</h3>
-                <p>Applications sent. Revenue earned. Pages written. Projects shipped. When imposter syndrome hits, open your evidence and let the data talk.</p>
+                <div className="feature-label">How You Prove It</div>
+                <h3>When imposter syndrome hits, open this.</h3>
+                <p>Applications sent. Revenue earned. Pages written. Projects shipped. Every win logged, every metric tracked. The data doesn&apos;t lie &mdash; even when your fear voice does.</p>
                 <p className="feature-detail">Your Co-Pilot holds you accountable. Your Evidence Wall proves it&apos;s working.</p>
               </div>
             </div>
