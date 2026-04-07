@@ -1852,6 +1852,95 @@ footer .logo {
   opacity: 0.7;
 }
 
+/* ─── STAKES LANDSCAPE ─── */
+.stakes-landscape-wrap {
+  max-height: 580px;
+}
+.stakes-headline {
+  position: absolute;
+  top: 28px;
+  left: 0; right: 0;
+  text-align: center;
+  z-index: 20;
+  padding: 0 24px;
+}
+
+.stakes-headline h2 {
+  font-family: var(--font-inter-tight), 'Inter Tight', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.stakes-headline h2 .ember { color: var(--ember); }
+.stakes-headline h2 .teal { color: var(--teal); }
+
+.threats-layer {
+  position: absolute;
+  top: 210px;
+  left: 0; right: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 40px;
+}
+
+.stakes-threat {
+  max-width: 280px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 24px;
+  border-left: 3px solid;
+}
+
+.stakes-threat:nth-child(1) { border-left-color: var(--error); }
+.stakes-threat:nth-child(2) { border-left-color: var(--warning); }
+.stakes-threat:nth-child(3) { border-left-color: var(--teal); }
+
+.stakes-threat.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stakes-threat:nth-child(2) { transition-delay: 0.3s; }
+.stakes-threat:nth-child(3) { transition-delay: 0.6s; }
+
+.stakes-threat-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.stakes-threat:nth-child(1) .stakes-threat-label { color: var(--error); }
+.stakes-threat:nth-child(2) .stakes-threat-label { color: var(--warning); }
+.stakes-threat:nth-child(3) .stakes-threat-label { color: var(--teal); }
+
+.stakes-threat-title {
+  font-family: var(--font-inter-tight), 'Inter Tight', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.stakes-threat-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
 /* ==================== */
 /* RESPONSIVE           */
 /* ==================== */
@@ -1899,6 +1988,26 @@ footer .logo {
   .ritual-arrow-v { display: inline; }
 
   .how-it-works-flow { padding: 40px 24px; }
+
+}
+
+@media (max-width: 768px) {
+  .stakes-headline h2 {
+    font-size: 1.75rem;
+  }
+  .threats-layer {
+    flex-direction: column;
+    align-items: center;
+    top: 120px;
+    gap: 20px;
+    padding: 0 24px;
+  }
+  .stakes-threat {
+    max-width: 100%;
+  }
+  .stakes-landscape-wrap {
+    max-height: 780px;
+  }
 }
 
 @media (max-width: 640px) {

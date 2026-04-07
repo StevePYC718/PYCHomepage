@@ -1,6 +1,31 @@
+'use client'
+
+import { useEffect } from 'react'
 import './landing.css'
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const threats = entry.target.querySelectorAll('.stakes-threat')
+          threats.forEach((threat, i) => {
+            setTimeout(() => {
+              threat.classList.add('visible')
+            }, i * 300)
+          })
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.2 })
+
+    const stakesThreats = document.getElementById('stakes-threats')
+    if (stakesThreats) {
+      observer.observe(stakesThreats)
+    }
+
+    return () => observer.disconnect()
+  }, [])
   return (
     <>
       {/* Navigation */}
@@ -21,7 +46,7 @@ export default function Home() {
                 <span className="hero-accent">AI can&apos;t replace.</span>
               </h1>
               <h2 className="hero-headline">An app for creative professionals navigating the AI shift</h2>
-              <p className="hero-subline">Whether you&apos;re building a business, pivoting careers, or evolving where you are.</p>
+              <p className="hero-subline">Whether you&apos;re <strong style={{color: 'var(--teal)'}}>building a business</strong>, <strong style={{color: 'var(--copper)'}}>pivoting careers</strong>, or <strong style={{color: '#6B8E6B'}}>evolving where you are</strong>.</p>
               <div className="hero-cta-group">
                 <a href="#pricing" className="btn-primary">Start Free &mdash; No Credit Card</a>
                 <a href="#how-it-works" className="btn-secondary">See How It Works</a>
@@ -182,243 +207,163 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="hero-landscape-section">
-              <div className="hero-landscape-wrap">
-                <svg viewBox="0 0 1400 500" xmlns="http://www.w3.org/2000/svg" width="100%" style={{display: 'block'}}>
-                  <defs>
-                    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
-                      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves={4} seed="2" result="noise"/>
-                      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-                      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
-                      <feComponentTransfer in="blended"><feFuncA type="linear" slope="1"/></feComponentTransfer>
-                    </filter>
-                    <filter id="heavyGrain">
-                      <feTurbulence type="fractalNoise" baseFrequency="0.88" numOctaves={4} seed="7"/>
-                      <feColorMatrix type="saturate" values="0"/>
-                      <feBlend in="SourceGraphic" mode="overlay"/>
-                    </filter>
-                    <linearGradient id="emberSeam" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="transparent"/>
-                      <stop offset="25%" stopColor="#d4561a" stopOpacity="0.6"/>
-                      <stop offset="50%" stopColor="#e8720a" stopOpacity="0.9"/>
-                      <stop offset="75%" stopColor="#d4561a" stopOpacity="0.6"/>
-                      <stop offset="100%" stopColor="transparent"/>
-                    </linearGradient>
-                    <radialGradient id="horizonGlow" cx="50%" cy="72%" r="50%">
-                      <stop offset="0%" stopColor="#c8956c" stopOpacity="0.22"/>
-                      <stop offset="40%" stopColor="#c8956c" stopOpacity="0.07"/>
-                      <stop offset="100%" stopColor="#c8956c" stopOpacity="0"/>
-                    </radialGradient>
-                    <radialGradient id="skyGlow" cx="50%" cy="30%" r="60%">
-                      <stop offset="0%" stopColor="#5bbfba" stopOpacity="0.08"/>
-                      <stop offset="100%" stopColor="#5bbfba" stopOpacity="0"/>
-                    </radialGradient>
-                    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#050d0d"/>
-                      <stop offset="45%" stopColor="#0a1515"/>
-                      <stop offset="75%" stopColor="#0f1a12"/>
-                      <stop offset="100%" stopColor="#160d08"/>
-                    </linearGradient>
-                    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
-                      <stop offset="0%" stopColor="transparent"/>
-                      <stop offset="100%" stopColor="rgba(0,0,0,0.75)"/>
-                    </radialGradient>
-                    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#e8720a" stopOpacity="1"/>
-                      <stop offset="15%" stopColor="#d4561a" stopOpacity="0.85"/>
-                      <stop offset="40%" stopColor="#c8956c" stopOpacity="0.3"/>
-                      <stop offset="70%" stopColor="#c8956c" stopOpacity="0.1"/>
-                      <stop offset="100%" stopColor="#c8956c" stopOpacity="0"/>
-                    </radialGradient>
-                    <clipPath id="frame"><rect width="1400" height="500"/></clipPath>
-                  </defs>
-                  <g clipPath="url(#frame)">
-                    <rect width="1400" height="500" fill="url(#skyGrad)"/>
-                    <rect width="1400" height="500" fill="url(#skyGlow)"/>
-                    <g fill="#5bbfba" opacity="0.35">
-                      <circle cx="120" cy="40" r="0.8"/><circle cx="245" cy="28" r="0.6"/><circle cx="380" cy="55" r="0.9"/><circle cx="510" cy="22" r="0.7"/>
-                      <circle cx="640" cy="45" r="0.6"/><circle cx="790" cy="18" r="0.8"/><circle cx="920" cy="38" r="0.7"/><circle cx="1050" cy="25" r="0.9"/>
-                      <circle cx="1180" cy="50" r="0.6"/><circle cx="1320" cy="32" r="0.8"/><circle cx="68" cy="80" r="0.5"/><circle cx="185" cy="95" r="0.6"/>
-                      <circle cx="330" cy="70" r="0.5"/><circle cx="455" cy="88" r="0.7"/><circle cx="595" cy="65" r="0.5"/><circle cx="730" cy="78" r="0.6"/>
-                      <circle cx="860" cy="60" r="0.5"/><circle cx="990" cy="85" r="0.7"/><circle cx="1120" cy="72" r="0.5"/><circle cx="1260" cy="88" r="0.6"/>
-                    </g>
-                    <g fill="#c8956c" opacity="0.2">
-                      <circle cx="158" cy="62" r="0.7"/><circle cx="290" cy="42" r="0.5"/><circle cx="420" cy="75" r="0.6"/><circle cx="555" cy="35" r="0.7"/>
-                      <circle cx="685" cy="58" r="0.5"/><circle cx="815" cy="30" r="0.6"/><circle cx="945" cy="48" r="0.7"/><circle cx="1075" cy="40" r="0.5"/>
-                      <circle cx="1205" cy="65" r="0.6"/><circle cx="1350" cy="44" r="0.7"/>
-                    </g>
-                    <circle cx="700" cy="302" r="80" fill="url(#sunGlow)"/>
-                    <circle cx="700" cy="302" r="18" fill="none" stroke="#e8720a" strokeWidth="0.8" opacity="0.7"/>
-                    <circle cx="700" cy="302" r="10" fill="none" stroke="#e8720a" strokeWidth="0.6" opacity="0.9"/>
-                    <circle cx="700" cy="302" r="5" fill="#e8720a" opacity="0.9"/>
-                    <line x1="700" y1="285" x2="700" y2="275" stroke="#e8720a" strokeWidth="0.6" opacity="0.6"/>
-                    <line x1="700" y1="319" x2="700" y2="329" stroke="#e8720a" strokeWidth="0.6" opacity="0.4"/>
-                    <line x1="683" y1="302" x2="673" y2="302" stroke="#e8720a" strokeWidth="0.6" opacity="0.4"/>
-                    <line x1="717" y1="302" x2="727" y2="302" stroke="#e8720a" strokeWidth="0.6" opacity="0.4"/>
-                    <rect width="1400" height="500" fill="url(#horizonGlow)"/>
-                    <path d="M0,360 C80,345 160,352 240,338 C320,324 400,330 480,318 C560,306 640,315 720,305 C800,295 880,308 960,298 C1040,288 1120,296 1200,285 C1280,274 1360,282 1400,278 L1400,500 L0,500 Z" fill="none" stroke="#5bbfba" strokeWidth="0.6" opacity="0.18"/>
-                    <path d="M0,375 C60,358 140,365 220,348 C300,331 380,345 460,332 C540,319 620,328 700,315 C780,302 860,316 940,306 C1020,296 1100,308 1180,298 C1260,288 1340,300 1400,295 L1400,500 L0,500 Z" fill="#0a1510" stroke="#5bbfba" strokeWidth="0.8" opacity="0.4"/>
-                    <path d="M0,375 C60,358 140,365 220,348 C300,331 380,345 460,332 C540,319 620,328 700,315 C780,302 860,316 940,306 C1020,296 1100,308 1180,298 C1260,288 1340,300 1400,295 L1400,500 L0,500 Z" fill="#080e0a" opacity="0.6"/>
-                    <path d="M0,395 C50,375 110,382 180,362 C250,342 330,358 410,345 C470,335 530,342 600,330 C660,320 720,328 790,318 C860,308 940,322 1010,312 C1080,302 1150,315 1220,305 C1290,295 1350,308 1400,302 L1400,500 L0,500 Z" fill="#0d1208" stroke="#c8956c" strokeWidth="1.0" opacity="0.55"/>
-                    <path d="M460,345 C475,330 495,325 510,335" fill="none" stroke="#c8956c" strokeWidth="0.5" opacity="0.4"/>
-                    <path d="M600,330 C618,315 638,312 655,322" fill="none" stroke="#c8956c" strokeWidth="0.5" opacity="0.4"/>
-                    <path d="M820,318 C840,305 862,302 880,310" fill="none" stroke="#c8956c" strokeWidth="0.5" opacity="0.35"/>
-                    <path d="M0,420 C40,400 95,408 155,385 C215,362 285,378 355,365 C415,354 465,362 525,350 C575,340 625,348 685,338 C745,328 815,342 875,332 C935,322 995,336 1055,325 C1115,314 1175,330 1235,320 C1295,310 1350,322 1400,318 L1400,500 L0,500 Z" fill="#121008" stroke="#c8956c" strokeWidth="1.2" opacity="0.7"/>
-                    <path d="M155,385 L170,368 L188,368 L200,385" fill="none" stroke="#c8956c" strokeWidth="0.7" opacity="0.5"/>
-                    <path d="M355,365 L372,348 L392,345 L408,365" fill="none" stroke="#c8956c" strokeWidth="0.7" opacity="0.5"/>
-                    <path d="M875,332 L892,314 L914,312 L928,332" fill="none" stroke="#c8956c" strokeWidth="0.7" opacity="0.5"/>
-                    <path d="M1235,320 L1252,302 L1270,300 L1284,320" fill="none" stroke="#c8956c" strokeWidth="0.7" opacity="0.45"/>
-                    <path d="M0,455 C30,435 70,440 115,420 C160,400 215,415 265,402 C315,389 365,398 415,386 C455,376 495,384 540,373 C580,363 618,370 660,360 C700,350 740,358 780,348 C820,338 865,346 905,336 C945,326 990,335 1035,325 C1080,315 1125,324 1170,315 C1215,306 1260,315 1305,308 C1350,301 1380,310 1400,306 L1400,500 L0,500 Z" fill="#0f0d08" stroke="#c8956c" strokeWidth="1.5" opacity="0.85"/>
-                    <path d="M265,402 C280,388 298,384 312,392" fill="none" stroke="#c8956c" strokeWidth="0.9" opacity="0.45"/>
-                    <path d="M540,373 C556,358 576,354 590,363" fill="none" stroke="#c8956c" strokeWidth="0.9" opacity="0.45"/>
-                    <path d="M780,348 C798,333 820,330 835,340" fill="none" stroke="#c8956c" strokeWidth="0.9" opacity="0.45"/>
-                    <path d="M1170,315 C1185,300 1205,297 1218,306" fill="none" stroke="#c8956c" strokeWidth="0.9" opacity="0.4"/>
-                    <line x1="0" y1="305" x2="1400" y2="305" stroke="url(#emberSeam)" strokeWidth="0.8" opacity="0.5"/>
-                    <path d="M0,455 C30,435 70,440 115,420 C160,400 215,415 265,402 C315,389 365,398 415,386 C455,376 495,384 540,373 C580,363 618,370 660,360 C700,350 740,358 780,348 C820,338 865,346 905,336" fill="none" stroke="#5bbfba" strokeWidth="0.5" opacity="0.15"/>
-                    <path d="M905,336 C945,326 990,335 1035,325 C1080,315 1125,324 1170,315 C1215,306 1260,315 1305,308 C1350,301 1380,310 1400,306" fill="none" stroke="#5bbfba" strokeWidth="0.5" opacity="0.12"/>
-                    <g transform="translate(980, 320)" opacity="0.95">
-                      <rect x="-1" y="-12" width="2" height="10" fill="#e8720a" opacity="0.95"/>
-                      <circle cx="0" cy="-14" r="2.2" fill="#e8720a" opacity="0.95"/>
-                      <line x1="0" y1="-8" x2="5" y2="-5" stroke="#e8720a" strokeWidth="1.2" opacity="0.9"/>
-                      <line x1="0" y1="-8" x2="-3" y2="-4" stroke="#e8720a" strokeWidth="1.2" opacity="0.9"/>
-                      <line x1="0" y1="-2" x2="-2" y2="4" stroke="#e8720a" strokeWidth="1.2" opacity="0.9"/>
-                      <line x1="0" y1="-2" x2="2" y2="4" stroke="#e8720a" strokeWidth="1.2" opacity="0.9"/>
-                      <circle cx="0" cy="-6" r="10" fill="#e8720a" opacity="0.06"/>
-                    </g>
-                    <rect x="0" y="460" width="1400" height="40" fill="#080806" opacity="0.6"/>
-                    <rect width="1400" height="500" fill="url(#vignette)"/>
-                    <rect width="1400" height="500" fill="transparent" filter="url(#grain)" opacity="0.12"/>
-                  </g>
-                </svg>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-
-      {/* Problem Section */}
-      <section className="problem-section">
+      {/* Stakes Landscape */}
+      <section style={{padding: '0'}}>
         <div className="container">
-          <div className="section-label">The Reality</div>
-          <h2 className="section-title">Up at 3am questioning everything?</h2>
-          <p className="section-subtitle">That&apos;s not random anxiety. You&apos;re feeling something real.</p>
-          <div className="threat-stack">
-            <div className="threat-card existential">
-              <div className="threat-label">Existential Threat</div>
-              <div className="threat-title">AI is coming for creative jobs</div>
-              <p>Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; creative career paths are becoming unsafe. Half your job functions may already be automated.</p>
+          <div className="hero-landscape-wrap stakes-landscape-wrap" style={{position: 'relative', overflow: 'hidden'}}>
+            <svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg" width="100%" style={{display: 'block'}} preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="stakesSkyGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#030808"/>
+                  <stop offset="30%" stopColor="#0a1515"/>
+                  <stop offset="60%" stopColor="#0f1a12"/>
+                  <stop offset="100%" stopColor="#160d08"/>
+                </linearGradient>
+                <radialGradient id="stakesHorizonGlow" cx="50%" cy="65%" r="45%">
+                  <stop offset="0%" stopColor="#c8956c" stopOpacity="0.18"/>
+                  <stop offset="50%" stopColor="#c8956c" stopOpacity="0.05"/>
+                  <stop offset="100%" stopColor="#c8956c" stopOpacity="0"/>
+                </radialGradient>
+                <radialGradient id="stakesSunGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#e8720a" stopOpacity="0.9"/>
+                  <stop offset="20%" stopColor="#d4561a" stopOpacity="0.6"/>
+                  <stop offset="50%" stopColor="#c8956c" stopOpacity="0.2"/>
+                  <stop offset="100%" stopColor="#c8956c" stopOpacity="0"/>
+                </radialGradient>
+                <linearGradient id="stakesEmberLine" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="transparent"/>
+                  <stop offset="30%" stopColor="#d4561a" stopOpacity="0.5"/>
+                  <stop offset="50%" stopColor="#e8720a" stopOpacity="0.8"/>
+                  <stop offset="70%" stopColor="#d4561a" stopOpacity="0.5"/>
+                  <stop offset="100%" stopColor="transparent"/>
+                </linearGradient>
+                <radialGradient id="stakesVignette" cx="50%" cy="50%" r="70%">
+                  <stop offset="0%" stopColor="transparent"/>
+                  <stop offset="100%" stopColor="rgba(0,0,0,0.7)"/>
+                </radialGradient>
+                <filter id="stakesGrain" x="-20%" y="-20%" width="140%" height="140%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves={4} seed="5" result="noise"/>
+                  <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+                  <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay"/>
+                </filter>
+              </defs>
+              <rect width="1400" height="700" fill="url(#stakesSkyGrad)"/>
+              <rect width="1400" height="700" fill="url(#stakesHorizonGlow)"/>
+              <g fill="#5bbfba" opacity="0.3">
+                <circle cx="120" cy="40" r="0.8"/><circle cx="245" cy="28" r="0.6"/><circle cx="380" cy="55" r="0.9"/><circle cx="510" cy="22" r="0.7"/>
+                <circle cx="640" cy="45" r="0.6"/><circle cx="790" cy="18" r="0.8"/><circle cx="920" cy="38" r="0.7"/><circle cx="1050" cy="25" r="0.9"/>
+                <circle cx="1180" cy="50" r="0.6"/><circle cx="1320" cy="32" r="0.8"/><circle cx="68" cy="80" r="0.5"/><circle cx="185" cy="95" r="0.6"/>
+              </g>
+              <g fill="#c8956c" opacity="0.15">
+                <circle cx="158" cy="62" r="0.7"/><circle cx="420" cy="75" r="0.6"/><circle cx="685" cy="58" r="0.5"/><circle cx="945" cy="48" r="0.7"/><circle cx="1205" cy="65" r="0.6"/>
+              </g>
+              <circle cx="700" cy="460" r="90" fill="url(#stakesSunGlow)"/>
+              <circle cx="700" cy="460" r="16" fill="none" stroke="#e8720a" strokeWidth="0.7" opacity="0.6"/>
+              <circle cx="700" cy="460" r="8" fill="none" stroke="#e8720a" strokeWidth="0.5" opacity="0.8"/>
+              <circle cx="700" cy="460" r="4" fill="#e8720a" opacity="0.9"/>
+              <line x1="0" y1="462" x2="1400" y2="462" stroke="url(#stakesEmberLine)" strokeWidth="0.8" opacity="0.4"/>
+              <path d="M0,520 C60,505 140,510 220,495 C300,480 380,490 460,478 C540,466 620,475 700,465 C780,455 860,468 940,458 C1020,448 1100,460 1180,450 C1260,440 1340,452 1400,448 L1400,700 L0,700 Z" fill="none" stroke="#5bbfba" strokeWidth="0.5" opacity="0.15"/>
+              <path d="M0,535 C50,518 120,525 200,508 C280,491 360,505 440,492 C520,479 600,488 680,476 C760,464 840,478 920,468 C1000,458 1080,470 1160,460 C1240,450 1320,462 1400,458 L1400,700 L0,700 Z" fill="#0a1510" stroke="#5bbfba" strokeWidth="0.7" opacity="0.35"/>
+              <path d="M0,535 C50,518 120,525 200,508 C280,491 360,505 440,492 C520,479 600,488 680,476 C760,464 840,478 920,468 C1000,458 1080,470 1160,460 C1240,450 1320,462 1400,458 L1400,700 L0,700 Z" fill="#080e0a" opacity="0.5"/>
+              <path d="M0,560 C40,542 100,548 170,530 C240,512 320,528 400,515 C460,505 520,512 590,500 C650,490 710,498 780,488 C850,478 930,492 1000,482 C1070,472 1140,485 1210,475 C1280,465 1350,478 1400,472 L1400,700 L0,700 Z" fill="#0d1208" stroke="#c8956c" strokeWidth="0.9" opacity="0.5"/>
+              <path d="M340,538 L355,522 L372,520 L385,538" fill="none" stroke="#c8956c" strokeWidth="0.6" opacity="0.4"/>
+              <path d="M840,502 L856,485 L875,483 L888,502" fill="none" stroke="#c8956c" strokeWidth="0.6" opacity="0.4"/>
+              <path d="M0,585 C30,568 80,575 140,555 C200,535 270,550 340,538 C400,528 450,535 510,522 C560,512 610,520 665,510 C720,500 780,512 840,502 C900,492 960,505 1020,495 C1080,485 1140,498 1200,488 C1260,478 1330,490 1400,486 L1400,700 L0,700 Z" fill="#121008" stroke="#c8956c" strokeWidth="1.2" opacity="0.65"/>
+              <path d="M260,568 C275,553 293,550 306,560" fill="none" stroke="#c8956c" strokeWidth="0.8" opacity="0.4"/>
+              <path d="M660,528 C676,512 696,509 710,520" fill="none" stroke="#c8956c" strokeWidth="0.8" opacity="0.4"/>
+              <path d="M1170,482 C1185,467 1204,464 1216,474" fill="none" stroke="#c8956c" strokeWidth="0.8" opacity="0.35"/>
+              <path d="M0,615 C25,598 65,605 110,585 C155,565 210,580 260,568 C310,556 360,565 410,553 C450,543 490,550 535,540 C575,530 615,538 660,528 C700,518 740,526 780,516 C820,506 865,514 905,504 C945,494 990,503 1035,493 C1080,483 1125,492 1170,482 C1215,472 1260,482 1305,475 C1350,468 1380,478 1400,474 L1400,700 L0,700 Z" fill="#0f0d08" stroke="#c8956c" strokeWidth="1.4" opacity="0.8"/>
+              <g transform="translate(960, 490)" opacity="0.9">
+                <rect x="-1" y="-11" width="2" height="9" fill="#e8720a" opacity="0.9"/>
+                <circle cx="0" cy="-13" r="2" fill="#e8720a" opacity="0.9"/>
+                <line x1="0" y1="-7" x2="4" y2="-4" stroke="#e8720a" strokeWidth="1" opacity="0.8"/>
+                <line x1="0" y1="-7" x2="-3" y2="-3" stroke="#e8720a" strokeWidth="1" opacity="0.8"/>
+                <line x1="0" y1="-1" x2="-2" y2="4" stroke="#e8720a" strokeWidth="1" opacity="0.8"/>
+                <line x1="0" y1="-1" x2="2" y2="4" stroke="#e8720a" strokeWidth="1" opacity="0.8"/>
+                <circle cx="0" cy="-5" r="8" fill="#e8720a" opacity="0.05"/>
+              </g>
+              <rect x="0" y="660" width="1400" height="40" fill="#080806" opacity="0.5"/>
+              <rect width="1400" height="700" fill="url(#stakesVignette)"/>
+              <rect width="1400" height="700" fill="transparent" filter="url(#stakesGrain)" opacity="0.08"/>
+            </svg>
+
+            {/* Paradox Headline */}
+            <div className="stakes-headline">
+              <h2>Creatives are <span className="ember">the most threatened</span>.<br/>And <span className="teal">most equipped</span> to thrive.</h2>
             </div>
-            <div className="threat-card external">
-              <div className="threat-label">External Pressure</div>
-              <div className="threat-title">Modern life is engineered against you</div>
-              <p>Distraction by design &mdash; and creative brains are more susceptible. Your nervous system is constantly triggered. You can&apos;t think your way out of a feeling problem.</p>
-            </div>
-            <div className="threat-card internal">
-              <div className="threat-label">Internal Blockers</div>
-              <div className="threat-title">The result: a crisis of action</div>
-              <p>Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. Disconnection from who you used to be. You know you need to move &mdash; but something keeps you frozen.</p>
+
+            {/* Three Threats */}
+            <div className="threats-layer" id="stakes-threats">
+              <div className="stakes-threat">
+                <div className="stakes-threat-label">Existential threat</div>
+                <div className="stakes-threat-title">AI is coming for creative jobs</div>
+                <div className="stakes-threat-body">Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; creative career paths are becoming unsafe.</div>
+              </div>
+              <div className="stakes-threat">
+                <div className="stakes-threat-label">External pressure</div>
+                <div className="stakes-threat-title">Modern life is engineered against you</div>
+                <div className="stakes-threat-body">Distraction by design &mdash; and creative brains are more susceptible. You can&rsquo;t think your way out of a feeling problem.</div>
+              </div>
+              <div className="stakes-threat">
+                <div className="stakes-threat-label">Internal blockers</div>
+                <div className="stakes-threat-title">The result: a crisis of action</div>
+                <div className="stakes-threat-body">Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. You know you need to move &mdash; but something keeps you frozen.</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Compass Divider */}
-      <div className="compass-divider">
-        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
-          <defs>
-            <linearGradient id="northGradMini" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e8720a"/>
-              <stop offset="70%" stopColor="#c8956c"/>
-              <stop offset="100%" stopColor="#a07050"/>
-            </linearGradient>
-          </defs>
-          <circle cx="250" cy="250" r="210" fill="none" stroke="#c8956c" strokeWidth="1.5" opacity="0.2"/>
-          <polygon points="250,250 234,250 250,72 266,250" fill="url(#northGradMini)" opacity="0.9"/>
-          <polygon points="250,250 266,250 250,428 234,250" fill="#a07050" opacity="0.5"/>
-          <polygon points="250,250 250,266 428,250 250,234" fill="#b08060" opacity="0.5"/>
-          <polygon points="250,250 250,234 72,250 250,266" fill="#b08060" opacity="0.5"/>
-          <polygon points="250,250 262,138 274,250" fill="#5bbfba" opacity="0.5"/>
-          <polygon points="250,250 362,262 250,274" fill="#5bbfba" opacity="0.5"/>
-          <polygon points="250,250 238,362 226,250" fill="#5bbfba" opacity="0.5"/>
-          <polygon points="250,250 138,238 250,226" fill="#5bbfba" opacity="0.5"/>
-          <circle cx="250" cy="250" r="14" fill="#151515" stroke="#c8956c" strokeWidth="2" opacity="0.8"/>
-          <circle cx="250" cy="250" r="4" fill="#c8956c" opacity="0.9"/>
-          <text x="250" y="28" fontFamily="Space Mono, monospace" fontSize="18" fontWeight="700" fill="#e8720a" textAnchor="middle" opacity="0.9">N</text>
-        </svg>
-      </div>
-
-      {/* Paradox */}
-      <section className="paradox-section">
+      {/* Paradox Resolution */}
+      <section style={{padding: '48px 0 64px', textAlign: 'center'}}>
         <div className="container">
-          <div className="paradox-box">
-            <div className="paradox-statement">
-              Creatives are <span className="ember">the most threatened.</span><br/>
-              And <span className="teal">most equipped</span> to thrive.
-            </div>
-            <div className="paradox-lines">
-              <p className="paradox-line paradox-line-bright">Divergent thinking. Emotional intelligence. Connecting unrelated ideas.</p>
-              <p className="paradox-line paradox-line-muted">These are the skills AI can&apos;t replace.</p>
-              <p className="paradox-line paradox-line-advantage">Your unfair advantage.</p>
-              <p className="paradox-line paradox-line-muted">Buried under fear and burnout.</p>
-              <p className="paradox-punch copper">Until now.</p>
-            </div>
+          <p style={{fontFamily: "'Inter Tight', sans-serif", fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6}}>
+            Divergent thinking. Emotional intelligence. Pattern recognition. These are the skills AI can&rsquo;t replace. <strong style={{color: 'var(--copper)', fontWeight: 600, fontSize: '1.35rem'}}>Your unfair advantage &mdash; buried under fear and burnout. Until now.</strong>
+          </p>
+          <div style={{marginTop: '28px'}}>
+            <a href="#pricing" className="btn-primary">Unlock Your Creative Energy</a>
           </div>
-          <a href="#pricing" className="btn-primary">Unlock Your Creative Energy</a>
         </div>
       </section>
 
-      {/* The Bridge — Why Nothing Else Works */}
-      <section className="bridge-section">
+      {/* Paths */}
+      <section className="paths-section" id="how-it-works">
         <div className="container">
-          <div className="section-label">Why Nothing Else Has Worked</div>
-          <h2 className="section-title">You&apos;ve tried. It didn&apos;t stick. Here&apos;s why.</h2>
-          <p className="section-subtitle">You&apos;ve tried meditation apps, productivity tools, coaching, AI. Each one solves a piece. None solves the problem.</p>
-          <div className="bridge-grid">
-            <div className="bridge-card">
-              <div className="bridge-card-title">Meditation apps</div>
-              <p className="bridge-card-body bridge-card-body-first">Calm you down but don&apos;t move you forward.</p>
-              <p className="bridge-card-body">You feel better for 10 minutes, then open your laptop to the same problems.</p>
-              <div className="bridge-card-tag">
-                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> state</div>
-                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> action, memory, accountability</div>
-              </div>
+          <div className="section-label">YOUR PATH</div>
+          <h2 className="section-title">Pick a direction. Set a goal. Execute for 90 days.</h2>
+          <p className="section-subtitle" style={{marginBottom: '4px'}}>
+            You choose a path, set a North Star Goal with real metrics,
+            and your AI co-pilot helps you execute through 9 structured sprints.
+          </p>
+          <p className="section-subtitle">
+            Your creative energy needs a target &mdash; this gives it one.
+          </p>
+          <div className="paths-grid">
+            <div className="path-card pivot">
+              <div className="path-name">PIVOT</div>
+              <div className="path-for">Your current direction is fundamentally misaligned with who you&apos;ve become.</div>
+              <div className="path-examples"><strong>Examples:</strong> Change careers. Break a pattern that&apos;s held you back for years. Make the life transition you keep postponing.</div>
             </div>
-            <div className="bridge-card">
-              <div className="bridge-card-title">Productivity apps</div>
-              <p className="bridge-card-body bridge-card-body-first">Track tasks but ignore the fear blocking you from starting.</p>
-              <p className="bridge-card-body">You don&apos;t need a better to-do list.</p>
-              <div className="bridge-card-tag">
-                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> tracking</div>
-                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> state change, emotional depth, coaching</div>
-              </div>
+            <div className="path-card build">
+              <div className="path-name">BUILD</div>
+              <div className="path-for">You have something inside that needs to exist in the world.</div>
+              <div className="path-examples"><strong>Examples:</strong> Launch a business. Write the book. Ship the project. Start the thing you&apos;ve been &ldquo;planning&rdquo; for two years.</div>
             </div>
-            <div className="bridge-card">
-              <div className="bridge-card-title">Traditional coaching</div>
-              <p className="bridge-card-body bridge-card-body-first">Gives you clarity once a week but disappears between sessions.</p>
-              <p className="bridge-card-body">The breakthroughs happen at 11pm on a Tuesday.</p>
-              <div className="bridge-card-tag">
-                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> personalization</div>
-                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> always-on, affordability, memory</div>
-              </div>
-            </div>
-            <div className="bridge-card">
-              <div className="bridge-card-title">AI chatbots</div>
-              <p className="bridge-card-body bridge-card-body-first">Give generic advice because they don&apos;t know you.</p>
-              <p className="bridge-card-body">You&apos;ll get the same answer as everyone else.</p>
-              <div className="bridge-card-tag">
-                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> availability</div>
-                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> personalization, state change, accountability</div>
-              </div>
+            <div className="path-card evolve">
+              <div className="path-name">EVOLVE</div>
+              <div className="path-for">The foundation is right but you&apos;ve plateaued.</div>
+              <div className="path-examples"><strong>Examples:</strong> Deepen your craft. Transform your current role. Level up a skill. Become the person the next chapter requires.</div>
             </div>
           </div>
-          <div className="bridge-bottom">
-            <p className="bridge-punchline">PYC is the first system that combines <span className="copper">all four</span>: state change, emotional depth, AI memory, and real-world execution.</p>
-            <p className="bridge-subline">Whether you&apos;re building a business, pivoting careers, or evolving where you are &mdash; this system adapts to your path.</p>
+          <div style={{textAlign: 'center', marginTop: '48px'}}>
+            <a href="#pricing" className="btn-primary">Start Free &mdash; Find Your Path</a>
           </div>
         </div>
       </section>
-
 
       {/* Part C: The Execution System */}
       <section className="execution-section">
@@ -450,9 +395,9 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section id="how-it-works">
+      <section id="inside-the-system">
         <div className="container">
-          <div className="section-label">How It Works</div>
+          <div className="section-label">INSIDE THE SYSTEM</div>
           <h2 className="section-title">Built for creative brains. Not productivity generics.</h2>
           <p className="section-subtitle">Sprints instead of habits. State change before action. An AI coach that remembers everything.</p>
 
@@ -694,31 +639,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Paths */}
-      <section className="paths-section">
+      {/* The Bridge — Why Nothing Else Works */}
+      <section className="bridge-section">
         <div className="container">
-          <div className="section-label">Your Direction</div>
-          <h2 className="section-title">Pick a direction. Set a goal. Execute for 90 days.</h2>
-          <p className="section-subtitle">
-            You choose a path, set a North Star Goal with real metrics,
-            and your AI co-pilot helps you execute through 9 structured sprints. Your creative energy needs a target &mdash; this gives it one.
-          </p>
-          <div className="paths-grid">
-            <div className="path-card pivot">
-              <div className="path-name">PIVOT</div>
-              <div className="path-for">Your current direction is fundamentally misaligned with who you&apos;ve become.</div>
-              <div className="path-examples"><strong>Examples:</strong> Change careers. Break a pattern that&apos;s held you back for years. Make the life transition you keep postponing.</div>
+          <div className="section-label">Why Nothing Else Has Worked</div>
+          <h2 className="section-title">You&apos;ve tried. It didn&apos;t stick. Here&apos;s why.</h2>
+          <p className="section-subtitle">You&apos;ve tried meditation apps, productivity tools, coaching, AI. Each one solves a piece. None solves the problem.</p>
+          <div className="bridge-grid">
+            <div className="bridge-card">
+              <div className="bridge-card-title">Meditation apps</div>
+              <p className="bridge-card-body bridge-card-body-first">Calm you down but don&apos;t move you forward.</p>
+              <p className="bridge-card-body">You feel better for 10 minutes, then open your laptop to the same problems.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> state</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> action, memory, accountability</div>
+              </div>
             </div>
-            <div className="path-card build">
-              <div className="path-name">BUILD</div>
-              <div className="path-for">You have something inside that needs to exist in the world.</div>
-              <div className="path-examples"><strong>Examples:</strong> Launch a business. Write the book. Ship the project. Start the thing you&apos;ve been &ldquo;planning&rdquo; for two years.</div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">Productivity apps</div>
+              <p className="bridge-card-body bridge-card-body-first">Track tasks but ignore the fear blocking you from starting.</p>
+              <p className="bridge-card-body">You don&apos;t need a better to-do list.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> tracking</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> state change, emotional depth, coaching</div>
+              </div>
             </div>
-            <div className="path-card evolve">
-              <div className="path-name">EVOLVE</div>
-              <div className="path-for">The foundation is right but you&apos;ve plateaued.</div>
-              <div className="path-examples"><strong>Examples:</strong> Deepen your craft. Transform your current role. Level up a skill. Become the person the next chapter requires.</div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">Traditional coaching</div>
+              <p className="bridge-card-body bridge-card-body-first">Gives you clarity once a week but disappears between sessions.</p>
+              <p className="bridge-card-body">The breakthroughs happen at 11pm on a Tuesday.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> personalization</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> always-on, affordability, memory</div>
+              </div>
             </div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">AI chatbots</div>
+              <p className="bridge-card-body bridge-card-body-first">Give generic advice because they don&apos;t know you.</p>
+              <p className="bridge-card-body">You&apos;ll get the same answer as everyone else.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> availability</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> personalization, state change, accountability</div>
+              </div>
+            </div>
+          </div>
+          <div className="bridge-bottom">
+            <p className="bridge-punchline">PYC is the first system that combines <span className="copper">all four</span>: state change, emotional depth, AI memory, and real-world execution.</p>
+            <p className="bridge-subline">Whether you&apos;re building a business, pivoting careers, or evolving where you are &mdash; this system adapts to your path.</p>
           </div>
         </div>
       </section>
