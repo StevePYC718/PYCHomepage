@@ -8,7 +8,7 @@ export default function Home() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const threats = entry.target.querySelectorAll('.stakes-threat')
+          const threats = entry.target.querySelectorAll('.stakes-threat, .stakes-threat-mobile')
           threats.forEach((threat, i) => {
             setTimeout(() => {
               threat.classList.add('visible')
@@ -19,10 +19,10 @@ export default function Home() {
       })
     }, { threshold: 0.2 })
 
-    const stakesThreats = document.getElementById('stakes-threats')
-    if (stakesThreats) {
-      observer.observe(stakesThreats)
-    }
+    const desktopThreats = document.getElementById('stakes-threats')
+    const mobileThreats = document.getElementById('stakes-threats-mobile')
+    if (desktopThreats) observer.observe(desktopThreats)
+    if (mobileThreats) observer.observe(mobileThreats)
 
     return () => observer.disconnect()
   }, [])
@@ -296,8 +296,8 @@ export default function Home() {
               <h2>Creatives are <span className="ember">the most threatened</span>.<br/>And <span className="teal">most equipped</span> to thrive.</h2>
             </div>
 
-            {/* Three Threats */}
-            <div className="threats-layer" id="stakes-threats">
+            {/* Desktop Threats — absolutely positioned over landscape */}
+            <div className="threats-layer threats-desktop" id="stakes-threats">
               <div className="stakes-threat">
                 <div className="stakes-threat-label">Existential threat</div>
                 <div className="stakes-threat-title">AI is coming for creative jobs</div>
@@ -313,6 +313,25 @@ export default function Home() {
                 <div className="stakes-threat-title">The result: a crisis of action</div>
                 <div className="stakes-threat-body">Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. You know you need to move &mdash; but something keeps you frozen.</div>
               </div>
+            </div>
+          </div>
+
+          {/* Mobile Threats — normal flow below landscape */}
+          <div className="threats-mobile" id="stakes-threats-mobile">
+            <div className="stakes-threat-mobile">
+              <div className="stakes-threat-label">Existential threat</div>
+              <div className="stakes-threat-title">AI is coming for creative jobs</div>
+              <div className="stakes-threat-body">Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; creative career paths are becoming unsafe.</div>
+            </div>
+            <div className="stakes-threat-mobile">
+              <div className="stakes-threat-label">External pressure</div>
+              <div className="stakes-threat-title">Modern life is engineered against you</div>
+              <div className="stakes-threat-body">Distraction by design &mdash; and creative brains are more susceptible. You can&rsquo;t think your way out of a feeling problem.</div>
+            </div>
+            <div className="stakes-threat-mobile">
+              <div className="stakes-threat-label">Internal blockers</div>
+              <div className="stakes-threat-title">The result: a crisis of action</div>
+              <div className="stakes-threat-body">Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. You know you need to move &mdash; but something keeps you frozen.</div>
             </div>
           </div>
         </div>

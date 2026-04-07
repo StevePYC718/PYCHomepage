@@ -1940,6 +1940,27 @@ footer .logo {
   line-height: 1.6;
 }
 
+/* Desktop: show threats over landscape, hide mobile threats */
+.threats-desktop {
+  display: flex;
+}
+.threats-mobile {
+  display: none;
+}
+
+/* Mobile threat animation */
+.stakes-threat-mobile {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.stakes-threat-mobile.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stakes-threat-mobile:nth-child(2) { transition-delay: 0.3s; }
+.stakes-threat-mobile:nth-child(3) { transition-delay: 0.6s; }
+
 
 /* ==================== */
 /* RESPONSIVE           */
@@ -1995,18 +2016,46 @@ footer .logo {
   .stakes-headline h2 {
     font-size: 1.75rem;
   }
-  .threats-layer {
+  .threats-desktop {
+    display: none;
+  }
+  .threats-mobile {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    top: 120px;
-    gap: 20px;
-    padding: 0 24px;
+    gap: 16px;
+    padding: 32px 0 0 0;
   }
-  .stakes-threat {
-    max-width: 100%;
+  .stakes-threat-mobile {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 28px;
+    border-left: 4px solid;
   }
-  .stakes-landscape-wrap {
-    max-height: 780px;
+  .stakes-threat-mobile:nth-child(1) { border-left-color: var(--error); }
+  .stakes-threat-mobile:nth-child(2) { border-left-color: var(--warning); }
+  .stakes-threat-mobile:nth-child(3) { border-left-color: var(--teal); }
+  .stakes-threat-mobile .stakes-threat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+  .stakes-threat-mobile:nth-child(1) .stakes-threat-label { color: var(--error); }
+  .stakes-threat-mobile:nth-child(2) .stakes-threat-label { color: var(--warning); }
+  .stakes-threat-mobile:nth-child(3) .stakes-threat-label { color: var(--teal); }
+  .stakes-threat-mobile .stakes-threat-title {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .stakes-threat-mobile .stakes-threat-body {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
   }
 }
 
