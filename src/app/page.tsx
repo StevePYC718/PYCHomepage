@@ -107,7 +107,7 @@ export default function Home() {
                       <div className="pm-waveform">
                         <div className="pm-waveform-bars">
                           {Array.from({length: 32}).map((_, i) => (
-                            <div key={i} className={`pm-wave-bar ${i < 11 ? 'pm-wave-filled' : ''}`} style={{height: `${6 + Math.sin(i * 0.7) * 8 + Math.random() * 4}px`}}></div>
+                            <div key={i} className={`pm-wave-bar ${i < 11 ? 'pm-wave-filled' : ''}`} style={{height: `${6 + Math.sin(i * 0.7) * 8 + Math.abs(Math.sin(i * 2.3)) * 4}px`}}></div>
                           ))}
                         </div>
                       </div>
@@ -302,16 +302,19 @@ export default function Home() {
                 <div className="stakes-threat-label">Existential threat</div>
                 <div className="stakes-threat-title">AI is coming for creative jobs</div>
                 <div className="stakes-threat-body">Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; creative career paths are becoming unsafe.</div>
+                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 3 shows you how to deploy the skills AI can&rsquo;t replace &mdash; and use AI to amplify them.</div>
               </div>
               <div className="stakes-threat">
                 <div className="stakes-threat-label">External pressure</div>
                 <div className="stakes-threat-title">Modern life is engineered against you</div>
                 <div className="stakes-threat-body">Distraction by design &mdash; and creative brains are more susceptible. You can&rsquo;t think your way out of a feeling problem.</div>
+                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 2 reclaims your focus and builds the operating system that protects it.</div>
               </div>
               <div className="stakes-threat">
                 <div className="stakes-threat-label">Internal blockers</div>
                 <div className="stakes-threat-title">The result: a crisis of action</div>
                 <div className="stakes-threat-body">Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. You know you need to move &mdash; but something keeps you frozen.</div>
+                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 1 teaches you to name the fear, feel it, and act anyway.</div>
               </div>
             </div>
           </div>
@@ -322,16 +325,19 @@ export default function Home() {
               <div className="stakes-threat-label">Existential threat</div>
               <div className="stakes-threat-title">AI is coming for creative jobs</div>
               <div className="stakes-threat-body">Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; creative career paths are becoming unsafe.</div>
+              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 3 shows you how to deploy the skills AI can&rsquo;t replace &mdash; and use AI to amplify them.</div>
             </div>
             <div className="stakes-threat-mobile">
               <div className="stakes-threat-label">External pressure</div>
               <div className="stakes-threat-title">Modern life is engineered against you</div>
               <div className="stakes-threat-body">Distraction by design &mdash; and creative brains are more susceptible. You can&rsquo;t think your way out of a feeling problem.</div>
+              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 2 reclaims your focus and builds the operating system that protects it.</div>
             </div>
             <div className="stakes-threat-mobile">
               <div className="stakes-threat-label">Internal blockers</div>
               <div className="stakes-threat-title">The result: a crisis of action</div>
               <div className="stakes-threat-body">Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. You know you need to move &mdash; but something keeps you frozen.</div>
+              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 1 teaches you to name the fear, feel it, and act anyway.</div>
             </div>
           </div>
         </div>
@@ -349,37 +355,74 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Paths */}
-      <section className="paths-section" id="how-it-works">
+      {/* The Bridge — Why Nothing Else Works */}
+      <section className="bridge-section">
         <div className="container">
-          <div className="section-label">YOUR PATH</div>
-          <h2 className="section-title">Pick a direction. Set a goal. Execute for 90 days.</h2>
-          <p className="section-subtitle" style={{marginBottom: '4px'}}>
-            You choose a path, set a North Star Goal with real metrics,
-            and your AI co-pilot helps you execute through 9 structured sprints.
-          </p>
-          <p className="section-subtitle">
-            Your creative energy needs a target &mdash; this gives it one.
-          </p>
-          <div className="paths-grid">
-            <div className="path-card pivot">
-              <div className="path-name">PIVOT</div>
-              <div className="path-for">Your current direction is fundamentally misaligned with who you&apos;ve become.</div>
-              <div className="path-examples"><strong>Examples:</strong> Change careers. Break a pattern that&apos;s held you back for years. Make the life transition you keep postponing.</div>
+          <div className="section-label">Why Nothing Else Has Worked</div>
+          <h2 className="section-title">You&apos;ve tried. It didn&apos;t stick. Here&apos;s why.</h2>
+          <p className="section-subtitle">You&apos;ve tried meditation apps, productivity tools, coaching, AI. Each one solves a piece. None solves the problem.</p>
+          <div className="bridge-grid">
+            <div className="bridge-card">
+              <div className="bridge-card-title">Meditation apps</div>
+              <p className="bridge-card-body bridge-card-body-first">Calm you down but don&apos;t move you forward.</p>
+              <p className="bridge-card-body">You feel better for 10 minutes, then open your laptop to the same problems.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> state</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> action, memory, accountability</div>
+              </div>
             </div>
-            <div className="path-card build">
-              <div className="path-name">BUILD</div>
-              <div className="path-for">You have something inside that needs to exist in the world.</div>
-              <div className="path-examples"><strong>Examples:</strong> Launch a business. Write the book. Ship the project. Start the thing you&apos;ve been &ldquo;planning&rdquo; for two years.</div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">Productivity apps</div>
+              <p className="bridge-card-body bridge-card-body-first">Track tasks but ignore the fear blocking you from starting.</p>
+              <p className="bridge-card-body">You don&apos;t need a better to-do list.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> tracking</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> state change, emotional depth, coaching</div>
+              </div>
             </div>
-            <div className="path-card evolve">
-              <div className="path-name">EVOLVE</div>
-              <div className="path-for">The foundation is right but you&apos;ve plateaued.</div>
-              <div className="path-examples"><strong>Examples:</strong> Deepen your craft. Transform your current role. Level up a skill. Become the person the next chapter requires.</div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">Traditional coaching</div>
+              <p className="bridge-card-body bridge-card-body-first">Gives you clarity once a week but disappears between sessions.</p>
+              <p className="bridge-card-body">The breakthroughs happen at 11pm on a Tuesday.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> personalization</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> always-on, affordability, memory</div>
+              </div>
+            </div>
+            <div className="bridge-card">
+              <div className="bridge-card-title">AI chatbots</div>
+              <p className="bridge-card-body bridge-card-body-first">Give generic advice because they don&apos;t know you.</p>
+              <p className="bridge-card-body">You&apos;ll get the same answer as everyone else.</p>
+              <div className="bridge-card-tag">
+                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> availability</div>
+                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> personalization, state change, accountability</div>
+              </div>
             </div>
           </div>
-          <div style={{textAlign: 'center', marginTop: '48px'}}>
-            <a href="#pricing" className="btn-primary">Start Free &mdash; Find Your Path</a>
+          <div className="bridge-bottom">
+            <p className="bridge-punchline">PYC is the first system that combines <span className="copper">all four</span>: state change, emotional depth, AI memory, and real-world execution.</p>
+            <p className="bridge-subline">Whether you&apos;re building a business, pivoting careers, or evolving where you are &mdash; this system adapts to your path.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* What This Does For You */}
+      <section style={{padding: '80px 0 40px'}}>
+        <div className="container">
+          <h2 className="section-title" style={{textAlign: 'center', marginBottom: '48px'}}>What this does for you.</h2>
+          <div className="phases-grid">
+            <div className="phase-card">
+              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>Overcome what&apos;s holding you back.</div>
+              <div className="phase-desc">Fear. Resistance. Imposter syndrome. Digital addiction. The internal and external forces keeping you frozen. Phases 1 and 2 clear them in the right order.</div>
+            </div>
+            <div className="phase-card">
+              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>Become more valuable in an AI-driven world.</div>
+              <div className="phase-desc">Strengthen the divergent thinking and problem-solving skills AI can&apos;t replicate. Learn to use AI tools to save time and cognitive load. Phase 3 makes you indispensable.</div>
+            </div>
+            <div className="phase-card">
+              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>Achieve your goal without burning out.</div>
+              <div className="phase-desc">One North Star Goal. Structured sprints. AI-driven priorities. Make real progress while keeping up with your existing responsibilities.</div>
+            </div>
           </div>
         </div>
       </section>
@@ -395,18 +438,21 @@ export default function Home() {
               <div className="phase-number">Phase 1 &mdash; Days 1-30</div>
               <div className="phase-name">UNLOCK</div>
               <div className="phase-desc">Walk into the room without the voice saying &lsquo;who are you to do this?&rsquo; Phase 1 teaches you to name the fear, feel it, and act anyway.</div>
+              <div className="phase-sprints" style={{marginBottom: '4px'}}>Directly combats: internal blockers.</div>
               <div className="phase-sprints">Sprints 1-3</div>
             </div>
             <div className="phase-card">
               <div className="phase-number">Phase 2 &mdash; Days 31-60</div>
               <div className="phase-name">STRENGTHEN</div>
               <div className="phase-desc">Reclaim the 2 hours a day you&apos;re losing to noise and distraction. Phase 2 builds your personal operating system &mdash; protecting your focus and freeing up bandwidth to execute.</div>
+              <div className="phase-sprints" style={{marginBottom: '4px'}}>Directly combats: external pressure.</div>
               <div className="phase-sprints">Sprints 4-6</div>
             </div>
             <div className="phase-card">
               <div className="phase-number">Phase 3 &mdash; Days 61-90</div>
               <div className="phase-name">ACTIVATE</div>
               <div className="phase-desc">Deploy the skills AI can&apos;t replace. Use AI to amplify the rest. Phase 3 teaches you to trust your divergent thinking, articulate it, and use it professionally.</div>
+              <div className="phase-sprints" style={{marginBottom: '4px'}}>Directly combats: existential threat.</div>
               <div className="phase-sprints">Sprints 7-9</div>
             </div>
           </div>
@@ -414,7 +460,7 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section id="inside-the-system">
+      <section id="how-it-works">
         <div className="container">
           <div className="section-label">INSIDE THE SYSTEM</div>
           <h2 className="section-title">Built for creative brains. Not productivity generics.</h2>
@@ -422,41 +468,8 @@ export default function Home() {
 
           <div className="feature-showcase">
 
-            {/* Feature 1: Creative Archaeology */}
+            {/* Feature 1: AI Co-Pilot */}
             <div className="feature-row">
-              <div className="feature-visual">
-                <div className="phone-frame">
-                  <div className="phone-notch"></div>
-                  <div className="phone-screen fm-screen">
-                    <div className="fm-progress-dots">
-                      <span className="fm-dot fm-dot-done"></span>
-                      <span className="fm-dot fm-dot-done"></span>
-                      <span className="fm-dot fm-dot-active"></span>
-                      <span className="fm-dot"></span>
-                    </div>
-                    <p className="fm-question">When did it stop &mdash; and what took its place?</p>
-                    <p className="fm-subtext">What filled the space where creating used to be?</p>
-                    <div className="fm-options">
-                      <div className="fm-option fm-option-selected">Work took over</div>
-                      <div className="fm-option fm-option-selected">Someone&apos;s voice said it wasn&apos;t worth it</div>
-                      <div className="fm-option">Fear of not being good enough</div>
-                      <div className="fm-option">Time just slipped away</div>
-                    </div>
-                    <div className="fm-spacer"></div>
-                    <div className="fm-continue-btn">Continue</div>
-                  </div>
-                </div>
-              </div>
-              <div className="feature-text">
-                <div className="feature-label">Where It Starts</div>
-                <h3>Reconnect with the energy source you buried.</h3>
-                <p>3 minutes. 4 questions. You rediscover the creative identity you left behind &mdash; the music, the writing, the making. Neuroscience shows this reconnection triggers the dopamine and flow-state chemistry that powers focus and execution. It&apos;s not nostalgia. It&apos;s performance fuel.</p>
-                <p className="feature-detail">Free for everyone. Your unfair advantage shouldn&apos;t cost anything to discover.</p>
-              </div>
-            </div>
-
-            {/* Feature 2: AI Co-Pilot */}
-            <div className="feature-row reverse">
               <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-notch"></div>
@@ -507,8 +520,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Feature 3: Structured Sprints */}
-            <div className="feature-row">
+            {/* Feature 2: Structured Sprints */}
+            <div className="feature-row reverse">
               <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-notch"></div>
@@ -564,8 +577,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Feature 4: Immersive Experiences */}
-            <div className="feature-row reverse">
+            {/* Feature 3: Immersive Experiences */}
+            <div className="feature-row">
               <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-notch"></div>
@@ -580,7 +593,7 @@ export default function Home() {
                       <div className="pm-waveform">
                         <div className="pm-waveform-bars">
                           {Array.from({length: 28}).map((_, i) => (
-                            <div key={i} className={`pm-wave-bar ${i < 11 ? 'pm-wave-filled' : ''}`} style={{height: `${5 + Math.sin(i * 0.7) * 7 + Math.random() * 4}px`}}></div>
+                            <div key={i} className={`pm-wave-bar ${i < 11 ? 'pm-wave-filled' : ''}`} style={{height: `${5 + Math.sin(i * 0.7) * 7 + Math.abs(Math.sin(i * 2.3)) * 4}px`}}></div>
                           ))}
                         </div>
                       </div>
@@ -603,8 +616,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Feature 5: Evidence System */}
-            <div className="feature-row">
+            {/* Feature 4: Evidence System */}
+            <div className="feature-row reverse">
               <div className="feature-visual">
                 <div className="phone-frame">
                   <div className="phone-notch"></div>
@@ -653,58 +666,75 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Feature 5: Creative Archaeology */}
+            <div className="feature-row">
+              <div className="feature-visual">
+                <div className="phone-frame">
+                  <div className="phone-notch"></div>
+                  <div className="phone-screen fm-screen">
+                    <div className="fm-progress-dots">
+                      <span className="fm-dot fm-dot-done"></span>
+                      <span className="fm-dot fm-dot-done"></span>
+                      <span className="fm-dot fm-dot-active"></span>
+                      <span className="fm-dot"></span>
+                    </div>
+                    <p className="fm-question">When did it stop &mdash; and what took its place?</p>
+                    <p className="fm-subtext">What filled the space where creating used to be?</p>
+                    <div className="fm-options">
+                      <div className="fm-option fm-option-selected">Work took over</div>
+                      <div className="fm-option fm-option-selected">Someone&apos;s voice said it wasn&apos;t worth it</div>
+                      <div className="fm-option">Fear of not being good enough</div>
+                      <div className="fm-option">Time just slipped away</div>
+                    </div>
+                    <div className="fm-spacer"></div>
+                    <div className="fm-continue-btn">Continue</div>
+                  </div>
+                </div>
+              </div>
+              <div className="feature-text">
+                <div className="feature-label">Where It Starts</div>
+                <h3>Reconnect with the energy source you buried.</h3>
+                <p>3 minutes. 4 questions. You rediscover the creative identity you left behind &mdash; the music, the writing, the making. Neuroscience shows this reconnection triggers the dopamine and flow-state chemistry that powers focus and execution. It&apos;s not nostalgia. It&apos;s performance fuel.</p>
+                <p className="feature-detail">Free for everyone. Your unfair advantage shouldn&apos;t cost anything to discover.</p>
+              </div>
+            </div>
+
 
           </div>
         </div>
       </section>
 
-      {/* The Bridge — Why Nothing Else Works */}
-      <section className="bridge-section">
+      {/* Paths */}
+      <section className="paths-section">
         <div className="container">
-          <div className="section-label">Why Nothing Else Has Worked</div>
-          <h2 className="section-title">You&apos;ve tried. It didn&apos;t stick. Here&apos;s why.</h2>
-          <p className="section-subtitle">You&apos;ve tried meditation apps, productivity tools, coaching, AI. Each one solves a piece. None solves the problem.</p>
-          <div className="bridge-grid">
-            <div className="bridge-card">
-              <div className="bridge-card-title">Meditation apps</div>
-              <p className="bridge-card-body bridge-card-body-first">Calm you down but don&apos;t move you forward.</p>
-              <p className="bridge-card-body">You feel better for 10 minutes, then open your laptop to the same problems.</p>
-              <div className="bridge-card-tag">
-                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> state</div>
-                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> action, memory, accountability</div>
-              </div>
+          <div className="section-label">YOUR PATH</div>
+          <h2 className="section-title">Pick a direction. Set a goal. Execute for 90 days.</h2>
+          <p className="section-subtitle" style={{marginBottom: '4px'}}>
+            You choose a path, set a North Star Goal with real metrics,
+            and your AI co-pilot helps you execute through 9 structured sprints.
+          </p>
+          <p className="section-subtitle">
+            Your creative energy needs a target &mdash; this gives it one.
+          </p>
+          <div className="paths-grid">
+            <div className="path-card pivot">
+              <div className="path-name">PIVOT</div>
+              <div className="path-for">Your current direction is fundamentally misaligned with who you&apos;ve become.</div>
+              <div className="path-examples"><strong>Examples:</strong> Change careers. Break a pattern that&apos;s held you back for years. Make the life transition you keep postponing.</div>
             </div>
-            <div className="bridge-card">
-              <div className="bridge-card-title">Productivity apps</div>
-              <p className="bridge-card-body bridge-card-body-first">Track tasks but ignore the fear blocking you from starting.</p>
-              <p className="bridge-card-body">You don&apos;t need a better to-do list.</p>
-              <div className="bridge-card-tag">
-                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> tracking</div>
-                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> state change, emotional depth, coaching</div>
-              </div>
+            <div className="path-card build">
+              <div className="path-name">BUILD</div>
+              <div className="path-for">You have something inside that needs to exist in the world.</div>
+              <div className="path-examples"><strong>Examples:</strong> Launch a business. Write the book. Ship the project. Start the thing you&apos;ve been &ldquo;planning&rdquo; for two years.</div>
             </div>
-            <div className="bridge-card">
-              <div className="bridge-card-title">Traditional coaching</div>
-              <p className="bridge-card-body bridge-card-body-first">Gives you clarity once a week but disappears between sessions.</p>
-              <p className="bridge-card-body">The breakthroughs happen at 11pm on a Tuesday.</p>
-              <div className="bridge-card-tag">
-                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> personalization</div>
-                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> always-on, affordability, memory</div>
-              </div>
-            </div>
-            <div className="bridge-card">
-              <div className="bridge-card-title">AI chatbots</div>
-              <p className="bridge-card-body bridge-card-body-first">Give generic advice because they don&apos;t know you.</p>
-              <p className="bridge-card-body">You&apos;ll get the same answer as everyone else.</p>
-              <div className="bridge-card-tag">
-                <div className="bridge-tag-solves"><span className="bridge-tag-label">Solves:</span> availability</div>
-                <div className="bridge-tag-misses"><span className="bridge-tag-label">Misses:</span> personalization, state change, accountability</div>
-              </div>
+            <div className="path-card evolve">
+              <div className="path-name">EVOLVE</div>
+              <div className="path-for">The foundation is right but you&apos;ve plateaued.</div>
+              <div className="path-examples"><strong>Examples:</strong> Deepen your craft. Transform your current role. Level up a skill. Become the person the next chapter requires.</div>
             </div>
           </div>
-          <div className="bridge-bottom">
-            <p className="bridge-punchline">PYC is the first system that combines <span className="copper">all four</span>: state change, emotional depth, AI memory, and real-world execution.</p>
-            <p className="bridge-subline">Whether you&apos;re building a business, pivoting careers, or evolving where you are &mdash; this system adapts to your path.</p>
+          <div style={{textAlign: 'center', marginTop: '48px'}}>
+            <a href="#pricing" className="btn-primary">Start Free &mdash; Find Your Path</a>
           </div>
         </div>
       </section>
