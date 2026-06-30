@@ -31,8 +31,11 @@ export default function Home() {
       {/* Navigation */}
       <nav>
         <div className="container">
-          <a href="#" className="logo">PIONEER <span>YOUR CREATIVE</span></a>
-          <a href="#pricing" className="nav-cta">Start Free</a>
+          <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+            <a href="#" className="logo">PIONEER <span>YOUR CREATIVE</span></a>
+            <span style={{fontFamily: "'Space Mono', monospace", fontSize: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--copper)', border: '1px solid rgba(200,149,108,0.4)', borderRadius: '4px', padding: '3px 7px'}}>Founding beta</span>
+          </div>
+          <a href="#pricing" className="nav-cta">Join the Beta &rarr;</a>
         </div>
       </nav>
 
@@ -45,10 +48,11 @@ export default function Home() {
                 Pioneer a path<br/>
                 <span className="hero-accent">AI can&apos;t replace.</span>
               </h1>
-              <h2 className="hero-headline">An app for creative professionals navigating the AI shift</h2>
-              <p className="hero-subline">Whether you&apos;re <strong style={{color: 'var(--teal)'}}>building a business</strong>, <strong style={{color: 'var(--copper)'}}>pivoting careers</strong>, or <strong style={{color: '#6B8E6B'}}>evolving where you are</strong>.</p>
+              <h2 className="hero-headline">The creative edge AI threatens most is the one thing that actually wins in an AI economy &mdash; if you can get back to it.</h2>
+              <p className="hero-subline">PYC is the 90-day system that reconnects it, and builds it into a career, a craft, and a life AI can&rsquo;t replace.</p>
+              <p style={{fontSize: '0.85rem', color: 'var(--copper)', marginTop: '-20px', marginBottom: '28px', lineHeight: 1.5}}>PYC is in founding beta &mdash; we&rsquo;re opening <strong>15 spots</strong> to the people who&rsquo;ll shape it with us.</p>
               <div className="hero-cta-group">
-                <a href="#pricing" className="btn-primary">Start Free &mdash; No Credit Card</a>
+                <a href="#pricing" className="btn-primary">Claim a Founding Spot &rarr;</a>
                 <a href="#how-it-works" className="btn-secondary">See How It Works</a>
               </div>
             </div>
@@ -358,9 +362,9 @@ export default function Home() {
       {/* The Bridge — Why Nothing Else Works */}
       <section className="bridge-section">
         <div className="container">
-          <div className="section-label">Why Nothing Else Has Worked</div>
-          <h2 className="section-title">You&apos;ve tried. It didn&apos;t stick. Here&apos;s why.</h2>
-          <p className="section-subtitle">You&apos;ve tried meditation apps, productivity tools, coaching, AI. Each one solves a piece. None solves the problem.</p>
+          <div className="section-label">The Consumption Trap</div>
+          <h2 className="section-title">You&apos;re not passive. You&apos;re too capable to sit still &mdash; so you consume.</h2>
+          <p className="section-subtitle">A course. A tool. A coach. Another framework, more content. It feels like forward motion and quiets the anxiety &mdash; without the exposure of the real move. Each one solves a piece. None gets you to act.</p>
           <div className="bridge-grid">
             <div className="bridge-card">
               <div className="bridge-card-title">Meditation apps</div>
@@ -400,8 +404,8 @@ export default function Home() {
             </div>
           </div>
           <div className="bridge-bottom">
-            <p className="bridge-punchline">PYC is the first system that combines <span className="copper">all four</span>: state change, emotional depth, AI memory, and real-world execution.</p>
-            <p className="bridge-subline">Whether you&apos;re building a business, pivoting careers, or evolving where you are &mdash; this system adapts to your path.</p>
+            <p className="bridge-punchline">Here&apos;s what nobody says out loud: every competitor isn&apos;t an alternative to PYC. <span className="copper">It&apos;s part of the disease</span> &mdash; one more thing to consume for a mind already drowning.</p>
+            <p className="bridge-subline">PYC is the one thing that isn&apos;t consumption &mdash; the system that reconnects you first, then moves you to real action. Whether you&apos;re building, pivoting, or evolving.</p>
           </div>
         </div>
       </section>
@@ -409,19 +413,20 @@ export default function Home() {
       {/* What This Does For You */}
       <section style={{padding: '80px 0 40px'}}>
         <div className="container">
-          <h2 className="section-title" style={{textAlign: 'center', marginBottom: '48px'}}>What this does for you.</h2>
+          <h2 className="section-title" style={{textAlign: 'center', marginBottom: '20px'}}>Your creative engine is switched off. PYC switches it back on.</h2>
+          <p className="section-subtitle" style={{textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', marginBottom: '48px'}}>This is not wellness &mdash; it&apos;s the mechanism. PYC starts where nothing else does: by reconnecting you with creativity on a level that has nothing to do with your job. Reconnect first, then move.</p>
           <div className="phases-grid">
             <div className="phase-card">
-              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>Overcome what&apos;s holding you back.</div>
-              <div className="phase-desc">Fear. Resistance. Imposter syndrome. Digital addiction. The internal and external forces keeping you frozen. Phases 1 and 2 clear them in the right order.</div>
+              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>It breaks the freeze.</div>
+              <div className="phase-desc">When creativity is welded to your income, every move becomes a referendum on your worth &mdash; so you freeze. Reconnecting with it as play removes the stakes, so you can move again.</div>
             </div>
             <div className="phase-card">
-              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>Become more valuable in an AI-driven world.</div>
-              <div className="phase-desc">Strengthen the divergent thinking and problem-solving skills AI can&apos;t replicate. Learn to use AI tools to save time and cognitive load. Phase 3 makes you indispensable.</div>
+              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>It rebuilds the faculty AI made valuable.</div>
+              <div className="phase-desc">Curiosity, association, taste &mdash; the faculties now most valuable are muscles. Exploratory practice rebuilds the exact ones AI can&apos;t replicate, on ground AI can&apos;t touch.</div>
             </div>
             <div className="phase-card">
-              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>Achieve your goal without burning out.</div>
-              <div className="phase-desc">One North Star Goal. Structured sprints. AI-driven priorities. Make real progress while keeping up with your existing responsibilities.</div>
+              <div className="phase-name" style={{color: 'var(--text-primary)', fontSize: '1.15rem', lineHeight: 1.3, marginBottom: '16px'}}>It refills the tank &mdash; and surfaces your direction.</div>
+              <div className="phase-desc">Burnout is creativity stripped of its reward. Intrinsic practice puts the fuel back &mdash; and you find your North Star by noticing what lights you up, which you can&apos;t do while you&apos;re numb.</div>
             </div>
           </div>
         </div>
@@ -430,28 +435,28 @@ export default function Home() {
       {/* Part C: The Execution System */}
       <section className="execution-section">
         <div className="container">
-          <div className="section-label">What You&apos;ll Achieve</div>
-          <h2 className="section-title">Three phases. Each one removes what&apos;s in your way.</h2>
-          <p className="section-subtitle">You don&apos;t need more motivation. You need to systematically clear the forces keeping you stuck &mdash; in the right order.</p>
+          <div className="section-label">The Journey</div>
+          <h2 className="section-title">Three phases. Nine sprints. Nine tools you keep for life.</h2>
+          <p className="section-subtitle">The structure mirrors the threat &mdash; and resolves it in reverse, clearing the root first. Every sprint installs a permanent internal shift and produces real external proof: transformation and receipts, every ten days.</p>
           <div className="phases-grid">
             <div className="phase-card">
               <div className="phase-number">Phase 1 &mdash; Days 1-30</div>
               <div className="phase-name">UNLOCK</div>
-              <div className="phase-desc">Walk into the room without the voice saying &lsquo;who are you to do this?&rsquo; Phase 1 teaches you to name the fear, feel it, and act anyway.</div>
+              <div className="phase-desc">Clear the internal blocks before they cost you everything. Fear, resistance, and an identity that won&apos;t let you evolve &mdash; then direction and the first imperfect move. You leave able to act while afraid, and start before you&apos;re ready.</div>
               <div className="phase-sprints" style={{marginBottom: '4px'}}>Directly combats: internal blockers.</div>
               <div className="phase-sprints">Sprints 1-3</div>
             </div>
             <div className="phase-card">
               <div className="phase-number">Phase 2 &mdash; Days 31-60</div>
               <div className="phase-name">STRENGTHEN</div>
-              <div className="phase-desc">Reclaim the 2 hours a day you&apos;re losing to noise and distraction. Phase 2 builds your personal operating system &mdash; protecting your focus and freeing up bandwidth to execute.</div>
+              <div className="phase-desc">Build systems the modern world can&apos;t strip. Protect your focus from a world built to steal it, learn how you actually work, and recover from setbacks without spiraling. You leave with a defended mind and a personal operating system.</div>
               <div className="phase-sprints" style={{marginBottom: '4px'}}>Directly combats: external pressure.</div>
               <div className="phase-sprints">Sprints 4-6</div>
             </div>
             <div className="phase-card">
               <div className="phase-number">Phase 3 &mdash; Days 61-90</div>
               <div className="phase-name">ACTIVATE</div>
-              <div className="phase-desc">Deploy the skills AI can&apos;t replace. Use AI to amplify the rest. Phase 3 teaches you to trust your divergent thinking, articulate it, and use it professionally.</div>
+              <div className="phase-desc">Turn the creative faculty into your professional edge. Solve problems with curiosity instead of panic, name and deploy the human value AI can&apos;t replicate, and close your open loops. You leave with a clear articulation of your edge &mdash; and the proof to back it.</div>
               <div className="phase-sprints" style={{marginBottom: '4px'}}>Directly combats: existential threat.</div>
               <div className="phase-sprints">Sprints 7-9</div>
             </div>
@@ -462,9 +467,9 @@ export default function Home() {
       {/* Features */}
       <section id="how-it-works">
         <div className="container">
-          <div className="section-label">INSIDE THE SYSTEM</div>
+          <div className="section-label">What&apos;s Inside</div>
           <h2 className="section-title">Built for creative brains. Not productivity generics.</h2>
-          <p className="section-subtitle">Sprints instead of habits. State change before action. An AI coach that remembers everything.</p>
+          <p className="section-subtitle">Every piece is load-bearing. Sprints instead of habits. State change before action. An AI partner that remembers everything &mdash; and tools you keep for life.</p>
 
           <div className="feature-showcase">
 
@@ -513,10 +518,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">Who Holds You Accountable</div>
-                <h3>A coach that&apos;s there at 11pm on a Tuesday.</h3>
-                <p>It names the pattern when you&apos;re avoiding the hard thing &mdash; before you recognize it yourself. Every reflection makes it sharper. By Sprint 6, it coaches with a precision no human achieves in that timeframe.</p>
-                <p className="feature-detail">It doesn&apos;t just respond. It initiates. It pushes back. It gets you to act.</p>
+                <div className="feature-label">Your AI Co-Pilot</div>
+                <h3>A collaborator who&apos;s known you for months.</h3>
+                <p>An AI partner wired into your goals, your blocks, and your progress. Day 1, the moves are already good. By Day 90, they read like a coach who&apos;s known you for months &mdash; because every reflection makes it sharper. It names the pattern when you&apos;re avoiding the hard thing, before you recognize it yourself.</p>
+                <p className="feature-detail">It doesn&apos;t just respond. It initiates. It pushes back. It gets you to act &mdash; and your investment compounds where a competitor starts from zero.</p>
               </div>
             </div>
 
@@ -570,10 +575,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">How You Execute</div>
-                <h3>One goal. One metric. You never guess what to do next.</h3>
-                <p>Choose your path. Set one North Star Goal with one number that proves you&apos;re moving. Then execute through 10-day sprints designed for creative brains &mdash; each day has one clear action, each sprint builds on the last.</p>
-                <p className="feature-detail">Sprints instead of habits. Because creative brains don&apos;t do &ldquo;a little every day.&rdquo; They do intense bursts, then recover.</p>
+                <div className="feature-label">North Star &amp; Sprints</div>
+                <h3>One goal. One move. You never guess what&apos;s next.</h3>
+                <p>Choose your path and set one North Star Goal &mdash; a dream big enough to matter, with one number that proves you&apos;re moving. Then execute through 10-day sprints built for creative brains: each day, one named move, set the night before.</p>
+                <p className="feature-detail">State change first, then honest action. You don&apos;t have to feel ready &mdash; you just run the card, and it compounds into something real.</p>
               </div>
             </div>
 
@@ -609,9 +614,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">How You Shift</div>
-                <h3>Feel it first. Then act.</h3>
-                <p>You already know what you need to do. The problem is your nervous system. Cinematic audio stories &mdash; crafted with film and TV sound design &mdash; change your physiological state. You feel the obstacle before you learn to overcome it.</p>
+                <div className="feature-label">Immersive Audio &amp; Reflection</div>
+                <h3>Change the state first. Then everything moves.</h3>
+                <p>You already know what to do. The problem is your nervous system. Cinematic, story-driven audio &mdash; crafted with film and TV sound design &mdash; shifts how you feel, followed by honest reflection while you&apos;re still open. Because information alone never changed anyone&apos;s behavior.</p>
                 <p className="feature-detail">10-20 minutes a day. For people with jobs, families, and 47 open browser tabs.</p>
               </div>
             </div>
@@ -659,9 +664,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">How You Prove It</div>
+                <div className="feature-label">Your Evidence Wall</div>
                 <h3>When imposter syndrome hits, open this.</h3>
-                <p>Applications sent. Revenue earned. Pages written. Projects shipped. Every win logged, every metric tracked. The data doesn&apos;t lie &mdash; even when your fear voice does.</p>
+                <p>Applications sent. Revenue earned. Pages written. Projects shipped. Every win logged, every metric tracked &mdash; real receipts that pile up as you move. The data doesn&apos;t lie &mdash; even when your fear voice does.</p>
                 <p className="feature-detail">Your Co-Pilot holds you accountable. Your Evidence Wall proves it&apos;s working.</p>
               </div>
             </div>
@@ -692,9 +697,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="feature-text">
-                <div className="feature-label">Where It Starts</div>
-                <h3>Reconnect with the energy source you buried.</h3>
-                <p>3 minutes. 4 questions. You rediscover the creative identity you left behind &mdash; the music, the writing, the making. Neuroscience shows this reconnection triggers the dopamine and flow-state chemistry that powers focus and execution. It&apos;s not nostalgia. It&apos;s performance fuel.</p>
+                <div className="feature-label">Creative Archaeology</div>
+                <h3>Switch the engine back on.</h3>
+                <p>3 minutes. 4 questions. You surface the creative self that got buried &mdash; and the truth behind your blocks. The starting point, because you can&apos;t deploy an engine you&apos;ve lost contact with. The reconnection triggers the focus and flow-state chemistry everything else runs on. It&apos;s not nostalgia. It&apos;s performance fuel.</p>
                 <p className="feature-detail">Free for everyone. Your unfair advantage shouldn&apos;t cost anything to discover.</p>
               </div>
             </div>
@@ -792,7 +797,7 @@ export default function Home() {
             <div className="faq-item">
               <div className="faq-question">What exactly is the free version?</div>
               <div className="faq-answer">
-                Creative Archaeology &mdash; an experience that uncovers your creative identity in under 3 minutes. You&apos;ll get your creative profile, choose your path (Pivot, Build, or Evolve), and set your North Star Goal. It&apos;s the foundation &mdash; and your answers start training the AI coach that guides everything. When you&apos;re ready to execute with sprints, audio, and full AI coaching, you upgrade.
+                Creative Archaeology &mdash; an experience that uncovers your creative identity in under 3 minutes. You&apos;ll get your creative profile, choose your path (Pivot, Build, or Evolve), and set your North Star Goal. It&apos;s the foundation &mdash; and your answers start training the AI Co-Pilot that guides everything. When you&apos;re ready to execute, you join the founding cohort for the full system.
               </div>
             </div>
             <div className="faq-item">
@@ -803,29 +808,33 @@ export default function Home() {
               </div>
             </div>
             <div className="faq-item">
-              <div className="faq-question">How much time does this take each day?</div>
+              <div className="faq-question">I don&apos;t have time for another program.</div>
               <div className="faq-answer">
-                Most days require 10-20 minutes. Some days less, some days more if you&apos;re doing deeper work.
-                This is designed for busy professionals &mdash; not another thing to feel guilty about skipping.
+                Most days are one card &mdash; one move, already decided the night before. It&apos;s built for people with a demanding job and a full life, not free afternoons. 10-20 minutes most days; deeper work only when you choose it.
               </div>
             </div>
             <div className="faq-item">
-              <div className="faq-question">What if I miss days?</div>
+              <div className="faq-question">What if I fall behind?</div>
               <div className="faq-answer">
-                The program is self-paced. Life happens. Your AI Co-Pilot picks up where you left off &mdash; it remembers what you were working on and what you committed to. No guilt trips. Just &ldquo;welcome back, here&apos;s where we are.&rdquo; Progress, not perfection.
+                You can&apos;t. It&apos;s completion-paced, not a countdown &mdash; you move to the next sprint when you&apos;ve done the work, on your timeline. Your AI Co-Pilot picks up exactly where you left off. No guilt trips. Progress, not perfection.
               </div>
             </div>
             <div className="faq-item">
-              <div className="faq-question">Is this just another wellness app?</div>
+              <div className="faq-question">Is this a wellness thing?</div>
               <div className="faq-answer">
-                No. This is an execution system with tools, frameworks, and accountability architecture.
-                There&apos;s mindfulness where it&apos;s useful (like the SOS button), but the focus is action and results &mdash; not relaxation.
+                No. The reconnection is real, but it&apos;s a performance mechanism &mdash; it switches your creative engine back on so you can build something undeniable in the real world. Think infrastructure, not self-care. There&apos;s regulation where it&apos;s useful (like the SOS button), but the focus is action and proof.
               </div>
             </div>
             <div className="faq-item">
-              <div className="faq-question">What makes this different from other coaching programs?</div>
+              <div className="faq-question">How is this different from the courses I&apos;ve bought?</div>
               <div className="faq-answer">
-                Three things: (1) Creative Archaeology builds an emotional foundation no other tool offers &mdash; it reconnects you with the creative energy that&apos;s your actual competitive advantage. (2) The AI Co-Pilot compounds &mdash; every reflection, every conversation, every win makes it know you deeper. By Sprint 6, it coaches with precision no human achieves in that timeframe. (3) The audio content is art, not lectures. It changes your state first, then moves you to action. The reflections hit while you&apos;re still open. That honesty is what makes everything else work.
+                Courses give you information. You don&apos;t have a knowledge problem &mdash; you have a frozen-engine problem. PYC reconnects you first, then runs your daily execution and produces real proof. The AI Co-Pilot compounds &mdash; every reflection makes it know you deeper, and by Sprint 6 it coaches with a precision no human achieves in that timeframe. It&apos;s the opposite of one more thing to consume.
+              </div>
+            </div>
+            <div className="faq-item">
+              <div className="faq-question">Why only 15 spots?</div>
+              <div className="faq-answer">
+                Because founding members get direct access to me, and that doesn&apos;t scale. Small cohort, real attention, founding price locked for life. When the cohort fills, founding pricing closes and the price returns to standard.
               </div>
             </div>
             <div className="faq-item">
@@ -842,13 +851,16 @@ export default function Home() {
       {/* Final CTA */}
       <section style={{textAlign: 'center', padding: '100px 0'}}>
         <div className="container">
-          <h2 className="section-title" style={{maxWidth: '700px', margin: '0 auto 16px'}}>
-            Your creative energy is your<br/>unfair advantage.
+          <h2 className="section-title" style={{maxWidth: '760px', margin: '0 auto 20px'}}>
+            You can keep consuming.<br/>Or you can pioneer.
           </h2>
-          <p className="section-subtitle" style={{margin: '0 auto 32px', textAlign: 'center'}}>
-            <span className="copper">It&apos;s been there the whole time.</span>
+          <p className="section-subtitle" style={{margin: '0 auto 16px', textAlign: 'center'}}>
+            The way forward isn&apos;t to bury the creative self and survive &mdash; it&apos;s to reconnect with it. It&apos;s the one capability AI amplifies instead of replacing. <span className="copper">15 founding spots. Price locked for life.</span>
           </p>
-          <a href="#pricing" className="btn-primary">Start Free</a>
+          <p className="section-subtitle" style={{margin: '0 auto 32px', textAlign: 'center', fontWeight: 600, color: 'var(--text)'}}>
+            Stay human. Stay creative. <span className="copper">Pioneer a path AI can&apos;t replace.</span>
+          </p>
+          <a href="#pricing" className="btn-primary">Claim Your Founding Spot &rarr;</a>
         </div>
       </section>
 
