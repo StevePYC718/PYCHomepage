@@ -297,28 +297,28 @@ export default function Home() {
 
             {/* Paradox Headline */}
             <div className="stakes-headline">
-              <h2>Creatives are <span className="ember">the most threatened</span>.<br/>And <span className="teal">most equipped</span> to thrive.</h2>
+              <h2>It&apos;s not coming. <span className="ember">It&apos;s here.</span><br/>And it funnels inward.</h2>
             </div>
 
             {/* Desktop Threats — absolutely positioned over landscape */}
             <div className="threats-layer threats-desktop" id="stakes-threats">
               <div className="stakes-threat">
-                <div className="stakes-threat-label">Existential threat</div>
-                <div className="stakes-threat-title">AI is coming for creative jobs</div>
-                <div className="stakes-threat-body">Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; creative career paths are becoming unsafe.</div>
-                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 3 shows you how to deploy the skills AI can&rsquo;t replace &mdash; and use AI to amplify them.</div>
+                <div className="stakes-threat-label">The world</div>
+                <div className="stakes-threat-title">AI is doing the work now.</div>
+                <div className="stakes-threat-body">It writes the copy, makes the image, cuts the audio, drafts the design &mdash; faster, cheaper, and well enough. The work that took you years to be good at can be done passably in seconds.</div>
+                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 3 turns the human faculty AI can&rsquo;t replicate into your professional edge.</div>
               </div>
               <div className="stakes-threat">
-                <div className="stakes-threat-label">External pressure</div>
-                <div className="stakes-threat-title">Modern life is engineered against you</div>
-                <div className="stakes-threat-body">Distraction by design &mdash; and creative brains are more susceptible. You can&rsquo;t think your way out of a feeling problem.</div>
-                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 2 reclaims your focus and builds the operating system that protects it.</div>
+                <div className="stakes-threat-label">Your work</div>
+                <div className="stakes-threat-title">It lands on your life.</div>
+                <div className="stakes-threat-body">The skills you spent a career sharpening are worth less by the month &mdash; inside a world engineered to fragment you, built to keep you scrolling and numb, so the focus you&rsquo;d need is gone before you reach the work that matters.</div>
+                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 2 builds the systems that defend your focus from a world built to steal it.</div>
               </div>
               <div className="stakes-threat">
-                <div className="stakes-threat-label">Internal blockers</div>
-                <div className="stakes-threat-title">The result: a crisis of action</div>
-                <div className="stakes-threat-body">Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. You know you need to move &mdash; but something keeps you frozen.</div>
-                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 1 teaches you to name the fear, feel it, and act anyway.</div>
+                <div className="stakes-threat-label">You</div>
+                <div className="stakes-threat-title">And then it gets personal.</div>
+                <div className="stakes-threat-body">Underneath the economics is the real wound: <em>the part of you that felt like a creative is the part that&rsquo;s worth less now.</em> You know you need to move &mdash; but you&rsquo;re frozen, and you can&rsquo;t even see what&rsquo;s freezing you. That block is the root.</div>
+                <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 1 breaks the freeze &mdash; name the fear, feel it, and make the first move anyway.</div>
               </div>
             </div>
           </div>
@@ -326,22 +326,22 @@ export default function Home() {
           {/* Mobile Threats — normal flow below landscape */}
           <div className="threats-mobile" id="stakes-threats-mobile">
             <div className="stakes-threat-mobile">
-              <div className="stakes-threat-label">Existential threat</div>
-              <div className="stakes-threat-title">AI is coming for creative jobs</div>
-              <div className="stakes-threat-body">Skills that took years to develop are being commoditized in months. The &ldquo;safe&rdquo; creative career paths are becoming unsafe.</div>
-              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 3 shows you how to deploy the skills AI can&rsquo;t replace &mdash; and use AI to amplify them.</div>
+              <div className="stakes-threat-label">The world</div>
+              <div className="stakes-threat-title">AI is doing the work now.</div>
+              <div className="stakes-threat-body">It writes the copy, makes the image, cuts the audio, drafts the design &mdash; faster, cheaper, and well enough. The work that took you years to be good at can be done passably in seconds.</div>
+              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 3 turns the human faculty AI can&rsquo;t replicate into your professional edge.</div>
             </div>
             <div className="stakes-threat-mobile">
-              <div className="stakes-threat-label">External pressure</div>
-              <div className="stakes-threat-title">Modern life is engineered against you</div>
-              <div className="stakes-threat-body">Distraction by design &mdash; and creative brains are more susceptible. You can&rsquo;t think your way out of a feeling problem.</div>
-              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 2 reclaims your focus and builds the operating system that protects it.</div>
+              <div className="stakes-threat-label">Your work</div>
+              <div className="stakes-threat-title">It lands on your life.</div>
+              <div className="stakes-threat-body">The skills you spent a career sharpening are worth less by the month &mdash; inside a world engineered to fragment you, built to keep you scrolling and numb, so the focus you&rsquo;d need is gone before you reach the work that matters.</div>
+              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 2 builds the systems that defend your focus from a world built to steal it.</div>
             </div>
             <div className="stakes-threat-mobile">
-              <div className="stakes-threat-label">Internal blockers</div>
-              <div className="stakes-threat-title">The result: a crisis of action</div>
-              <div className="stakes-threat-body">Fear disguised as &ldquo;being practical.&rdquo; Imposter syndrome. You know you need to move &mdash; but something keeps you frozen.</div>
-              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 1 teaches you to name the fear, feel it, and act anyway.</div>
+              <div className="stakes-threat-label">You</div>
+              <div className="stakes-threat-title">And then it gets personal.</div>
+              <div className="stakes-threat-body">Underneath the economics is the real wound: <em>the part of you that felt like a creative is the part that&rsquo;s worth less now.</em> You know you need to move &mdash; but you&rsquo;re frozen, and you can&rsquo;t even see what&rsquo;s freezing you. That block is the root.</div>
+              <div className="stakes-threat-link" style={{fontStyle: 'italic', color: 'var(--text-dim)', fontSize: '0.85rem', marginTop: '10px', lineHeight: 1.5}}>Phase 1 breaks the freeze &mdash; name the fear, feel it, and make the first move anyway.</div>
             </div>
           </div>
         </div>
