@@ -350,8 +350,11 @@ export default function Home() {
       {/* Paradox Resolution */}
       <section style={{padding: '48px 0 64px', textAlign: 'center'}}>
         <div className="container">
-          <p style={{fontFamily: "'Inter Tight', sans-serif", fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6}}>
-            Divergent thinking. Emotional intelligence. Pattern recognition. These are the skills AI can&rsquo;t replace. <strong style={{color: 'var(--copper)', fontWeight: 600, fontSize: '1.35rem'}}>Your unfair advantage &mdash; buried under fear and burnout. Until now.</strong>
+          <p style={{fontFamily: "'Inter Tight', sans-serif", fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-secondary)', maxWidth: '760px', margin: '0 auto', lineHeight: 1.6}}>
+            Strip the art off it, and creativity is one faculty: connecting things that don&rsquo;t obviously connect, and the taste to know which combination is worth anything. When AI makes generating a thousand options free, generating stops being the valuable part &mdash; <strong style={{color: 'var(--text)', fontWeight: 600}}>taste, judgment, and voice become the premium.</strong> The part you spent years mastering is the part getting commodified. The faculty you buried under deadlines is the part that now wins.
+          </p>
+          <p style={{fontFamily: "'Inter Tight', sans-serif", fontSize: '1.6rem', fontWeight: 700, color: 'var(--copper)', maxWidth: '760px', margin: '24px auto 0', lineHeight: 1.4, letterSpacing: '-0.02em'}}>
+            The threat and the opportunity are the same fact. The thing under threat is the thing that saves you.
           </p>
           <div style={{marginTop: '28px'}}>
             <a href="#pricing" className="btn-primary">Unlock Your Creative Energy</a>
