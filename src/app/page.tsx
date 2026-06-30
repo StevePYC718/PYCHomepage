@@ -747,6 +747,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* What You Walk Away With */}
+      <section style={{padding: '64px 0', textAlign: 'center'}}>
+        <div className="container">
+          <div className="section-label">What You Walk Away With</div>
+          <h2 className="section-title">By the end, you don&apos;t just feel different. You have proof.</h2>
+          <ul className="pricing-features" style={{maxWidth: '560px', margin: '32px 0 0', display: 'inline-block', textAlign: 'left'}}>
+            <li>Your creative engine back online &mdash; running your day instead of haunting it</li>
+            <li>A direction you can say in one sentence and act on daily</li>
+            <li>Nine tools, built from your own words, that you keep for life</li>
+            <li>A stack of real receipts &mdash; a role, your first revenue, a defensible position</li>
+            <li>A human edge you can name and lead with &mdash; in a pitch, an interview, a launch</li>
+            <li>And the shift under all of it: you became someone who finishes</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section className="pricing-section" id="pricing">
         <div className="container">
