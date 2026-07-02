@@ -33,7 +33,7 @@ export default function Home() {
         <div className="container">
           <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
             <a href="#" className="logo">PIONEER <span>YOUR CREATIVE</span></a>
-            <span style={{fontFamily: "'Space Mono', monospace", fontSize: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--copper)', border: '1px solid rgba(200,149,108,0.4)', borderRadius: '4px', padding: '3px 7px'}}>Founding beta</span>
+            <span style={{fontFamily: "'JetBrains Mono', monospace", fontSize: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--copper)', border: '1px solid rgba(176,135,103,0.4)', borderRadius: '4px', padding: '3px 7px'}}>Founding beta</span>
           </div>
           <a href="#pricing" className="nav-cta">Join the Beta &rarr;</a>
         </div>
@@ -228,21 +228,21 @@ export default function Home() {
                   <stop offset="100%" stopColor="#160d08"/>
                 </linearGradient>
                 <radialGradient id="stakesHorizonGlow" cx="50%" cy="65%" r="45%">
-                  <stop offset="0%" stopColor="#c8956c" stopOpacity="0.18"/>
-                  <stop offset="50%" stopColor="#c8956c" stopOpacity="0.05"/>
-                  <stop offset="100%" stopColor="#c8956c" stopOpacity="0"/>
+                  <stop offset="0%" stopColor="#b08767" stopOpacity="0.18"/>
+                  <stop offset="50%" stopColor="#b08767" stopOpacity="0.05"/>
+                  <stop offset="100%" stopColor="#b08767" stopOpacity="0"/>
                 </radialGradient>
                 <radialGradient id="stakesSunGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#e8720a" stopOpacity="0.9"/>
-                  <stop offset="20%" stopColor="#d4561a" stopOpacity="0.6"/>
-                  <stop offset="50%" stopColor="#c8956c" stopOpacity="0.2"/>
-                  <stop offset="100%" stopColor="#c8956c" stopOpacity="0"/>
+                  <stop offset="0%" stopColor="#e5814f" stopOpacity="0.9"/>
+                  <stop offset="20%" stopColor="#d96a3d" stopOpacity="0.6"/>
+                  <stop offset="50%" stopColor="#b08767" stopOpacity="0.2"/>
+                  <stop offset="100%" stopColor="#b08767" stopOpacity="0"/>
                 </radialGradient>
                 <linearGradient id="stakesEmberLine" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="transparent"/>
-                  <stop offset="30%" stopColor="#d4561a" stopOpacity="0.5"/>
-                  <stop offset="50%" stopColor="#e8720a" stopOpacity="0.8"/>
-                  <stop offset="70%" stopColor="#d4561a" stopOpacity="0.5"/>
+                  <stop offset="30%" stopColor="#d96a3d" stopOpacity="0.5"/>
+                  <stop offset="50%" stopColor="#e5814f" stopOpacity="0.8"/>
+                  <stop offset="70%" stopColor="#d96a3d" stopOpacity="0.5"/>
                   <stop offset="100%" stopColor="transparent"/>
                 </linearGradient>
                 <radialGradient id="stakesVignette" cx="50%" cy="50%" r="70%">
@@ -257,38 +257,38 @@ export default function Home() {
               </defs>
               <rect width="1400" height="700" fill="url(#stakesSkyGrad)"/>
               <rect width="1400" height="700" fill="url(#stakesHorizonGlow)"/>
-              <g fill="#5bbfba" opacity="0.3">
+              <g fill="#7eb0a8" opacity="0.3">
                 <circle cx="120" cy="40" r="0.8"/><circle cx="245" cy="28" r="0.6"/><circle cx="380" cy="55" r="0.9"/><circle cx="510" cy="22" r="0.7"/>
                 <circle cx="640" cy="45" r="0.6"/><circle cx="790" cy="18" r="0.8"/><circle cx="920" cy="38" r="0.7"/><circle cx="1050" cy="25" r="0.9"/>
                 <circle cx="1180" cy="50" r="0.6"/><circle cx="1320" cy="32" r="0.8"/><circle cx="68" cy="80" r="0.5"/><circle cx="185" cy="95" r="0.6"/>
               </g>
-              <g fill="#c8956c" opacity="0.15">
+              <g fill="#b08767" opacity="0.15">
                 <circle cx="158" cy="62" r="0.7"/><circle cx="420" cy="75" r="0.6"/><circle cx="685" cy="58" r="0.5"/><circle cx="945" cy="48" r="0.7"/><circle cx="1205" cy="65" r="0.6"/>
               </g>
               <circle cx="700" cy="460" r="90" fill="url(#stakesSunGlow)"/>
-              <circle cx="700" cy="460" r="16" fill="none" stroke="#e8720a" strokeWidth="0.7" opacity="0.6"/>
-              <circle cx="700" cy="460" r="8" fill="none" stroke="#e8720a" strokeWidth="0.5" opacity="0.8"/>
-              <circle cx="700" cy="460" r="4" fill="#e8720a" opacity="0.9"/>
+              <circle cx="700" cy="460" r="16" fill="none" stroke="#e5814f" strokeWidth="0.7" opacity="0.6"/>
+              <circle cx="700" cy="460" r="8" fill="none" stroke="#e5814f" strokeWidth="0.5" opacity="0.8"/>
+              <circle cx="700" cy="460" r="4" fill="#e5814f" opacity="0.9"/>
               <line x1="0" y1="462" x2="1400" y2="462" stroke="url(#stakesEmberLine)" strokeWidth="0.8" opacity="0.4"/>
-              <path d="M0,520 C60,505 140,510 220,495 C300,480 380,490 460,478 C540,466 620,475 700,465 C780,455 860,468 940,458 C1020,448 1100,460 1180,450 C1260,440 1340,452 1400,448 L1400,700 L0,700 Z" fill="none" stroke="#5bbfba" strokeWidth="0.5" opacity="0.15"/>
-              <path d="M0,535 C50,518 120,525 200,508 C280,491 360,505 440,492 C520,479 600,488 680,476 C760,464 840,478 920,468 C1000,458 1080,470 1160,460 C1240,450 1320,462 1400,458 L1400,700 L0,700 Z" fill="#0a1510" stroke="#5bbfba" strokeWidth="0.7" opacity="0.35"/>
+              <path d="M0,520 C60,505 140,510 220,495 C300,480 380,490 460,478 C540,466 620,475 700,465 C780,455 860,468 940,458 C1020,448 1100,460 1180,450 C1260,440 1340,452 1400,448 L1400,700 L0,700 Z" fill="none" stroke="#7eb0a8" strokeWidth="0.5" opacity="0.15"/>
+              <path d="M0,535 C50,518 120,525 200,508 C280,491 360,505 440,492 C520,479 600,488 680,476 C760,464 840,478 920,468 C1000,458 1080,470 1160,460 C1240,450 1320,462 1400,458 L1400,700 L0,700 Z" fill="#0a1510" stroke="#7eb0a8" strokeWidth="0.7" opacity="0.35"/>
               <path d="M0,535 C50,518 120,525 200,508 C280,491 360,505 440,492 C520,479 600,488 680,476 C760,464 840,478 920,468 C1000,458 1080,470 1160,460 C1240,450 1320,462 1400,458 L1400,700 L0,700 Z" fill="#080e0a" opacity="0.5"/>
-              <path d="M0,560 C40,542 100,548 170,530 C240,512 320,528 400,515 C460,505 520,512 590,500 C650,490 710,498 780,488 C850,478 930,492 1000,482 C1070,472 1140,485 1210,475 C1280,465 1350,478 1400,472 L1400,700 L0,700 Z" fill="#0d1208" stroke="#c8956c" strokeWidth="0.9" opacity="0.5"/>
-              <path d="M340,538 L355,522 L372,520 L385,538" fill="none" stroke="#c8956c" strokeWidth="0.6" opacity="0.4"/>
-              <path d="M840,502 L856,485 L875,483 L888,502" fill="none" stroke="#c8956c" strokeWidth="0.6" opacity="0.4"/>
-              <path d="M0,585 C30,568 80,575 140,555 C200,535 270,550 340,538 C400,528 450,535 510,522 C560,512 610,520 665,510 C720,500 780,512 840,502 C900,492 960,505 1020,495 C1080,485 1140,498 1200,488 C1260,478 1330,490 1400,486 L1400,700 L0,700 Z" fill="#121008" stroke="#c8956c" strokeWidth="1.2" opacity="0.65"/>
-              <path d="M260,568 C275,553 293,550 306,560" fill="none" stroke="#c8956c" strokeWidth="0.8" opacity="0.4"/>
-              <path d="M660,528 C676,512 696,509 710,520" fill="none" stroke="#c8956c" strokeWidth="0.8" opacity="0.4"/>
-              <path d="M1170,482 C1185,467 1204,464 1216,474" fill="none" stroke="#c8956c" strokeWidth="0.8" opacity="0.35"/>
-              <path d="M0,615 C25,598 65,605 110,585 C155,565 210,580 260,568 C310,556 360,565 410,553 C450,543 490,550 535,540 C575,530 615,538 660,528 C700,518 740,526 780,516 C820,506 865,514 905,504 C945,494 990,503 1035,493 C1080,483 1125,492 1170,482 C1215,472 1260,482 1305,475 C1350,468 1380,478 1400,474 L1400,700 L0,700 Z" fill="#0f0d08" stroke="#c8956c" strokeWidth="1.4" opacity="0.8"/>
+              <path d="M0,560 C40,542 100,548 170,530 C240,512 320,528 400,515 C460,505 520,512 590,500 C650,490 710,498 780,488 C850,478 930,492 1000,482 C1070,472 1140,485 1210,475 C1280,465 1350,478 1400,472 L1400,700 L0,700 Z" fill="#0d1208" stroke="#b08767" strokeWidth="0.9" opacity="0.5"/>
+              <path d="M340,538 L355,522 L372,520 L385,538" fill="none" stroke="#b08767" strokeWidth="0.6" opacity="0.4"/>
+              <path d="M840,502 L856,485 L875,483 L888,502" fill="none" stroke="#b08767" strokeWidth="0.6" opacity="0.4"/>
+              <path d="M0,585 C30,568 80,575 140,555 C200,535 270,550 340,538 C400,528 450,535 510,522 C560,512 610,520 665,510 C720,500 780,512 840,502 C900,492 960,505 1020,495 C1080,485 1140,498 1200,488 C1260,478 1330,490 1400,486 L1400,700 L0,700 Z" fill="#121008" stroke="#b08767" strokeWidth="1.2" opacity="0.65"/>
+              <path d="M260,568 C275,553 293,550 306,560" fill="none" stroke="#b08767" strokeWidth="0.8" opacity="0.4"/>
+              <path d="M660,528 C676,512 696,509 710,520" fill="none" stroke="#b08767" strokeWidth="0.8" opacity="0.4"/>
+              <path d="M1170,482 C1185,467 1204,464 1216,474" fill="none" stroke="#b08767" strokeWidth="0.8" opacity="0.35"/>
+              <path d="M0,615 C25,598 65,605 110,585 C155,565 210,580 260,568 C310,556 360,565 410,553 C450,543 490,550 535,540 C575,530 615,538 660,528 C700,518 740,526 780,516 C820,506 865,514 905,504 C945,494 990,503 1035,493 C1080,483 1125,492 1170,482 C1215,472 1260,482 1305,475 C1350,468 1380,478 1400,474 L1400,700 L0,700 Z" fill="#0f0d08" stroke="#b08767" strokeWidth="1.4" opacity="0.8"/>
               <g transform="translate(960, 490)" opacity="0.9">
-                <rect x="-1" y="-11" width="2" height="9" fill="#e8720a" opacity="0.9"/>
-                <circle cx="0" cy="-13" r="2" fill="#e8720a" opacity="0.9"/>
-                <line x1="0" y1="-7" x2="4" y2="-4" stroke="#e8720a" strokeWidth="1" opacity="0.8"/>
-                <line x1="0" y1="-7" x2="-3" y2="-3" stroke="#e8720a" strokeWidth="1" opacity="0.8"/>
-                <line x1="0" y1="-1" x2="-2" y2="4" stroke="#e8720a" strokeWidth="1" opacity="0.8"/>
-                <line x1="0" y1="-1" x2="2" y2="4" stroke="#e8720a" strokeWidth="1" opacity="0.8"/>
-                <circle cx="0" cy="-5" r="8" fill="#e8720a" opacity="0.05"/>
+                <rect x="-1" y="-11" width="2" height="9" fill="#e5814f" opacity="0.9"/>
+                <circle cx="0" cy="-13" r="2" fill="#e5814f" opacity="0.9"/>
+                <line x1="0" y1="-7" x2="4" y2="-4" stroke="#e5814f" strokeWidth="1" opacity="0.8"/>
+                <line x1="0" y1="-7" x2="-3" y2="-3" stroke="#e5814f" strokeWidth="1" opacity="0.8"/>
+                <line x1="0" y1="-1" x2="-2" y2="4" stroke="#e5814f" strokeWidth="1" opacity="0.8"/>
+                <line x1="0" y1="-1" x2="2" y2="4" stroke="#e5814f" strokeWidth="1" opacity="0.8"/>
+                <circle cx="0" cy="-5" r="8" fill="#e5814f" opacity="0.05"/>
               </g>
               <rect x="0" y="660" width="1400" height="40" fill="#080806" opacity="0.5"/>
               <rect width="1400" height="700" fill="url(#stakesVignette)"/>
@@ -350,10 +350,10 @@ export default function Home() {
       {/* Paradox Resolution */}
       <section style={{padding: '48px 0 64px', textAlign: 'center'}}>
         <div className="container">
-          <p style={{fontFamily: "'Inter Tight', sans-serif", fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-secondary)', maxWidth: '760px', margin: '0 auto', lineHeight: 1.6}}>
+          <p style={{fontFamily: "var(--font-fraunces), 'Fraunces', serif", fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-secondary)', maxWidth: '760px', margin: '0 auto', lineHeight: 1.6}}>
             Strip the art off it, and creativity is one faculty: connecting things that don&rsquo;t obviously connect, and the taste to know which combination is worth anything. When AI makes generating a thousand options free, generating stops being the valuable part &mdash; <strong style={{color: 'var(--text)', fontWeight: 600}}>taste, judgment, and voice become the premium.</strong> The part you spent years mastering is the part getting commodified. The faculty you buried under deadlines is the part that now wins.
           </p>
-          <p style={{fontFamily: "'Inter Tight', sans-serif", fontSize: '1.6rem', fontWeight: 700, color: 'var(--copper)', maxWidth: '760px', margin: '24px auto 0', lineHeight: 1.4, letterSpacing: '-0.02em'}}>
+          <p style={{fontFamily: "var(--font-fraunces), 'Fraunces', serif", fontSize: '1.6rem', fontWeight: 700, color: 'var(--copper)', maxWidth: '760px', margin: '24px auto 0', lineHeight: 1.4, letterSpacing: '-0.02em'}}>
             The threat and the opportunity are the same fact. The thing under threat is the thing that saves you.
           </p>
           <div style={{marginTop: '28px'}}>

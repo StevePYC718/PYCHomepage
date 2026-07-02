@@ -1,32 +1,25 @@
 import type { Metadata } from 'next'
-import { DM_Sans, DM_Serif_Display, Space_Mono, Inter_Tight } from 'next/font/google'
+import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google'
 
-const dmSans = DM_Sans({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-dm-sans',
+  variable: '--font-fraunces',
 })
 
-const dmSerif = DM_Serif_Display({
-  subsets: ['latin'],
-  weight: ['400'],
-  display: 'swap',
-  variable: '--font-dm-serif',
-})
-
-const spaceMono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-  variable: '--font-space-mono',
-})
-
-const interTight = Inter_Tight({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
-  variable: '--font-inter-tight',
+  variable: '--font-inter',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
 })
 
 export const metadata: Metadata = {
@@ -40,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerif.variable} ${spaceMono.variable} ${interTight.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   )
