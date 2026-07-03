@@ -17,14 +17,14 @@ const inter = Inter({
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '700'],
   display: 'swap',
   variable: '--font-jetbrains-mono',
 })
 
 export const metadata: Metadata = {
   title: 'Pioneer Your Creative — Pioneer a path AI can\'t replace.',
-  description: 'An app for creative professionals navigating the AI shift. Put on headphones. Go through immersive audio sessions that change your state. Meet an AI coach that actually learns about you.',
+  description: 'PYC is the 90-day system that reconnects the creative edge AI threatens most — and builds it into a career, a craft, and a life AI can\'t replace. Founding cohort now open.',
 }
 
 export default function RootLayout({
