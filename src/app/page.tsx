@@ -333,8 +333,7 @@ export default function Home() {
                 <li>Path coaching</li>
                 <li>All future updates</li>
               </ul>
-              {/* TODO(pricing-url): replace with the Stripe Payment Link for Founding Access ($149) */}
-              <a className="btn btn-primary" href="#TODO_STRIPE_FOUNDING_ACCESS">Claim Founding Access <span className="arrow">→</span></a>
+              <a className="btn btn-primary" href="https://buy.stripe.com/6oU28r8jWaISfAMfFgdIA01" target="_blank" rel="noopener noreferrer">Claim Founding Access <span className="arrow">→</span></a>
             </div>
             <div className="tier">
               <span className="tier-name">Founding Access + Coaching</span>
@@ -347,8 +346,7 @@ export default function Home() {
                 <li>A founding community</li>
                 <li>First input on the roadmap</li>
               </ul>
-              {/* TODO(pricing-url): replace with the Stripe Payment Link for Access + Coaching ($500) */}
-              <a className="btn btn-ghost" href="#TODO_STRIPE_ACCESS_COACHING">Claim Access + Coaching</a>
+              <a className="btn btn-ghost" href="https://buy.stripe.com/14AdR957K04e4W83WydIA00" target="_blank" rel="noopener noreferrer">Claim Access + Coaching</a>
             </div>
           </div>
         </div>
