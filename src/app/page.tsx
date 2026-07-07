@@ -1,95 +1,5 @@
-import { Fragment, type ReactNode } from 'react'
 import './landing.css'
-import { FeatureRow } from './components/FeatureRow'
 import { BeatDivider } from './components/BeatDivider'
-import { SprintList, type Sprint } from './components/SprintList'
-import { ArcPhase } from './components/ArcPhase'
-
-type Feature = {
-  beat?: string
-  title: string
-  subtitle: string
-  body: ReactNode
-  free?: boolean
-  crumbs: string
-  caption: string
-  dimension: string
-}
-
-const FEATURES: Feature[] = [
-  {
-    beat: 'Arrive',
-    title: 'Creative Archaeology',
-    subtitle: 'Switch the engine back on.',
-    free: true,
-    crumbs: '01 Arrive · Onboarding',
-    caption: 'Desktop app screenshot — 01 ARRIVE onboarding',
-    dimension: '1440 × 900',
-    body: 'A short guided set of questions digs up the creative self you buried — what you loved, what you walked away from, what actually stops you — and reflects it back as insight you can finally see. Every other tool opens with what AI can do; PYC opens with what only you can. Nothing else runs until this does.',
-  },
-  {
-    beat: 'Aim',
-    title: 'Your North Star',
-    subtitle: 'A dream big enough to matter. A step small enough to take.',
-    free: true,
-    crumbs: 'Aim · North Star',
-    caption: 'Desktop app screenshot — North Star + path select',
-    dimension: '1440 × 900',
-    body: 'Turns your 12-month dream into a clear destination, then cascades it to the single next move — never the whole mountain, never busywork. PYC holds the big picture for you, so you stop re-planning your life every morning.',
-  },
-  {
-    beat: 'Run the Day',
-    title: 'The Daily Flow',
-    subtitle: 'You don’t have to feel like it. You just run the card.',
-    crumbs: 'Run the Day · Today’s Card',
-    caption: 'Desktop app screenshot — the daily card, one move',
-    dimension: '1440 × 900',
-    body: 'Warm up with 20 minutes of no-stakes creative play — run the one move already on your card — reflect — lock tomorrow’s card tonight. It removes the two things that kill execution for a busy creative mind: the cold start and the morning decision. You don’t have to feel ready — you run the card.',
-  },
-  {
-    title: 'Immersive Audio & Reflection',
-    subtitle: 'Change how you feel first. Then everything moves.',
-    crumbs: 'Run the Day · Audio + Reflection',
-    caption: 'Desktop app screenshot — immersive audio + reflection',
-    dimension: '1440 × 900',
-    body: (
-      <>Short cinematic audio built to shift how you <em>feel</em> before you act — not lecture you — with reflection right after, while you’re still open. Information never changed behavior; feeling does. It’s the unlock-then-reflect sequence engineered on purpose, so the shift is real instead of a motivational high that deflates by noon.</>
-    ),
-  },
-  {
-    title: 'Your AI Co-Pilot',
-    subtitle: 'A collaborator who’s been in the room the whole time.',
-    crumbs: 'Run the Day · Co-Pilot',
-    caption: 'Desktop app screenshot — AI Co-Pilot chat',
-    dimension: '1440 × 900',
-    body: 'Wired into everything PYC knows about you — your North Star, your blocks, your reflections, where you stand right now — so its guidance is calibrated to your actual life, not a stranger’s hot take. Day one it’s already good; by day 90 it reads like a coach who’s known you for months. Any competitor copying the surface starts from zero — your Co-Pilot compounds.',
-  },
-  {
-    beat: 'Compound',
-    title: 'Your Pioneer Path',
-    subtitle: 'Real-world results — and a you who can sustain them.',
-    crumbs: 'Compound · Pioneer Path',
-    caption: 'Desktop app screenshot — sprint tracker + dual outcome',
-    dimension: '1440 × 900',
-    body: (
-      <>Pick one of three tracks — Pivot, Build, or Evolve — and run it across 10-day sprints. Each sprint installs a permanent internal shift <em>and</em> produces measurable external proof. Transformation and receipts, every ten days — the dual outcome that separates this from self-help.</>
-    ),
-  },
-  {
-    title: 'Your Printable Tools',
-    subtitle: 'Proof you can hold in your hands.',
-    crumbs: 'Compound · Printable Tools',
-    caption: 'Desktop app screenshot — printable tool / workbook',
-    dimension: '1440 × 900',
-    body: 'Every sprint turns your own words and wins into a personalized, printable tool you keep for life. Proof you hold in your hands, off the screen where the real work happens — a growing workbook of who you’re becoming.',
-  },
-]
-
-const PHASE1_SPRINTS: Sprint[] = [
-  { title: 'Sprint 1 · Break Free From Blocks', move: 'Break through fear.', tool: 'Fear Interrupt', receipt: 'the first exposing move, sent.' },
-  { title: 'Sprint 2 · Design Your Future', move: 'Find your direction.', tool: 'Vision Installation', receipt: 'a direction you can say in one sentence.' },
-  { title: 'Sprint 3 · Think Like Your Future Self', move: 'Act before you’re ready.', tool: 'Action Threshold', receipt: 'you move at 80%.' },
-]
 
 const CHECKLIST = [
   'Your creative engine back online — running your day instead of haunting it.',
@@ -124,166 +34,121 @@ export default function Home() {
         <div className="container hero-inner">
           <div className="eyebrow reveal"><span className="dot" /><span>Pioneer Your Creative · Founding Beta</span></div>
           <h1 className="reveal">Pioneer a path AI <em>can’t</em> replace.</h1>
-          <div className="hero-mid reveal">
-            <p className="hero-sub serif">The creative edge AI threatens most is the one thing that wins in an AI economy — if you can get back to it.</p>
-            <div className="hero-mid-left">
-              <p className="hero-body">A guided 90-day system — a daily app and an AI coach that knows you — that turns the creative edge AI can’t replace into a new role, your new income stream, or a stronger position where you are. Reconnection first, then real moves.</p>
-              <p className="beta-line"><span className="bdot" /><span>Founding beta — 15 spots, for the people who’ll shape it with us.</span></p>
-              <div className="hero-actions">
-                <a className="btn btn-primary" href="#pricing">Claim a Founding Spot <span className="arrow">→</span></a>
-                <a className="btn btn-ghost" href="#how">See How It Works</a>
-              </div>
-            </div>
+          <p className="hero-lede serif reveal">A desktop web platform <span className="lede-soft">(mobile app later)</span> — a guided 90-day program with daily lessons, immersive audio, an AI co-pilot that knows you, and printable tools you keep.</p>
+          <div className="hero-actions reveal">
+            <a className="btn btn-primary" href="#pricing">Claim a Founding Spot <span className="arrow">→</span></a>
+            <a className="btn btn-ghost" href="#how">See How It Works</a>
           </div>
+          <p className="beta-line reveal"><span className="bdot" /><span>Founding beta — 15 spots. Pick one path: Pivot, Build, or Evolve.</span></p>
         </div>
       </header>
 
-      {/* ——— THREAT ——— */}
-      <section className="section" data-screen-label="Threat">
+      {/* ——— WHY NOW (problem + turn) ——— */}
+      <section className="section section--elev" data-screen-label="Why Now">
         <div className="container">
           <div className="sec-head reveal">
-            <h2 className="title">It’s not coming. It’s <em>here</em>. And it funnels inward.</h2>
+            <div className="eyebrow">Why Now</div>
+            <h2 className="title">You already know the problem. Here’s the part almost nobody sees.</h2>
           </div>
-          <div className="grid-3 reveal">
-            <div className="threat-col">
-              <span className="threat-label">The World</span>
-              <h3 className="threat-h">AI is doing the work now.</h3>
-              <p className="threat-body">It writes the copy, makes the image, cuts the audio, drafts the design — faster and cheaper. Work that took you years to master gets done passably in seconds.</p>
+          <div className="why-now reveal">
+            <div className="why-col">
+              <span className="why-label">The problem you know</span>
+              <p className="why-lead">That path exists. You just can’t reach it yet — and you can’t quite see what’s blocking you.</p>
+              <p className="why-body">AI is doing creative work now, and your craft is worth less by the month. But the real wound is underneath: the part of you that felt like a creative is the part that feels worth less now. So you freeze — and you consume. Another course, tool, coach, framework. It feels like motion. It’s avoidance. The pile is the problem.</p>
             </div>
-            <div className="threat-col">
-              <span className="threat-label">Your Work</span>
-              <h3 className="threat-h">It lands on your life.</h3>
-              <p className="threat-body">The skills you spent a career sharpening are worth less by the month, inside a world built to fragment you and keep you scrolling. The focus you’d need is gone before you reach the work that matters.</p>
-            </div>
-            <div className="threat-col">
-              <span className="threat-label">You</span>
-              <h3 className="threat-h">And then it gets personal.</h3>
-              <p className="threat-body">The real wound isn’t economic: the part of you that felt like a creative is the part that’s worth less now. You know you need to move, but you’re frozen — and you can’t even see what’s freezing you.</p>
+            <div className="why-col">
+              <span className="why-label">What almost nobody sees</span>
+              <p className="why-lead">The threat and the opportunity are the <em>same fact</em>.</p>
+              <p className="why-body">Strip the art off it and creativity is one thing: connecting ideas, and the taste to know which one’s worth anything. When AI makes generating free, taste and voice become the premium — the faculty you buried is the exact thing that now wins. The catch: your engine is switched off. Numb, distracted, frozen.</p>
             </div>
           </div>
+          <div className="why-band reveal">PYC switches it back on — then builds it into a path AI <em>can’t</em> replace.</div>
         </div>
       </section>
 
-      {/* ——— CONSUMPTION TRAP ——— */}
-      <section className="section section--elev" data-screen-label="Consumption Trap">
-        <div className="container">
-          <div className="sec-head reveal">
-            <div className="eyebrow">The Consumption Trap</div>
-            <h2 className="title">You’re not passive. You’re too capable to sit still — so you <em>consume</em>.</h2>
-            <p className="intro">A course. A tool. A coach. Another framework. It feels like forward motion and quiets the anxiety — without the exposure of the real move. Each one solves a piece. None gets you to act.</p>
-          </div>
-          <div className="cards cards-4 reveal">
-            <div className="card">
-              <h3>Meditation apps</h3>
-              <p className="lead">Calm you down but don’t move you forward.</p>
-              <p className="muted">You feel better for ten minutes, then open your laptop to the same blank page.</p>
-            </div>
-            <div className="card">
-              <h3>Productivity apps</h3>
-              <p className="lead">Track tasks but ignore the fear blocking you from starting.</p>
-              <p className="muted">You don’t need a better to-do list.</p>
-            </div>
-            <div className="card">
-              <h3>Traditional coaching</h3>
-              <p className="lead">Clarity once a week, gone between sessions.</p>
-              <p className="muted">The breakthroughs happen at 11pm, alone.</p>
-            </div>
-            <div className="card">
-              <h3>AI chatbots</h3>
-              <p className="lead">Generic advice, because they don’t know you.</p>
-              <p className="muted">You get the same answer as everyone else.</p>
-            </div>
-          </div>
-          <p className="trap-punch reveal">Every competitor isn’t an alternative to PYC — it’s part of the disease. <em>PYC is the one thing that isn’t more to consume.</em> It reconnects you first, then moves you.</p>
-        </div>
-      </section>
-
-      {/* ——— REFRAME (hinge) ——— */}
-      <section className="section" data-screen-label="Reframe">
-        <div className="container reframe">
-          <div className="eyebrow reveal" style={{ justifyContent: 'center' }}><span>The Reframe</span></div>
-          <h2 className="pull reveal">
-            <span className="pq">The threat and the opportunity are the <em>same fact</em>.</span>
-            <span className="pq">The thing under threat is the thing that saves you.</span>
-          </h2>
-        </div>
-      </section>
-
-      {/* ——— HOW IT WORKS (merged) ——— */}
+      {/* ——— HOW IT WORKS ——— */}
       <section className="section" id="how" data-screen-label="How It Works">
         <div className="container">
           <div className="sec-head reveal">
             <div className="eyebrow">How It Works</div>
-            <h2 className="title">Your creative engine is switched off. PYC switches it <em>back on</em>.</h2>
-            <p className="intro">This isn’t a feature list — it’s the actual day, in order. Each part hands off to the next, and every ten days the loop produces two things at once: a shift inside you, and a receipt you can show. The features aren’t bolted on — they <strong>are</strong> the mechanism.</p>
+            <h2 className="title">Not more to consume. A system that <em>moves</em> you.</h2>
+            <p className="intro">Three things do the work: goal-setting that hands you today’s move, a 90-day path that clears your blockers in order, and an AI co-pilot that actually knows you. Everything else exists to support them.</p>
           </div>
 
-          <div className="feature-tour reveal">
-            {FEATURES.map((f, i) => (
-              <Fragment key={f.title}>
-                {f.beat && <BeatDivider label={f.beat} />}
-                <FeatureRow
-                  title={f.title}
-                  subtitle={f.subtitle}
-                  body={f.body}
-                  tag={f.free ? 'Free' : undefined}
-                  side={i % 2 === 0 ? 'left' : 'right'}
-                  mockup={{ crumbs: f.crumbs, caption: f.caption, dimension: f.dimension }}
-                />
-              </Fragment>
-            ))}
-          </div>
-
-          <BeatDivider label="The Arc" />
-          <div className="arc reveal">
-            <div className="arc-head">
-              <h3 className="arc-title">The 90-Day Journey</h3>
-              <p className="arc-sub">Nine sprints. Nine tools for life. A win at every stage.</p>
-              <p className="arc-intro">The sprints stack into a journey that clears your blockers in the order they get in your way.</p>
-            </div>
-
-            {/* Phase 1 — expanded inline (static, always open) */}
-            <div className="arc-phase is-open">
-              <div className="arc-phase-head arc-phase-head--static">
-                <span className="phase-idx" aria-hidden="true">01</span>
-                <span className="arc-phase-meta">
-                  <span className="arc-phase-title">
-                    <span className="phase-name">Unlock</span>
-                    <span className="phase-days">Days 1–30</span>
-                  </span>
-                  <span className="arc-phase-theme">what’s inside you: fear, imposter syndrome, disconnect</span>
-                </span>
-                <span className="arc-affordance" aria-hidden="true">Sprints 1–3</span>
+          <BeatDivider label="What Does the Work" />
+          <div className="vprops reveal">
+            {/* Value prop 01 — generative goal-setting */}
+            <article className="vprop">
+              <div className="vprop-inner">
+                <div className="vprop-id">
+                  <span className="vprop-idx">01</span>
+                  <span className="vprop-kicker">Generative Goal-Setting</span>
+                  <h3 className="vprop-title">A dream big enough to matter. A step small enough to take.</h3>
+                </div>
+                <div className="vprop-blocks">
+                  <div className="vprop-block"><span className="lbl">The block</span><p>Your goals come out too big and you freeze — or too vague and you spin. Paralysis at the top, busywork at the bottom.</p></div>
+                  <div className="vprop-block"><span className="lbl">What it does</span><p>Set one North Star. The system cascades it down to the single move in front of you today — never the whole mountain, never aimless busywork.</p></div>
+                  <div className="vprop-block"><span className="lbl">The generative part</span><p>Every night your Co-Pilot generates three candidate moves — built from your North Star, your path, and what you did yesterday. You pick one, edit, commit. Tomorrow morning has zero decisions left in it.</p></div>
+                  <div className="vprop-block is-get"><span className="lbl">You get</span><p>One real action taken every day, compounding — without willpower or the perfect mood.</p></div>
+                </div>
               </div>
-              <div className="arc-phase-body">
-                <p className="arc-detail">Real action in the first ten days.</p>
-                <SprintList sprints={PHASE1_SPRINTS} />
-              </div>
-            </div>
+            </article>
 
-            {/* Phases 2 & 3 — collapsed, expand-on-tap */}
-            <ArcPhase
-              index="02"
-              name="Strengthen"
-              days="Days 31–60"
-              theme="the world around you: distraction, burnout, overload"
-              affordance="Sprints 4–6"
-              detail="Systems the modern world can’t strip: protect focus, learn how you work, recover without spiraling."
-            />
-            <ArcPhase
-              index="03"
-              name="Activate"
-              days="Days 61–90"
-              theme="the threat facing everyone: AI eating credentials"
-              affordance="Sprints 7–9"
-              detail="Turn your human edge into a defensible advantage: solve harder problems, name your edge, become a finisher."
-            />
+            {/* Value prop 02 — the 3-phase journey */}
+            <article className="vprop">
+              <div className="vprop-inner">
+                <div className="vprop-id">
+                  <span className="vprop-idx">02</span>
+                  <span className="vprop-kicker">The 90-Day Journey</span>
+                  <h3 className="vprop-title">Clears your blockers in the exact order they stop you.</h3>
+                </div>
+                <div className="vprop-blocks">
+                  <div className="vprop-block"><span className="lbl">The block</span><p>You don’t need more to consume. You need to move — and to clear what’s actually stopping you, in the right order.</p></div>
+                  <div className="vprop-block">
+                    <span className="lbl">One sequenced path · 9 sprints · 27 lessons</span>
+                    <div className="vprop-phases">
+                      <div className="vp-phase"><span className="vp-phase-k">01</span><div><p className="vp-phase-h">Unlock <span className="d">Days 1–30</span></p><p className="vp-phase-t">Break the freeze. Fear, resistance, identity → your first real move.</p></div></div>
+                      <div className="vp-phase"><span className="vp-phase-k">02</span><div><p className="vp-phase-h">Strengthen <span className="d">Days 31–60</span></p><p className="vp-phase-t">Protect your focus, learn how you work, recover fast.</p></div></div>
+                      <div className="vp-phase"><span className="vp-phase-k">03</span><div><p className="vp-phase-h">Activate <span className="d">Days 61–90</span></p><p className="vp-phase-t">Turn creativity into your edge. Solve problems, ship proof.</p></div></div>
+                    </div>
+                  </div>
+                  <div className="vprop-block is-get"><span className="lbl">You get</span><p>Every 10-day sprint installs one permanent internal shift <em>and</em> produces a real-world receipt — the outreach sent, the offer posted, the meeting booked. Transformation and proof, every ten days.</p></div>
+                </div>
+              </div>
+            </article>
+
+            {/* Value prop 03 — AI co-pilot */}
+            <article className="vprop">
+              <div className="vprop-inner">
+                <div className="vprop-id">
+                  <span className="vprop-idx">03</span>
+                  <span className="vprop-kicker">Your AI Co-Pilot</span>
+                  <h3 className="vprop-title">A collaborator who’s been in the room the whole time.</h3>
+                </div>
+                <div className="vprop-blocks">
+                  <div className="vprop-block"><span className="lbl">The block</span><p>Generic AI gives generic answers because it doesn’t know you. You’re left translating a stranger’s advice into your actual life.</p></div>
+                  <div className="vprop-block"><span className="lbl">What it does</span><p>Wired into everything PYC knows about you — your North Star, your blocks, your reflections, where you stand today. Bounce ideas off it, shrink a move that feels too big, pressure-test a goal. Answers grounded in your situation, not the internet’s average.</p></div>
+                  <div className="vprop-block is-get"><span className="lbl">You get</span><p>Day one it’s already good. By day 90 it reads like a coach who’s known you for months. The longer you stay, the sharper it gets.</p></div>
+                </div>
+              </div>
+            </article>
           </div>
 
-          {/* Payoff close */}
+          <BeatDivider label="What Else Is Inside" />
+          <div className="cards cards-4 reveal">
+            <div className="card"><h3>Immersive Audio</h3><p className="muted">Cinematic audio shifts your state first — then a few honest questions while you’re still open. Feeling changes behavior; information doesn’t.</p></div>
+            <div className="card"><h3>The Daily Flow</h3><p className="muted">Warm up, one move, reflect, set tomorrow. Run the card — you don’t have to feel like it.</p></div>
+            <div className="card"><h3>Printable Tools</h3><p className="muted">Nine tools, one per sprint, built from your own words. Yours to keep for life.</p></div>
+            <div className="card"><h3>Three Pioneer Paths</h3><p className="muted">Pivot, Build, or Evolve. You pick one; it shapes every move downstream.</p></div>
+          </div>
+
+          <div className="not-strip reveal">
+            <div className="not-klist">Not a course · Not a habit tracker · Not another app to consume</div>
+            <p className="not-line">It’s the one thing that isn’t another thing to consume — reconnect first, then move.</p>
+          </div>
+
           <div className="hiw-close reveal">
-            <p className="hiw-thesis">Every step produces transformation and proof at the same time. <span className="cont">That’s what separates PYC from self-help — all feeling, no evidence — and from productivity apps — all output, no you.</span></p>
-            <h3 className="hiw-payoff">By the end, you don’t just feel different. You have <em>proof</em>.</h3>
+            <h3 className="hiw-payoff">By Day 90, you don’t just feel different. You have <em>proof</em>.</h3>
             <div className="checklist">
               {CHECKLIST.map((item) => (
                 <div className="check-item" key={item}>
