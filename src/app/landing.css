@@ -461,3 +461,66 @@ h2.title{
   .vprop-inner{grid-template-columns:1fr; gap:24px;}
   .hero-lede{max-width:none;}
 }
+
+/* ————————————————————————————————————————————————————————
+   Promise strip + Three Paths (dual outcome, front-and-center)
+   ———————————————————————————————————————————————————————— */
+
+/* Promise strip — the dual outcome stated on the first screen */
+.promise-band{padding-block:clamp(22px,3vw,34px);}
+.promise-strip{border:1px solid var(--border); border-top:2px solid var(--ember);
+  border-radius:10px; background:var(--bg-elev); overflow:hidden;}
+.ps-eyebrow{display:block; padding:14px clamp(20px,2.6vw,30px) 0;
+  font-family:var(--f-mono); font-size:10px; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--text-faint);}
+.ps-grid{display:grid; grid-template-columns:1fr 1fr;}
+.ps-side{padding:14px clamp(20px,2.6vw,30px) 16px; display:flex; flex-direction:column; gap:5px;}
+.ps-inside{border-right:1px solid var(--border);}
+.ps-label{font-family:var(--f-mono); font-size:9.5px; letter-spacing:0.2em; text-transform:uppercase;}
+.ps-inside .ps-label{color:var(--sage);}
+.ps-world .ps-label{color:var(--ember);}
+.ps-line{font-size:clamp(20px,2.3vw,26px); line-height:1.1; letter-spacing:-0.02em; color:var(--text);}
+.ps-receipt{margin-top:4px; font-family:var(--f-mono); font-size:11.5px;
+  letter-spacing:0.01em; line-height:1.5; color:var(--text-faint);}
+.ps-caption{border-top:1px solid var(--border); padding:13px clamp(20px,2.6vw,30px);
+  font-size:13.5px; line-height:1.5; color:var(--text-muted); text-align:center; text-wrap:pretty;}
+
+/* Three Paths · two outcomes (feel -> proof, per path) */
+.paths{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px; align-items:stretch;}
+.path-card{display:flex; flex-direction:column; background:var(--bg-elev);
+  border:1px solid var(--border); border-radius:8px; padding:26px 24px 24px;
+  position:relative; overflow:hidden;}
+.path-card::before{content:""; position:absolute; top:0; left:0; width:100%; height:3px;
+  background:var(--sage); opacity:.6;}
+.path-head{display:flex; flex-direction:column; gap:5px; padding-bottom:16px; border-bottom:1px solid var(--border);}
+.path-name{font-family:var(--f-serif); font-optical-sizing:auto; font-weight:400;
+  font-size:25px; line-height:1; letter-spacing:-0.02em; color:var(--text);}
+.path-move{font-family:var(--f-mono); font-size:10px; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--text-faint);}
+.path-feel{padding:16px 0 18px; display:flex; flex-direction:column; gap:8px;}
+.pf-label{font-family:var(--f-mono); font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--sage);}
+.pf-label--ember{color:var(--ember);}
+.path-feel p{font-family:var(--f-serif); font-optical-sizing:auto; font-size:17.5px;
+  line-height:1.38; letter-spacing:-0.01em; color:var(--text);}
+.path-show{margin-top:auto; padding:16px 18px; background:var(--ember-soft);
+  border:1px solid rgba(217,106,61,0.28); border-radius:6px;
+  display:flex; flex-direction:column; gap:11px;}
+.receipt-list{list-style:none; display:flex; flex-direction:column; gap:8px;}
+.receipt-list li{display:flex; gap:9px; align-items:baseline; font-family:var(--f-mono);
+  font-size:12.5px; letter-spacing:0.01em; line-height:1.4; color:var(--text);}
+.receipt-list li::before{content:"\2713"; color:var(--ember); font-size:11px; flex-shrink:0;}
+.paths-foot{margin-top:34px; padding-top:26px; border-top:1px solid var(--border);
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:22px;}
+.paths-foot p{max-width:56ch; font-family:var(--f-serif); font-optical-sizing:auto; font-weight:400;
+  font-size:clamp(17px,1.9vw,21px); line-height:1.4; letter-spacing:-0.015em;
+  color:var(--text-muted); text-wrap:pretty;}
+
+/* App-screenshot placeholder inside each value prop */
+.vprop-shot{margin-top:4px;}
+.vprop-shot .shot{box-shadow:0 16px 44px rgba(0,0,0,0.45);}
+
+@media (max-width:860px){
+  .ps-grid{grid-template-columns:1fr;}
+  .ps-inside{border-right:none; border-bottom:1px solid var(--border);}
+  .paths{grid-template-columns:1fr;}
+}

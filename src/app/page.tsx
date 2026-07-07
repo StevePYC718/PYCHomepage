@@ -1,5 +1,6 @@
 import './landing.css'
 import { BeatDivider } from './components/BeatDivider'
+import { MockupFrame } from './components/MockupFrame'
 
 const CHECKLIST = [
   'Your creative engine back online — running your day instead of haunting it.',
@@ -43,6 +44,27 @@ export default function Home() {
         </div>
       </header>
 
+      {/* ——— PROMISE STRIP · the dual outcome, up front ——— */}
+      <section className="promise-band" data-screen-label="Promise Strip">
+        <div className="container">
+          <div className="promise-strip reveal">
+            <span className="ps-eyebrow">What You Leave With</span>
+            <div className="ps-grid">
+              <div className="ps-side ps-inside">
+                <span className="ps-label">Inside you</span>
+                <span className="ps-line serif">A shift you feel.</span>
+              </div>
+              <div className="ps-side ps-world">
+                <span className="ps-label">In the world</span>
+                <span className="ps-line serif">Proof you can show.</span>
+                <span className="ps-receipt">3 messages sent · 1 call booked · real receipts, every ten days.</span>
+              </div>
+            </div>
+            <p className="ps-caption">Self-help gives you the feeling. Productivity apps give you the output. Here, every sprint gives you both.</p>
+          </div>
+        </div>
+      </section>
+
       {/* ——— WHY NOW (problem + turn) ——— */}
       <section className="section section--elev" data-screen-label="Why Now">
         <div className="container">
@@ -66,6 +88,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ——— THREE PATHS · TWO OUTCOMES ——— */}
+      <section className="section" id="paths" data-screen-label="Three Paths">
+        <div className="container">
+          <div className="sec-head reveal">
+            <div className="eyebrow">A Shift You Feel · Proof You Can Show</div>
+            <h2 className="title">A shift you feel. Proof you can show. Every ten days.</h2>
+            <p className="intro">Same shape on every path: the shift you feel, then the receipt it produces. Here’s what the first sprint looks like — one example per path.</p>
+          </div>
+          <div className="paths reveal">
+            <article className="path-card">
+              <div className="path-head">
+                <span className="path-name">Pivot</span>
+                <span className="path-move">copywriter → content strategist</span>
+              </div>
+              <div className="path-feel">
+                <span className="pf-label">A shift you feel</span>
+                <p>You send the move that scares you, instead of researching around it.</p>
+              </div>
+              <div className="path-show">
+                <span className="pf-label pf-label--ember">What Sprint 1 produces</span>
+                <ul className="receipt-list">
+                  <li>8 companies mapped</li>
+                  <li>3 messages sent</li>
+                  <li>1 call booked</li>
+                </ul>
+              </div>
+            </article>
+            <article className="path-card">
+              <div className="path-head">
+                <span className="path-name">Build</span>
+                <span className="path-move">designer → productized offer</span>
+              </div>
+              <div className="path-feel">
+                <span className="pf-label">A shift you feel</span>
+                <p>You put a price on the work and say it in public.</p>
+              </div>
+              <div className="path-show">
+                <span className="pf-label pf-label--ember">What Sprint 1 produces</span>
+                <ul className="receipt-list">
+                  <li>Offer priced</li>
+                  <li>Positioning posted in public</li>
+                  <li>1 paid pilot offered</li>
+                </ul>
+              </div>
+            </article>
+            <article className="path-card">
+              <div className="path-head">
+                <span className="path-name">Evolve</span>
+                <span className="path-move">creative director → leads the AI practice</span>
+              </div>
+              <div className="path-feel">
+                <span className="pf-label">A shift you feel</span>
+                <p>You stop waiting to be picked. You move first.</p>
+              </div>
+              <div className="path-show">
+                <span className="pf-label pf-label--ember">What Sprint 1 produces</span>
+                <ul className="receipt-list">
+                  <li>Initiative memo drafted</li>
+                  <li>1 ally aligned</li>
+                  <li>The meeting secured</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div className="paths-foot reveal">
+            <p>That’s sprint one. Nine sprints stack into a role, an income stream, or a stronger seat — with the receipts to prove it.</p>
+            <a className="btn btn-ghost" href="#how">See How a Sprint Works <span className="arrow">→</span></a>
+          </div>
+        </div>
+      </section>
+
       {/* ——— HOW IT WORKS ——— */}
       <section className="section" id="how" data-screen-label="How It Works">
         <div className="container">
@@ -84,6 +177,7 @@ export default function Home() {
                   <span className="vprop-idx">01</span>
                   <span className="vprop-kicker">Generative Goal-Setting</span>
                   <h3 className="vprop-title">A dream big enough to matter. A step small enough to take.</h3>
+                  <div className="vprop-shot"><MockupFrame crumbs="Aim · North Star" caption="Desktop app — North Star + daily card" dimension="1440 × 900" /></div>
                 </div>
                 <div className="vprop-blocks">
                   <div className="vprop-block"><span className="lbl">The block</span><p>Your goals come out too big and you freeze — or too vague and you spin. Paralysis at the top, busywork at the bottom.</p></div>
@@ -101,6 +195,7 @@ export default function Home() {
                   <span className="vprop-idx">02</span>
                   <span className="vprop-kicker">The 90-Day Journey</span>
                   <h3 className="vprop-title">Clears your blockers in the exact order they stop you.</h3>
+                  <div className="vprop-shot"><MockupFrame crumbs="Journey · Sprint Map" caption="Desktop app — the 90-day sprint map" dimension="1440 × 900" /></div>
                 </div>
                 <div className="vprop-blocks">
                   <div className="vprop-block"><span className="lbl">The block</span><p>You don’t need more to consume. You need to move — and to clear what’s actually stopping you, in the right order.</p></div>
@@ -112,7 +207,7 @@ export default function Home() {
                       <div className="vp-phase"><span className="vp-phase-k">03</span><div><p className="vp-phase-h">Activate <span className="d">Days 61–90</span></p><p className="vp-phase-t">Turn creativity into your edge. Solve problems, ship proof.</p></div></div>
                     </div>
                   </div>
-                  <div className="vprop-block is-get"><span className="lbl">You get</span><p>Every 10-day sprint installs one permanent internal shift <em>and</em> produces a real-world receipt — the outreach sent, the offer posted, the meeting booked. Transformation and proof, every ten days.</p></div>
+                  <div className="vprop-block is-get"><span className="lbl">You get</span><p>Your blockers cleared in the order they stop you — and a concrete win banked at every stage, not just at the end.</p></div>
                 </div>
               </div>
             </article>
@@ -124,6 +219,7 @@ export default function Home() {
                   <span className="vprop-idx">03</span>
                   <span className="vprop-kicker">Your AI Co-Pilot</span>
                   <h3 className="vprop-title">A collaborator who’s been in the room the whole time.</h3>
+                  <div className="vprop-shot"><MockupFrame crumbs="Run the Day · Co-Pilot" caption="Desktop app — the AI Co-Pilot" dimension="1440 × 900" /></div>
                 </div>
                 <div className="vprop-blocks">
                   <div className="vprop-block"><span className="lbl">The block</span><p>Generic AI gives generic answers because it doesn’t know you. You’re left translating a stranger’s advice into your actual life.</p></div>
