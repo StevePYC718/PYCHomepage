@@ -276,8 +276,8 @@ export default function Home() {
                 <li>Path selection (Pivot / Build / Evolve)</li>
                 <li>North Star goal setting</li>
               </ul>
-              {/* TODO(pricing-url): replace with the free-signup URL */}
-              <a className="btn btn-ghost" href="#TODO_FREE_SIGNUP_URL">Start Free</a>
+              {/* TODO(pricing-url): temporary #pricing anchor until the real free-signup URL is provided */}
+              <a className="btn btn-ghost" href="#pricing">Start Free</a>
             </div>
             <div className="tier tier--feature">
               <span className="tier-badge">Founding Cohort</span>
